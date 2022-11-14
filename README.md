@@ -13,17 +13,17 @@ Voici les ressources associées au manuel _Circuits logiques combinatoires et s�
 Transparents pour les chapitres 1 à 12, en version pdf
 
 * [Chapitre 1](Transparents/presentation_ch_syst_numer.pdf)
-* [Chapitre 1](Transparents/presentation_ch_logiq_binaire.pdf)
-* [Chapitre 1](Transparents/presentation_ch_theoremes.pdf)
-* [Chapitre 1](Transparents/presentation_ch_portes.pdf)
-* [Chapitre 1](Transparents/presentation_ch_simplification.pdf)
-* [Chapitre 1](Transparents/presentation_ch_combinatoires.pdf)
-* [Chapitre 1](Transparents/presentation_ch_sequentiels.pdf)
-* [Chapitre 1](Transparents/presentation_ch_seq_analyse.pdf)
-* [Chapitre 1](Transparents/presentation_ch_seq_conception.pdf)
-* [Chapitre 1](Transparents/presentation_ch_seq_reg_compt.pdf)
-* [Chapitre 1](Transparents/presentation_ch_memoires.pdf)
-* [Chapitre 1](Transparents/presentation_ch_log_prog.pdf)
+* [Chapitre 2](Transparents/presentation_ch_logiq_binaire.pdf)
+* [Chapitre 3](Transparents/presentation_ch_theoremes.pdf)
+* [Chapitre 4](Transparents/presentation_ch_portes.pdf)
+* [Chapitre 5](Transparents/presentation_ch_simplification.pdf)
+* [Chapitre 6](Transparents/presentation_ch_combinatoires.pdf)
+* [Chapitre 7](Transparents/presentation_ch_sequentiels.pdf)
+* [Chapitre 8](Transparents/presentation_ch_seq_analyse.pdf)
+* [Chapitre 9](Transparents/presentation_ch_seq_conception.pdf)
+* [Chapitre 10](Transparents/presentation_ch_seq_reg_compt.pdf)
+* [Chapitre 11](Transparents/presentation_ch_memoires.pdf)
+* [Chapitre 12](Transparents/presentation_ch_log_prog.pdf)
 
 
 ## Documents et fichiers source:
