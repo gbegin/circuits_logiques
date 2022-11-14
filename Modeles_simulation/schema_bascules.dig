@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>D_FF</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Front montant</string>
+        </entry>
+      </elementAttributes>
+      <pos x="280" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>D_FF</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Front descendant</string>
+        </entry>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>C</string>
+          </inverterConfig>
+        </entry>
+      </elementAttributes>
+      <pos x="520" y="300"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="260" y="320"/>
+      <p2 x="280" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="320"/>
+      <p2 x="360" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="320"/>
+      <p2 x="500" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="320"/>
+      <p2 x="600" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="300"/>
+      <p2 x="280" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="300"/>
+      <p2 x="360" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="300"/>
+      <p2 x="520" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="300"/>
+      <p2 x="600" y="300"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

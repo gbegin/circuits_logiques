@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Thu Jan 20 11:57:00 EST 2022 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="37.65mm"
+   height="41.85mm"
+   viewBox="51 -37 251 279">
+<g stroke-linecap="square">
+<path d="M 120,-20 L 160,-20 L 160,20 L 180,20" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 120,100 L 140,100 L 140,60 L 180,60" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 120,20 L 140,20 L 140,40 L 180,40" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 220,60 L 240,60" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 120,140 L 160,140 L 160,80 L 180,80" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 200,100 L 200,180" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<g>
+</g>
+<g>
+<circle cx="256.0" cy="60.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="256.0" cy="60.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="285.0" y="69.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y</tspan></text>
+<circle cx="240.0" cy="60.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+</g>
+<g>
+<path d="M 89,-35 L 119,-35 L 119,-5 L 89,-5 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="104.0" cy="-20.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="75.0" y="-11.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I<tspan style="font-size:80%;baseline-shift:sub;">0</tspan></tspan></text>
+<circle cx="120.0" cy="-20.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+<g>
+<path d="M 89,5 L 119,5 L 119,35 L 89,35 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="104.0" cy="20.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="75.0" y="29.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I<tspan style="font-size:80%;baseline-shift:sub;">1</tspan></tspan></text>
+<circle cx="120.0" cy="20.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+<g>
+<path d="M 185,211 L 185,181 L 215,181 L 215,211 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="200.0" cy="196.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="200.0" y="234.0" fill="#000000" style="font-size:24px" transform="rotate(-90,200.0,225.0)" ><tspan style="font-style:italic;">S</tspan></text>
+<circle cx="200.0" cy="180.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+<g>
+<path d="M 181,16 L 219,25 L 219,95 L 181,104 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="start" x="183.0" y="35.5" fill="#808080" style="font-size:18px">0</text>
+<circle cx="200.0" cy="100.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="180.0" cy="20.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="180.0" cy="40.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="180.0" cy="60.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="180.0" cy="80.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="220.0" cy="60.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+<g>
+<path d="M 89,85 L 119,85 L 119,115 L 89,115 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="104.0" cy="100.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="75.0" y="109.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I<tspan style="font-size:80%;baseline-shift:sub;">2</tspan></tspan></text>
+<circle cx="120.0" cy="100.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+<g>
+<path d="M 89,125 L 119,125 L 119,155 L 89,155 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="104.0" cy="140.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="75.0" y="149.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I<tspan style="font-size:80%;baseline-shift:sub;">3</tspan></tspan></text>
+<circle cx="120.0" cy="140.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+</g>
+</svg>

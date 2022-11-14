@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Thu Jan 27 17:15:58 EST 2022 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="129.6mm"
+   height="134.4mm"
+   viewBox="-432 -464 864 896">
+<g stroke-linecap="square">
+<circle cx="0.0" cy="-360.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="-91.92388" cy="-451.9239" r="10.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<path d="M -82.02438,-442.02438 Q -67.17514,-427.17514 -52.3259,-412.3259" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -70.71068,-422.2254 L -50.911686,-410.91168 L -62.22539,-430.7107" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="0.0" y="-375.0" fill="#000000" style="font-size:24px">0</text>
+<circle cx="240.0" cy="-240.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="240.0" y="-255.0" fill="#000000" style="font-size:24px">1</text>
+<circle cx="360.0" cy="0.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="360.0" y="-15.0" fill="#000000" style="font-size:24px">2</text>
+<circle cx="240.0" cy="240.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="240.0" y="225.0" fill="#000000" style="font-size:24px">3</text>
+<circle cx="0.0" cy="360.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="0.0" y="345.0" fill="#000000" style="font-size:24px">4</text>
+<circle cx="-240.0" cy="240.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="-240.0" y="225.0" fill="#000000" style="font-size:24px">5</text>
+<circle cx="-360.0" cy="0.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="-360.0" y="-15.0" fill="#000000" style="font-size:24px">6</text>
+<circle cx="-240.0" cy="-240.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="-240.0" y="-255.0" fill="#000000" style="font-size:24px">7</text>
+<path d="M 65.99439,-326.52255 Q 120.691086,-299.1461 171.8274,-273.59308" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 151.25473,-277.16592 L 173.61646,-272.69907 L 156.61874,-287.9003" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 273.74472,-174.14188 Q 301.13794,-119.451004 326.6836,-68.30825" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 312.37888,-83.51927 L 327.5773,-66.519035 L 323.11417,-88.881516" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 327.71454,66.58564 Q 300.40598,121.320946 274.81335,172.4424" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 278.4013,151.87236 L 273.91803,174.2308 L 289.13177,157.24428" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 173.61935,272.7049 Q 118.900055,300.03613 67.77588,325.6135" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 82.97772,311.299 L 65.987236,326.50836 L 88.34685,322.03088" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -66.63056,327.8073 Q -121.369736,300.50363 -172.49097,274.90747" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -151.92114,278.4966 L -174.27933,274.01205 L -157.29367,289.22678" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -272.20706,173.3764 Q -299.5115,118.6378 -325.10712,67.51656" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -310.78796,82.71399 L -326.00253,65.728195 L -321.51813,88.086426" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -326.18893,-65.824104 Q -298.79144,-120.51369 -273.2476,-171.65823" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -276.81613,-151.08482 L -272.35394,-173.44748 L -287.55167,-156.44661" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -173.77603,-273.021 Q -119.06703,-300.37018 -67.93906,-325.93704" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M -83.14367,-311.62552 L -66.150246,-326.83154 L -88.51072,-322.35843" stroke="#808080" stroke-width="2.0" fill="none"/>
+</g>
+</svg>

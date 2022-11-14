@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Tue Jan 25 08:53:29 EST 2022 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="111.3mm"
+   height="116.25mm"
+   viewBox="36 -69 742 775">
+<g stroke-linecap="square">
+<circle cx="180.0" cy="60.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="88.07612" cy="-31.923882" r="10.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<path d="M 97.97562,-22.024387 Q 112.82486,-7.175144 127.6741,7.674099" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 109.28933,-2.2253966 L 129.08832,9.088312 L 117.774605,-10.710678" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="180.0" y="45.0" fill="#000000" style="font-size:24px">0</text>
+<text text-anchor="middle" x="180.0" y="69.0" fill="#000000" style="font-size:24px">a</text>
+<text text-anchor="middle" x="180.0" y="93.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">S=0</tspan></text>
+<circle cx="540.0" cy="180.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="540.0" y="165.0" fill="#000000" style="font-size:24px">1</text>
+<text text-anchor="middle" x="540.0" y="189.0" fill="#000000" style="font-size:24px">b</text>
+<text text-anchor="middle" x="540.0" y="213.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">S=1</tspan></text>
+<circle cx="300.0" cy="480.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="300.0" y="465.0" fill="#000000" style="font-size:24px">2</text>
+<text text-anchor="middle" x="300.0" y="489.0" fill="#000000" style="font-size:24px">c</text>
+<text text-anchor="middle" x="300.0" y="513.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">U=0</tspan></text>
+<circle cx="660.0" cy="600.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="660.0" y="585.0" fill="#000000" style="font-size:24px">3</text>
+<text text-anchor="middle" x="660.0" y="609.0" fill="#000000" style="font-size:24px">d</text>
+<text text-anchor="middle" x="660.0" y="633.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">U=1,S=0</tspan></text>
+<path d="M 253.98055,58.303337 Q 377.49695,70.48549 480.2615,133.01797" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 460.0571,127.74708 L 481.97006,134.05763 L 466.295,117.49581" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="372.309" y="92.073074" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=1</tspan></text>
+<path d="M 250.52463,424.971 Q 154.25888,293.5628 166.71492,134.82986" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 171.13191,155.23796 L 166.87138,132.836 L 159.16869,154.29918" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="181.43933" y="295.73163" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=0</tspan></text>
+<path d="M 590.05084,234.5061 Q 688.1991,365.7301 674.07056,525.31384" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 669.8577,504.8626 L 673.89417,527.306 L 681.811,505.9209" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="660.1299" y="381.82004" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=1</tspan></text>
+<path d="M 108.14862,42.297485 C -24.27806,9.67062 95.47225,-138.85306 150.26878,-9.943222" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 136.92294,-26.002132 L 151.05118,-8.102611 L 147.96661,-30.696537" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="59.0" y="-46.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=0</tspan></text>
+<path d="M 494.7031,238.51657 Q 421.1816,332.22577 348.42035,421.42123" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 356.41324,402.13098 L 347.15613,422.971 L 365.71182,409.7163" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="421.37167" y="340.09735" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=0</tspan></text>
+<path d="M 586.03015,602.1118 Q 462.19476,590.4456 359.4739,527.3165" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 379.65485,532.6766 L 357.76996,526.26935 L 373.3717,542.9002" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="467.4734" y="586.5799" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=0</tspan></text>
+<path d="M 732.0006,617.0854 C 814.5012,636.66235 725.0835,749.53345 690.3302,669.68555" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 703.8133,685.6294 L 689.53204,667.85175 L 692.81036,690.41833" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="755.1356" y="700.58563" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=1</tspan></text>
+<path d="M 301.1211,553.9915 C 302.9258,673.1015 143.14658,601.3961 239.89781,526.51587" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 227.75375,543.50183 L 241.47945,525.29175 L 220.40915,534.01196" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="236.0" y="634.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">I=1</tspan></text>
+</g>
+</svg>

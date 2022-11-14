@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Mon Jan 24 13:31:05 EST 2022 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="65.4mm"
+   height="13.8mm"
+   viewBox="221 262 436 92">
+<g stroke-linecap="square">
+<path d="M 260,320 L 280,320" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 340,320 L 360,320" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 480,320 L 500,320" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 580,320 L 600,320" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 260,300 L 280,300" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 340,300 L 360,300" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 480,300 L 520,300" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<path d="M 580,300 L 600,300" stroke="#0000b2" stroke-width="4.0" fill="none"/>
+<g>
+</g>
+<g>
+<path d="M 281,290 L 339,290 L 339,330 L 281,330 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="310.0" y="282.0" fill="#000000" style="font-size:24px">Front montant</text>
+<text text-anchor="start" x="284.0" y="306.75" fill="#808080" style="font-size:18px">D</text>
+<path d="M 281,327 L 288,320 L 281,313" stroke="#000000" stroke-width="2.0" fill="none"/>
+<text text-anchor="start" x="291.0" y="326.75" fill="#808080" style="font-size:18px">C</text>
+<text text-anchor="end" x="336.0" y="306.75" fill="#808080" style="font-size:18px">Q</text>
+<text text-anchor="end" x="336.0" y="326.75" fill="#808080" style="font-size:18px"><tspan style="text-decoration:overline;">Q</tspan></text>
+<text text-anchor="middle" x="310.0" y="347.5" fill="#808080" style="font-size:18px">D</text>
+<circle cx="280.0" cy="300.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="280.0" cy="320.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="340.0" cy="300.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+<circle cx="340.0" cy="320.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+<g>
+<path d="M 521,290 L 579,290 L 579,330 L 521,330 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="550.0" y="282.0" fill="#000000" style="font-size:24px">Front descendant</text>
+<text text-anchor="start" x="524.0" y="306.75" fill="#808080" style="font-size:18px">D</text>
+<path d="M 521,327 L 528,320 L 521,313" stroke="#000000" stroke-width="2.0" fill="none"/>
+<text text-anchor="start" x="531.0" y="326.75" fill="#808080" style="font-size:18px">C</text>
+<text text-anchor="end" x="576.0" y="306.75" fill="#808080" style="font-size:18px">Q</text>
+<text text-anchor="end" x="576.0" y="326.75" fill="#808080" style="font-size:18px"><tspan style="text-decoration:overline;">Q</tspan></text>
+<text text-anchor="middle" x="550.0" y="347.5" fill="#808080" style="font-size:18px">D</text>
+<circle cx="510.0" cy="320.0" r="8.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="520.0" cy="300.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="500.0" cy="320.0" r="2.0" stroke="#0000b2" stroke-width="4.0" fill="#0000b2" />
+<circle cx="580.0" cy="300.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+<circle cx="580.0" cy="320.0" r="2.0" stroke="#b20000" stroke-width="4.0" fill="#b20000" />
+</g>
+</g>
+</svg>
