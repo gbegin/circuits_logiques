@@ -4,7 +4,9 @@ Voici les ressources associées au manuel _Circuits logiques combinatoires et s�
 
 ## Documents prêt à l'emploi
 
-[Manuel](concepts.pdf) en version pdf
+[Manuel](circuits_log.pdf) en version pdf
+
+Version [ebook](circuits_log.epub) du manuel, en format epub
 
 [Version cours en ligne Partie 1](https://gbegin.github.io/ciab-circuits-logiques-part1/)
 
@@ -39,7 +41,7 @@ Transparents pour les chapitres 1 à 12, en version pdf
 
 * [Images](./Images_png), en format png
 
-* Modèles de simulation, en format xml pour le simulateur [Simulateur Digital](https://github.com/hneemann/Digital)
+* Modèles de simulation, en format xml pour le [Simulateur Digital](https://github.com/hneemann/Digital)
 
 
 ## Licence
