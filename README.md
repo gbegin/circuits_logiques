@@ -30,7 +30,9 @@ Transparents pour les chapitres 1 à 12, en version pdf
 
 ## Documents et fichiers source:
 
-* [Version source du manuel](concepts.org) en format [org](https://orgmode.org/) via [Emacs](https://www.gnu.org/software/emacs/) (comprend certains codes source d'images, en format [Ditaa](https://ditaa.sourceforge.net/) ou [Graphviz](https://graphviz.org/))
+* [Version source originale du manuel](concepts.org) en format [org](https://orgmode.org/) via [Emacs](https://www.gnu.org/software/emacs/) (comprend certains codes source d'images, en format [Ditaa](https://ditaa.sourceforge.net/) ou [Graphviz](https://graphviz.org/))
+
+* [Version source du manuel](concepts.tex) en format [LaTeX](https://www.latex-project.org/)
 
 * Fichier comportant les [spécifications de génération de
   schémas](generer_images_logique.org), en format
