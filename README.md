@@ -4,13 +4,13 @@ Voici les ressources associées au manuel _Circuits logiques combinatoires et s�
 
 ## Documents prêt à l'emploi
 
-[Manuel](circuits_log.pdf) en version pdf
+* [Manuel](circuits_log.pdf) en version pdf
 
-Version [ebook](circuits_log.epub) du manuel, en format epub
+* Version [ebook](circuits_log.epub) du manuel, en format epub
 
-[Version cours en ligne Partie 1](https://gbegin.github.io/ciab-circuits-logiques-part1/)
+* [Version cours en ligne Partie 1](https://gbegin.github.io/ciab-circuits-logiques-part1/)
 
-[Version cours en ligne Partie 2](https://gbegin.github.io/ciab-circuits-logiques-part2/)
+* [Version cours en ligne Partie 2](https://gbegin.github.io/ciab-circuits-logiques-part2/)
 
 Transparents pour les chapitres 1 à 12, en version pdf
 
