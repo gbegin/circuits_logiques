@@ -50,10 +50,10 @@ Transparents pour les chapitres 1 à 12, en version pdf
 
 ![img](by-sa.svg)
 
-Sauf indications contraires, le contenu de ce manuel électronique est
-disponible en vertu des conditions de la
-[Licence
-Creative Commons Attribution - Partage dans les mêmes conditions 4.0
+Sauf indications contraires, le contenu de ce manuel électronique et
+de tous les documents source afférents est disponible en vertu des
+conditions de la [Licence Creative Commons Attribution - Partage dans
+les mêmes conditions 4.0
 International](https://creativecommons.org/licenses/by/4.0/deed.fr).
 
 Pour citer cet ouvrage: Bégin, G. (2022), Circuits logiques

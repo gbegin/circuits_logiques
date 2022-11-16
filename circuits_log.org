@@ -11,6 +11,14 @@
 #+LATEX_HEADER: \addto\captionsfrench{\renewcommand{\listfigurename}{Liste des figures}}
 #+LATEX_HEADER: \renewcommand\listoflistingscaption{Liste des listings}
 
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhead{}
+#+LATEX_HEADER: \fancyfoot{}
+#+LATEX_HEADER: \fancyhead[R]{\rightmark}
+#+LATEX_HEADER: \fancyfoot[L]{\includegraphics[width=1cm]{by-sa.png}}
+#+LATEX_HEADER: \fancyfoot[C]{\thepage}
+
 #+OPTIONS: d:nil
 :meta_donnees:
 | Métadonnée                  | Valeur                                                     |
@@ -29,10 +37,10 @@
 | dc.language                 | fra                                                        |
 | dcterms:description         |                                                            |
 | dc.subject                  | Circuits logiques                                          |
-| dc.title                    | Introduction aux circuits logiques                         |
+| dc.title                    | Circuits logiques combinatoires et séquentiels             |
 | dc.type                     | Objet d'apprentissage                                      |
 | dc.type.learningResource    | Manuel                                                     |
-| dc.identifier.uri           |                                                            |
+| dc.identifier.uri           | https://github.com/gbegin/circuits_logiques                |
 | dcterms.HasVersion          |                                                            |
 | dcterms.IsVersionOf         |                                                            |
 | dcterms.format              |                                                            |
@@ -46,28 +54,28 @@
 | dc.audience                 |                                                            |
 | dcterms.TableOfContent      |                                                            |
 
-| *Type de métadonnées*                                 | *Métadonnées*                                              |
-|-------------------------------------------------------+------------------------------------------------------------|
-| Auteur(s)                                             |                                                            |
-| Affiliation (université, département)                 |                                                            |
-| Contributeur                                          |                                                            |
-| Titre (tel qu'apparait sur la REL)                    |                                                            |
-| Date de création (année, mois, jour si disponible)    |                                                            |
-| Date de publication (année, mois, jour si disponible) |                                                            |
-| Éditeur                                               |                                                            |
-| Résumé                                                |                                                            |
-| URL de la ressource primaire lorsque si dérivée       |                                                            |
-| Discipline (voir annexe 1)                            |                                                            |
-| Niveau scolaire de la ressource (voir annexe 5)       |                                                            |
-| Type de matériel pédagogique (voir annexe 3)          |                                                            |
-| Méthode d'enseignement (voir annexe 4)                |                                                            |
-| Type de ressource                                     | Objet d'apprentissage                                      |
-| Note                                                  | Ressources éducatives libres et Open Educational Resources |
-| Sujet (mots-clés qui décrivent la REL)                |                                                            |
-| Langue                                                |                                                            |
-| Format (voir annexe 2)                                |                                                            |
-| Licence                                               |                                                            |
-| Autre                                                 |                                                            |
+| *Type de métadonnées*                                 | *Métadonnées*                                                        |
+|-------------------------------------------------------+----------------------------------------------------------------------|
+| Auteur(s)                                             | Guy Bégin                                                            |
+| Affiliation (université, département)                 | Université du Québec à Montréal.Département d'informatique           |
+| Contributeur                                          |                                                                      |
+| Titre (tel qu'apparait sur la REL)                    | Circuits logiques combinatoires et séquentiels                       |
+| Date de création (année, mois, jour si disponible)    | 2022-11                                                              |
+| Date de publication (année, mois, jour si disponible) |                                                                      |
+| Éditeur                                               | UQAM                                                                 |
+| Résumé                                                |                                                                      |
+| URL de la ressource primaire lorsque si dérivée       | https://github.com/gbegin/circuits_logiques                          |
+| Discipline (voir annexe 1)                            | Technologie et ingénierie                                            |
+| Niveau scolaire de la ressource (voir annexe 5)       | Université premier cycle, Formation technique                        |
+| Type de matériel pédagogique (voir annexe 3)          | Manuel                                                               |
+| Méthode d'enseignement (voir annexe 4)                |                                                                      |
+| Type de ressource                                     | Objet d'apprentissage                                                |
+| Note                                                  | Ressources éducatives libres et Open Educational Resources           |
+| Sujet (mots-clés qui décrivent la REL)                | Circuit logique combinatoire séquentiel électronique numérique Boole |
+| Langue                                                | Français (Canada), Français (France)                                 |
+| Format (voir annexe 2)                                | Texte/HTML                                                           |
+| Licence                                               | https://creativecommons.org/licenses/by/3.0/                         |
+| Autre                                                 |                                                                      |
 
 :END:
 
@@ -133,6 +141,7 @@ simulation:
 ** Licence
 
 # licence
+#+attr_latex: :scale 0.75
 [[file:by-sa.svg]]
 
 Sauf indications contraires, le contenu de ce manuel électronique est
@@ -159,6 +168,7 @@ Selon les conditions suivantes :
 Pour citer cet ouvrage: Bégin, G. (2022), Circuits logiques
 combinatoires et séquentiels. Université du Québec à Montréal. Licence CC BY-SA
 
+#+attr_latex: :scale 0.35
 [[file:Logo_UQAM.svg]]
 
 * Préface
