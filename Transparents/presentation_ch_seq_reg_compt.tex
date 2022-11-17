@@ -1,0 +1,582 @@
+% Created 2022-11-16 mer 14:33
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage[, french]{babel}
+\usepackage{svg}
+\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\usetheme{metropolis}
+\usecolortheme{}
+\usefonttheme{}
+\useinnertheme{}
+\useoutertheme{}
+\author{Guy Bégin}
+\date{\today}
+\title{Circuits logiques combinatoires et séquentiels}
+
+\hypersetup{
+ pdfauthor={Guy Bégin},
+ pdftitle={Circuits logiques combinatoires et séquentiels},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdflang={French}}
+\begin{document}
+
+\maketitle
+
+\section{Circuit séquentiels: registres et compteurs}
+\label{sec:orga51153f}
+\begin{frame}[label={sec:orgc17f33f}]{Objectifs}
+\begin{itemize}
+\item Être familier avec les principaux circuits séquentiels classiques:
+registres, registres à décalage, compteurs
+\item Savoir comment sont implémentées les différentes opérations:
+chargement, remise à zéro, comptage vers le haut/bas, décalage
+\item Pouvoir utiliser des compteurs pour générer des séquences de
+synchronisation
+\item Pouvoir distinguer entre compteur synchrone et compteur asynchrone
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org141f579}]{Registres}
+\begin{itemize}
+\item Un registre est un groupe de bascules activées par un même signal d'horloge.
+
+\item Chaque bascule permet de stocker un bit en mémoire.
+
+\item Différentes configurations d'interconnexion entre les bascules et éventuellement des composantes combinatoires permettent de concevoir des types de registres pouvant remplir des rôles variés.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7129d13}]{Registre parallèle à quatre bits}
+\begin{itemize}
+\item La figure \ref{fig:orga54598b} montre un registre parallèle de quatre bits, qui permet de stocker 4 valeurs binaires indépendantes.
+
+\item Le schéma du bas est une représentation symbolique du registre, dans laquelle on représente les entrées et sorties comme des vecteurs de quatre bits.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org5a231a9}]{Registre parallèle à quatre bits}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/regist_4}
+\caption{\label{fig:orga54598b}Registre parallèle à quatre bits}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgfdac80e}]{Chargement parallèle}
+\begin{itemize}
+\item Si on veut concevoir un registre parallèle polyvalent, on doit le munir de la possibilité de le charger à partir des entrées ou de maintenir les valeurs déjà mémorisées.
+
+\item On ajoutera donc une entrée \emph{charge} au registre pour contrôler ces opérations.
+
+\item Comment mettre en oeuvre ce chargement/maintien demande un peu de réflexion.
+
+\item Il serait possible d'agir (à la façon d'un signal \emph{enable} via une porte ET par exemple) sur l'entrée d'horloge des bascules pour empêcher leur contenu d'être affecté par les entrées.
+
+\item Mais alors, on briserait le principe de synchronisation qui veut que tous les éléments d'un système soient tous commandés en même temps par une même horloge.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgab7ab71}]{Mise à jour}
+La solution consiste à toujours mettre à jour le contenu des bascules: 
+
+\begin{enumerate}
+\item Lorsque \emph{charge} est inactif (fonction maintien), la sortie de chaque bascule, réacheminée à l'entrée, est sélectionnée pour récrire le même contenu.
+\item Lorsque \emph{charge} est actif (fonction chargement), c'est l'entrée externe qui est sélectionnée pour écrire un nouveau contenu.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgb2738b8}]{Sélection de l'entrée des cellules}
+\begin{itemize}
+\item La sélection se fait au moyen d'un multiplexeur deux-vers-un à l'entrée de chaque bascule.
+
+\item La figure \ref{fig:orga594bbf} montre le schéma du registre chargeable.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org31e78be}]{Registre parallèle à quatre bits chargeable}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.4]{../../Sources_images_logiques/images/reg_4_paral}
+\caption{\label{fig:orga594bbf}Registre parallèle à quatre bits chargeable}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org700ce2c}]{Registres à décalage}
+\begin{itemize}
+\item Un registre à décalage consiste en une chaîne de bascules, la sortie de l'une reliée à l'entrée de la suivante.
+
+\item La figure \ref{fig:org0e3ffe0} montre un registre à décalage de quatre bits.
+
+\item À chaque coup d'horloge, l'entrée est insérée dans la première bascule, à droite, et le contenu du registre est décalé d'une position vers la gauche.
+
+\item La sortie provient de la dernière bascule à droite.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org24cf9db}]{Registre à décalage 4 bits}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/shift4}
+\caption{\label{fig:org0e3ffe0}Registre à décalage 4 bits}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orge77b2c6}]{Sélection de l'entrée des cellules}
+\begin{itemize}
+\item En utilisant un multiplexeur quatre-vers-un pour sélectionner ce qui sera inséré dans une bascule, il est possible de concevoir un registre à décalage universel.
+
+\item Les différents opérations sont le \emph{maintien}, le \emph{décalage à droite} avec entrée \(G\), le \emph{décalage à gauche} avec entrée \(D\) et le \emph{chargement parallèle}, avec les entrées \(I_i, i=1, \ldots, 4\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgd230653}]{Codes de sélection}
+\begin{itemize}
+\item Les différentes opérations sont commandées par les deux signaux de sélection, tel qu'indiqué dans le tableau \ref{tab:org3752892}.
+\end{itemize}
+
+\begin{table}[htbp]
+\caption{\label{tab:org3752892}Codes de sélection et opérations}
+\centering
+\begin{tabular}{rl}
+Sél. & Action\\
+\hline
+00 & Maintien\\
+01 & Décalage droite\\
+10 & Décalage gauche\\
+11 & Chargement parallèle\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:org90e9235}]{Registre à décalage universel}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/shift4_univ}
+\caption{\label{fig:orgf3112d5}Registre à décalage universel}
+\end{figure} 
+\end{frame}
+
+\begin{frame}[label={sec:org29e3f65}]{Utilisations}
+\begin{itemize}
+\item Les registres à décalage sont notamment utilisés pour convertir des données parallèles en données sérielles et vice versa, des opérations très utiles dans le contexte d'interfaces de communication.
+
+\item On peut également s'en servir pour faire des multiplications ou divisions par deux, comme on l'a vu précédemment.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[label={sec:org9d6ee7e}]{Compteurs}
+\begin{itemize}
+\item Un registre dont la séquence d'états est systématique est appelé un \alert{compteur}.
+
+\item Le comptage peut être contrôlé par une entrée spécifique ou par l'entrée d'horloge.
+
+\item La séquence d'états est toujours la même pour un type de compteur donné.
+
+\item Par exemple, les états d'un compteur binaire à deux bits suivent la séquence \(00 \rightarrow 01 \rightarrow 10 \rightarrow 11 \rightarrow 00 \ldots\) La sortie correspond directement aux bits d'état.
+
+\item On distingue les compteurs \alert{asynchrones} et les compteurs \alert{synchrones}.
+
+\item Quel que soit le type de compteur, il y a toujours un retour vers l'état initial, car la séquence d'états est un cycle.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb26f25f}]{Compteur asynchrone}
+\begin{itemize}
+\item Dans un compteur binaire asynchrone, la sortie d'une bascule de poids moins significatif est acheminée à l'entrée d'horloge de la bascule suivante.
+
+\item C'est la transition de la sortie de la bascule de poids moins significatif qui déclenche la bascule suivante.
+
+\item La figure \ref{fig:orgb34ab73} montre un compteur asynchrone construit à partir de bascules T.
+
+\item La séquence de sortie est donnée dans le tableau \ref{tab:orgf195205}.
+
+\item On peut voir qu'après huit étapes, la séquence se répète.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org76163f7}]{Compteur asynchrone}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/rippleT3}
+\caption{\label{fig:orgb34ab73}Compteur asynchrone}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[label={sec:org3cead5d}]{Séquence du compteur}
+\begin{table}[htbp]
+\caption{\label{tab:orgf195205}Séquence du compteur}
+\centering
+\begin{tabular}{rrr}
+\(A_2\) & \(A_1\) & \(A_0\)\\
+\hline
+0 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0\\
+0 & 1 & 1\\
+1 & 0 & 0\\
+1 & 0 & 1\\
+1 & 1 & 0\\
+1 & 1 & 1\\
+0 & 0 & 0\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgfc820fc}]{Avantages et inconvénients}
+\begin{itemize}
+\item Les compteurs asynchrones sont très simples, mais l'inconvénient est que les transitions d'états ne sont pas synchrones.
+
+\item En particulier, les bits d'état ne changent pas tous en même temps.
+
+\item Par exemple, si le compteur passe de 0111 à 1000, la sortie peut passer par des états intermédiaires parasites: 0111 \(\rightarrow\) 0110 \(\rightarrow\) 1100 \(\rightarrow\) 1000.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orge1f40e9}]{Compteur synchrone}
+\begin{itemize}
+\item Dans un compteur synchrone, toutes les bascules sont commandées par un même signal d'horloge, et les changements d'états sont synchronisés.
+
+\item Les changements d'états sont contrôlés par les signaux d'entrée appliqués aux bascules, comme dans le fonctionnement normal d'un circuit séquentiel synchrone.
+
+\item Le diagramme d'état d'un compteur trois bits (huit états) est un cycle, comme on peut le voir sur la figure \ref{fig:org3a1d280}.
+
+\item Le tableau d'états correspondant est donné dans le tableau \ref{tab:org90de155}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgadf126b}]{Diagramme d'état d'un compteur}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.5]{../../Sources_images_logiques/images/compt8_FSM}
+\caption{\label{fig:org3a1d280}Diagramme d'état d'un compteur}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org448dbf0}]{Tableau d'état du compteur}
+\begin{table}[htbp]
+\caption{\label{tab:org90de155}Tableau d'état du compteur}
+\centering
+\begin{tabular}{rrrlrrr}
+\(Z_2^n\) & \(Z_1^n\) & \(Z_0^n\) &  & \(Z_2^{n+1}\) & \(Z_1^{n+1}\) & \(Z_0^{n+1}\)\\
+\hline
+0 & 0 & 0 &  & 0 & 0 & 1\\
+0 & 0 & 1 &  & 0 & 1 & 0\\
+0 & 1 & 0 &  & 0 & 1 & 1\\
+0 & 1 & 1 &  & 1 & 0 & 0\\
+1 & 0 & 0 &  & 1 & 0 & 1\\
+1 & 0 & 1 &  & 1 & 1 & 0\\
+1 & 1 & 0 &  & 1 & 1 & 1\\
+1 & 1 & 1 &  & 0 & 0 & 0\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:org418c083}]{Décodeur de prochain état}
+Les expressions pour le décodeur de prochain état sont: 
+
+$$  Z_2^{n+1} = Z_0^n \cdot Z_1^n \cdot (Z_2^{n})^\prime + (Z_0^{n})^\prime \cdot Z_2^n + (Z_1^{n})^\prime \cdot Z_2^n $$
+
+$$  Z_1^{n+1} = Z_0^{n} \cdot (Z_1^{n})^\prime + (Z_0^{n})^\prime \cdot Z_1^n $$
+
+$$  Z_0^{n+1} = (Z_0^{n})^\prime $$
+\end{frame}
+
+\begin{frame}[label={sec:orgca3a270}]{Schéma}
+Le schéma correspondant est donné à la figure \ref{fig:orgffed1bd}.
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.6]{../../Sources_images_logiques/images/compt8}
+\caption{\label{fig:orgffed1bd}Schéma logique du compteur à 3 bits}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgb0310fb}]{Fonctions supplémentaires}
+On peut ajouter aux compteurs des fonctions diverses: 
+
+\begin{itemize}
+\item comptage vers le haut,
+\item comptage vers le bas,
+\item préchargement parallèle,
+\item remise à zéro, etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgbcd0ae3}]{Conception de compteurs}
+\begin{itemize}
+\item Le compteur de la figure \ref{fig:orgffed1bd} a été conçu comme un circuit séquentiel général, avec un décodeur de prochain état en forme \emph{somme de produits}.
+
+\item Il est également possible de concevoir un compteur synchrone directement, sans passer par la méthodologie classique, en suivant un raisonnement tout simple.
+
+\item La bascule du bit le moins significatif \(Z_0\) doit changer d'état à tous les coups d'horloge.
+
+\item La bascule du bit suivant \(Z_1\) doit changer d'état seulement lorsque le bit précédent \(Z_0\) vaut 1.
+
+\item La bascule du bit suivant \(Z_2\) doit changer d'état seulement lorsque les bits précédents \(Z_1, Z_0\) valent tous deux 1.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org77ae2de}]{Principe de conception}
+Et on peut pousser le raisonnement pour un compteur quelconque:
+\begin{quote}
+la bascule d'un bit \(Z_i\)
+doit changer d'état seulement lorsque les bits précédents
+\(Z_{i-1},Z_{i-2},\ldots, Z_0\) valent tous 1.
+\end{quote}
+\end{frame}
+
+\begin{frame}[label={sec:org35c303f},fragile]{Exemple pour compteur 4 bits}
+ \begin{itemize}
+\item Le compteur à quatre bits de la figure \ref{fig:orgfdb416b} a été conçu selon cette approche, à partir de bascules JK.
+
+\item L'utilisation d'une porte ET par bascule permet de mettre en oeuvre les conditions.
+
+\item L'entrée \(E\) est un contrôle \emph{enable} pour activer le comptage.
+
+\item On a aussi prévu une sortie \texttt{Prochain} pour pouvoir connecter en cascade d'autres compteurs.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org450c357}]{Schéma logique du compteur à 4 bits}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.5]{../../Sources_images_logiques/images/compt_4bits}
+\caption{\label{fig:orgfdb416b}Schéma logique du compteur à 4 bits}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org3b12a37}]{Comptage vers le bas}
+Si on réfléchit de la même façon au comptage vers le bas, on constate
+que la règle devient:
+
+\begin{quote}
+la bascule d'un bit \(Z_i\) doit changer d'état
+seulement lorsque les bits précédents \(Z_{i-1},Z_{i-2},\ldots, Z_0\)
+valent tous 0.
+\end{quote}
+
+Cette fois-ci, les conditions se baseront sur les sorties
+complémentées des bascules précédentes.
+\end{frame}
+
+\begin{frame}[label={sec:org1a1ca1e}]{Compteur bidirectionnel}
+\begin{itemize}
+\item En combinant les deux conditions au moyen d'un multiplexeur deux-vers- un, il est facile de concevoir un compteur haut/bas, tel qu'illustré sur la figure \ref{fig:org5c81fda}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org0ac1466}]{Compteur haut/bas à 4 bits}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.4]{../../Sources_images_logiques/images/compt_updown}
+\caption{\label{fig:org5c81fda}Schéma logique du compteur haut/bas à 4 bits}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org27ed352}]{Compteur en anneau}
+\begin{itemize}
+\item Un compteur en anneau est un registre à décalage connecté en boucle où une seule bascule est active à la fois.
+
+\item Il y a donc dans la sortie un seul bit 1, qui se décale de façon cyclique: \(0010 \rightarrow 0001 \rightarrow 1000 \rightarrow 0100 \rightarrow 0010, \ldots\)
+
+\item La figure \ref{fig:org1945e5b} illustre un compteur en anneau de quatre bits.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org8e5569a}]{Compteur en anneau à 4 bits}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/ring4}
+\caption{\label{fig:org1945e5b}Compteur en anneau à 4 bits}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org51faa28},fragile]{Compteur en anneau \ldots{} 2}
+ \begin{itemize}
+\item Une entrée \texttt{Init} permet d'injecter un bit 1 dans le registre au début.
+
+\item La trace montre les formes d'onde obtenues.
+
+\item On utilise fréquemment ce type de compteur pour générer des signaux de synchronisation.
+
+\item En effet, chaque sortie devient active à son tour dans le cycle, pendant une période d'horloge.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org3be006e}]{Compteur Johnson}
+\begin{itemize}
+\item Un compteur Johnson permet de doubler le nombre d'états distincts par rapport au compteur en anneau en injectant le complément du dernier bit dans l'entrée du registre à décalage.
+
+\item La figure \ref{fig:org0e1e24b} illustre un compteur en anneau Johnson de quatre bits, de même que la trace de fonctionnement.
+
+\item La séquence d'états est donnée dans le tableau \ref{tab:org00365dd}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orga9a3ee5}]{Compteur Johnson à 4 bits}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/johnson4}
+\caption{\label{fig:org0e1e24b}Compteur Johnson à 4 bits}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org6eccdf3}]{Séquence d'états du compteur Johnson}
+\begin{table}[htbp]
+\caption{\label{tab:org00365dd}Séquence d'états du compteur Johnson}
+\centering
+\begin{tabular}{rrrrrl}
+No. & \(a\) & \(b\) & \(c\) & \(d\) & ET requis\\
+\hline
+1 & 0 & 0 & 0 & 0 & \(a^\prime d^\prime\)\\
+2 & 1 & 0 & 0 & 0 & \(a b^\prime\)\\
+3 & 1 & 1 & 0 & 0 & \(b c^\prime\)\\
+4 & 1 & 1 & 1 & 0 & \(c^\prime d^\prime\)\\
+5 & 1 & 1 & 1 & 1 & \(a d^\prime\)\\
+6 & 0 & 1 & 1 & 1 & \(a^\prime b\)\\
+7 & 0 & 0 & 1 & 1 & \(b^\prime c\)\\
+8 & 0 & 0 & 0 & 1 & \(c^\prime d\)\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgd4285c2}]{Signaux de synchronisation à partir des sorties Johnson}
+\begin{itemize}
+\item On peut construire des signaux de synchronisation distincts en combinant deux par deux au moyen d'une porte ET des signaux de sortie voisins (dans le cycle) ou leurs compléments.
+
+\item Le tableau \ref{tab:org00365dd} donne les paires de sorties à combiner pour ce faire avec le compteur Johnson de quatre bits.
+
+\item Nous avons appliqué ce principe à un compteur Johnson de deux bits, présenté sur la figure \ref{fig:orgceeec8f}.
+
+\item La figure montre une trace d'exécution avec les signaux de sortie.
+
+\item On y voit que chacun des quatres signaux est activé à son tour.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb728190}]{Compteur Johnson à 2 bits et circuit de décodage}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/johnson2_quad_decode}
+\caption{\label{fig:orgceeec8f}Compteur Johnson à 2 bits et circuit de décodage pour signaux de synchronisation}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org9c502a1}]{Signaux en quadrature}
+Si on s'intéresse aux sorties des bascules de ce même compteur
+Johnson, on peut voir sur la trace d'exécution de la figure
+\ref{fig:org613927d} qu'on obtient des signaux en \alert{quadrature},
+c'est-à-dire que les sorties sont déphasées de 90 degrés les unes par
+rapport aux autres, comme le sont des fonctions \(\sin(), \cos(),
+-\sin(), -\cos()\).
+\end{frame}
+
+\begin{frame}[label={sec:org67b4b10}]{Génération de signaux en quadrature}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/johnson2_quad}
+\caption{\label{fig:org613927d}Signaux en quadrature obtenus au moyen d'un compteur Johnson à 2 bits}
+\end{figure} 
+\end{frame}
+
+\begin{frame}[label={sec:orgb4ec729}]{Diviseur de fréquence}
+\begin{itemize}
+\item Un compteur peut être utilisé pour diviser la fréquence d'un signal périodique.
+
+\item Par exemple, la sortie d'un compteur à un bit change d'état à tous les deux coups d'horloge, ce qui constitue une division par deux de la fréquence d'horloge.
+
+\item Cette approche permet naturellement des divisions par des puissances de deux.
+
+\item On peut aussi utiliser un compteur Johnson, qui permettra alors, selon le nombre d'étages du compteur, des divisions de fréquence par des diviseurs, comme trois ou cinq, qui ne sont pas des puissances de deux.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org5f9ac2e},fragile]{Compteur à chargement parallèle}
+ \begin{itemize}
+\item Un compteur à chargement parallèle est illustré à la figure \ref{fig:org26c58c2}.
+
+\item En activant l'entrée \texttt{Compte}, le comptage se fait vers le haut.
+
+\item En activant l'entrée \texttt{Charge}, les entrées \(I_i, i=0, \ldots, 3\) sont insérées dans les bascules.
+
+\item Il y a aussi une sortie \texttt{ov} qui indique lorsque le compteur atteint sa valeur maximale.
+
+\item Cette sortie peut être utilisée pour activer un autre compteur pour des bits de plus haut niveau.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[label={sec:org4e069c9}]{Compteur à chargement parallèle}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.4]{../../Sources_images_logiques/images/comptchargement}
+\caption{\label{fig:org26c58c2}Compteur à chargement parallèle}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org8c00afa},fragile]{Trace d'exécution, de 0 à 15}
+ \begin{itemize}
+\item La trace d’exécution de la figure \ref{fig:org6a34c49} montre le comptage de 4 jusqu'à 15 et retour à 0.
+
+\item On voit le signal \texttt{ov} s'activer sur 15.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/compt_chargement_tracecompte}
+\caption{\label{fig:org6a34c49}Trace d'exécution, de 0 à 15}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org2a88d1e}]{Trace d'exécution, de 0 à 5 et chargement de 12}
+\begin{itemize}
+\item La trace de la figure \ref{fig:orgd20f418}  montre le compteur qui passe de 0 à 5, puis un chargement parallèle de la valeur 12.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/compt_chargement_trace_charge}
+\caption{\label{fig:orgd20f418}Trace d'exécution, de 0 à 5 et chargement de 12}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org215bf26}]{Compteur modulo}
+\begin{itemize}
+\item On peut réaliser aisément un compteur modulo dont le cycle est plus court que le maximum possible, en utilisant un compteur avec chargement parallèle.
+
+\item Par exemple, pour réaliser un compteur qui compte de 0 jusqu'à 12, il suffit de décoder au moyen d'une porte ET l'état qui doit être le dernier du cycle, et d'utiliser le signal de sortie obtenu pour charger la valeur 0 dans le compteur.
+
+\item On obtient ainsi un compteur modulo-13, dont le cycle compte 13 états.
+
+\item La figure illustre le compteur modulo-13, de même qu'une trace d'exécution sur laquelle on voit le passage de 12 à 0.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7e723c5},fragile]{Compteur modulo-13}
+ \begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/compt_mod13}
+\caption{\label{fig:org2e2dbee}Compteur modulo-13}
+\end{figure}
+
+On pourrait aussi réaliser un compteur qui compte par exemple de 4 à
+15, en utilisant cette fois la sortie \texttt{ov} pour activer le chargement
+d'une valeur initiale 4.
+\end{frame}
+\end{document}

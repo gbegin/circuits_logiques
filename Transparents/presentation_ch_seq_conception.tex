@@ -1,0 +1,942 @@
+% Created 2022-11-16 mer 14:34
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage[, french]{babel}
+\usepackage{svg}
+\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\usetheme{metropolis}
+\usecolortheme{}
+\usefonttheme{}
+\useinnertheme{}
+\useoutertheme{}
+\author{Guy Bégin}
+\date{\today}
+\title{Circuits logiques combinatoires et séquentiels}
+
+\hypersetup{
+ pdfauthor={Guy Bégin},
+ pdftitle={Circuits logiques combinatoires et séquentiels},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdflang={French}}
+\begin{document}
+
+\maketitle
+
+\section{Conception de circuits logiques séquentiels}
+\label{sec:org806b9c5}
+\begin{frame}[label={sec:orgaabd97c}]{Objectifs}
+\begin{itemize}
+\item Pouvoir concevoir un circuit logique séquentiel synchrone à partir
+d'une spécification fonctionnelle
+\item Savoir construire un diagramme d'état en fonction d'un besoin
+\item Savoir construire un tableau d'état en fonction d'un diagramme d'état
+\item Pouvoir réduire le nombre d'état nécessaires
+\item Savoir comment assigner des codes binaires aux états et pouvoir
+choisir une approche
+\item Pouvoir concevoir un décodeur de prochain état et un décodeur de sortie
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org408a323}]{Conception d'un circuit séquentiel synchrone}
+\begin{itemize}
+\item Concevoir un circuit logique séquentiel permet de répondre à un besoin pratique qui ne peut pas être satisfait par un circuit combinatoire.
+
+\item Le point de départ est une description, la plus précise possible, du besoin à remplir: quelle doit ou doivent être les entrées, les sorties, les conditions qui font passer d'un état au suivant, etc.
+
+\item Pour un besoin donné, une multitude de solutions fonctionnellement équivalentes sont possibles, aussi il faudra établir des critères ou identifier des contraintes qui permettront d'orienter la conception et le choix final d'une solution.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7be5292}]{Conception d'un circuit séquentiel synchrone \ldots{} 2}
+\begin{itemize}
+\item Deux systèmes peuvent avoir un même comportement vu de l'extérieur, mais comporter des nombres d'états internes différents.
+
+\item Des considérations pratiques nous amèneront souvent à vouloir réduire le nombre d'états nécessaires, et à simplifier les différents circuit combinatoires utilisés.
+
+\item Réduire le nombre de bascules utilisées ne se traduit pas toujours par un système plus simple, car les décodeurs d'état et de sortie peuvent s'en retrouver plus complexes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgfe43f11}]{Spécification fonctionnelle}
+\begin{itemize}
+\item Comme dans tout problème de conception, la formulation en mots de la spécification du système est cruciale.
+
+\item Appliquer parfaitement une procédure de conception en se basant sur une spécification erronée ne peut pas conduire à système adéquat.
+
+\item Il faudra un bon bagage d'expérience et d'intuition au concepteur pour pouvoir interpréter et traduire correctement une description informelle, plus souvent qu'autrement incomplète, ambiguë et imprécise, en un design concret qui répond à un besoin maladroitement exprimé.
+
+\item Il revient au concepteur de s'assurer que ce qu'il a compris correspond bien à ce qui était demandé.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgdad53ec}]{Questions à se poser}
+La première question à poser est: 
+
+\begin{itemize}
+\item Que doit faire le système?
+\end{itemize}
+
+Suivront d'autres questions, amenant à définir davantage de détails: 
+
+\begin{itemize}
+\item Combien d'entrées sont nécessaires?
+
+\item Doit-il y avoir des entrées?
+
+\item Combien de sorties sont nécessaires?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org4a1b148}]{Questions à se poser \ldots{} 2}
+Le comportement du système pourra être essentiellement caractérisé en répondant à la question:
+
+\begin{itemize}
+\item Quelle doit être la séquence des sorties, pour une certaine séquence d'entrées?
+\end{itemize}
+
+Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra identifier des patrons qui permettront de résumer le comportement du système.
+\end{frame}
+
+\begin{frame}[label={sec:org6e37f03}]{Diagramme d'état}
+\begin{itemize}
+\item Un diagramme d'état préliminaire est un bon point de départ pour définir et étudier le comportement du système.
+
+\item On identifiera les différents états par des lettres pour les distinguer sans faire référence à des variables binaires associées à des éléments de mémoire.
+
+\item Il s'agit dans un premier temps d'un diagramme préliminaire, parce que le diagramme final qui sera implémenté sera potentiellement différent.
+
+\item À partir du diagramme d'état, il est possible de vérifier quelle séquence de sortie correspond à une séquence d'entrée donnée, et ainsi de valider le comportement.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org05f7657}]{Tableau d'états}
+\begin{itemize}
+\item Un tableau d'états comporte une ligne par état présent et combinaison d'entrées.
+
+\item Selon les combinaisons d'entrées possibles, on donne le prochain état et les valeurs de sortie.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgfee7196}]{Réduction du nombre d'états}
+\begin{itemize}
+\item Deux états sont équivalents si, pour chaque combinaison d'entrées, ils produisent la même sortie et amènent le système dans le même état ou dans un état équivalent.
+
+\item Considérons le diagramme d'état de la figure \ref{fig:org6373f32} et le tableau d'état correspondant \ref{tab:org873a3ec}.
+
+\item On peut voir qu'il s'agit ici d'une machine de Mealy, car les valeurs de sortie sont associées aux transitions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org4563cd5}]{Diagramme d'état avant réduction}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.5]{../../Sources_images_logiques/images/exemp_simplif_net}
+\caption{\label{fig:org6373f32}Diagramme d'état avant réduction}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org4cdce35}]{Tableau d'état initial}
+\begin{table}[htbp]
+\caption{\label{tab:org5732b47}Tableau d'état initial}
+\centering
+\begin{tabular}{lrllr}
+État présent & \(x\) &  & État suivant & \(S\)\\
+\hline
+a & 0 &  & b & 1\\
+a & 1 &  & f & 1\\
+b & 0 &  & d & 0\\
+b & 1 &  & c & 1\\
+c & 0 &  & d & 0\\
+c & 1 &  & e & 0\\
+d & 0 &  & b & 1\\
+d & 1 &  & c & 1\\
+e & 0 &  & e & 1\\
+e & 1 &  & a & 1\\
+f & 0 &  & d & 0\\
+f & 1 &  & e & 0\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgf8b9a65}]{États équivalents}
+\begin{itemize}
+\item En inspectant les différents états, on voit que les états \emph{c} et \emph{f} sont équivalents.
+
+\item En remplaçant l'état \emph{f} par l'état \emph{c}, on obtient le nouveau tableau d'état \ref{tab:org873a3ec}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org63fb519}]{Tableau d'état après une simplification}
+\begin{table}[htbp]
+\caption{\label{tab:org873a3ec}Tableau d'état après une simplification}
+\centering
+\begin{tabular}{lrllr}
+État présent & \(x\) &  & État suivant & \(S\)\\
+\hline
+a & 0 &  & b & 1\\
+a & 1 &  & c & 1\\
+b & 0 &  & d & 0\\
+b & 1 &  & c & 1\\
+c & 0 &  & d & 0\\
+c & 1 &  & e & 0\\
+d & 0 &  & b & 1\\
+d & 1 &  & c & 1\\
+e & 0 &  & e & 1\\
+e & 1 &  & a & 1\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgd3e3c43}]{Tableau d'état: encore des simplifications}
+\begin{itemize}
+\item On voit maintenant que les états \emph{a} et \emph{d} sont équivalents.
+
+\item En remplaçant l'état \emph{d} par l'état \emph{a}, on obtient le tableau d'état simplifié \ref{tab:org7340712}.
+
+\item Il n'y a plus de simplification possible. Nous sommes passés de six états à quatre.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org081ea4d}]{Tableau d'état simplifié}
+\begin{table}[htbp]
+\caption{\label{tab:org7340712}Tableau d'état simplifié}
+\centering
+\begin{tabular}{lrllr}
+État présent & \(x\) &  & État suivant & \(S\)\\
+\hline
+a & 0 &  & b & 1\\
+a & 1 &  & c & 1\\
+b & 0 &  & d & 0\\
+b & 1 &  & c & 1\\
+c & 0 &  & d & 0\\
+c & 1 &  & e & 0\\
+e & 0 &  & e & 1\\
+e & 1 &  & a & 1\\
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+\item Il faut bien s'assurer que le tableau d'état simplifié produit les séquences de sortie désirées selon les séquences d'entrée appliquées.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org4ad1d3f}]{Tableau d'implication}
+\begin{itemize}
+\item La méthode du tableau d'implication facilite l'identification des états redondants à éliminer.
+
+\item Considérons le tableau d'état suivant, qui correspond cette fois-ci à une machine de Moore dont nous allons réduire le nombre d'états.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgcf0b650}]{Tableau d'état (machine de Moore)}
+\begin{table}[htbp]
+\caption{\label{tab:org5801f79}Tableau d'état (machine de Moore)}
+\centering
+\begin{tabular}{llllr}
+État présent & État suivant &  & État suivant & \(S\)\\
+ & \(x=0\) &  & \(x=1\) & \\
+\hline
+a & g &  & c & 0\\
+b & f &  & h & 0\\
+c & e &  & d & 1\\
+d & a &  & c & 0\\
+e & c &  & a & 1\\
+f & f &  & b & 1\\
+g & a &  & c & 0\\
+h & c &  & g & 1\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgc085009}]{Tableau d'implication: détails}
+\begin{itemize}
+\item Un tableau d'implication comporte une entrée pour chaque paire d'états dans le tableau d'état.
+
+\item Avec \(n\) états initialement (ici on a \(n=8\)), on étiquettera les colonnes avec les \(n-1\) premiers états, et les lignes avec les \(n-1\) derniers états.
+
+\item La première case vide, en haut à gauche, sera notée [a;b] et la dernière en bas à droite sera [g;h].
+
+\item Voici le tableau avant d'être rempli (tableau \ref{tab:orgd0fd5da}).  Seules les cases qui ne comportent pas de \_ peuvent être remplies.
+
+\item Il n'y a par exemple rien d'utile à mettre dans une case étiquetée [b;b], et on mettra l'information qui irait dans la case [c;b] dans la case [b;c].
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org4d466a0}]{Exemple de tableau d'implication avant d'être rempli}
+\begin{table}[htbp]
+\caption{\label{tab:orgd0fd5da}Tableau d'implication}
+\centering
+\begin{tabular}{lllllllll}
+b &  &  & \_ & \_ & \_ & \_ & \_ & \_\\
+c &  &  &  & \_ & \_ & \_ & \_ & \_\\
+d &  &  &  &  & \_ & \_ & \_ & \_\\
+e &  &  &  &  &  & \_ & \_ & \_\\
+f &  &  &  &  &  &  & \_ & \_\\
+g &  &  &  &  &  &  &  & \_\\
+h &  &  &  &  &  &  &  & \\
+\hline
+ &  & a & b & c & d & e & f & g\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:org958f64e}]{Procédure}
+\begin{enumerate}
+\item On applique la procédure en considérant chaque case du tableau, ce
+qui permet de comparer chaque paire de lignes du tableau d'état.
+
+\begin{itemize}
+\item On vérifie dans un premier temps si les sorties sont
+différentes. Si c'est le cas, on met un \(\checkmark\) dans la
+case. Par exemple ici, \emph{a} et \emph{c}, \emph{a} et \emph{e}, \emph{a} et \emph{f}, \emph{a} et
+\emph{h} ont des sorties différentes, donc on place des \(\checkmark\)
+dans les cases [a;c], [a;e], [a;f] et [a;h].
+\item Si les sorties sont les mêmes, on place dans la case les paires
+d'états qu'une équivalence nécessiterait. Par exemple pour la
+case [a;b], une équivalence entre \emph{a} et \emph{b} nécessiterait les
+équivalences g=f et c=h entre les états prochains. Pour la case
+[a;d], une équivalence entre \emph{a} et \emph{d} nécessiterait les
+équivalences g=a et c=c. Cette dernière, évidente, n'est pas
+inscrite dans le tableau. Pour [b;d], on trouve f=a et h=c.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org2700188}]{Procédure \ldots{} 2}
+\begin{itemize}
+\item Si les sorties sont les mêmes et les paires d'états suivants sont
+identiques ou encore sont les états mêmes qu'on est en train de
+considérer, on met directement OUI dans le tableau. Par exemple,
+pour la case [a;g] on a les paires g=a et c=c, donc on met
+OUI. Pour la case [d;g], on a a=a et c=c, on met OUI
+également. On continue ainsi, de colonne en colonne, pour obtenir
+après ces étapes le résultat suivant (tableau \ref{tab:orgb2a419f}).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgd7b32e5}]{Tableau d'implication, après étape 1}
+\begin{table}[h] \scriptsize
+\caption{\label{tab:orgb2a419f}Tableau d'implication, après étape 1}
+\centering
+\begin{tabular}{lllllllll}
+b &  & g=f c=h & \_ & \_ & \_ & \_ & \_ & \_\\
+c &  & \(\checkmark\) & \(\checkmark\) & \_ & \_ & \_ & \_ & \_\\
+d &  & g=a & f=a h=c & \(\checkmark\) & \_ & \_ & \_ & \_\\
+e &  & \(\checkmark\) & \(\checkmark\) & d=a & \(\checkmark\) & \_ & \_ & \_\\
+f &  & \(\checkmark\) & \(\checkmark\) & e=f d=b & \(\checkmark\) & c=f a=b & \_ & \_\\
+g &  & OUI & f=a h=c & \(\checkmark\) & OUI & \(\checkmark\) & \(\checkmark\) & \_\\
+h &  & \(\checkmark\) & \(\checkmark\) & e=c d=g & \(\checkmark\) & a=g & f=c b=g & \(\checkmark\)\\
+\hline
+ &  & a & b & c & d & e & f & g\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:org84bc354}]{Étape suivante}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item L'étape suivante consiste à considérer chaque case qui comporte
+une ou des paires d'états impliqués. On regarde la case
+correspondant à chaque paire, et s'il y a un \(\checkmark\) dans la
+case, alors l'implication ne fonctionne pas. Par exemple, la case
+[a;b] repose sur les équivalences g=f et c=h. Or si on regarde la
+case [f;g], on voit qu'il s'y trouve un \(\checkmark\), ce qui veut
+dire que \emph{f} et \emph{g} ne peuvent pas être équivalents, ce qui
+implique que \emph{a} et \emph{b} ne pourront pas être équivalents. Ce n'est
+pas la peine de regarder la case [c;h].  On remplacera donc les
+paires de la case [a;b] par un \(\checkmark \checkmark\), pour faire
+ressortir ces nouveaux échecs.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgd66f98b}]{Implications qui échouent}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Un \(\checkmark \checkmark\) dans le tableau peut faire échouer d'autres
+implications. Il faut donc revoir les cases avec des paires d'états
+impliqués pour voir s'il faut changer leur statut. On continue à
+revoir ainsi jusqu'à ce qu'il n'y ait plus d'ajouts de
+\(\checkmark \checkmark\). On obtient finalement le tableau suivant
+(tableau \ref{tab:org320904e}).
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org03fcbc1}]{Tableau d'implication, après étape 3}
+\begin{table}[htbp]
+\caption{\label{tab:org320904e}Tableau d'implication, après étape 3}
+\centering
+\begin{tabular}{lllllllll}
+b &  & \(\checkmark \checkmark\) & \_ & \_ & \_ & \_ & \_ & \_\\
+c &  & \(\checkmark\) & \(\checkmark\) & \_ & \_ & \_ & \_ & \_\\
+d &  & g=a & \(\checkmark \checkmark\) & \(\checkmark\) & \_ & \_ & \_ & \_\\
+e &  & \(\checkmark\) & \(\checkmark\) & d=a & \(\checkmark\) & \_ & \_ & \_\\
+f &  & \(\checkmark\) & \(\checkmark\) & \(\checkmark \checkmark\) & \(\checkmark\) & \(\checkmark \checkmark\) & \_ & \_\\
+g &  & OUI & \(\checkmark \checkmark\) & \(\checkmark\) & OUI & \(\checkmark\) & \(\checkmark\) & \_\\
+h &  & \(\checkmark\) & \(\checkmark\) & e=c d=g & \(\checkmark\) & a=g & \(\checkmark \checkmark\) & \(\checkmark\)\\
+\hline
+ &  & a & b & c & d & e & f & g\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgc93b92b}]{Dernières étapes}
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Après cette étape, toutes les  cases qui contiennent OUI ou des
+paires d'implications indiquent des équivalences d'états. Ici, on a
+les équivalences suivantes: a=d, a=g, c=e, c=h, d=g, e=h. Les états
+uniques résultants sont \emph{a}, \emph{b}, \emph{c} et \emph{f}. On obtient le tableau
+d'état réduit suivant (tableau \ref{tab:orgc66c085}).
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgc8eb8a2}]{Tableau d'état réduit (machine de Moore)}
+\begin{table}[htbp]
+\caption{\label{tab:orgc66c085}Tableau d'état réduit (machine de Moore)}
+\centering
+\begin{tabular}{llllr}
+État présent & État suivant &  & État suivant & \(S\)\\
+ & \(x=0\) &  & \(x=1\) & \\
+\hline
+a & a &  & c & 0\\
+b & f &  & c & 0\\
+c & c &  & a & 1\\
+f & f &  & b & 1\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[label={sec:orgf6d27a7}]{Codage des états}
+\begin{itemize}
+\item Une fois que le nombre d'états a été réduit, il faut assigner des codes binaires aux états.
+
+\item Si on doit coder \(m\) états, il faudra \(n\) bits, avec \(2^n \geq m\).
+
+\item Si le nombre de combinaisons binaires est plus grand que le nombre d'état nécessaires, les combinaisons inutilisées seront considérées comme des cas facultatifs.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7bb42f9}]{Codage des états \ldots{} 2}
+\begin{itemize}
+\item Le choix d'une assignation des codes aux états aura des répercussions sur la complexité du décodeur de prochain état, et sur le décodeur de sortie.
+
+\item Plusieurs options peuvent être envisagées: assigner des codes dans l'ordre naturel d'énumération binaire, assigner selon un code Gray, ou encore choisir une assignation où il y a un seul bit 1 par code binaire (approche dite \emph{one-hot}).
+
+\item L'approche \emph{one-hot} requiert plus de bascules, mais permet souvent de simplifier les décodeurs de prochain état et de sortie.
+
+\item Le tableau \ref{tab:org8318384} montre un exemple possible d'assignation pour chacune de ces approches.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org345bc22}]{Possibilités d'assignation de codes d'états}
+\begin{table}[htbp]
+\caption{\label{tab:org8318384}Possibilités d'assignation de codes d'états}
+\centering
+\begin{tabular}{lrrr}
+État & Binaire & Gray & \emph{One-hot}\\
+\hline
+a & 00 & 00 & 0001\\
+b & 01 & 01 & 0010\\
+c & 10 & 11 & 0100\\
+e & 11 & 10 & 1000\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:org8b68560}]{Décodeur d'état}
+\begin{itemize}
+\item Après avoir décidé d'une assignation, on refait le tableau d'état simplifié en remplaçant les étiquettes d'états symboliques par les codes binaires correspondants.
+
+\item On obtient ainsi un \alert{tableau de transition}, qui permet d'élaborer les expressions logiques pour le décodeur de prochain état.
+
+\item Le type de bascules à utiliser déterminera les sorties nécessaires pour le décodeur d'état, en se basant sur les tableaux caractéristiques du chapitre précédent.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org8781cad}]{Décodeur de sorties}
+\begin{itemize}
+\item Une fois que le codage d'état est établi, la conception du décodeur de sortie est directe.
+
+\item Un tableau de vérité avec comme entrées les valeurs binaires d'états et comme sorties les valeurs de sorties externes permet de déterminer les fonctions combinatoires à implémenter.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org0ec8731}]{Procédure de conception}
+\begin{itemize}
+\item La conception d'un circuit séquentiel suit une procédure bien définie.
+
+\item Étant donnée la complexité de cette tâche, on limite la conception manuelle à des relativement petits circuits.
+
+\item Pour des besoins plus ambitieux, des outils de synthèse automatisés ont été développés.
+
+\item Ces procédures automatisées supposent typiquement des bascules D, car la correspondance entre l'entrée et la prochaine sortie est directe.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org37f28b7}]{Procédure de conception: étapes}
+Voici les étapes à suivre:
+
+\begin{enumerate}
+\item À partir de la description et des spécifications du comportement
+souhaité, concevoir un diagramme d'état.
+\item Réduire le nombre d'état (si pertinent).
+\item Assigner des codes binaires aux états.
+\item Compléter le tableau de transition.
+\item Sélectionner un type de bascules à utiliser.
+\item Déterminer les expressions simplifiées pour le décodeur de prochain
+état et le décodeur de sortie.
+\item Tracer le schéma logique du circuit.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org0944ec9}]{Exemple de conception}
+\begin{itemize}
+\item On doit concevoir un circuit séquentiel qui détecte la séquence binaire 101 lorsqu'elle apparaît dans sa séquence d'entrée.
+
+\item Une fois la séquence identifiée, le système produira une sortie 1 et demeurera dans le même état en continuant de produire une sortie 1, jusqu'à une remise à zéro.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org90619d4}]{Diagramme d'état pour l'exemple}
+\begin{itemize}
+\item Selon le diagramme d'état de la figure \ref{fig:org1b4f769}, le système démarre dans l'état \emph{a}, et demeure dans cet état tant que l'entrée \(A=0\).
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.55]{../../Sources_images_logiques/images/seq_101_sanscode}
+\caption{\label{fig:org1b4f769}Diagramme d'état pour détecter la séquence 101}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org4e1e271}]{Comportement selon le diagramme d'état}
+\begin{itemize}
+\item Lorsque \(A=1\), on passe à l'état \emph{b}, début de la reconnaissance du patron 101.
+
+\item Ensuite, si \(A=1\), on reste dans l'état \emph{b} parce ce pourrait être le début d'une autre séquence 101.
+
+\item De l'état \emph{b}, si \(A=0\), on passe à l'état \emph{c}, car on a observé 10 en séquence.
+
+\item De l'état \emph{c}, si on a \(A=0\), la séquence observée est maintenant de 100, et on doit tout recommencer en retournant à l'état \emph{a}.
+
+\item De l'état \emph{c}, si on a \(A=1\), alors on a reconnu la séquence 101.
+
+\item On met la sortie \(S=1\) et on reste dans cet état pour toutes les autres transitions, quelle que soit l'entrée.
+
+\item Il s'agit ici d'une machine de Moore, puisque la sortie est \(S=1\) produite lorsqu'on est dans l'état \emph{d}; on a \(S=0\) dans les autres états.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[label={sec:org425b9eb}]{Réduction d'état}
+Il n'y a pas de réduction d'états possible ici.
+\end{frame}
+
+\begin{frame}[label={sec:org09dac3b}]{Assigner des codes binaires aux états}
+\begin{itemize}
+\item Pour quatre états, il nous faudra deux bascules.  Le tableau \ref{tab:org8a6639f} présente l'assignation d'états choisie.
+\end{itemize}
+
+\begin{table}[htbp]
+\caption{\label{tab:org8a6639f}Tableau d'assignation d'état}
+\centering
+\begin{tabular}{lr}
+État & Code\\
+\hline
+a & 00\\
+b & 01\\
+c & 10\\
+d & 11\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[label={sec:org4ce1c2b}]{Compléter le tableau de transition}
+Le tableau \ref{tab:orgf8841be} donne les transitions d'états. 
+
+\begin{table}[htbp]
+\caption{\label{tab:orgf8841be}Tableau de transition d'états}
+\centering
+\begin{tabular}{rrrlrrr}
+\(Z_1^n\) & \(Z_0^n\) & \(A\) &  & \(Z_1^{n+1}\) & \(Z_0^{n+1}\) & \(S\)\\
+\hline
+0 & 0 & 0 &  & 0 & 0 & 0\\
+0 & 0 & 1 &  & 0 & 1 & 0\\
+0 & 1 & 0 &  & 1 & 0 & 0\\
+0 & 1 & 1 &  & 0 & 1 & 0\\
+1 & 0 & 0 &  & 0 & 0 & 0\\
+1 & 0 & 1 &  & 1 & 1 & 0\\
+1 & 1 & 0 &  & 1 & 1 & 1\\
+1 & 1 & 1 &  & 1 & 1 & 1\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[label={sec:org235d7ee}]{Sélectionner un type de bascules à utiliser}
+On choisit des bascules D. 
+\end{frame}
+
+\begin{frame}[label={sec:org192bdd8}]{Déterminer les expressions simplifiées}
+Les diagrammes de Karnaugh correspondants sont donnés pour
+\(Z_0^{n+1}\) (figure \ref{fig:orga552cbe}), \(Z_1^{n+1}\) (figure
+\ref{fig:orgf6d6b1a}) et \(S\) (figure \ref{fig:org050a4e1}).
+\end{frame}
+
+\begin{frame}[label={sec:orgdf72748}]{Diag-K pour \(Z_0^{n+1}\)}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.65]{../../Sources_images_logiques/images/diag-k_z0.png}
+\caption{\label{fig:orga552cbe}Diag-K pour \(Z_0^{n+1}\)}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgaf4e425}]{Diag-K pour \(Z_1^{n+1}\)}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.65]{../../Sources_images_logiques/images/diag-k_z1.png}
+\caption{\label{fig:orgf6d6b1a}Diag-K pour \(Z_1^{n+1}\)}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org231a93c}]{Diag-K pour \(S\)}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.65]{../../Sources_images_logiques/images/diag-k_S.png}
+\caption{\label{fig:org050a4e1}Diag-K pour \(S\)}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgffc109d}]{Décodeur de prochain état}
+Les expressions pour le décodeur de prochain état sont:
+
+$$ Z_1^{n+1} = (A^\prime \cdot Z_0^{n}) + (A \cdot  Z_1^{n}) $$
+
+$$ Z_0^{n+1} = A + (Z_0^{n} \cdot Z_1^{n}) $$
+\end{frame}
+
+\begin{frame}[label={sec:orged20ebf}]{Décodeur de sortie}
+L'expression pour le décodeur de sortie est:
+
+$$ S = Z_0^{n} \cdot Z_1^{n} $$
+\end{frame}
+
+\begin{frame}[label={sec:orgbb8f431}]{Schéma logique du circuit détecteur pour la séquence 101}
+\begin{itemize}
+\item Le circuit obtenu est représenté sur la figure \ref{fig:org000214c}.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/exemp_seq101_circ}
+\caption{\label{fig:org000214c}Détecteur pour la séquence 101}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org4b685a4}]{Trace d'exécution avec succès}
+\begin{columns}
+\begin{column}{0.35\columnwidth}
+\begin{block}{}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.5]{../../Sources_images_logiques/images/exemp_seq101_trace1}
+\caption{\label{fig:orgaa62ec5}Trace d'exécution avec succès}
+\end{figure}
+\end{block}
+\end{column}
+
+\begin{column}{0.61\columnwidth}
+\begin{block}{}
+\begin{itemize}
+\item Les premiers coups d'horloge, l'entrée \(A=0\) et le système demeure dans l'état 0.
+
+\item Puis, lorsque \(A=1\), on passe à l'état 1.
+
+\item Comme \(A\) reste à 1, on demeure dans l'état 1 un certain temps.
+
+\item Puis, lorsque \(A=0\), on passe à l'état 2.
+
+\item Avec \(A=1\) de nouveau, on passe à l'état 3 en activant la sortie \(S=1\).
+
+\item On ne quittera plus cet état ensuite.
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:orgccb6767}]{Trace d'exécution sans succès}
+\begin{itemize}
+\item Une deuxième trace d'exécution (figure \ref{fig:org0e973ca} ) montre un cas où le système retourne à l'état 0 après avoir reçu une séquence 100.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/exemp_seq101_trace2}
+\caption{\label{fig:org0e973ca}Trace d'exécution sans succès}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org941577b}]{Autres types de bascules}
+\begin{itemize}
+\item Les fonctions du décodeur de prochain état se formulent naturellement en fonction de bascules D.
+
+\item Pour faire l'implémentation avec des bascules JK ou T, il faut pouvoir déterminer les entrées nécessaires pour amener les changements d'états requis.
+
+\item Pour ce faire, on utilisera des \alert{tableaux d'excitation} qui listent les combinaisons d'entrées pour passer d'un état présent \(Q_n\) à un état prochain \(Q_{n+1}\).
+
+\item Le tableau d'excitation pour une bascule JK est donné dans le tableau \ref{tab:orgac04f10} et celui pour une bascule T est donné dans le tableau \ref{tab:orgaf34838}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7828573}]{Tableau d'excitation, bascule JK}
+\begin{table}[htbp]
+\caption{\label{tab:orgac04f10}Tableau d'excitation, bascule JK}
+\centering
+\begin{tabular}{rrlll}
+\(Q_n\) & \(Q_{n+1}\) &  & \(J\) & \(K\)\\
+\hline
+0 & 0 &  & 0 & X\\
+0 & 1 &  & 1 & X\\
+1 & 0 &  & X & 1\\
+1 & 1 &  & X & 0\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:org8991dbe}]{Tableau d'excitation, bascule T}
+\begin{table}[htbp]
+\caption{\label{tab:orgaf34838}Tableau d'excitation, bascule T}
+\centering
+\begin{tabular}{rrlr}
+\(Q_n\) & \(Q_{n+1}\) &  & \(T\)\\
+\hline
+0 & 0 &  & 0\\
+0 & 1 &  & 1\\
+1 & 0 &  & 1\\
+1 & 1 &  & 0\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgc211739}]{Pour des bascules JK}
+\begin{itemize}
+\item Reprenons le tableau de transition d'états pour notre exemple, en ajoutant les signaux à générer pour des bascules JK.
+
+\item On obtient alors le tableau \ref{tab:orgdee9807}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgc846999}]{Tableau de transition d'états, avec bascules JK}
+\begin{table}[htbp]
+\caption{\label{tab:orgdee9807}Tableau de transition d'états, avec bascules JK}
+\centering
+\begin{tabular}{rrrlrllrll}
+\(Z_1^n\) & \(Z_0^n\) & \(A\) &  & \(Z_1^{n+1}\) & \(J\) & \(K\) & \(Z_0^{n+1}\) & \(J\) & \(K\)\\
+\hline
+0 & 0 & 0 &  & 0 & 0 & X & 0 & 0 & X\\
+0 & 0 & 1 &  & 0 & 0 & X & 1 & 1 & X\\
+0 & 1 & 0 &  & 1 & 1 & X & 0 & X & 1\\
+0 & 1 & 1 &  & 0 & 0 & X & 1 & X & 0\\
+1 & 0 & 0 &  & 0 & X & 1 & 0 & 0 & X\\
+1 & 0 & 1 &  & 1 & X & 0 & 1 & 1 & X\\
+1 & 1 & 0 &  & 1 & X & 0 & 1 & x & 0\\
+1 & 1 & 1 &  & 1 & X & 0 & 1 & x & 0\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:org03d521a}]{Expressions pour bascules JK}
+On trouve les expressions simplifiées suivantes:
+
+$$ J_{Z_1} = A^\prime \cdot Z_0^n $$
+
+$$ K_{Z_1} = A^\prime \cdot (Z_0^n)^\prime $$
+
+$$ J_{Z_0} = A $$ 
+
+$$ K_{Z_0} = (A + Z_1^n)^\prime $$
+\end{frame}
+
+\begin{frame}[label={sec:orge06ad30}]{Implémentation avec bascules JK}
+Ce qui nous donne l'implémentation de la figure \ref{fig:org7fa4862}.
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/exemp_seq101_JK}
+\caption{\label{fig:org7fa4862}Détecteur pour la séquence 101, bascules JK}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org866521e}]{États interdits}
+\begin{itemize}
+\item Lorsque le nombre d'états nécessaires pour le fonctionnement de la machine à état fini est strictement inférieur au nombre total d'états possibles avec les bascules utilisées, un certain nombre d'états (physiques) ne seront pas utilisés dans le fonctionnement normal du circuit séquentiel.
+
+\item On parlera alors d'\alert{états interdits}.
+
+\item Lors de la formulation des tableaux de vérité pour le décodeur de prochain état, ces états donneront lieu à des cas facultatifs, qui pourront permettre la simplification du circuit combinatoire du décodeur.
+
+\item Il faut toutefois se méfier de scénarios dans lesquels la machine à état pourrait se retrouver dans un tel état interdit en raison d'un dysfonctionnement momentané ou lors de la mise en marche du système.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgada775a}]{États interdits \ldots{} 2}
+\begin{itemize}
+\item Considérons par exemple un circuit séquentiel dont le diagramme d'état (tel qu'implémenté après conception) est illustré ci-dessous (figure \ref{fig:orgf6e0c39}).
+
+\item En fonctionnement normal, le système évolue entre les états \emph{a}, \emph{b} et \emph{c}.
+
+\item Mais si pour une raison quelconque, le système entre dans l'état \emph{d}, il restera coincé en bouclant sur cet état pour toujours (ou peut-être jusqu'à un prochain dysfonctionnement).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgdd13ba4}]{Diagramme d'état avec état interdit}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/etat_interdit}
+\caption{\label{fig:orgf6e0c39}Diagramme d'état avec état interdit}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org619a926}]{Solution possible}
+\begin{itemize}
+\item Une solution serait de modifier le décodeur de prochain état pour s'assurer que, de l'état interdit, on revient toujours vers un état normal, comme on peut le voir sur la figure suivante (figure \ref{fig:orgc9d114f}), où de l'état \emph{d}, on reviendra toujours vers l'état \emph{c}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb86c4a8}]{Diagramme d'état qui assure le retour en fonctionnement normal}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/etat_interdit_revient}
+\caption{\label{fig:orgc9d114f}Diagramme d'état qui assure le retour en fonctionnement normal}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgf0ad890}]{Exemple avec états \emph{one-hot}}
+\begin{itemize}
+\item Dans l'exemple suivant, on explore l'assignation d'états \emph{one-hot} dans laquelle il n'y a qu'un seul bit 1 par code binaire.
+
+\item Considérons le diagramme d'état suivant (figure \ref{fig:org95325e8}).
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.5]{../../Sources_images_logiques/images/exemple_one-hot}
+\caption{\label{fig:org95325e8}Diagramme d'état pour assignation \emph{one-hot}}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org65d9682}]{Tableau d'assignation d'état \emph{one-hot}}
+Le tableau d'assignation d'état correspondant est donné dans le
+tableau \ref{tab:orgf65f0c3} ci-dessous.
+
+\begin{table}[htbp]
+\caption{\label{tab:orgf65f0c3}Assignation \emph{one-hot}}
+\centering
+\begin{tabular}{lr}
+État & \emph{One-hot}\\
+\hline
+a & 100\\
+b & 010\\
+c & 001\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgfceb1d9}]{États et bascules}
+\begin{itemize}
+\item Chaque état aura sa propre bascule active, dont les sorties seront dénotées \(A\), \(B\) et \(C\).
+
+\item Le tableau de transition d'états qu'on obtient comporte un grand nombre de cas facultatifs et d'états inutilisés, que nous n'avons pas indiqués ici.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orge612a48}]{Tableau de transition d'états}
+\begin{itemize}
+\item Le tableau \ref{tab:org1394e2a} ne montre que les six transitions spécifiées dans le diagramme d'état.
+\end{itemize}
+
+\begin{table}[htbp]
+\caption{\label{tab:org1394e2a}Tableau de transition d'états \emph{one-hot}}
+\centering
+\begin{tabular}{rrrllllrrr}
+\(A^n\) & \(B^n\) & \(C^n\) & \(x\) & \(y\) & \(z\) &  & \(A^{n+1}\) & \(B^{n+1}\) & \(C^{n+1}\)\\
+\hline
+0 & 0 & 1 & 0 & X & X &  & 0 & 0 & 1\\
+0 & 0 & 1 & 1 & X & X &  & 0 & 1 & 0\\
+0 & 1 & 0 & X & 0 & 0 &  & 0 & 1 & 0\\
+0 & 1 & 0 & X & 0 & 1 &  & 0 & 0 & 1\\
+0 & 1 & 0 & X & 1 & X &  & 1 & 0 & 0\\
+1 & 0 & 0 & X & X & X &  & 0 & 0 & 1\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgfb434a0}]{Décodeur de prochain état}
+Il est possible de formuler le décodeur de prochain état directement,
+par inspection des transitions spécifiées.  
+
+Si on considère les transitions qui entrent dans l'état \emph{a}, il y a trois façons différentes d'arriver en \emph{a}:
+\begin{itemize}
+\item à partir de \emph{a}, sous la condition \(x=0\)
+\item à partir de \emph{b}, sous la condition \(y=0, z=1\)
+\item à partir de \emph{c}, sans conditions
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgde6527e}]{Équations de prochain état}
+L'équation de prochain état pour \emph{a} sera ainsi 
+$$
+A^{n+1} = A^{n}x^\prime + B^n y^\prime z + C^n
+$$
+
+Le même raisonnement nous permet d'écrire pour les autres bascules:
+$$
+B^{n+1} = A^{n}x + B^n y^\prime z^\prime
+$$
+et 
+$$
+C^{n+1} = B^n y
+$$
+\end{frame}
+
+\begin{frame}[label={sec:org5ccb6e4}]{Avantages}
+\begin{itemize}
+\item Le décodeur de prochain état est simplifié, car les bits d'état offrent une indication directe de l'état dans lequel la machine se trouve.
+
+\item Le fonctionnement de la machine entraîne peu de transitions, ce qui résulte en une consommation d'énergie réduite, et moins de risque de \emph{glitches}.
+
+\item La vitesse de commutation ne dépend pas du nombre d'états.
+
+\item Ajouter ou retrancher un état peu se faire sans avoir à tout refaire la conception.
+
+\item L'assignation \emph{one-hot} est particulièrement intéressante lorsqu'on est moins limité par le nombre de bascules que par le nombre d'éléments combinatoires.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7cefe58}]{Inconvénients}
+\begin{itemize}
+\item Le principal inconvénient de cette approche est la croissance du nombre de bascules, qui est linéaire avec le nombre d'états plutôt que logarithmique.
+
+\item Par exemple, pour 30 états, il faudra 30 bascules alors qu'avec un encodage binaire, il n'en faudrait que cinq.
+
+\item Il faut aussi considérer qu'il y a un grand nombre d'états interdits, et prendre les précautions qui s'imposent pour éviter les problèmes de fonctionnement coincé.
+\end{itemize}
+\end{frame}
+\end{document}

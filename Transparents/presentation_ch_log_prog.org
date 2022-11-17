@@ -1,0 +1,205 @@
+#+SETUPFILE: ../setup_slides
+
+* Logique programmable
+** Objectifs
+- Être familier avec les différents types de composants logiques programmables
+- Pouvoir identifier les avantages et limitations des différents types
+- Comprendre le fonctionnement d'une matrice logique programmable
+- Comprendre le fonctionnement d'un composant logique à matrice programmable
+- Comprendre le fonctionnement d'un circuit séquentiel programmable
+- Être familier avec le concept de bloc logique programmable
+- Comprendre l'organisation d'une cellule logique programmable et
+  apprécier sa flexibilité
+
+** Dispositifs programmables
+  
+- On a vu qu'une mémoire ROM est un dispositif logique programmable qui, grâce à la matrice d'interconnexion entre son décodeur (qui génère tous les minterms) et les portes OU de sortie, permet de réaliser des fonctions logiques arbitraires.
+
+- D'autres composants utilisent à divers degrés cette approche pour offrir des possibilités de configuration flexibles.
+
+- Il existe une grande variété de dispositifs programmables, des plus simples aux plus complexes.
+
+- De nombreux manufacturiers offrent des variantes plus ou moins équivalentes dans chacune des gammes de produits.
+
+- Nous allons nous limiter à présenter brièvement les grandes familles typiques, en ordre de complexité croissante.
+
+** Matrice logique programmable (PLA)
+
+- Une *matrice logique programmable* (en anglais, /Programmable Logic Array/, (PLA)) est un dispositif spécifiquement conçu pour la réalisation de fonctions combinatoires arbitraires.
+
+- Elle fonctionne selon une approche qui s'apparente à l'utilisation d'une mémoire morte pour réaliser une fonction logique arbitraire.
+
+- La figure [[fig-pla]] montre une matrice permettant de réaliser deux fonctions pouvant comporter jusqu'à quatre termes produits de trois variables.
+
+** Matrice logique programmable
+
+#+CAPTION: Matrice logique programmable
+#+attr_latex: :scale 0.55
+#+NAME:fig-pla
+[[file:../../Sources_images_logiques/images/pla.svg]]
+
+** Matrice logique programmable (PLA) ... 2
+
+- Puisque le nombre de termes produits est limité, il n'est généralement pas possible de se baser directement sur les minterms des fonctions pour l'implémentation.
+
+- On doit donc simplifier les fonctions avant l'implémentation.
+
+- Un même terme produit peut contribuer à plus d'une fonction.
+
+- La programmation des portes XOR de sortie permet de choisir la fonction directe ou son complément.
+
+- Les PLAs offerts sur le marché proposent des configurations avec des plus grands nombres d'entrées, de termes et de sorties, typiquement des dizaines.
+
+** Logique à matrice programmable (PAL)
+
+- Les dispositifs à *logique à matrice programmable* (an anglais, /Programmable Array Logic/ (PAL)) sont une autre variante sur ce thème, avec une matrice OU fixe et une matrice ET configurable.
+
+- Ils sont moins flexibles que les PLAs.
+
+- La figure [[fig-pal]] montre un dispositif de logique à matrice programmable à quatre variables d'entrée, permettant de réaliser trois fonctions pouvant comporter jusqu'à trois minterms.
+
+** Logique à matrice programmable
+
+#+CAPTION: Logique à matrice programmable
+#+attr_latex: :scale 0.375
+#+NAME:fig-pal
+[[file:../../Sources_images_logiques/images/pal.svg]]
+
+** Logique à matrice programmable (PAL) ... 2
+
+- Les sorties (directes et complémentée pour la première fonction) peuvent être acheminées aux entrées des autres fonctions.
+
+- Encore ici, le nombre de termes produits est limité, et on doit simplifier les fonctions avant l'implémentation.
+
+- Cependant, puisqu'il n'y a pas de matrice OU, il n'est pas possible de partager un terme produit entre deux fonctions.
+
+- Les PALs offerts sur le marché proposent des configurations avec des plus grands nombres d'entrées d'entrées, de termes et de sorties, typiquement des dizaines.
+
+** Logique programmable séquentielle
+
+- En combinant un dispositif logique programmable (en anglais, /Programmable Logic Device/, (PLD)) avec un certain nombre de bascules, il est possible de proposer un circuit programmable séquentiel.
+
+- La configuration générale est telle qu'illustré sur la figure [[fig-circuit_seq_prog]].
+
+#+begin_src ditaa :file Sources_images_logiques/images/circuit_seq_prog.png :results silent :exports none
+             +------------------+     
+             |                  | 
+ Entrées --->+     Circuit      +------> Sorties     
+             |                  |
+             |                  |       +-------------+                 
+             |   programmable   |       | Éléments de |   
+             |                  +------>|             |
+       +---->+       PLD        |       |  mémoire    +---+
+       |     |                  |       |             |   |
+       |     +------------------+       +-------------+   |
+       |                                                  |
+       +--------------------------------------------------+
+#+end_src
+
+
+** Modèle de circuit séquentiel programmable
+
+#+CAPTION: Modèle de circuit séquentiel programmable
+#+attr_latex: :scale 0.55
+#+NAME:fig-circuit_seq_prog
+[[file:../../Sources_images_logiques/images/circuit_seq_prog.png]] 
+
+** Dispositifs programmables complexes
+
+- Plusieurs fabricants proposent une variété de dispositifs de ce type, avec diverses options de configuration, d'interconnexion, etc.
+
+- On offre par exemple des dispositifs complexes qui combinent plusieurs cellules programmables sur un même circuit intégré, reliables au moyen d'un réseau d'interconnexion configurable.
+
+- La disposition générale de ce genre de dispositif complexe est présentée à la figure [[fig-CPLD]].
+
+#+begin_src ditaa :file Sources_images_logiques/images/CPLD.png :results silent :exports none
+             +--------+   +--------+   +--------+   +--------+
+             |        |   |        |   |        |   |        |
+             |  PLD   |   |  PLD   |   |  PLD   |   |  PLD   |
+             |        |   |        |   |        |   |        |
+             +--------+   +--------+   +--------+   +--------+
+                   ^           ^            ^            ^
+                   |           |            |            |
+                   |           |            |            |
+ +------+          v           v            v            v           +------+ 
+ |      |       +--------------------------------------------+       |      |     
+ |      |       |                                            |       |      |
+ |      |       |                                            |       |      |
+ | I/O  |<----->|        Matrice d'interconnexion            |<----->| I/O  |
+ |      |       |                                            |       |      |
+ |      |       |                                            |       |      |
+ |      |       +--------------------------------------------+       |      |
+ +------+          ^           ^            ^            ^           +------+ 
+                   |           |            |            |            
+                   |           |            |            | 
+                   v           v            v            v
+             +--------+   +--------+   +--------+   +--------+
+             |        |   |        |   |        |   |        |
+             |  PLD   |   |  PLD   |   |  PLD   |   |  PLD   |
+             |        |   |        |   |        |   |        |
+             +--------+   +--------+   +--------+   +--------+
+#+end_src
+
+** Modèle de circuit séquentiel programmable complexe
+
+#+CAPTION: Modèle de circuit séquentiel programmable complexe
+#+attr_latex: :scale 0.375
+#+NAME:fig-CPLD
+[[file:../../Sources_images_logiques/images/CPLD.png]]
+
+** Circuits intégrés programmables
+
+- La version la plus sophistiquée des circuits logiques programmables est sans contredit le circuit intégré programmable (en anglais, /Field Programmable gate array/, (FPGA)).
+
+- Un FPGA est constitué d'une matrice de blocs polyvalents appelés *blocs logiques programmables* qui permettent, selon leur configuration, de réaliser n'importe quelle fonction logique.
+
+- Un bloc logique est typiquement constitué d'une ou de quelques *cellules logiques* élémentaires.
+
+** Cellule logique
+
+La figure [[fig-cell_logique]] montre une version simplifiée d'une cellule logique comportant:
+- un tableau de correspondance (LUT) à quatre entrées
+- un additionneur complet
+- une cellule de mémoire
+
+** Cellule logique
+
+#+CAPTION:  Cellule logique
+#+attr_latex: :scale 0.75
+#+NAME:fig-cell_logique
+[[file:../../Sources_images_logiques/images/cell_logique.svg]]
+
+** Éléments
+
+- Le tableau de correspondance (LUT) à quatre entrées \(a, b, c, d\) est fractionné en deux LUT de trois entrées, combinés par un multiplexeur contrôlé par l'entrée \(d\).
+
+- Pour des opérations arithmétiques, les sorties des LUTs à trois entrées sont additionnées avec une retenue externe \(R_i\).
+
+- Le multiplexeur du centre, commandé par le signal de sélection \(S_1\), sélectionne le résultat d'addition ou la fonction réalisée par la LUT à 4 entrées.
+
+- Selon le signal de sélection \(S_2\), la valeur obtenue peut être acheminée directement en sortie de la cellule (cellule en mode combinatoire) ou être stockée dans la bascule D (cellule en mode séquentiel).
+
+** Éléments ... 2
+
+Dans d'autres configuration typiques de cellules, l'additionneur complet est remplacé par un tableau de correspondance.
+
+En plus de la matrice de blocs logiques, un circuit intégré programmable comporte également:
+- des composants consacrés aux entrées/sorties,
+- des lignes d'interconnexion programmables pour relier les blocs entre eux,
+- des lignes de distribution de signaux d'horloge,
+- et possiblement de la mémoire RAM supplémentaire.
+
+** Tableaux de correspondance LUT
+
+- Les LUTs font appel à de la mémoire RAM pour implémenter les tableaux de vérité, ce qui permet une configuration dynamique qui doit être chargée lors de la mise en route du circuit programmable.
+
+- Un autre avantage est que ces mémoires permettent des vitesses de fonctionnement nettement plus rapides que si on utilisait des mémoires ROM.
+
+** Configuration
+
+- Les données de configuration peuvent être stockées dans de la mémoire /flash/ externe par exemple.
+
+- Le circuit FPGA peut donc être reconfiguré et adapté à différentes fonctions, simplement en écrivant de nouvelles données dans la mémoire externe qui contient ses informations de configuration.
+
+- La configuration et la programmation d'un circuit programmable FPGA se fait au moyen d'outils de synthèse spécialisés, souvent en fonction d'une spécification au moyen d'un langage descriptif de matériel (en anglais, /Hardware Description Language/, (HDL)).
+

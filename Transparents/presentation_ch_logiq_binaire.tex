@@ -1,0 +1,404 @@
+% Created 2022-11-16 mer 14:36
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage[, french]{babel}
+\usepackage{svg}
+\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\usetheme{metropolis}
+\usecolortheme{}
+\usefonttheme{}
+\useinnertheme{}
+\useoutertheme{}
+\author{Guy Bégin}
+\date{\today}
+\title{Circuits logiques combinatoires et séquentiels}
+
+\hypersetup{
+ pdfauthor={Guy Bégin},
+ pdftitle={Circuits logiques combinatoires et séquentiels},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdflang={French}}
+\begin{document}
+
+\maketitle
+
+\section{Logique binaire, fonctions logiques et algèbre de Boole}
+\label{sec:org628e4b3}
+
+
+\begin{frame}[label={sec:org75276c0}]{Objectifs}
+\begin{itemize}
+\item Situer les opérations de la logique binaire dans leur contexte algébrique
+\item Être familier avec les postulats de l'algèbre de Boole, et les
+principaux théorèmes
+\item Pouvoir exprimer une fonction logique par un tableau de vérité
+\item Pouvoir appliquer les théorèmes de DeMorgan
+\item Pouvoir formuler une expression logique à partir d'un tableau de vérité
+\item Pouvoir exprimer une fonction logique en \emph{somme de produits}, ou en
+\emph{produit de sommes}, et pouvoir convertir d'une forme à l'autre
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgcbdd598}]{Logique binaire}
+\begin{itemize}
+\item La logique binaire associe une valeur de vérité à des variables,
+selon une convention préétablie.
+
+\item Ces valeurs de vérité sont binaires, à savoir, \alert{vrai} ou \alert{faux}.
+
+\item Pour représenter ces valeurs de vérité, on peut utiliser un encodage
+binaire, comme par exemple
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{llr}
+Valeur de vérité &  & Valeur binaire\\
+\hline
+Vrai &  & 1\\
+Faux &  & 0\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[label={sec:orgb04b3f3}]{Variable binaire}
+\begin{itemize}
+\item Une variable binaire, dénotée par une lettre, permet de désigner une valeur binaire pouvant assumer une de deux valeurs possible, 0 ou 1.
+
+\item La variable est typiquement associée à une proposition, l'état d'un élément ou toute autre condition pouvant admettre deux états distincts.
+
+\item En assignant une valeur binaire à la variable, on définit une valeur de vérité associée à cette variable, et ainsi à la condition qu'elle représente.
+
+\item Par exemple, soit \(S\) une variable binaire qui représente la proposition «le soleil est visible».
+
+\item Alors, \(S=0\) peut s'interpréter comme «le soleil est visible est faux» ou «le soleil n'est pas visible».
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgff4bdc4}]{Opérations logiques}
+\begin{itemize}
+\item Trois opérations logiques de base permettent d'agir sur des variables binaires, de les combiner et de formuler des expressions logiques à partir d'elles.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[label={sec:org07168ff}]{Opérations logiques \ldots{} 1}
+\begin{enumerate}
+\item ET: cette opération est représentée (comme la multiplication) par
+un point central ou par l'absence de signe d'opérateur entre les
+arguments.  Par exemple, \(x \cdot y\) ou \(x y\).  La valeur de
+l'expression est 1 si et seulement si toutes les variables ont la
+valeur 1. Sinon, la valeur est 0.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org9049a5a}]{Opérations logiques \ldots{} 2}
+\begin{enumerate}
+\item OU: cette opération est représentée (comme l'addition) par un signe
++. Par exemple, \(x + y\). La valeur de l'expression est 1 si au
+moins une des variables a la valeur 1. Si aucune des variables ne
+vaut 1, la valeur de l'expression est 0.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgf0a8aa9}]{Opérations logiques \ldots{} 3}
+\begin{enumerate}
+\item NON: cette opération est représentée par un prime, comme par
+exemple \(x^\prime\), ou par une barre au-dessus de la variable,
+\(\overline{x}\).  L'opération NON renverse la valeur binaire de
+son argument: si \(x =0\) alors \(x^ \prime = 1\); si \(x =1\)
+alors \(x^ \prime = 0\). Cette opération de négation, est aussi
+appelée complément, car complémenter une valeur binaire revient à
+faire basculer sa valeur.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org17a5a62}]{Expression logique}
+\begin{itemize}
+\item Une expression logique combine des variables logiques et des opérations, et peut donc assumer une valeur binaire logique.
+
+\item Cette valeur logique peut être assignée à une autre variable, en créant ainsi une équation logique.
+
+\item Par exemple, \(z = x \cdot y\) signifie que \(z\) assume la valeur de l'expression \(x \cdot y\).
+
+\item À partir des valeurs logiques des variables (entrées) \(x\) et \(y\), on peut donc déterminer la valeur logique de la sortie \(z\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org8cd1519}]{Tableaux de vérité}
+\begin{itemize}
+\item Une façon de décrire la valeur logique d'une variable de sortie en fonction des valeurs possibles des variables d'entrée est au moyen d'un tableau de vérité.
+
+\item Dans un tel tableau, il y a une ligne pour chaque combinaison possible des valeurs d'entrée, et sur chaque ligne, on indique la valeur de sortie correspondante.
+
+\item C'est en quelque sorte une description en extension de la valeur de l'expression de sortie.
+\end{itemize}
+
+Voici par exemple les tableaux de vérité pour les opérations de base.
+\end{frame}
+
+\begin{frame}[label={sec:orgac18b93}]{Opération ET}
+\begin{center}
+\begin{tabular}{rrlr}
+\(x\) & \(y\) &  & \(x \cdot y\)\\
+\hline
+0 & 0 &  & 0\\
+0 & 1 &  & 0\\
+1 & 0 &  & 0\\
+1 & 1 &  & 1\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:org2b55d25}]{Opération OU}
+\begin{center}
+\begin{tabular}{rrlr}
+\(x\) & \(y\) &  & \(x + y\)\\
+\hline
+0 & 0 &  & 0\\
+0 & 1 &  & 1\\
+1 & 0 &  & 1\\
+1 & 1 &  & 1\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:org88af66c}]{Opération complément}
+\begin{center}
+\begin{tabular}{rlr}
+\(x\) &  & \(x^{\prime}\)\\
+\hline
+0 &  & 1\\
+1 &  & 0\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:org198c947}]{Formalisme mathématique}
+Un formalisme mathématique, élaboré bien avant l'avènement des circuits électroniques numériques, permet de formuler, analyser et simplifier les expressions de la logique binaire. Il s'agit de l'algèbre de Boole.
+
+\begin{block}{Définitions}
+\begin{itemize}
+\item Une algèbre est un système mathématique, défini pour un ensemble d'éléments auxquels sont associés un ensemble d'opérateurs et qui respecte un jeu d'axiomes ou postulats.
+\end{itemize}
+
+Une algèbre nécessite donc:
+
+\begin{enumerate}
+\item Un ensemble \(S\) d'éléments
+
+\item Des opérateurs: \(\cdot\), \(\star\), \(+\)
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org0323b95}]{Formalisme mathématique \ldots{} 2}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item L'application des opérateurs aux différents éléments doit respecter un certain nombre de propriétés appelées postulats, comme par exemple:
+\end{enumerate}
+\begin{itemize}
+\item Fermeture
+
+\item Associativité
+
+\item Commutativité
+
+\item Existence d'élément identité
+
+\item Existence d'élément inverse
+
+\item Distributivité
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org9524bf9}]{Formalisme mathématique \ldots{} 3}
+\begin{itemize}
+\item Selon le choix des postulats, on arrive à définir différents types de systèmes algébriques.
+
+\item Par exemple, les nombres réels avec lequel nous sommes familiers est un système algébrique d'un type appelé \alert{corps}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orge0af91f}]{Algèbre de Boole}
+Une algèbre de Boole est un type de système algébrique défini sur un
+ensemble \(B\), muni de deux opérateurs dénotés \(+\) et \(\cdot\), et qui
+respecte les postulats suivants (postulats de Huntington):
+
+Note: certains postulats viennent en paires; nous les distinguons ici au
+moyen d'étiquettes \(\spadesuit\) ou \(\heartsuit\).
+\end{frame}
+
+\begin{frame}[label={sec:org5e0e29f}]{Postulats}
+\begin{enumerate}
+\item Fermeture: tout résultat d'une opération sur un élément de
+l'ensemble donne un élément de l'ensemble.
+
+\begin{enumerate}
+\item \(\spadesuit\) Fermeture par rapport à \(+\).
+
+\item \(\heartsuit\) Fermeture par rapport à \(\cdot\).
+\end{enumerate}
+
+\item Éléments identité
+
+\begin{enumerate}
+\item \(\spadesuit\) Élément identité de \(+\), noté 0: on a \(x + 0 = 0 + x = x\).
+
+\item \(\heartsuit\) Élément identité de \(\cdot\), noté 1: on a \(x \cdot 1 = 1 \cdot x = x\).
+\end{enumerate}
+
+\item Commutativité
+
+\begin{enumerate}
+\item \(\spadesuit\) Commutativité par rapport à \(+\): on a \(x + y = y + x\).
+
+\item \(\heartsuit\) Commutativité par rapport à \(\cdot\): on a \(x \cdot y = y
+        \cdot x\).
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgdd25dd9}]{Postulats \ldots{} 2}
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Distributivité
+
+\begin{enumerate}
+\item \(\spadesuit\) \(\cdot\) est distributif sur \(+\): on a \(x \cdot (y + z)= (x \cdot y) +
+        (x \cdot z)\).
+
+\item \(\heartsuit\) \(+\) est distributif sur \(\cdot\): on a \(x + (y \cdot z)= (x + y) \cdot
+        (x + z)\).
+\end{enumerate}
+
+\item Pour chaque élément \(x \in B\), il existe un élément
+\(x^{\prime} \in B\) (appelé complément de \(x\)) tel que
+
+\begin{enumerate}
+\item \(\spadesuit\) \(x + x^{\prime} = 1\).
+
+\item \(\heartsuit\) \(x \cdot x^{\prime} = 0\).
+\end{enumerate}
+
+\item Il existe au moins deux éléments \(x, y \in B\) tels que \(x \neq y\).
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org40bc7ba}]{Remarques}
+Observons des différences entre une algèbre de Boole et le corps des réels:
+
+\begin{enumerate}
+\item Il n'y a pas de loi d'associativité dans les postulats. On peut en démontrer une, cependant.
+
+\item L'opération \(+\) est distributive sur \(\cdot\).
+
+\item Il n'y a pas d'inverse multiplicatif ni d'inverse additif, on ne peut donc pas faire de soustraction ou de division.
+
+\item Il y a un concept de complément.
+
+\item L'ensemble d'éléments est différent. Nous utiliserons pour notre part l'ensemble \(B: \{0, 1 \}\) pour notre algèbre de Boole.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org5da0777}]{Algèbre de Boole à deux valeurs}
+\begin{columns}
+\begin{column}{0.48\columnwidth}
+\begin{block}{}
+L'ensemble de définition: \(B : \{0, 1 \}\).
+
+Opérateur \(\cdot\)
+
+\begin{center}
+\begin{tabular}{rrlr}
+\(x\) & \(y\) &  & \(x \cdot y\)\\
+\hline
+0 & 0 &  & 0\\
+0 & 1 &  & 0\\
+1 & 0 &  & 0\\
+1 & 1 &  & 1\\
+\end{tabular}
+\end{center}
+\end{block}
+\end{column}
+
+
+\begin{column}{0.48\columnwidth}
+\begin{block}{}
+Opérateur \(+\)
+
+\begin{center}
+\begin{tabular}{rrlr}
+\(x\) & \(y\) &  & \(x + y\)\\
+\hline
+0 & 0 &  & 0\\
+0 & 1 &  & 1\\
+1 & 0 &  & 1\\
+1 & 1 &  & 1\\
+\end{tabular}
+\end{center}
+
+Règle de complémentation
+
+\begin{center}
+\begin{tabular}{rlr}
+\(x\) &  & \(x^{\prime}\)\\
+\hline
+0 &  & 1\\
+1 &  & 0\\
+\end{tabular}
+\end{center}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[label={sec:org6e29258}]{Vérification des postulats}
+\begin{enumerate}
+\item La fermeture est évidente (en regardant les tableaux des opérations).
+
+\item En observant les tableaux de vérité, on constate que
+
+\begin{enumerate}
+\item \(0 + 0 = 0\), \(0 + 1 = 1 + 0 = 1\)
+
+\item \(1 \cdot 1 = 1\), \(0 \cdot 1 = 1 \cdot 0 = 0\)
+\end{enumerate}
+
+ce qui définit les deux éléments identité: 0 pour \(+\) et 1 pour  \(\cdot\).
+
+\item La commutativité des lois est évidente: les tableaux sont
+symétriques.
+
+\item Les lois de distributivité se démontrent aisément en établissant des
+tables de vérité pour les différentes valeurs de \(x, y\) et \(z\).
+
+\item Par le tableau de complément, on vérifie que
+
+\begin{enumerate}
+\item \(x + x^{\prime} = 1\), car \(0 + 0^{\prime} = 0 + 1 = 1\) et \(1 +
+        1^{\prime} = 1+ 0 = 1\)
+
+\item \(x \cdot x^{\prime} = 0\) car \(0 \cdot 0^{\prime} = 0 \cdot 1 =
+        0\) et \(1 \cdot 1^{\prime} = 1 \cdot 0 = 0\).
+\end{enumerate}
+
+\item Le postulat 6 est vérifié car il y a deux éléments distincts: 0 et 1.
+\end{enumerate}
+\end{frame}
+\end{document}

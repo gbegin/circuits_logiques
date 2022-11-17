@@ -34,6 +34,22 @@ Transparents pour les chapitres 1 à 12, en version pdf
 
 * [Version source du manuel](circuits_log.tex) en format [LaTeX](https://www.latex-project.org/)
 
+Versions source des transparents pour les chapitres 1 à 12, en format  [org](https://orgmode.org/) et [LaTeX](https://www.latex-project.org/)
+
+* [Chapitre 1](Transparents/presentation_ch_syst_numer.org)          [Chapitre 1](Transparents/presentation_ch_syst_numer.tex)
+* [Chapitre 2](Transparents/presentation_ch_logiq_binaire.org)		 [Chapitre 2](Transparents/presentation_ch_logiq_binaire.tex)
+* [Chapitre 3](Transparents/presentation_ch_theoremes.org)			 [Chapitre 3](Transparents/presentation_ch_theoremes.tex)
+* [Chapitre 4](Transparents/presentation_ch_portes.org)				 [Chapitre 4](Transparents/presentation_ch_portes.tex)
+* [Chapitre 5](Transparents/presentation_ch_simplification.org)		 [Chapitre 5](Transparents/presentation_ch_simplification.tex)
+* [Chapitre 6](Transparents/presentation_ch_combinatoires.org)		 [Chapitre 6](Transparents/presentation_ch_combinatoires.tex)
+* [Chapitre 7](Transparents/presentation_ch_sequentiels.org)		 [Chapitre 7](Transparents/presentation_ch_sequentiels.tex)
+* [Chapitre 8](Transparents/presentation_ch_seq_analyse.org)		 [Chapitre 8](Transparents/presentation_ch_seq_analyse.tex)
+* [Chapitre 9](Transparents/presentation_ch_seq_conception.org)		 [Chapitre 9](Transparents/presentation_ch_seq_conception.tex)
+* [Chapitre 10](Transparents/presentation_ch_seq_reg_compt.org)		 [Chapitre 10](Transparents/presentation_ch_seq_reg_compt.tex)
+* [Chapitre 11](Transparents/presentation_ch_memoires.org)			 [Chapitre 11](Transparents/presentation_ch_memoires.tex)
+* [Chapitre 12](Transparents/presentation_ch_log_prog.org)			 [Chapitre 12](Transparents/presentation_ch_log_prog.tex)
+
+
 * Fichier comportant les [spécifications de génération de
   schémas](generer_images_logique.org), en format
   [org](https://orgmode.org/), spécifications en format

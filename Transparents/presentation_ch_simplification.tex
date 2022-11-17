@@ -1,0 +1,801 @@
+% Created 2022-11-16 mer 14:34
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage[, french]{babel}
+\usepackage{svg}
+\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\usetheme{metropolis}
+\usecolortheme{}
+\usefonttheme{}
+\useinnertheme{}
+\useoutertheme{}
+\author{Guy Bégin}
+\date{\today}
+\title{Circuits logiques combinatoires et séquentiels}
+
+\hypersetup{
+ pdfauthor={Guy Bégin},
+ pdftitle={Circuits logiques combinatoires et séquentiels},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdflang={French}}
+\begin{document}
+
+\maketitle
+
+\section{Simplification logique}
+\label{sec:org95d99f7}
+
+\begin{frame}[label={sec:orgb603955}]{Objectifs}
+\begin{itemize}
+\item Pouvoir formuler une expression logique en forme canonique \emph{Produit
+de sommes} ou \emph{Somme de produits}, et convertir entre les deux formes
+\item Pouvoir simplifier une expression au moyen d'un diagramme de
+Karnaugh
+\item Pouvoir simplifier une expression par la méthode Quine-McCluskey
+\item Être familier avec les approches d'implémentation des fonctions
+simplifiées
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb8e9229}]{Expressions équivalentes}
+\begin{itemize}
+\item Un des aspects ennuyeux avec les expressions logiques est que la correspondance entre expression et fonction logique n'est pas biunivoque: plusieurs expressions différentes peuvent correspondre à une seule et même fonction.
+
+\item De plus, certaines des expressions équivalentes peuvent être plus complexes que d'autres.
+
+\item Lorsque vient le temps d'implémenter avec des portes une fonction logique, il est la plupart du temps plus efficace d'implémenter selon une expression plus simple, voir minimale.
+
+\item On doit donc considérer des approches systématiques et efficaces pour simplifier les expressions logiques.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org0c9b18e}]{Expressions équivalentes \ldots{} 2}
+\begin{itemize}
+\item Quand une expression Booléenne est implémentée avec des portes logiques, chaque terme nécessite une porte et chaque variable au sein d'un terme correspond à une entrée de la porte.
+
+\item On appelle \alert{littéral} une variable qui apparaît dans un terme, sous forme complémentée ou non.
+
+\item Par exemple, l'expression \(F = x^\prime y^\prime z + xz + xy^\prime z\) compte huit littéraux.
+
+\item Si on réduit le nombre de termes, le nombre de littéraux, ou les deux, on obtiendra une expression qui sera plus simple à implémenter avec des portes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org05550ce}]{Formes canoniques}
+\begin{block}{Minterms et maxterms}
+\begin{itemize}
+\item Dans une expression, une variable \(x\) peut apparaître telle qu'elle \(x\) ou complémentée \(x^\prime\).
+
+\item Si on considère les combinaisons possibles de deux variables via un opérateur ET, on a alors quatres possibilités: \(x^\prime y^\prime, x^\prime y, x y^\prime,x y\).
+
+\item Chacun de ces quatres termes s'appelle un \alert{minterm}.
+
+\item De façon équivalente (duale, en vérité), \(n\) variables reliées par une fonction OU peuvent donner lieu à \(2^n\) termes distincts, appelés \alert{maxterms}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org74a118f}]{Formes canoniques \ldots{} 2}
+\begin{itemize}
+\item De façon générale, pour \(n\) variables, on aura \(2^n\) minterms ou \(2^n\) maxterms différents possibles.
+
+\item Pour étiqueter les différents minterms ou maxterms, on a établi une convention de numérotation.
+
+\item Le numéro d'étiquette d'un minterm est construit de la façon suivante.
+
+\item Une variable complémentée amène un bit d'étiquette 0, une variable telle qu'elle amène un bit d'étiquette 1.
+
+\item En ordonnant les bits selon l'ordre alphabétique des variables, on obtient un vecteur de bits qui donnera le numéro à assigner au minterm.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7a8bfa6}]{Formes canoniques \ldots{} 3}
+\begin{itemize}
+\item Par exemple, le minterm \(x y^\prime z\) donnera l'étiquette 101, donc le numéro de minterm (en équivalent décimal) 5.
+
+\item La règle pour les maxterms est duale: une étiquette 0 pour une variable telle qu'elle, et une étiquette 1 pour une variable complémentée.
+
+\item Chaque maxterm est le complément du minterm correspondant (de même numéro), et \emph{vice versa}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org39a7ac3}]{Formes canoniques \ldots{} 4}
+\begin{itemize}
+\item Dans le tableau \ref{tab:org34d351f}, on montre les symboles de la forme \(m_j\) pour les mintems et \(M_j\) pour les maxterms, avec \(j\) qui est l'équivalent décimal de la combinaison de bits correspondante.
+\end{itemize}
+
+\begin{table}[htbp]
+\caption{\label{tab:org34d351f}Minterms et maxterms pour trois variables}
+\centering
+\begin{tabular}{rrrllll}
+\(x\) & \(y\) & \(z\) & Minterm & Symb. & Maxterm & Symb.\\
+\hline
+0 & 0 & 0 & \(x^\prime y^\prime z^\prime\) & \(m_0\) & \(x+ y+ z\) & \(M_0\)\\
+0 & 0 & 1 & \(x^\prime y^\prime z\) & \(m_1\) & \(x+ y+ z^\prime\) & \(M_1\)\\
+0 & 1 & 0 & \(x^\prime y z^\prime\) & \(m_2\) & \(x+ y^\prime+ z\) & \(M_2\)\\
+0 & 1 & 1 & \(x^\prime y z\) & \(m_3\) & \(x+ y^\prime+ z^\prime\) & \(M_3\)\\
+1 & 0 & 0 & \(x y^\prime z^\prime\) & \(m_4\) & \(x^\prime+ y+ z\) & \(M_4\)\\
+1 & 0 & 1 & \(x y^\prime z\) & \(m_5\) & \(x^\prime+ y+ z^\prime\) & \(M_5\)\\
+1 & 1 & 0 & \(x y z^\prime\) & \(m_6\) & \(x^\prime+ y^\prime+ z\) & \(M_6\)\\
+1 & 1 & 1 & \(x y z\) & \(m_7\) & \(x^\prime + y^\prime+ z^\prime\) & \(M_7\)\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgdaebdc7}]{Formes canoniques \ldots{} 5}
+\begin{itemize}
+\item Pour la fonction \(F_1\) dont le tableau de vérité est le suivant:
+\end{itemize}
+
+\begin{table}[htbp]
+\caption{\label{tab:org2cc1502}Fonction de trois variables}
+\centering
+\begin{tabular}{rrrlr}
+\(x\) & \(y\) & \(z\) &  & \(F_1\)\\
+\hline
+0 & 0 & 0 &  & 0\\
+0 & 0 & 1 &  & 0\\
+0 & 1 & 0 &  & 1\\
+0 & 1 & 1 &  & 0\\
+1 & 0 & 0 &  & 1\\
+1 & 0 & 1 &  & 1\\
+1 & 1 & 0 &  & 1\\
+1 & 1 & 1 &  & 1\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[label={sec:orgf7cb6d5}]{\emph{Somme de produits}}
+\begin{itemize}
+\item on peut donc écrire
+\end{itemize}
+
+$$ F_1 = x y^\prime
+z^\prime + x y^\prime z^\prime + x y^\prime z + x y z^\prime + x y z =
+m_2 + m_4 + m_5 + m_6 + m_7 $$
+
+\begin{itemize}
+\item puisque ce sont les termes pour lesquels la fonction vaut 1.
+
+\item Cette forme d'expression est une forme canonique appelée \emph{somme de produits}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orga662e64}]{Notation compacte \ldots{} 2}
+\begin{itemize}
+\item Pour simplifier la notation, on peut écrire de façon plus compacte
+\end{itemize}
+
+$$F_1 = \sum (2, 4, 5, 6, 7)$$
+
+\begin{itemize}
+\item où on ne met que les numéros des minterms participant à la somme.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org05a0186}]{Complément d'une fonction}
+\begin{itemize}
+\item Si on veut exprimer le complément d'une fonction, on peut lire dans le tableau de vérité les combinaisons pour lesquelles la fonction vaut 0.
+
+\item En prenant un minterm pour chaque combinaison où la fonction vaut 0 et en faisant un OU de ces termes, on obtient une expression en \emph{somme de produits} pour le complément de la fonction.
+
+\item Ainsi, pour la fonction \(F_1^\prime\), on a
+\end{itemize}
+
+$$ F_1^\prime = m_0 + m_1 + m_3 = x^\prime y^\prime z^\prime +
+x^\prime y^\prime z + x^\prime y z $$
+\end{frame}
+
+\begin{frame}[label={sec:org622f1ae}]{\emph{Produit de sommes}}
+\begin{itemize}
+\item Si on complémente \(F_1^\prime\), on obtiendra naturellement \(F_1\).
+
+\item En appliquant le théorème de DeMorgan à chaque terme, on trouve
+\end{itemize}
+
+\(F_1 = (x+ y+ z)(x + y + z^\prime)(x + y^\prime + z^\prime) = M_0
+\cdot M_1 \cdot M_3\)
+
+\begin{itemize}
+\item Cette forme d'expression est aussi une forme canonique appelée \emph{produit de sommes}.
+
+\item Pour simplifier la notation, on peut écrire de façon plus compacte
+\end{itemize}
+
+\(F_1 = \prod (0,1,3)\)
+
+\begin{itemize}
+\item où on ne met cette fois que les numéros des maxterms participant au produit.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org2689bd5}]{Somme de produits}
+\begin{itemize}
+\item Pour \(n\) variables binaires, on a \(2^n\) minterms différents possibles.
+
+\item Les minterms qui participent à la somme dans l'expression en forme canonique \emph{somme de produits} sont ceux qui produisent un 1 dans le tableau de vérité de la fonction.
+
+\item Puisque la fonction peut valoir 0 ou 1 pour chaque minterm, le nombre total de fonctions différentes qui peuvent être définies avec \(n\) variables est de \(2^{2^n}\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org24a47cc}]{Conversion vers forme canonique somme de produits}
+\begin{itemize}
+\item Si on veut convertir en forme canonique \emph{somme de produits} l'expression pour une fonction qui ne serait pas sous cette forme, on commence par faire l'expansion de l'expression en forme \emph{somme de produits}.
+
+\item Ensuite, on vérifie chaque terme pour voir si toutes les variables en font partie.
+
+\item S'il manque une ou des variables, on peut faire un ET du terme avec une expression du type \(x + x^\prime\) dans laquelle \(x\) est une variable manquante.
+
+\item Ce ET ne change pas la valeur de la fonction puisque \(x + x^\prime = 1\).
+
+\item Évidemment, on peut toujours trouver la formulation en forme canonique en se basant sur le tableau de vérité.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org22f9bbd}]{Conversion vers forme canonique produit de sommes}
+\begin{itemize}
+\item Si on veut convertir en forme canonique \emph{produit de sommes} l'expression pour une fonction qui ne serait pas sous cette forme, on commence par faire l'expansion de l'expression en forme \emph{produit de sommes}.
+
+\item On peut avantageusement faire appel à la distributivité de \(+\) sur \(\cdot\) pour ce faire.
+
+\item Ensuite, on vérifie chaque terme pour voir si toutes les variables en font partie.
+
+\item S'il manque une ou des variables, on peut faire un OU du terme avec une expression du type \(x \cdot x^\prime\) dans laquelle \(x\) est une variable manquante.
+
+\item Ce OU ne change pas la valeur de la fonction puisque \(x \cdot x^\prime = 0\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgd0eb907}]{Conversion entre formes canoniques}
+\begin{itemize}
+\item Prenons notre exemple précédent \(F_1 = \sum (2, 4, 5, 6, 7)\).
+
+\item On sait que \(F_1^\prime = \sum (0,1,3)\).
+
+\item Si on prend le complément de \(F_1^\prime\) par le théorème de DeMorgan, on obtient \(F_1 = (m_0 + m_1 + m_3)^\prime = m_0^\prime \cdot m_1^\prime \cdot m_3^\prime = M_0 \cdot M_1 \cdot M_3 = \prod (0,1,3)\).
+
+\item En effet, de minterm à maxterm, on a \(m_j^\prime = M_j\).
+
+\item Le maxterm d'indice \(j\) est le complément du minterm de même indice \(j\), et \emph{vice versa}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgd0ef21c}]{Formes standard}
+\begin{itemize}
+\item Les expressions canoniques en \emph{somme de produits} et en \emph{produit de sommes} ne sont généralement pas simples, car toutes les variables doivent être présentes.
+
+\item Pour l'implémentation, on cherchera des expressions en formes \emph{somme de produits} ou \emph{produit de sommes} dans lesquelles les termes pourront être simplifiés.
+
+\item C'est-à-dire que les termes pourront comporter une, deux, trois, etc. variables plutôt qu'obligatoirement \alert{toutes} les variables.
+
+\item Toujours pour notre fonction exemple, on peut écrire
+\end{itemize}
+
+\(F_1 = x + y z^\prime\)
+\end{frame}
+
+\begin{frame}[label={sec:org6b424df}]{Implémentation à deux niveaux}
+\begin{itemize}
+\item Lorsqu'on implémente une telle fonction avec des portes logiques, il faut une porte ET pour chaque terme produit (qui comporte plus d'une variable) et une porte OU pour faire la somme finale.
+
+\item On obtient une implémentation à deux niveaux.
+
+\item De façon duale, on peut également obtenir une formulation en \emph{produit de sommes} qui aboutira à une implémentation à deux niveaux avec une porte OU par terme et une porte ET pour le produit final.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgf02ffd6}]{Objectifs de minimisation}
+Étant donné une fonction logique de \(n\) variables \(z(x_1, x_2, \ldots, x_n)\), on veut déterminer une expression pour cette fonction sous la forme \emph{Somme de Produits} (S de P) ou \emph{Produit de Sommes} (P de S) qui
+
+\begin{enumerate}
+\item comporte un nombre minimum de termes produits (pour la forme S de P)
+ou de termes sommes (pour la forme P de S);
+
+\item est telle qu'aucune expression pour \(z\) comportant le même nombre
+de termes n'utilise moins de littéraux.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgc44d004}]{Diagrammes de Karnaugh}
+\begin{itemize}
+\item Une méthode visuelle permet de simplifier l'expression logique d'une fonction en systématisant une procédure faisant appel à un diagramme qui fait ressortir les simplifications possibles.
+
+\item Un diagramme de Karnaugh (diag-K) est constitué d'un regroupement de cellules carrées, chaque cellule correspondant à un minterm possible.
+
+\item Les cellules sont organisées de façon à ce que lorsqu'on passe d'une cellule à une cellule adjacente (horizontalement ou verticalement), un seul bit du minterm change, ce qui revient à dire qu'une seule variable passe de telle qu'elle à complémentée.
+
+\item Cela fait en sorte que si la fonction est 1 pour deux minterms adjacents, la somme des deux minterms pourra être simplifiée en un seul terme dans lequel la variable correspondant au bit qui change est absente.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgfeb22d6}]{Diagrammes de Karnaugh \ldots{} 2}
+\begin{itemize}
+\item Par exemple, on pourrait avoir pour deux minterms adjacents
+\end{itemize}
+
+\(m_5 + m_7 = xy^\prime z + xyz = xz(y^\prime + y) = xz\). 
+
+\begin{itemize}
+\item Ici les deux minterms adjacents diffèrent par la variable \(y\), qui sera donc supprimée du terme produit résultant.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org972ee0e}]{Diagrammes de Karnaugh: deux variables}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap2}
+\caption{\label{fig:orgf540a29}Diag-K à deux variables}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org5decac2}]{Diagrammes de Karnaugh: trois variables}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap3minterms}
+\caption{\label{fig:org9bcc2ac}Diag-K à trois variables, avec minterms}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgc526ccf}]{Diagrammes de Karnaugh: trois variables \ldots{} 2}
+\begin{itemize}
+\item Sur un diag-K à trois variables, on voit que les bits \(AB\) sont ordonnés selon un code Gray, de façon à ce qu'un seul des bits change lorsqu'on passe d'une cellule à la suivante horizontalement.
+
+\item L'adjacence se poursuit en bout de diagramme: par exemple, la cellule 100 (\(m_4\)) est adjacente horizontalement à la cellule 000 (\(m_0\)).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org9954f41}]{Diagrammes de Karnaugh: trois variables \ldots{} 3}
+\begin{itemize}
+\item On peut imaginer le diagramme comme replié sur lui-même pour visualiser cette adjacence.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap3_repli}
+\caption{\label{fig:orgd7a12c9}Diag-K avec adjacence horizontale}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgfb12d06}]{Diagrammes de Karnaugh: quatre variables et plus}
+\begin{itemize}
+\item Sur un diag-K à quatre variables, l'adjacence repliée est autant horizontale que verticale.
+
+\item Pour plus de quatre variables, il devient difficile d'utiliser cette méthode: les diagrammes sont de grande taille et surtout, les règles d'adjacence ne sont plus aussi facilement observables.
+
+\item Les risques d'erreurs sont plus grands.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgdecb871}]{Diagrammes de Karnaugh: quatre variables}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap4}
+\caption{\label{fig:org5bddc60}Diag-K à quatre variables}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgb775d32}]{Procédure de simplification}
+Pour utiliser un diag-K pour minimiser une fonction logique: 
+
+\begin{enumerate}
+\item Les minterms de la fonction à minimiser sont identifiés en insérant
+un 1 dans la cellule correspondant à chaque minterm.
+\item On cherche dans le diagramme pour trouver des regroupement de deux
+cellules adjacentes qui sont marquées d'un 1.
+\item Chaque groupe de deux cellules 1 adjacentes est marqué comme
+groupe. Un même minterm peut être incorporé à plus d'un groupe.
+\item Il est aussi possible de regrouper les groupes: deux groupes de 2
+qui sont adjacents peuvent ainsi se regrouper en un groupe
+de 4. Les tailles de groupes doivent être des puissances de 2. Il
+est ainsi possible de créer des groupes de 2, 4, 8 ou 16 minterms.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgb35eb3c}]{Procédure de simplification \ldots{} 2}
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Une fois tous les regroupements identifiés, il est possible de lire
+l'expression de la fonction en \emph{somme de produits}. Chaque groupement
+correspond à un terme produit, et la ou les variables dont le bit ne
+change pas dans le groupe sont conservées; les autres sont
+éliminées.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org637abd9}]{Exemple de simplification}
+Considérons par exemple la fonction \(F(A,B,C) = \sum (0, 4, 6, 7)\). 
+
+\begin{itemize}
+\item Après la première étape, on obtient
+\end{itemize}
+
+\begin{center}
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap3fonct}
+\label{org0be2bd2}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:orga8df3a9}]{Exemple de simplification \ldots{} 2}
+\begin{itemize}
+\item Après les regroupements, on obtient un diag-K comportant trois regroupements
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap3fonctsimp}
+\caption{\label{fig:orgce6358f}Diagramme après les regroupements}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgc72ae11}]{Exemple de simplification \ldots{} 3}
+\begin{itemize}
+\item Le groupe en rouge correspond au produit \(B^\prime C^\prime\), celui en bleu correspond à \(A B\) et celui en vert correspond à \(A C^\prime\).
+
+\item L'expression finale en \emph{somme de produits} est donc \(F = B^\prime C^\prime + A B + A C^\prime\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgded751b}]{Cas facultatifs}
+\begin{itemize}
+\item Certaines fonctions sont incomplètement définies, dans le sens où certaines combinaisons d'entrées ne se produiront jamais ou seront sans conséquences si elles se produisent.
+
+\item On parle de \alert{cas indifférents} ou \alert{facultatifs} (en anglais, \emph{don't care}).
+
+\item Pour la simplification, ces cas pourront être traités tantôt comme des 0, tantôt comme des 1, selon ce qui sera le plus avantageux.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org1e4c65f}]{Cas facultatifs \ldots{} 2}
+\begin{itemize}
+\item Pour tenir compte de ces cas, les minterms seront notés avec un X dans le diagramme de Karnaugh.
+
+\item Dans l'exemple à quatre variables suivant, sur deux cas facultatifs, un seul, celui correspondant à \(m_{7}\), a été traité comme un 1, ce qui a permis de créer le regroupement en bleu.
+
+\item L'autre cas facultatif, correspondant à \(m_{2}\), n'a pas servi dans un regroupement, ce qui signifie qu'il a été traité comme un 0.
+
+\item La fonction résultante est donc \(A C^\prime D^\prime + BD + AB\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org1656700}]{Cas facultatifs .. 3}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap4fonct}
+\caption{\label{fig:org8121c63}Diag-K avec cas facultatifs}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[label={sec:orgf6294b1}]{Impliquants}
+Le choix des regroupements à utiliser doit toujours viser à s'assurer que:
+\begin{enumerate}
+\item Tous les minterms de la fonction sont couverts par les regroupements choisis.
+\item Le nombre de termes retenus pour l'expression est minimal.
+\item Il n'y a pas de termes redondants, c'est-à-dire, qui couvrent
+uniquement des minterms déjà couverts.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:orgfe18d65}]{Impliquants \ldots{} 2}
+\begin{itemize}
+\item Il y a parfois des plus d'une expression qui rencontre ces critères.
+
+\item Il est possible de systématiser le choix des termes en prenant en compte le caractère essentiel des termes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orge45e84f}]{Impliquants \ldots{} 3}
+\begin{itemize}
+\item Soit \(p(X)\) un terme produit de littéraux tirés de l'ensemble de variables \(X\).
+\end{itemize}
+
+Si, pour une fonction logique \(z(X)\) définie pour le même ensemble de variables, la relation
+\begin{quote}
+\alert{pour tout \(A\) tel que \(p(A)=1\), \(z(A)=1\)}
+\end{quote}
+tient, alors \(p\) est un \alert{impliquant} de \(z\). 
+
+\begin{itemize}
+\item Cela signifie que la vérité du terme produit \(p\) implique celle de \(z\).
+
+\item \emph{Tout minterm de \(p\) est aussi un minterm de \(z\).}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgf8fd9af}]{Exemple pour impliquants}
+$$z_1 = ab + bc + a b^{\prime} c$$ 
+
+\(a b\), \(b c\), \(a b^{\prime} c\) sont des impliquants évidents de \(z_1\).
+
+\(a^{\prime} b c\), \(a b c^{\prime}\), \(a b c\), \(a c\) sont aussi des
+impliquants de \(z_1\).
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap3fonctimp}
+\caption{\label{fig:orgbdf6932}Diag-K pour l'exemple des impliquants}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:org02c6aac}]{Impliquant premier}
+\begin{itemize}
+\item Un impliquant \(p\) de la fonction \(z\) est \alert{premier} si n'importe quel terme produit obtenu de \(p\) en supprimant un littéral n'est pas un impliquant de \(z\).
+
+\item Ici, \(a b\) est un impliquant premier de \(z_1\) car ni \(a\) ni \(b\) ne sont des impliquants de \(z_1\).
+
+\item Mais \(a b^{\prime} c\) n'est pas un impliquant premier de \(z_1\) car \(a c\) est un impliquant de \(z_1\).
+
+\item Sur un diagramme de Karnaugh, un impliquant premier (i.p.) est un groupe qui n'est contenu dans aucun autre groupe plus grand.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orga593472}]{Couverture d'une fonction}
+\begin{itemize}
+\item Un sous-ensemble d'i.p. qui contient tous les minterms d'une fonction \alert{couvre} la fonction.
+\end{itemize}
+
+Une \alert{couverture minimale} est une couverture avec:
+
+\begin{enumerate}
+\item le nombre minimal d'impliquants premiers,
+
+\item le moins de littéraux parmi les couvertures avec nombre minimum
+d'implicants.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org7deb2fa}]{Impliquant premier essentiel}
+\begin{itemize}
+\item Un i.p. est \alert{essentiel} si et seulement si il couvre un minterm de la fonction qui ne peut être couvert par un autre i.p. de la fonction.  Une couverture de la fonction \alert{doit} contenir tous les impliquants premiers essentiels (i.p.e.).
+
+\item Un \alert{impliquant premier absolument inessentiel} est un i.p. qui couvre des minterms qui sont tous couverts par les i.p.e. de la fonction.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org74dc25c}]{Sélection des impliquants}
+Règles de sélection des impliquants:
+
+\begin{enumerate}
+\item Mettre de côté tous les i.p.e. Ils seront utilisés dans la solution
+finale.
+
+\item Éliminer tous les i.p. absolument inessentiels.
+
+\item Il reste à choisir parmi les i.p. inessentiels pour obtenir une
+couverture minimale.
+\end{enumerate}
+
+Lorsque le problème est de taille réduite, on peut faire une recherche exhaustive de toutes les solutions possibles pour choisir la solution minimale.
+\end{frame}
+
+\begin{frame}[label={sec:orgcf5efde}]{Minimisation avec cas facultatifs}
+\begin{enumerate}
+\item Lorsqu'on détermine les i.p., on doit considérer les X comme des
+1, de façon à pouvoir utiliser les i.p. rendus possibles par les
+cas facultatifs.
+
+\item Lors de la sélection des i.p. pour obtenir une couverture
+minimale, on ne doit pas ne pas essayer de couvrir les X.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org59a73cc}]{Minimisation avec plusieurs fonctions}
+Si deux fonctions \(z_i\) et\(z_j\) ont des expressions minimales qui comportent un terme commun, une seule porte suffira pour générer ce terme au profit des deux fonctions.
+\end{frame}
+
+\begin{frame}[label={sec:orgdb74c14}]{Exemple de minimisation avec plusieurs fonctions}
+\begin{columns}
+\begin{column}{0.48\columnwidth}
+\begin{block}{}
+$$z_1 = a c + a^{\prime} b c^{\prime} + a^{\prime} c^{\prime} d$$ et 
+$$z_2 = a c + a^{\prime}  b c^{\prime} d^{\prime} +
+a^{\prime} b^{\prime} c^{\prime} d$$
+\end{block}
+\end{column}
+
+\begin{column}{0.48\columnwidth}
+\begin{block}{}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap4z1}
+\caption{\label{fig:orgdf103a4}Fonction \(z_1\)}
+\end{figure}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[label={sec:org9796349}]{Exemple de minimisation avec plusieurs fonctions \ldots{} 2}
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/kmap4z2}
+\caption{\label{fig:orgfaa81ad}Fonction \(z_2\)}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgfa53318}]{Exemple de minimisation avec plusieurs fonctions \ldots{} 3}
+\begin{itemize}
+\item Il est alors préférable de réutiliser les termes communs et de générer seulement les termes manquants pour la seconde fonction.
+
+\item Dans cet exemple, le terme \(a c\) sera calculé une seule fois.
+
+\item Les termes \(a^{\prime} b c^{\prime} d^{\prime}\) et \(a^{\prime} b^{\prime} c^{\prime} d\) sont nécessaires pour \(z_2\).
+
+\item Alors, pour \(z_1\), on fera
+\end{itemize}
+
+$$ z_1 = a c + a^{\prime} b c^{\prime} d^{\prime} + a^{\prime} b^{\prime} c^{\prime} d + a^{\prime} b c^{\prime} d $$
+
+\begin{itemize}
+\item qui ne nous coûtera que le dernier terme produit et une somme de quatre termes.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[label={sec:orga7584ef}]{Tableau de couverture Quine-McCluskey}
+\begin{itemize}
+\item La méthode de Quine-McCluskey systématise la sélection des impliquants en se basant sur des relations qui s'expriment en fonction d'un tableau de couverture.
+
+\item Un \alert{tableau de couverture} comporte une ligne pour chaque i.p. et une colonne pour chaque minterm de la fonction à minimiser \(z\).
+
+\item Un \(\checkmark\) est inscrit à l'intersection de la ligne \(i\) et de la colonne \(j\) si l'i.p.  \(P_i\) de la ligne \(i\) couvre le minterm \(m_j\) de la colonne \(j\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org7b56068}]{Problème de minimisation Q-M}
+Le problème de minimisation devient alors: trouver une couverture pour
+la fonction \(z\) qui
+
+\begin{enumerate}
+\item contient le nombre minimum de lignes
+
+\item est telle qu'aucune autre couverture à nombre de ligne minimum
+comprend moins d'entrées 1 et 0 dans ses codes d'impliquants de
+ligne.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label={sec:org6d7bd44}]{Utilisation du tableau de couverture}
+\begin{itemize}
+\item Dans le tableau de couverture, on identifie facilement les i.p.e. par les colonnes qui ne contiennent qu'un \(\checkmark\).
+
+\item L'i.p. qui couvre une colonne qui ne contient qu'un \(\checkmark\) est un i.p.e.
+
+\item Puisque les i.p.e. doivent faire partie de la solution finale, toutes les colonnes couvertes par des i.p.e. seront couvertes dans n'importe quelle solution.
+
+\item On peut donc éliminer ces colonnes de la suite de la recherche de la solution, de même que les lignes correspondant aux i.p.e.
+
+\item On obtient ainsi un tableau de couverture \alert{réduit}.
+
+\item \alert{Il ne faut cependant pas oublier de mettre les i.p.e. dans la solution finale.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org52eec3d}]{Tableau de couverture réduit}
+\begin{itemize}
+\item Le tableau de couverture réduit permet de se concentrer sur la sélection des i.p. dont la sélection n'est pas évidente \emph{a priori}.
+
+\item Considérons pour illustrer la discussion le tableau de couverture réduit suivant.
+
+\item \(m_c\) est sans doute couvert pas un i.p.e. qui n'est pas montré ici.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orge3df187}]{Tableau de couverture réduit \ldots{} 2}
+\begin{table}[htbp]
+\caption{\label{tab:orgb12cf3e}Tableau réduit}
+\centering
+\begin{tabular}{lllllllll}
+ & \(m_a\) & \(m_b\) & \(m_c\) & \(m_d\) & \(m_e\) & \(m_f\) & \(m_g\) & \(m_h\)\\
+\hline
+\(P_A\) &  & \(\checkmark\) &  &  & \(\checkmark\) &  & \(\checkmark\) & \(\checkmark\)\\
+\(P_B\) & \(\checkmark\) & \(\checkmark\) &  &  &  & \(\checkmark\) &  & \(\checkmark\)\\
+\(P_C\) & \(\checkmark\) &  &  &  & \(\checkmark\) &  & \(\checkmark\) & \(\checkmark\)\\
+\(P_D\) &  & \(\checkmark\) &  &  &  &  &  & \(\checkmark\)\\
+\(P_E\) & \(\checkmark\) & \(\checkmark\) &  & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\) & \(\checkmark\)\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[label={sec:org3d162a0}]{Dominance de lignes}
+\begin{itemize}
+\item Une ligne \(P_i\) domine une ligne \(P_j\) (noté \(P_i \supseteq P_j\)) si la ligne \(P_i\) contient un \(\checkmark\) dans toutes les colonnes où la ligne \(P_j\) contient un \(\checkmark\).
+
+\item Ici, on a \(P_B \supseteq P_D\) mais \(P_B\) ne domine pas \(P_A\).
+
+\item On peut voir aussi que \(P_E\) domine plusieurs lignes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org55702df}]{Dominance de lignes \ldots{} 2}
+\begin{itemize}
+\item En général, une \(P_i\) dominante contient plus de \(\checkmark\) que \(P_j\).
+
+\item Si elles ont le même nombre de \(\checkmark\) (dans les mêmes colonnes), on a \(P_i = P_j\).
+
+\item Il n'y a pas de cas d'égalité ici.
+
+\item Une ligne \alert{dominée} par une autre peut être éliminée du tableau de couverture à condition que son nombre de littéraux soit supérieur ou égal à celui de la ligne dominante.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgb102631}]{Dominance de colonnes}
+\begin{itemize}
+\item Une colonne \(m_i\) domine une colonne \(m_j\) (noté \(m_i \supseteq m_j\)) si la colonne \(m_i\) contient un \(\checkmark\) dans toutes les lignes où la colonne \(m_j\) contient un \(\checkmark\).
+
+\item Ici, la colonne \(m_h \supseteq m_g\) mais \(m_b\) ne domine pas \(m_a\).
+
+\item Une colonne \alert{dominant} une autre peut être éliminée du tableau de couverture, car le fait que la solution finale couvre la colonne dominée assure que la colonne dominante sera couverte aussi.
+
+\item Donc ici, la colonne \(m_h\) peut être éliminée.
+
+\item En cas d'égalité, comme on a ici pour \(m_e = m_g\), on peut librement choisir quelle colonne éliminer.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org2f072d0}]{Implémentation des fonctions simplifiées}
+\begin{itemize}
+\item Les circuits logiques simplifiés en forme \emph{produit de sommes} ou \emph{somme de produits} sont souvent mis en oeuvre au moyen de portes NAND ou NOR plutôt qu'avec des portes ET et OU.
+
+\item La raison est qu'il est plus simple en pratique de réaliser ces portes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orga6163b3}]{Implémentation à deux niveaux}
+\begin{itemize}
+\item Une fonction en forme \emph{somme de produits} s'implémente évidemment avec des portes ET pour les produits et une porte OU pour la somme finale.
+
+\item Considérons par exemple \(F = AB + CD\).
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/somme_produits}
+\caption{\label{fig:org026dc0a}\emph{Somme de produits} pour \(F = AB + CD\)}
+\end{figure} 
+\end{frame}
+
+\begin{frame}[label={sec:org1b35840}]{Implémentation à deux niveaux \ldots{} 2}
+\begin{itemize}
+\item La fonction peut aussi s'implémenter tout naturellement en faisant appel uniquement à des portes NAND.
+
+\item On peut vérifier facilement que le circuit suivant implémente la même fonction \(F = ((AB)^\prime \cdot (CD)^\prime)^\prime = AB + CD\)
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/somme_produitsNAND2}
+\caption{\label{fig:org6d98ccc}\emph{Somme de produits} NAND}
+\end{figure} 
+\end{frame}
+
+\begin{frame}[label={sec:orga04328f}]{Implémentation à deux niveaux \ldots{} 3}
+\begin{itemize}
+\item Cette configuration s'interprète plus facilement en représentant la porte de sortie comme une porte NOR avec les entrées complémentées (version équivalente de la porte NAND).
+
+\item En effet, la complémentation de chaque sortie de somme est compensée par la complémentation à l'entrée de la porte de sortie.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includesvg[scale=0.75]{../../Sources_images_logiques/images/somme_produitsNAND}
+\caption{\label{fig:org039cde8}\emph{Somme de produits} NAND plus évidente}
+\end{figure}
+\end{frame}
+\end{document}
