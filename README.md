@@ -36,18 +36,18 @@ Transparents pour les chapitres 1 à 12, en version pdf
 
 Versions source des transparents pour les chapitres 1 à 12, en format  [org](https://orgmode.org/) et [LaTeX](https://www.latex-project.org/)
 
-* [Chapitre 1, format org, format org](Transparents/presentation_ch_syst_numer.org)          [Chapitre 1, format LaTeX](Transparents/presentation_ch_syst_numer.tex)
-* [Chapitre 2, format org](Transparents/presentation_ch_logiq_binaire.org)		 [Chapitre 2, format LaTeX](Transparents/presentation_ch_logiq_binaire.tex)
-* [Chapitre 3, format org](Transparents/presentation_ch_theoremes.org)			 [Chapitre 3, format LaTeX](Transparents/presentation_ch_theoremes.tex)
-* [Chapitre 4, format org](Transparents/presentation_ch_portes.org)				 [Chapitre 4, format LaTeX](Transparents/presentation_ch_portes.tex)
-* [Chapitre 5, format org](Transparents/presentation_ch_simplification.org)		 [Chapitre 5, format LaTeX](Transparents/presentation_ch_simplification.tex)
-* [Chapitre 6, format org](Transparents/presentation_ch_combinatoires.org)		 [Chapitre 6, format LaTeX](Transparents/presentation_ch_combinatoires.tex)
-* [Chapitre 7, format org](Transparents/presentation_ch_sequentiels.org)		 [Chapitre 7, format LaTeX](Transparents/presentation_ch_sequentiels.tex)
-* [Chapitre 8, format org](Transparents/presentation_ch_seq_analyse.org)		 [Chapitre 8, format LaTeX](Transparents/presentation_ch_seq_analyse.tex)
-* [Chapitre 9, format org](Transparents/presentation_ch_seq_conception.org)		 [Chapitre 9, format LaTeX](Transparents/presentation_ch_seq_conception.tex)
-* [Chapitre 10, format org](Transparents/presentation_ch_seq_reg_compt.org)		 [Chapitre 10, format LaTeX](Transparents/presentation_ch_seq_reg_compt.tex)
-* [Chapitre 11, format org](Transparents/presentation_ch_memoires.org)			 [Chapitre 11, format LaTeX](Transparents/presentation_ch_memoires.tex)
-* [Chapitre 12, format org](Transparents/presentation_ch_log_prog.org)			 [Chapitre 12, format LaTeX](Transparents/presentation_ch_log_prog.tex)
+* [Chapitre 1 en format org](Transparents/presentation_ch_syst_numer.org) ou [Chapitre 1 en format LaTeX](Transparents/presentation_ch_syst_numer.tex)
+* [Chapitre 2 en format org](Transparents/presentation_ch_logiq_binaire.org) ou [Chapitre 2 en format LaTeX](Transparents/presentation_ch_logiq_binaire.tex)
+* [Chapitre 3 en format org](Transparents/presentation_ch_theoremes.org) ou [Chapitre 3 en format LaTeX](Transparents/presentation_ch_theoremes.tex)
+* [Chapitre 4 en format org](Transparents/presentation_ch_portes.org) ou [Chapitre 4 en format LaTeX](Transparents/presentation_ch_portes.tex)
+* [Chapitre 5 en format org](Transparents/presentation_ch_simplification.org) ou [Chapitre 5 en format LaTeX](Transparents/presentation_ch_simplification.tex)
+* [Chapitre 6 en format org](Transparents/presentation_ch_combinatoires.org) ou [Chapitre 6 en format LaTeX](Transparents/presentation_ch_combinatoires.tex)
+* [Chapitre 7 en format org](Transparents/presentation_ch_sequentiels.org) ou [Chapitre 7 en format LaTeX](Transparents/presentation_ch_sequentiels.tex)
+* [Chapitre 8 en format org](Transparents/presentation_ch_seq_analyse.org) ou [Chapitre 8 en format LaTeX](Transparents/presentation_ch_seq_analyse.tex)
+* [Chapitre 9 en format org](Transparents/presentation_ch_seq_conception.org) ou [Chapitre 9 en format LaTeX](Transparents/presentation_ch_seq_conception.tex)
+* [Chapitre 10 en format org](Transparents/presentation_ch_seq_reg_compt.org) ou [Chapitre 10 en format LaTeX](Transparents/presentation_ch_seq_reg_compt.tex)
+* [Chapitre 11 en format org](Transparents/presentation_ch_memoires.org) ou [Chapitre 11 en format LaTeX](Transparents/presentation_ch_memoires.tex)
+* [Chapitre 12 en format org](Transparents/presentation_ch_log_prog.org) ou [Chapitre 12 en format LaTeX](Transparents/presentation_ch_log_prog.tex)
 
 
 * Fichier comportant les [spécifications de génération de
