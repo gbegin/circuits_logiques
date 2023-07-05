@@ -2,6 +2,7 @@
 #+OPTIONS: f
 #+OPTIONS: num: 4
 #+LANGUAGE: fr
+#+EXCLUDE_TAGS: r
 
 #+LATEX_HEADER: \usepackage[a-1b]{pdfx}
 #+LATEX_HEADER: \usepackage[]{babel}
@@ -21,63 +22,121 @@
 
 #+OPTIONS: d:nil
 :meta_donnees:
-| Métadonnée                  | Valeur                                                     |
-|-----------------------------+------------------------------------------------------------|
-| dc.contributor.affiliation  | Université du Québec à Montréal.Département d'informatique |
-| dc.creator                  | Guy Bégin                                                  |
-| dcterms.created             |                                                            |
-| dc.date.available           |                                                            |
-| dcterms.issued              |                                                            |
-| dc.date.accessioned         |                                                            |
-| dc.subject.classification   | Technologie et ingénierie                                  |
-| dc.rights                   |                                                            |
-| dc.rights.uri               | https://creativecommons.org/licenses/by/3.0/               |
-| dc.publisher                |                                                            |
-| dcterms.medium              | Texte/HTML                                                 |
-| dc.language                 | fra                                                        |
-| dcterms:description         |                                                            |
-| dc.subject                  | Circuits logiques                                          |
-| dc.title                    | Circuits logiques combinatoires et séquentiels             |
-| dc.type                     | Objet d'apprentissage                                      |
-| dc.type.learningResource    | Manuel                                                     |
-| dc.identifier.uri           | https://github.com/gbegin/circuits_logiques                |
-| dcterms.HasVersion          |                                                            |
-| dcterms.IsVersionOf         |                                                            |
-| dcterms.format              |                                                            |
-| dc.format                   |                                                            |
-| dcterms.instructionalMethod |                                                            |
-| dcterms.educationalLevel    | Université premier cycle                                   |
-| dcterms.abstract            |                                                            |
-| dcterms.alternative         |                                                            |
-| dc.contributor              |                                                            |
-| dc.creator.ORCID            |                                                            |
-| dc.audience                 |                                                            |
-| dcterms.TableOfContent      |                                                            |
+| Métadonnée                  | Valeur                                                                           |
+|-----------------------------+----------------------------------------------------------------------------------|
+| dc.contributor.affiliation  | Université du Québec à Montréal.Département d'informatique                       |
+| dc.creator                  | Guy Bégin                                                                        |
+| dcterms.created             |                                                                                  |
+| dc.date.available           |                                                                                  |
+| dcterms.issued              |                                                                                  |
+| dc.date.accessioned         |                                                                                  |
+| dc.subject.classification   | Technologie et ingénierie                                                        |
+| dc.rights                   | Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0) |
+| dc.rights.uri               | https://creativecommons.org/licenses/by-sa/4.0/                                  |
+| dc.publisher                |                                                                                  |
+| dcterms.medium              | Texte/HTML                                                                       |
+| dc.language                 | fra                                                                              |
+| dcterms:description         |                                                                                  |
+| dc.subject                  | Circuits logiques                                                                |
+| dc.title                    | Circuits logiques combinatoires et séquentiels                                   |
+| dc.type                     | Objet d'apprentissage                                                            |
+| dc.type.learningResource    | Manuel                                                                           |
+| dc.identifier.uri           | https://github.com/gbegin/circuits_logiques                                      |
+| dcterms.HasVersion          |                                                                                  |
+| dcterms.IsVersionOf         |                                                                                  |
+| dcterms.format              |                                                                                  |
+| dc.format                   |                                                                                  |
+| dcterms.instructionalMethod |                                                                                  |
+| dcterms.educationalLevel    | Université premier cycle                                                         |
+| dcterms.abstract            |                                                                                  |
+| dcterms.alternative         |                                                                                  |
+| dc.contributor              |                                                                                  |
+| dc.creator.ORCID            |                                                                                  |
+| dc.audience                 |                                                                                  |
+| dcterms.TableOfContent      |                                                                                  |
 
-| *Type de métadonnées*                                 | *Métadonnées*                                                        |
-|-------------------------------------------------------+----------------------------------------------------------------------|
-| Auteur(s)                                             | Guy Bégin                                                            |
-| Affiliation (université, département)                 | Université du Québec à Montréal.Département d'informatique           |
-| Contributeur                                          |                                                                      |
-| Titre (tel qu'apparait sur la REL)                    | Circuits logiques combinatoires et séquentiels                       |
-| Date de création (année, mois, jour si disponible)    | 2022-11                                                              |
-| Date de publication (année, mois, jour si disponible) |                                                                      |
-| Éditeur                                               | UQAM                                                                 |
-| Résumé                                                |                                                                      |
-| URL de la ressource primaire lorsque si dérivée       | https://github.com/gbegin/circuits_logiques                          |
-| Discipline (voir annexe 1)                            | Technologie et ingénierie                                            |
-| Niveau scolaire de la ressource (voir annexe 5)       | Université premier cycle, Formation technique                        |
-| Type de matériel pédagogique (voir annexe 3)          | Manuel                                                               |
-| Méthode d'enseignement (voir annexe 4)                |                                                                      |
-| Type de ressource                                     | Objet d'apprentissage                                                |
-| Note                                                  | Ressources éducatives libres et Open Educational Resources           |
-| Sujet (mots-clés qui décrivent la REL)                | Circuit logique combinatoire séquentiel électronique numérique Boole |
-| Langue                                                | Français (Canada), Français (France)                                 |
-| Format (voir annexe 2)                                | Texte/HTML                                                           |
-| Licence                                               | https://creativecommons.org/licenses/by/3.0/                         |
-| Autre                                                 |                                                                      |
+| *Type de métadonnées*                                 | *Métadonnées*                                   |
+|-------------------------------------------------------+-------------------------------------------------|
+| Auteur(s)                                             | Bégin, Guy                                      |
+| Affiliation (université, département)                 | Université du Québec à Montréal.                |
+|                                                       | Département d'informatique                      |
+| Contributeur                                          |                                                 |
+| Titre (tel qu'apparait sur la REL)                    | Circuits logiques combinatoires et séquentiels  |
+| Date de création (année, mois, jour si disponible)    | 2022-11                                         |
+| Date de publication (année, mois, jour si disponible) |                                                 |
+| Éditeur                                               | Université du Québec à Montréal                 |
+| Résumé                                                | [fn:1]                                          |
+| URL de la ressource primaire lorsque si dérivée       | https://github.com/gbegin/circuits_logiques     |
+| Discipline (voir annexe 1)                            | Technologie et ingénierie                       |
+| Niveau scolaire de la ressource (voir annexe 5)       | Université premier cycle                        |
+|                                                       | Formation technique                             |
+| Type de matériel pédagogique (voir annexe 3)          | Manuel                                          |
+| Méthode d'enseignement (voir annexe 4)                | Autre                                           |
+| Type de ressource                                     | Objet d'apprentissage                           |
+| Note                                                  | Ressources éducatives libres                    |
+|                                                       | Open Educational Resources                      |
+| Sujet (mots-clés qui décrivent la REL)                | Circuits logiques                               |
+|                                                       | Circuits combinatoires                          |
+|                                                       | Circuits séquentiels                            |
+|                                                       | Électronique numérique                          |
+|                                                       | Machine à état                                  |
+|                                                       | Portes logiques                                 |
+|                                                       | Algèbre de Boole                                |
+|                                                       | VHDL                                            |
+|                                                       | Logique programmable                            |
+| Langue                                                | Français (Canada), Français (France)            |
+| Format (voir annexe 2)                                | Texte/HTML                                      |
+| Licence                                               | https://creativecommons.org/licenses/by-sa/4.0/ |
+| Autre                                                 |                                                 |
 
+[fn:1] 
+Ce manuel, une Ressource Éducative Libre (REL), est une introduction
+au domaine de la conception des circuits logiques, qui sont à la base
+de tous les systèmes numériques modernes.  Il s'adresse tout
+particulièrement aux étudiants qui suivent un enseignement technique,
+ou un premier cycle universitaire, ainsi qu'à tous ceux qui
+s'intéressent à l'ingénierie électronique.  Le lecteur n'a besoin
+d'aucune connaissance préalable pour pouvoir en assimiler les
+concepts, mais une connaissance de la programmation permettra de
+pousser l'expérimentation par simulation. On y introduit les concepts
+élémentaires de la logique, y compris l'algèbre de boole et les tables
+de vérité, puis la conception des circuits logiques combinatoires,
+puis séquentiels. De nombreux dispositifs classiques sont présentés:
+additionneurs, encodeurs et décodeurs, multiplexeurs, bascules,
+compteurs, registres et mémoires.
+
+Les trois premiers chapitres présentent les concepts de base de la
+logique binaire, de l'algèbre de Boole et des systèmes de numération.
+
+Dans les chapitres suivants, on voit comment les opérations logiques
+peuvent être mises en oeuvre au moyen de dispositifs électroniques:
+d'abord avec des portes logiques simples (chapitre 4), puis
+avec des dispositifs combinatoires plus complexes (chapitre 6). On
+présente également les approches permettant de simplifier les circuits
+logiques combinatoires, c'est-à-dire ceux dont le comportement ne
+dépend pas du temps (chapitre 5).
+
+Les circuits logiques séquentiels, qui eux comportent de la
+mémoire, sont considérés ensuite. On présente d'abord les loquets et
+bascules, composants de base des circuits séquentiels (chapitre 7),
+puis on aborde l'analyse (chapitre 8) et la conception (chapitre 9) de
+circuits séquentiels synchrones. Le chapitre 10 présente de nombreux
+types de circuits séquentiels typiques, alors que le chapitre 11 est
+consacré aux différents types de mémoires.
+
+Le chapitre 12 offre une brève introduction aux dispositifs logiques
+programmables qui amènent les circuits logiques à un autre degré de
+flexibilité et d'intégration.
+
+Dans les chapitres 13 et 14, on s'intéresse à la modélisation de
+circuits, en introduisant le langage desciptif VHDL, qui permet de
+décrire formellement des circuits logiques pour en faire la
+conception, la simulation, voire, la synthèse.
+
+Le manuel se conclut avec des séries d'exercices (chapitre 15) qui
+permettront de mettre en pratique les notions abordées.
 :END:
+
 
 #+TITLE: Circuits logiques combinatoires et séquentiels
 #+AUTHOR: Guy Bégin
@@ -127,6 +186,7 @@ simulation:
   - [[https://www.gnu.org/software/emacs/][Emacs]]
   - [[https://www.latex-project.org/][LaTeX]]
   - [[https://git-scm.com][Git]]
+  - [[https://pandoc.org/][Pandoc]]
 - Schémas
   - [[https://graphviz.org/][Graphviz]]
   - [[https://inkscape.org][Inkscape]]
@@ -176,6 +236,15 @@ combinatoires et séquentiels. Université du Québec à Montréal. Licence CC B
 :UNNUMBERED: t
 :END:
 
+Ce manuel est une introduction au domaine de la conception des circuits
+logiques, qui sont à la base de tous les systèmes numériques
+modernes. Il s'adresse tout particulièrement aux étudiants qui suivent
+un enseignement technique, ou un premier cycle universitaire, ainsi
+qu'à tous ceux qui s'intéressent à l'ingénierie électronique.  Le
+lecteur n'a besoin d'aucune connaissance préalable pour pouvoir en
+assimiler les concepts, mais une connaissance de la programmation
+permettra de pousser l'expérimentation par simulation.
+
 Les chapitres 1 à 3 de cet ouvrage sont consacrés aux concepts de base
 de la logique binaire et des systèmes de numération. Ces notions sont
 présentées d'un point de vue relativement abstrait qui n'est pas
@@ -217,7 +286,6 @@ permettront de mettre en pratique les notions abordées.
 #+LATEX: \listoffigures
 #+TOC: tables
 #+TOC: listings
-
 
 
 * Systèmes de numération
@@ -466,7 +534,7 @@ valeur \(1 \times 4 + 0 \times 2 + 1 \times 1 + 1 \times 1/2 + 1
 Il est possible de transposer les opérations arithmétiques habituelles
 pour effectuer différentes opération arithmétiques: addition,
 soustraction, multiplication, division, avec des nombres
-binaires. Nous verrrons plus loin comment ces opérations s'exécutent
+binaires. Nous verrons plus loin comment ces opérations s'exécutent
 lorsque nous aurons établi les formes d'encodages binaires qui seront
 utilisés pour les nombres, notamment la représentation des nombres
 signés.
@@ -708,7 +776,7 @@ sens qu'en ajoutant 1 pour passer de 1 à 2.
 #+CAPTION:Relations entre les codes dans l'assignation en complément à deux
 #+attr_latex: :scale 0.25
 #+NAME:fig-cycle-pos-neg
-[[file:Sources_images_logiques/images/cycle.png]]
+[[file:Images_png/cycle.png]]
 
 En suivant cette logique, on pourra, comme indiqué sur la figure,
 assigner les codes dans les boîtes en ellipses, en jaune, à des
@@ -1475,7 +1543,7 @@ l'autre.
 #+CAPTION: Porte ET à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-et2
-[[file:Sources_images_logiques/images/and_logique.svg]]
+[[file:Images_svg/and_logique.svg]]
 
 Les portes qui réalisent des fonctions qui sont associative et
 commutatives peuvent aussi se définir avec plus de deux entrées. C'est
@@ -1486,7 +1554,7 @@ le cas avec les fonctions ET et OU.
 #+CAPTION: Porte ET à trois entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-et2
-[[file:Sources_images_logiques/images/and3_logique.svg]]
+[[file:Images_svg/and3_logique.svg]]
 
 *** Porte OU
 
@@ -1495,7 +1563,7 @@ le cas avec les fonctions ET et OU.
 #+CAPTION: Porte OU à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-ou2
-[[file:Sources_images_logiques/images/or_logique.svg]]
+[[file:Images_svg/or_logique.svg]]
    
 *** Porte inverseur
 
@@ -1506,14 +1574,14 @@ qu'une seule entrée. \(B = A^\prime\)
 #+CAPTION: Porte inverseur
 #+attr_latex: :scale 0.75
 #+NAME:fig-inverseur
-[[file:Sources_images_logiques/images/not_logique.svg]] 
+[[file:Images_svg/not_logique.svg]] 
 
 *** Porte NON-OU (NOR)
 
 #+CAPTION: Porte NOR à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-nor2
-[[file:Sources_images_logiques/images/nor_logique.svg]]
+[[file:Images_svg/nor_logique.svg]]
 
 *** Porte NON-ET (NAND) et NON-OU (NOR)
     
@@ -1533,7 +1601,7 @@ C)^\prime\).
 #+CAPTION: Porte NAND à trois entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-nand3
-[[file:Sources_images_logiques/images/nand3_logique.svg]]
+[[file:Images_svg/nand3_logique.svg]]
     
 *** Entrées inversées
 
@@ -1547,7 +1615,7 @@ inversée. La porte évalue donc \(S =  (A^\prime \cdot B  \cdot C)^\prime\)
 #+CAPTION: Porte NAND à trois entrées dont une inversée
 #+attr_latex: :scale 0.75
 #+NAME:fig-nand3_inv
-[[file:Sources_images_logiques/images/nand3_logique_invin1.svg]] 
+[[file:Images_svg/nand3_logique_invin1.svg]] 
 
 *** NAND et NOR, représentations équivalentes
 
@@ -1559,12 +1627,12 @@ façons équivalentes.
 #+CAPTION: Deux représentations équivalentes pour une porte NOR
 #+attr_latex: :scale 0.75
 #+NAME:fig-nor_equiv
-[[file:Sources_images_logiques/images/NORequiv.svg]]
+[[file:Images_svg/NORequiv.svg]]
 
 #+CAPTION: Deux représentations équivalentes pour une porte NAND
 #+attr_latex: :scale 0.75
 #+NAME:nand_equiv
-[[file:Sources_images_logiques/images/NANDequiv.svg]]
+[[file:Images_svg/NANDequiv.svg]]
 
 *** Porte OU-exclusif (XOR)
 
@@ -1583,7 +1651,7 @@ $$ S= A \cdot B^\prime + A^\prime \cdot B $$
 #+CAPTION: Porte XOR à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-xor
-[[file:Sources_images_logiques/images/exor_logique.svg]]
+[[file:Images_svg/exor_logique.svg]]
 
 *** Porte NON-OU-exclusif ou Équivalence (XNOR)
 
@@ -1595,7 +1663,7 @@ différentes façons.
 #+CAPTION: Porte XNOR
 #+attr_latex: :scale 0.75
 #+NAME:fig-xnor
-[[file:Sources_images_logiques/images/xnor_logique.svg]]
+[[file:Images_svg/xnor_logique.svg]]
 
 ** Universalité des NAND et NOR
 
@@ -1690,7 +1758,7 @@ lorsque les conditions d'entrée changent.
 
 #+CAPTION: Porte ET sans délai
 #+NAME:fig-course
-[[file:Sources_images_logiques/images/chronopasdelais.svg]]
+[[file:Images_svg/chronopasdelais.svg]]
 
 ***** Modèle avec délai en sortie
 
@@ -1701,7 +1769,7 @@ sortie après un délai \(t_p\).
 
 #+CAPTION: Porte ET avec délai en sortie
 #+NAME:fig-course
-[[file:Sources_images_logiques/images/chrononodelaisortie.svg]]
+[[file:Images_svg/chrononodelaisortie.svg]]
 
 ***** Modèle avec délai en entrée
 
@@ -1711,7 +1779,7 @@ spécifier un délai différent selon l'entrée qui entraîne le changement
 
 #+CAPTION: Porte ET avec délai aux entrées
 #+NAME:fig-course
-[[file:Sources_images_logiques/images/chrononodelaientree.svg]]
+[[file:Images_svg/chrononodelaientree.svg]]
 
 ***** Modèle combiné
 
@@ -1732,7 +1800,7 @@ le signal \(a^\prime\) est retardé d'un délai de propagation
 #+CAPTION: Cas à risque de condition de course
 #+attr_latex: :scale 0.75
 #+NAME:fig-course
-[[file:Sources_images_logiques/images/course.svg]]
+[[file:Images_svg/course.svg]]
 
 En pratique, on pourrait observer un chronogramme qui s'apparente à
 celui de la figure suivante (figure [[fig-chronocourse]]), où on voit
@@ -1745,7 +1813,7 @@ en anglais, /glitch/).
 
 #+CAPTION: Chronogramme montrant une condition de course
 #+NAME:fig-chronocourse
-[[file:Sources_images_logiques/images/chronocourse.svg]]
+[[file:Images_svg/chronocourse.svg]]
 
 Ces aléas peuvent être la source de problèmes et de dysfonctionnements
 qui sont parfois difficiles à diagnostiquer, et il faut vraiment s'en
@@ -1769,7 +1837,6 @@ conditions de /fan-out/.
 *** COMMENT Résistances de tirage «Pull-up»
 
 *** COMMENT Manipulations algébriques
-
 
 * Simplification logique
 
@@ -2016,12 +2083,12 @@ supprimée du terme produit résultant.
 #+CAPTION: Diag-K à deux variables
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk2
-[[file:Sources_images_logiques/images/kmap2.svg]]
+[[file:Images_svg/kmap2.svg]]
 
 #+CAPTION: Diag-K à trois variables, avec minterms
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk3_min
-[[file:Sources_images_logiques/images/kmap3minterms.svg]]
+[[file:Images_svg/kmap3minterms.svg]]
 
 Sur un diag-K à trois variables, on voit que les bits \(AB\) sont
 ordonnés selon un code Gray, de façon à ce qu'un seul des bits change
@@ -2034,7 +2101,7 @@ lui-même pour visualiser cette adjacence.
 #+CAPTION: Diag-K avec adjacence horizontale
 #+attr_latex: :scale 0.75
 #+NAME::fig-diagk3-repli
-[[file:Sources_images_logiques/images/kmap3_repli.svg]]
+[[file:Images_svg/kmap3_repli.svg]]
 
 Sur un diag-K à quatre variables, l'adjacence repliée est autant horizontale
 que verticale.
@@ -2047,7 +2114,7 @@ d'erreurs sont plus grands.
 #+CAPTION: Diag-K à quatre variables
 #+attr_latex: :scale 0.75
 #+NAME:fig-diag4
-[[file:Sources_images_logiques/images/kmap4.svg]]
+[[file:Images_svg/kmap4.svg]]
 
 *** Procédure de simplification
 
@@ -2076,14 +2143,14 @@ Considérons par exemple la fonction \(F(A,B,C) = \sum (0, 4, 6,
 
 #+NAME:diag_etape1
 #+attr_latex: :scale 0.75
-[[file:Sources_images_logiques/images/kmap3fonct.svg]]
+[[file:Images_svg/kmap3fonct.svg]]
 
 Après les regroupements, on obtient un diag-K comportant trois regroupements
 
 #+CAPTION: Diagramme après les regroupements
 #+attr_latex: :scale 0.75
 #+NAME::diag_etape2
-[[file:Sources_images_logiques/images/kmap3fonctsimp.svg]]
+[[file:Images_svg/kmap3fonctsimp.svg]]
 
 Le groupe en rouge correspond au produit \(B^\prime C^\prime\), celui
 en bleu correspond à \(A B\) et celui en vert correspond à \(A
@@ -2111,7 +2178,7 @@ un 0. La fonction résultante est donc \(A C^\prime D^\prime + BD + AB
 #+CAPTION: Diag-K avec cas facultatifs
 #+attr_latex: :scale 0.75
 #+NAME:fig-cas_fac
-[[file:Sources_images_logiques/images/kmap4fonct.svg]]
+[[file:Images_svg/kmap4fonct.svg]]
 
 
 *** Impliquants
@@ -2150,7 +2217,7 @@ impliquants de $z_1$.
 #+CAPTION: Diag-K pour l'exemple des impliquants
 #+attr_latex: :scale 0.75
 #+NAME::diag_exemple
-[[file:Sources_images_logiques/images/kmap3fonctimp.svg]]
+[[file:Images_svg/kmap3fonctimp.svg]]
 
 *** Impliquant premier
 
@@ -2227,12 +2294,12 @@ a^{\prime} b^{\prime} c^{\prime} d$$
 #+CAPTION: Fonction \(z_1\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fonctz1
-[[file:Sources_images_logiques/images/kmap4z1.svg]]
+[[file:Images_svg/kmap4z1.svg]]
 
 #+CAPTION:  Fonction \(z_2\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fonctz2
-[[file:Sources_images_logiques/images/kmap4z2.svg]]
+[[file:Images_svg/kmap4z2.svg]]
 
 Il est alors préférable de réutiliser les termes communs et de générer
 seulement les termes manquants pour la seconde fonction. Dans cet
@@ -2349,7 +2416,7 @@ finale. Considérons par exemple \(F = AB + CD\).
 #+CAPTION: /Somme de produits/ pour \(F = AB + CD\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-prod_sommes
-[[file:Sources_images_logiques/images/somme_produits.svg]] 
+[[file:Images_svg/somme_produits.svg]] 
 
 La fonction peut aussi s'implémenter tout naturellement en faisant
 appel uniquement à des portes NAND. On peut vérifier facilement que le
@@ -2359,7 +2426,7 @@ circuit suivant implémente la même fonction \(F = ((AB)^\prime \cdot
 #+CAPTION: /Somme de produits/ NAND
 #+attr_latex: :scale 0.75
 #+NAME:fig-prod_sommes_nand
-[[file:Sources_images_logiques/images/somme_produitsNAND2.svg]] 
+[[file:Images_svg/somme_produitsNAND2.svg]] 
 
 Cette configuration s'interprète plus facilement en représentant la
 porte de sortie comme une porte NOR avec les entrées complémentées
@@ -2370,7 +2437,7 @@ l'entrée de la porte de sortie.
 #+CAPTION:/Somme de produits/ NAND plus évidente
 #+attr_latex: :scale 0.75
 #+NAME:fig-prod_sommes_nand_evident
-[[file:Sources_images_logiques/images/somme_produitsNAND.svg]]
+[[file:Images_svg/somme_produitsNAND.svg]]
 
 * Circuits combinatoires typiques
 ** Objectifs
@@ -2408,7 +2475,7 @@ place généralement les entrées à gauche et les sorties à droite.
 
 #+CAPTION:Circuit combinatoire
 #+NAME:fig-circuit_comb
-[[file:Sources_images_logiques/images/circuit_comb.png]]
+[[file:Images_png/circuit_comb.png]]
 
 Avec \(n\) entrées, il est possible de créer \(2^n\) combinaisons
 différentes des entrées binaires. Pour chaque combinaison, le circuit
@@ -2459,7 +2526,7 @@ suivante.
 #+CAPTION: Circuit combinatoire à analyser
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_analyser
-[[file:Sources_images_logiques/images/circuit_logique_inconnu.svg]]
+[[file:Images_svg/circuit_logique_inconnu.svg]]
 
 # I1 = ¬A ∧ B ∧ C
 # I2 = ¬A ∧ ¬D
@@ -2549,7 +2616,7 @@ figure suivante.
 #+CAPTION: Diag-K d'une fonction combinatoire \(Y\) à réaliser
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk_altern
-[[file:Sources_images_logiques/images/kmap3altern.svg]] 
+[[file:Images_svg/kmap3altern.svg]] 
 
 *** Implémentations via la fonction directe
 
@@ -2563,13 +2630,13 @@ possibles pour la fonction directe sont illustrées ci-dessous.
 #+CAPTION: Implémentation de \(Y\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern
-[[file:Sources_images_logiques/images/circ_altern_1.svg]] 
+[[file:Images_svg/circ_altern_1.svg]] 
 
 
 #+CAPTION: Implémentation (en NAND) de \(Y\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern2
-[[file:Sources_images_logiques/images/circ_altern_2.svg]] 
+[[file:Images_svg/circ_altern_2.svg]] 
 
 
 **** Implémentation en /produit de sommes/
@@ -2583,12 +2650,12 @@ possibles pour la fonction directe sont illustrées ci-dessous.
 #+CAPTION: Implémentation de \(Y\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_ps1
-[[file:Sources_images_logiques/images/circ_altern_ps1.svg]] 
+[[file:Images_svg/circ_altern_ps1.svg]] 
 
 #+CAPTION: Implémentation (en NOR) de \(Y\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_alternps2
-[[file:Sources_images_logiques/images/circ_altern_ps2.svg]] 
+[[file:Images_svg/circ_altern_ps2.svg]] 
 
 
 *** Implémentations via la fonction complémentaire
@@ -2606,14 +2673,14 @@ obtenir finalement \(Y\).
 #+CAPTION: Implémentation via \(Y^\prime\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_sp1
-[[file:Sources_images_logiques/images/circ_altern_comp_sp1.svg]] 
+[[file:Images_svg/circ_altern_comp_sp1.svg]] 
 
 Une autre forme fait appel à des portes NAND au premier niveau.
 
 #+CAPTION: Implémentation via \(Y^\prime\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_sp2
-[[file:Sources_images_logiques/images/circ_altern_comp_sp2.svg]] 
+[[file:Images_svg/circ_altern_comp_sp2.svg]] 
 
 **** Implémentation en /produit de sommes/
 
@@ -2624,13 +2691,13 @@ deux variantes selon le type de portes utilisées.
 #+CAPTION: Implémentation via \(Y^\prime\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_ps1
-[[file:Sources_images_logiques/images/circ_altern_comp_ps1.svg]] 
+[[file:Images_svg/circ_altern_comp_ps1.svg]] 
 
 
 #+CAPTION: Implémentation via \(Y^\prime\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_ps2
-[[file:Sources_images_logiques/images/circ_altern_comp_ps2.svg]] 
+[[file:Images_svg/circ_altern_comp_ps2.svg]] 
 
 
 ** Circuits logiques combinatoires classiques
@@ -2670,7 +2737,7 @@ pour l'entrée et un symbole majuscule, \(R_{i}\), pour la sortie.
 #+CAPTION:Schéma-bloc d'un additionneur complet
 #+attr_latex: :scale 0.75
 #+NAME:fig-additionneur
-[[file:Sources_images_logiques/images/additionneur.png]]
+[[file:Images_png/additionneur.png]]
 
 #+CAPTION:Tableau de vérité pour l'additionneur binaire
 #+NAME:tab-verite_additionneur
@@ -2713,13 +2780,13 @@ demi-additionneur, \(S_{i} = a_i b_i^\prime + a_i^\prime b_i = a_i
 #+CAPTION: Circuit demi-additionneur (en S de P)
 #+attr_latex: :scale 0.75
 #+NAME:fig-demi_add2
-[[file:Sources_images_logiques/images/demi_add2.svg]]
+[[file:Images_svg/demi_add2.svg]]
 
 
 #+CAPTION: Circuit demi-additionneur avec porte XOR
 #+attr_latex: :scale 0.75
 #+NAME:demi_add
-[[file:Sources_images_logiques/images/demi_add.svg]]
+[[file:Images_svg/demi_add.svg]]
 
 *** Additionneur complet
 
@@ -2733,13 +2800,13 @@ retenue \(R_{i}\).
 #+CAPTION: Diag-K pour \(S_i\), additionneur complet
 #+attr_latex: :scale 0.75
 #+NAME:fig-diak_si_fulladder
-[[file:Sources_images_logiques/images/kmapSi_fulladder.svg]]
+[[file:Images_svg/kmapSi_fulladder.svg]]
 
 
 #+CAPTION: Diag-K pour \(R_i\), additionneur complet
 #+attr_latex: :scale 0.75
 #+NAME:fig-diak_ri_fulladder
-[[file:Sources_images_logiques/images/kmap3fulladderR.svg]]
+[[file:Images_svg/kmap3fulladderR.svg]]
 
 
 Les expressions simplifiées sont 
@@ -2752,14 +2819,14 @@ $$ R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1} $$
 #+CAPTION: Circuit additionneur complet pour \(S_i\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fulladder_s
-[[file:Sources_images_logiques/images/fulladderS.svg]]
+[[file:Images_svg/fulladderS.svg]]
 
 
 
 #+CAPTION: Circuit additionneur complet pour \(R_i\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fulladder_r
-[[file:Sources_images_logiques/images/fulladderR.svg]]
+[[file:Images_svg/fulladderR.svg]]
 
 
 Comme on le disait précédemment, il est possible de combiner deux
@@ -2770,7 +2837,7 @@ peut le voir ici.
 #+CAPTION: Circuit additionneur complet comportant deux demi-additionneurs et une porte OU
 #+attr_latex: :scale 0.75
 #+NAME:fig-fulladderxor
-[[file:Sources_images_logiques/images/fulladderxor.svg]]
+[[file:Images_svg/fulladderxor.svg]]
 
 *** Additionneur binaire pour \(n\) bits
 
@@ -2810,7 +2877,7 @@ R_n-1 <---+           |<---... <---+           +<--...  <---+           +<------
 
 #+CAPTION: Chaîne d'addition
 #+NAME:fig-chaine_add
-[[file:Sources_images_logiques/images/additionneur_cascade.png]]
+[[file:Images_png/additionneur_cascade.png]]
 
 Cette réalisation en forme de chaîne, en réutilisant de façon
 systématique un bloc élémentaire, est avantageuse d'un point de vue
@@ -2855,7 +2922,7 @@ retenue totale de \(2n\) portes.
 
 #+CAPTION: Circuit additionneur complet montrant les signaux intermédiaires \(P_i\) et \(G_i\)
 #+NAME:fig-fulladderxorPG
-[[file:Sources_images_logiques/images/fulladderxorPG.svg]]
+[[file:Images_svg/fulladderxorPG.svg]]
 
 *** Anticipation de retenue
 
@@ -2911,7 +2978,7 @@ plus rapide que la configuration en cascade.
 
 #+CAPTION: Circuit d'anticipateur de retenue pour \(n= 4\)
 #+NAME:fig-lookahead1
-[[file:Sources_images_logiques/images/lookahead1.svg]]
+[[file:Images_svg/lookahead1.svg]]
 
 
 *** Soustraction
@@ -2932,7 +2999,7 @@ calculent \(O  \operatorname{Xor} b_i\) et dont la sortie est acheminée à l'en
 
 #+CAPTION: Circuit additionneur/ soustracteur 4 bits
 #+NAME:fig-add_sous
-[[file:Sources_images_logiques/images/add_sous.svg]]
+[[file:Images_svg/add_sous.svg]]
 
 *** Débordements
 
@@ -2997,7 +3064,7 @@ générer le signal \(D\) qui indique un débordement.
 
 #+CAPTION:  Circuit additionneur/soustracteur 4 bits avec débordement
 #+NAME:fig-add_sous_deb
-[[file:Sources_images_logiques/images/add_sous_deb.svg]]
+[[file:Images_svg/add_sous_deb.svg]]
 
 
 ** Multiplexeur
@@ -3018,12 +3085,12 @@ pour agir sur la sortie \(Y\).
 #+CAPTION:  Circuit du multiplexeur deux-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux2b
-[[file:Sources_images_logiques/images/mux2b.svg]]
+[[file:Images_svg/mux2b.svg]]
 
 #+CAPTION:  Symbole du multiplexeur deux-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux2bsymb
-[[file:Sources_images_logiques/images/mux2symb.svg]]
+[[file:Images_svg/mux2symb.svg]]
 
 *** Multiplexeur quatre-vers-un
 
@@ -3037,12 +3104,12 @@ aurait un vecteur de \(n\) signaux de sélection.
 #+CAPTION:  Circuit du multiplexeur quatre-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux4
-[[file:Sources_images_logiques/images/mux4.svg]]
+[[file:Images_svg/mux4.svg]]
 
 #+CAPTION:  Symbole du multiplexeur quatre-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux4symb
-[[file:Sources_images_logiques/images/mux4symb.svg]]
+[[file:Images_svg/mux4symb.svg]]
 
 #+CAPTION:  Tableau de vérité du multiplexeur quatre-vers-un
 #+NAME:tab-verite_mux4
@@ -3071,7 +3138,7 @@ chaque sortie possible et un minterm d'entrée.
 #+CAPTION:  Circuit du décodeur trois-vers-huit
 #+attr_latex: :scale 0.75
 #+NAME:fig-decod3_8
-[[file:Sources_images_logiques/images/decod3_8.svg]]
+[[file:Images_svg/decod3_8.svg]]
 
 
 #+CAPTION:  Tableau de vérité du décodeur trois-vers-huit
@@ -3106,7 +3173,7 @@ entrées \(x\) et \(y\) sont actives hautes.
 #+CAPTION:  Décodeur à sortie active basse 
 #+attr_latex: :scale 0.75
 #+NAME:fig-decode2_4_enable
-[[file:Sources_images_logiques/images/decode2_4_enable.svg]]
+[[file:Images_svg/decode2_4_enable.svg]]
 
 
 #+CAPTION:  Tableau de vérité, décodeur 2 vers 4 avec sortie active basse 
@@ -3142,7 +3209,7 @@ $$ Y = \sum(0,2,5,6)$$
 #+CAPTION:  Fonction arbitraire réalisée au moyen d'un décodeur
 #+attr_latex: :scale 0.75
 #+NAME:fig-fonct_arbit_decod
-[[file:Sources_images_logiques/images/fonct_arbit_decod.svg]]
+[[file:Images_svg/fonct_arbit_decod.svg]]
 
 
 #+CAPTION:  Tableau de vérité pour la fonction arbitraire 
@@ -3176,7 +3243,7 @@ circuit ne nécessite pas vraiment d'entrée pour \(D_0\).
 #+CAPTION:  Encodeur 3 bits 
 #+attr_latex: :scale 0.75
 #+NAME:fig-encode1
-[[file:Sources_images_logiques/images/encode1.svg]]
+[[file:Images_svg/encode1.svg]]
 
 
 #+CAPTION:  Tableau de vérité pour l'encodeur 3 bits 
@@ -3224,12 +3291,12 @@ indice qui est prioritaire.
 #+CAPTION: Diag-K pour \(x\) de l'encodeur à priorité
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk_4foncencode_pri_x
-[[file:Sources_images_logiques/images/kmap4foncencode_pri_x.svg]]
+[[file:Images_svg/kmap4foncencode_pri_x.svg]]
 
 #+CAPTION:  Diag-K pour \(y\) de l'encodeur à priorité
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk_4foncencode_pri_y
-[[file:Sources_images_logiques/images/kmap4foncencode_pri_y.svg]]
+[[file:Images_svg/kmap4foncencode_pri_y.svg]]
 
 En simplifiant, on trouve les expressions suivantes:
 
@@ -3242,7 +3309,7 @@ $$ V = D_0 + D_1 + D_2 + D_3 $$
 #+CAPTION:  Encodeur 2 bits à priorité, en P de S
 #+attr_latex: :scale 0.75
 #+NAME:fig-encode_pri
-[[file:Sources_images_logiques/images/encode_pri.svg]]
+[[file:Images_svg/encode_pri.svg]]
 
 Puisque le terme \(x = D_2 + D_3\) est déjà calculé pour \(x\), on
 peut le réutiliser pour construire le terme pour \(V\), tel
@@ -3252,7 +3319,7 @@ entrées.
 #+CAPTION:  Encodeur 2 bits à priorité avec ré-utilisation d'un des termes
 #+attr_latex: :scale 0.75
 #+NAME:fig-encode_pri2
-[[file:Sources_images_logiques/images/encode_pri2.svg]]
+[[file:Images_svg/encode_pri2.svg]]
 
 
 ** Comparateur de magnitude
@@ -3279,7 +3346,7 @@ comme on peut en voir l'implémentation sur la figure suivante.
 #+CAPTION:  Comparateur de magnitude
 #+attr_latex: :scale 0.75
 #+NAME:fig-comparateur
-[[file:Sources_images_logiques/images/comparateur.svg]]
+[[file:Images_svg/comparateur.svg]]
 
 Notre démarche de conception pour \(n\) bits sera calquée sur la
 procédure que nous utilisons intuitivement pour faire une telle
@@ -3310,7 +3377,7 @@ On obtient ainsi un comparateur pour des nombres de 4 bits, tel qu'illustré.
 #+CAPTION:  Comparateur de magnitude 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-comparateur_4b
-[[file:Sources_images_logiques/images/comparateur_4b.svg]]
+[[file:Images_svg/comparateur_4b.svg]]
 
 ** Démultiplexeur
 
@@ -3325,7 +3392,7 @@ entrée signal de contrôle (/enable/) \(I\).
 #+CAPTION:  Démultiplexeur un-vers-huit
 #+attr_latex: :scale 0.75
 #+NAME:fig-demux8
-[[file:Sources_images_logiques/images/demux8.svg]]
+[[file:Images_svg/demux8.svg]]
 
 ** Encodeurs divers
 
@@ -3354,7 +3421,7 @@ la sortie est égale à l'entrée.
 #+CAPTION:  Porte tampon à trois états
 #+attr_latex: :scale 0.75
 #+NAME:fig-buf_3s
-[[file:Sources_images_logiques/images/buf_3s.svg]]
+[[file:Images_svg/buf_3s.svg]]
 
 En plaçant des tampons à trois états à chaque sortie d'un décodeur, on
 peut réaliser un multiplexeur \(n\)-vers-un en reliant les sorties des
@@ -3378,7 +3445,7 @@ en haute-impédance.
 #+CAPTION:  Multiplexeur quatre-vers-un trois états
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux_4_1_3s
-[[file:Sources_images_logiques/images/mux_4_1_3s.svg]]
+[[file:Images_svg/mux_4_1_3s.svg]]
 
 La fonctionnalité trois-états permet aussi de concevoir un
 émetteur-récepteur de bus. Ce dispositif, illustré à la figure
@@ -3391,7 +3458,7 @@ c'est le tampon du bas qui est actif, et =I/O= détermine la valeur de
 #+CAPTION:  Emetteur-récepteur de bus
 #+attr_latex: :scale 0.75
 #+NAME:fig-emetteur_bus
-[[file:Sources_images_logiques/images/bus_trans.svg]]
+[[file:Images_svg/bus_trans.svg]]
 
 
 ** COMMENT Porte de transmission
@@ -3450,7 +3517,7 @@ valeurs interne d'état.
 
 #+CAPTION: Modèle de circuit séquentiel
 #+NAME:fig-circ_seq
-[[file:Sources_images_logiques/images/circuit_seq.png]]
+[[file:Images_png/circuit_seq.png]]
 
 On peut distinguer les circuits séquentiels selon la relation de
 synchronisation qui existe entre les différents signaux du
@@ -3490,14 +3557,14 @@ circuit séquentiel synchrone.
 
 #+CAPTION: Modèle de circuit séquentiel synchrone
 #+NAME:fig-circ_seq_sync
-[[file:Sources_images_logiques/images/circuit_seq_sync.png]]
+[[file:Images_png/circuit_seq_sync.png]]
 
 Le signal d'horloge est typiquement une onde carrée, telle
 qu'illustré sur la figure [[fig-horloge]].
 
 #+CAPTION:  Signal d'horloge
 #+NAME:fig-horloge
-[[file:Sources_images_logiques/images/horloge.svg]]
+[[file:Images_svg/horloge.svg]]
 
 ** Éléments de mémoire
 
@@ -3534,13 +3601,13 @@ l'autre, puisqu'il s'agit d'une boucle n'ayant ni début ni fin.
 #+CAPTION:Schéma du loquet SR avec portes NOR
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRlatch
-[[file:Sources_images_logiques/images/SRlatch.svg]]
+[[file:Images_svg/SRlatch.svg]]
 
 
 #+CAPTION:Schéma du loquet SR NOR mettant la boucle en évidence
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRlatch_bouc
-[[file:Sources_images_logiques/images/SRlatch_bouc.svg]]
+[[file:Images_svg/SRlatch_bouc.svg]]
 
 Quand les sorties sont \(Q=1, Q^\prime=0\), on dit que le loquet est
 dans l'état activé (=set=). Lorsque \(Q=0, Q^\prime=1\), le loquet
@@ -3583,7 +3650,7 @@ pour maintenir l'état du loquet.
 #+CAPTION:Loquet SR en portes NAND
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRlatch_nand
-[[file:Sources_images_logiques/images/SRlatch_nand.svg]]
+[[file:Images_svg/SRlatch_nand.svg]]
 
 #+CAPTION:Loquet SR NAND: tableau de fonctionnement
 #+NAME:tab-SRnand
@@ -3612,7 +3679,7 @@ ingrédient de base pour la conception de bascules.
 #+CAPTION:  Loquet SR NAND avec signal de contrôle
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRnand_en
-[[file:Sources_images_logiques/images/SRlatch_nand_en.svg]]
+[[file:Images_svg/SRlatch_nand_en.svg]]
 
 #+CAPTION:  Loquet SR avec signal de contrôle: tableau de fonctionnement
 #+NAME:tab-SRnand_en
@@ -3636,7 +3703,7 @@ reflétée à \(Q\) lorsque \(E=1\) et se maintient après que \(E\) passe
 #+CAPTION:  Schéma du loquet D
 #+attr_latex: :scale 0.75
 #+NAME:fig-Dlatch
-[[file:Sources_images_logiques/images/Dlatch.svg]]
+[[file:Images_svg/Dlatch.svg]]
 
 #+CAPTION:Loquet D: tableau de fonctionnement
 #+NAME:tab-Dlatch
@@ -3651,7 +3718,7 @@ Le symbole graphique d'un loquet D est illustré à la figure [[fig-schema_latch
 #+CAPTION:Symbole du loquet D
 #+attr_latex: :scale 0.75
 #+NAME:fig-schema_latchD
-[[file:Sources_images_logiques/images/schema_latchD.svg]]
+[[file:Images_svg/schema_latchD.svg]]
 
 ** Application: rebonds d'interrupteurs
 
@@ -3670,7 +3737,7 @@ la valeur \(Q\) est maintenue. On obtient donc une transition franche sur
 
 #+CAPTION:Contacts et rebonds
 #+NAME:fig-debounce
-[[file:Sources_images_logiques/images/debounce.svg]]
+[[file:Images_svg/debounce.svg]]
 
 ** Bascules (Flip Flops)
 
@@ -3705,7 +3772,7 @@ sur la figure [[fig-horlogeP]].
 
 #+CAPTION:  Signaux d'horloge avec fronts de déclenchement
 #+NAME:fig-horlogeP
-[[file:Sources_images_logiques/images/horlogeP.svg]]
+[[file:Images_svg/horlogeP.svg]]
 
 *** Bascule D
 
@@ -3732,7 +3799,7 @@ configuration pour réaliser une bascule D maître-esclave.
 #+CAPTION:  Bascule D maître-esclave
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_mast_slave_sanst
-[[file:Sources_images_logiques/images/D_mast_slave_sanst.svg]]
+[[file:Images_svg/D_mast_slave_sanst.svg]]
 
 Lorsque le signal d'horloge est au niveau haut, seul le loquet maître
 pourra réagir au signal d'entrée. Puis, lorsque le signal d'horloge
@@ -3764,7 +3831,7 @@ bascule D à déclenchement sur front montant.
 #+CAPTION:Bascule D à déclenchement sur front montant
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_front_montant
-[[file:Sources_images_logiques/images/D_front_montant.svg]]
+[[file:Images_svg/D_front_montant.svg]]
 
 Pour bien comprendre son comportement, la série de figures suivantes
 permet d'en suivre le fonctionnement. Sur les figures, les valeurs
@@ -3779,7 +3846,7 @@ maintenir la valeur de sortie en \(Q\).
 #+CAPTION:  Bascule au repos  \(clk = 0, D=0\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_c0_d0
-[[file:Sources_images_logiques/images/D_c0_d0.svg]]
+[[file:Images_svg/D_c0_d0.svg]]
 
 Même lorsque l'entrée de donnée \(D\) change, la valeur de sortie est
 maintenue, comme on voit sur la figure [[fig-D_c0_d1]].
@@ -3787,7 +3854,7 @@ maintenue, comme on voit sur la figure [[fig-D_c0_d1]].
 #+CAPTION:  Bascule au repos  \(clk = 0, D \rightarrow 1\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_c0_d1
-[[file:Sources_images_logiques/images/D_c0_d1.svg]]
+[[file:Images_svg/D_c0_d1.svg]]
 
 Si l'entrée de donnée \(D = 0\) lorsque \(clk\) passe à 1, \(R\)
 devient 0, ce qui met \(Q\) à 0 (opération /reset/) (figure
@@ -3796,7 +3863,7 @@ devient 0, ce qui met \(Q\) à 0 (opération /reset/) (figure
 #+CAPTION:  Bascule  /reset/ \(clk \rightarrow 1, D=0\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_c1_d0
-[[file:Sources_images_logiques/images/D_c1_d0.svg]]
+[[file:Images_svg/D_c1_d0.svg]]
 
 Si l'entrée de donnée \(D\) change pendant que \(clk = 1\), comme sur
 la figure [[fig-D_c1_dchange]], \(R\) reste à 0, parce que la porte NAND à
@@ -3807,7 +3874,7 @@ NAND du bas.
 #+CAPTION:  Bascule   \(clk = 1, D \rightarrow 1\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_c1_dchange
-[[file:Sources_images_logiques/images/D_c1_dchange.svg]]
+[[file:Images_svg/D_c1_dchange.svg]]
 
 Quand \(clk\) revient à 0, on a \(S= 1, R=1\) et la sortie \(Q\) ne
 peut plus changer.
@@ -3820,7 +3887,7 @@ un changement d'état de \(S\) lorsque l'horloge passera à 1.
 #+CAPTION:  Bascule   \(clk =0, D = 1\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_c0_d1_avant
-[[file:Sources_images_logiques/images/D_c0_d1_avant.svg]]
+[[file:Images_svg/D_c0_d1_avant.svg]]
 
 Si l'entrée de donnée \(D = 1\) lorsque \(clk\) passe à 1, on voit
 que \(S\) est devenu 1, ce qui a amené \(Q\) à 1 (opération /set/)
@@ -3829,7 +3896,7 @@ que \(S\) est devenu 1, ce qui a amené \(Q\) à 1 (opération /set/)
 #+CAPTION:  Bascule  /set/ \(clk \rightarrow 1, D=1\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_c1_d1
-[[file:Sources_images_logiques/images/D_c1_d1.svg]]
+[[file:Images_svg/D_c1_d1.svg]]
 
 La figure [[fig-chron_D]] présente un chronogramme qui montre la bascule
 qui passe de l'état 0 à l'état 1 et retourne, au cycle suivant, à
@@ -3837,7 +3904,7 @@ l'état 0.
 
 #+CAPTION:  Chronogramme pour une bascule D
 #+NAME:fig-chron_D
-[[file:Sources_images_logiques/images/chron_D.svg]]
+[[file:Images_svg/chron_D.svg]]
 
 *** Délais et réponse temporelle
 
@@ -3867,7 +3934,7 @@ le moment où la sortie se stabilise à sa nouvelle valeur.
 
 #+CAPTION:  Chronogramme avec temps et délais
 #+NAME:fig-D_setup
-[[file:Sources_images_logiques/images/D_setup.svg]]
+[[file:Images_svg/D_setup.svg]]
 
 Le symbole graphique d'une bascule D comporte un petit triangle à
 l'entrée d'horloge pour indiquer que le déclenchement se fait sur une
@@ -3876,7 +3943,7 @@ petit cercle d'inversion à l'entrée d'horloge.
 
 #+CAPTION:  Symboles de bascules
 #+NAME:fig-schema_bascules
-[[file:Sources_images_logiques/images/schema_bascules.svg]]
+[[file:Images_svg/schema_bascules.svg]]
 
 *** Autres bascules
 
@@ -3895,7 +3962,7 @@ comme sur la figure [[fig-bascule_JK]].
 #+CAPTION:  Bascule JK
 #+attr_latex: :scale 0.75
 #+NAME:fig-bascule_JK
-[[file:Sources_images_logiques/images/bascule_JK.svg]]
+[[file:Images_svg/bascule_JK.svg]]
 
 La figure [[fig-chron_JK]] montre le chronogramme de fonctionnement
 d'une bascule JK. La bascule fait d'abord un /set/, puis un /reset/ et
@@ -3903,7 +3970,7 @@ enfin trois /toggles/ de suite.
 
 #+CAPTION:Chronogramme de la bascule JK
 #+NAME:fig-chron_JK
-[[file:Sources_images_logiques/images/chron_JK.svg]]
+[[file:Images_svg/chron_JK.svg]]
 
 *** Bascule T
 
@@ -3914,7 +3981,7 @@ bascule D ou d'une bascule JK (figure [[fig-basculeT]]).
 #+CAPTION:  Bascule T
 #+attr_latex: :scale 0.75
 #+NAME:fig-basculeT
-[[file:Sources_images_logiques/images/basculeT.svg]]
+[[file:Images_svg/basculeT.svg]]
 
 *** Tableaux caractéristiques
 
@@ -3976,7 +4043,7 @@ pourquoi il y a une indication de complément dans son symbole.
 #+CAPTION:  Bascule D avec reset asynchrone
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_front_montant_setasyn
-[[file:Sources_images_logiques/images/D_front_montant_setasyn.svg]]
+[[file:Images_svg/D_front_montant_setasyn.svg]]
 
 *** COMMENT Multivibrateurs
 
@@ -4044,7 +4111,7 @@ figure [[fig-exemple_seq1]].
 #+CAPTION:  Circuit séquentiel synchrone à analyser
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemple_seq1
-[[file:Sources_images_logiques/images/exemple_seq1.svg]]
+[[file:Images_svg/exemple_seq1.svg]]
  
 1. Identification des éléments fonctionnels:
 
@@ -4106,7 +4173,7 @@ figure [[fig-exemple_seq1]].
   #+CAPTION:  Diagramme d'état
   #+attr_latex: :scale 0.75
   #+NAME:fig-exemple_seq1_fsm
-  [[file:Sources_images_logiques/images/exemple_seq1_fsm.svg]]
+  [[file:Images_svg/exemple_seq1_fsm.svg]]
 
 6. Interprétation du comportement du circuit séquentiel.
 
@@ -4127,7 +4194,7 @@ figure [[fig-exemple_seq1]].
    #+CAPTION:  Exemple de fonctionnement
    #+attr_latex: :scale 0.75
    #+NAME:fig-exemple_seq1_run
-   [[file:Sources_images_logiques/images/exemple_seq1_run.svg]]
+   [[file:Images_svg/exemple_seq1_run.svg]]
 
 ** Analyse pour des bascules JK
 
@@ -4145,7 +4212,7 @@ Considérons le circuit séquentiel de la figure [[fig-seq_JK]].
 #+CAPTION:  Exemple de circuit séquentiel avec des bascules JK
 #+attr_latex: :scale 0.75
 #+NAME:fig-seq_JK
-[[file:Sources_images_logiques/images/seq_JK.svg]]
+[[file:Images_svg/seq_JK.svg]]
 
 À partir des expression des entrées \(J\) et \(K\) suivantes:
 
@@ -4174,7 +4241,7 @@ on peut remplir le tableau d'excitation (tableau [[tab-seq_JK]]).
 #+CAPTION:  Diagramme d'état du circuit séquentiel avec bascules JK
 #+attr_latex: :scale 0.75
 #+NAME:fig-seq_JKb_FSM
-[[file:Sources_images_logiques/images/seq_JKb_FSM.svg]]
+[[file:Images_svg/seq_JKb_FSM.svg]]
 
 ** Modèles de machines séquentielles
 
@@ -4205,7 +4272,7 @@ le modèle de Moore, les sorties ne dépendent que des variables d'état présen
 
 #+CAPTION: Machine de Mealy
 #+NAME:fig-mealy
-[[file:Sources_images_logiques/images/mealy.png]]
+[[file:Images_png/mealy.png]]
 
 #+begin_src ditaa :file Sources_images_logiques/images/moore.png :results silent :exports none
              +-----------------+                            +----------------+
@@ -4224,7 +4291,7 @@ le modèle de Moore, les sorties ne dépendent que des variables d'état présen
 
 #+CAPTION: Machine de Moore
 #+NAME:fig-moore
-[[file:Sources_images_logiques/images/moore.png]]
+[[file:Images_png/moore.png]]
 
 * Conception de circuits logiques séquentiels
 ** Objectifs
@@ -4314,7 +4381,7 @@ Mealy, car les valeurs de sortie sont associées aux transitions.
 #+CAPTION:  Diagramme d'état avant réduction
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_simplif
-[[file:Sources_images_logiques/images/exemp_simplif_net.svg]]
+[[file:Images_svg/exemp_simplif_net.svg]]
  
 
 #+CAPTION:  Tableau d'état initial
@@ -4573,6 +4640,8 @@ la séquence identifiée, le système produira une sortie 1 et demeurera
 dans le même état en continuant de produire une sortie 1, jusqu'à une
 remise à zéro.
 
+*** Bascules D
+
 **** Diagramme d'état
 
 Selon le diagramme d'état de la figure [[fig-seq_101_sanscode]], le
@@ -4593,7 +4662,7 @@ produite lorsqu'on est dans l'état /d/; on a \(S=0\) dans les autres
 #+CAPTION:  Diagramme d'état pour détecter la séquence 101
 #+attr_latex: :scale 0.75
 #+NAME:fig-seq_101_sanscode
-[[file:Sources_images_logiques/images/seq_101_sanscode.svg]]
+[[file:Images_svg/seq_101_sanscode.svg]]
 
 
 **** Réduction d'état 
@@ -4646,17 +4715,17 @@ Les diagrammes de Karnaugh correspondants sont donnés pour
 #+CAPTION:  Diag-K pour \(Z_0^{n+1}\)
 #+attr_latex: :scale 0.65
 #+NAME:fig-diag-k_z0
-[[file:Sources_images_logiques/images/diag-k_z0.png]]
+[[file:Images_png/diag-k_z0.png]]
 
 #+CAPTION:  Diag-K pour \(Z_1^{n+1}\)
 #+attr_latex: :scale 0.65
 #+NAME:fig-diag-k_z1
-[[file:Sources_images_logiques/images/diag-k_z1.png]]
+[[file:Images_png/diag-k_z1.png]]
 
 #+CAPTION:  Diag-K pour \(S\)
 #+attr_latex: :scale 0.65
 #+NAME:fig-diag-k_S
-[[file:Sources_images_logiques/images/diag-k_S.png]]
+[[file:Images_png/diag-k_S.png]]
 
 **** Décodeur de prochain état
 
@@ -4689,17 +4758,17 @@ séquence 100.
 #+CAPTION:  Détecteur pour la séquence 101
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_seq_101_circ
-[[file:Sources_images_logiques/images/exemp_seq101_circ.svg]]
+[[file:Images_svg/exemp_seq101_circ.svg]]
 
 #+CAPTION:  Trace d'exécution avec succès
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_seq_101_trace1
-[[file:Sources_images_logiques/images/exemp_seq101_trace1.svg]]
+[[file:Images_svg/exemp_seq101_trace1.svg]]
 
 #+CAPTION:  Trace d'exécution sans succès
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_seq_101_trace2
-[[file:Sources_images_logiques/images/exemp_seq101_trace2.svg]]
+[[file:Images_svg/exemp_seq101_trace2.svg]]
 
 *** Autres types de bascules
 
@@ -4763,7 +4832,7 @@ Ce qui nous donne l'implémentation de la figure [[fig-exemp_seq101_JK]].
 #+CAPTION:  Détecteur pour la séquence 101, bascules JK
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_seq101_JK
-[[file:Sources_images_logiques/images/exemp_seq101_JK.svg]]
+[[file:Images_svg/exemp_seq101_JK.svg]]
 
 ** États interdits
 
@@ -4790,7 +4859,7 @@ prochain dysfonctionnement).
 #+CAPTION:  Diagramme d'état avec état interdit
 #+attr_latex: :scale 0.75
 #+NAME:fig-etat_interdit
-[[file:Sources_images_logiques/images/etat_interdit.svg]]
+[[file:Images_svg/etat_interdit.svg]]
 
 
 Une solution serait de modifier le décodeur de prochain état pour
@@ -4802,7 +4871,7 @@ vers l'état /c/.
 #+CAPTION:  Diagramme d'état qui assure le retour en fonctionnement normal
 #+attr_latex: :scale 0.75
 #+NAME:fig-etat_interdit_revient
-[[file:Sources_images_logiques/images/etat_interdit_revient.svg]]
+[[file:Images_svg/etat_interdit_revient.svg]]
 
 ** Exemple avec états /one-hot/
 
@@ -4814,7 +4883,7 @@ Considérons le diagramme d'état suivant (figure [[fig-diag_one-hot]]).
 #+CAPTION:  Diagramme d'état pour assignation /one-hot/
 #+attr_latex: :scale 0.75
 #+NAME:fig-diag_one-hot
-[[file:Sources_images_logiques/images/exemple_one-hot.svg]]
+[[file:Images_svg/exemple_one-hot.svg]]
 
 Le tableau d'assignation d'état correspondant est donné dans le
 tableau [[tab-assignation_one-hot]] ci-dessous.
@@ -4885,7 +4954,6 @@ considérer qu'il y a un grand nombre d'états interdits, et prendre les
 précautions qui s'imposent pour éviter les problèmes de fonctionnement
 coincé.
 
-
 * Circuit séquentiels: registres et compteurs
 ** Objectifs
 - Être familier avec les principaux circuits séquentiels classiques:
@@ -4912,7 +4980,7 @@ représente les entrées et sorties comme des vecteurs de quatre bits.
 #+CAPTION:  Registre parallèle à quatre bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-regist_4
-[[file:Sources_images_logiques/images/regist_4.svg]]
+[[file:Images_svg/regist_4.svg]]
 
 *** Chargement parallèle
 
@@ -4944,7 +5012,7 @@ du registre chargeable.
 #+CAPTION:  Registre parallèle à quatre bits chargeable
 #+attr_latex: :scale 0.75
 #+NAME:fig-reg_4_paral
-[[file:Sources_images_logiques/images/reg_4_paral.svg]]
+[[file:Images_svg/reg_4_paral.svg]]
 
 *** Registres à décalage
 
@@ -4958,7 +5026,7 @@ provient de la dernière bascule à droite.
 #+CAPTION:  Registre à décalage 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-shift4
-[[file:Sources_images_logiques/images/shift4.svg]]
+[[file:Images_svg/shift4.svg]]
 
 En utilisant un multiplexeur quatre-vers-un pour sélectionner ce qui
 sera inséré dans une bascule, il est possible de concevoir un registre
@@ -4982,7 +5050,7 @@ sélection, tel qu'indiqué dans le tableau [[tab-shift_oper]].
 #+CAPTION:  Registre à décalage universel
 #+attr_latex: :scale 0.75
 #+NAME:fig-shift4_univ
-[[file:Sources_images_logiques/images/shift4_univ.svg]] 
+[[file:Images_svg/shift4_univ.svg]] 
 
 Les registres à décalage sont notamment utilisés pour convertir des
 données parallèles en données sérielles et vice versa, des opérations
@@ -5019,7 +5087,7 @@ répète.
 #+CAPTION:  Compteur asynchrone
 #+attr_latex: :scale 0.75
 #+NAME:fig-rippleT
-[[file:Sources_images_logiques/images/rippleT3.svg]]
+[[file:Images_svg/rippleT3.svg]]
 
 #+CAPTION:  Séquence du compteur
 #+NAME:tab-seq_compt_3
@@ -5058,7 +5126,7 @@ d'états correspondant est donné dans le tableau [[tab-compt8]].
 #+CAPTION:  Diagramme d'état d'un compteur
 #+attr_latex: :scale 0.65
 #+NAME:fig-compt8_FSM
-[[file:Sources_images_logiques/images/compt8_FSM.svg]]
+[[file:Images_svg/compt8_FSM.svg]]
 
 #+CAPTION:  Tableau d'état du compteur
 #+NAME:tab-compt8
@@ -5087,7 +5155,7 @@ Le schéma correspondant est donné à la figure [[fig-compt8]].
 #+CAPTION:  Schéma logique du compteur à 3 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt8
-[[file:Sources_images_logiques/images/compt8.svg]]
+[[file:Images_svg/compt8.svg]]
 
 On peut ajouter aux compteurs des fonctions diverses: comptage vers le
 haut, comptage vers le bas, préchargement parallèle, remise à zéro,
@@ -5121,7 +5189,7 @@ connecter en cascade d'autres compteurs.
 #+CAPTION:  Schéma logique du compteur à 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_4bits
-[[file:Sources_images_logiques/images/compt_4bits.svg]]
+[[file:Images_svg/compt_4bits.svg]]
 
 Si on réfléchit de la même façon au comptage vers le bas, on constate
 que la règle devient:
@@ -5143,7 +5211,7 @@ sur la figure [[fig-compt_updown]].
 #+CAPTION:  Schéma logique du compteur haut/bas à 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_updown
-[[file:Sources_images_logiques/images/compt_updown.svg]]
+[[file:Images_svg/compt_updown.svg]]
 
 *** Compteur en anneau
 
@@ -5162,7 +5230,7 @@ dans le cycle, pendant une période d'horloge.
 #+CAPTION:  Compteur en anneau à 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-ring4
-[[file:Sources_images_logiques/images/ring4.svg]]
+[[file:Images_svg/ring4.svg]]
 
 *** Compteur Johnson
 
@@ -5177,7 +5245,7 @@ tableau [[tab-seqjohn4]].
 #+CAPTION:  Compteur Johnson à 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-johnson4
-[[file:Sources_images_logiques/images/johnson4.svg]]
+[[file:Images_svg/johnson4.svg]]
 
 
 #+CAPTION:  Séquence d'états du compteur Johnson
@@ -5208,7 +5276,7 @@ quatres signaux est activé à son tour.
 #+CAPTION:  Compteur Johnson à 2 bits et circuit de décodage pour signaux de synchronisation
 #+attr_latex: :scale 0.75
 #+NAME:fig-johnson2_quad_decode
-[[file:Sources_images_logiques/images/johnson2_quad_decode.svg]]
+[[file:Images_svg/johnson2_quad_decode.svg]]
 
 Si on s'intéresse aux sorties des bascules de ce même compteur
 Johnson, on peut voir sur la trace d'exécution de la figure
@@ -5220,7 +5288,7 @@ rapport aux autres, comme le sont des fonctions \(\sin(), \cos(),
 #+CAPTION:  Signaux en quadrature obtenus au moyen d'un compteur Johnson à 2 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-johnson2_quad
-[[file:Sources_images_logiques/images/johnson2_quad.svg]] 
+[[file:Images_svg/johnson2_quad.svg]] 
 
 *** Diviseur de fréquence
 
@@ -5251,12 +5319,12 @@ montre le comptage de 4 jusqu'à 15 et retour à 0. On voit le signal
 #+CAPTION:  Compteur à chargement parallèle
 #+attr_latex: :scale 0.65
 #+NAME:fig-comptchargement
-[[file:Sources_images_logiques/images/comptchargement.svg]]
+[[file:Images_svg/comptchargement.svg]]
 
 #+CAPTION:  Trace d'exécution, de 0 à 15
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_chargement_tracecompte
-[[file:Sources_images_logiques/images/compt_chargement_tracecompte.svg]]
+[[file:Images_svg/compt_chargement_tracecompte.svg]]
 
 La trace de la figure suivante montre le compteur qui
 passe de 0 à 5, puis un chargement parallèle de la valeur 12.
@@ -5264,7 +5332,7 @@ passe de 0 à 5, puis un chargement parallèle de la valeur 12.
 #+CAPTION:   Trace d'exécution, de 0 à 5 et chargement de 12
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_chargement_trace_charge
-[[file:Sources_images_logiques/images/compt_chargement_trace_charge.svg]]
+[[file:Images_svg/compt_chargement_trace_charge.svg]]
 
 *** Compteur modulo
 
@@ -5281,7 +5349,7 @@ laquelle on voit le passage de 12 à 0.
 #+CAPTION:   Compteur modulo-13
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_mod13
-[[file:Sources_images_logiques/images/compt_mod13.svg]]
+[[file:Images_svg/compt_mod13.svg]]
 
 On pourrait aussi réaliser un compteur qui compte par exemple de 4 à
 15, en utilisant cette fois la sortie =ov= pour activer le chargement
@@ -5406,7 +5474,7 @@ ou G (giga) correspondant à \(2^{30}\).
 #+CAPTION: Schéma d'une mémoire
 #+attr_latex: :scale 0.75
 #+NAME:fig-memoire
-[[file:Sources_images_logiques/images/memoire.png]]
+[[file:Images_png/memoire.png]]
 
 *** Lecture et écriture
 
@@ -5457,7 +5525,7 @@ commander l'entrée de contrôle (voir figure [[fig-bus_trans8]]).
 #+CAPTION:  Bus de données, 8 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-bus_trans8
-[[file:Sources_images_logiques/images/bus_trans8.svg]]
+[[file:Images_svg/bus_trans8.svg]]
 
 *** Chronogrammes
 
@@ -5474,7 +5542,7 @@ par un signal situé entre les niveaux 0 et 1).
 #+CAPTION: Mémoire RAM, chronogramme pour l'écriture
 #+attr_latex: :scale 0.75
 #+NAME:fig-chron_ram_ecriture
-[[file:Sources_images_logiques/images/chron_ram_ecriture.svg]]
+[[file:Images_svg/chron_ram_ecriture.svg]]
 
 La figure [[fig-chron_ram_lecture]] présente un chronogramme qui décrit
 l'opération de lecture d'une mémoire RAM. Les valeurs d'adresses sont
@@ -5486,7 +5554,7 @@ le bus de données.
 #+CAPTION: Mémoire RAM, chronogramme pour la lecture
 #+attr_latex: :scale 0.75
 #+NAME:fig-chron_ram_lecture
-[[file:Sources_images_logiques/images/chron_ram_lecture.svg]]
+[[file:Images_svg/chron_ram_lecture.svg]]
 
 La cellule de base d'une mémoire RAM qui permet de stocker un bit est
 illustrée à la figure [[fig-cell_ram]]. Elle est construite autour d'un
@@ -5498,7 +5566,7 @@ pour sélectionner quel mot sera affecté par l'opération choisie.
 #+CAPTION: Cellule mémoire RAM
 #+attr_latex: :scale 0.75
 #+NAME:fig-cell_ram
-[[file:Sources_images_logiques/images/cell_ram.svg]]
+[[file:Images_svg/cell_ram.svg]]
 
 
 ** Mémoires mortes
@@ -5528,7 +5596,7 @@ pour des portes ET.
 #+CAPTION: Modèle d'une mémoire ROM
 #+attr_latex: :scale 0.75
 #+NAME:fig-proto_rom1_prog
-[[file:Sources_images_logiques/images/proto_rom1_prog.svg]]
+[[file:Images_svg/proto_rom1_prog.svg]]
 
 Cette relativement petite mémoire comporte ainsi 64 intersections
 programmables, permettant de définir la valeur des 16 mots de mémoire
@@ -5664,7 +5732,7 @@ des dizaines.
 #+CAPTION: Matrice logique programmable
 #+attr_latex: :scale 0.75
 #+NAME:fig-pla
-[[file:Sources_images_logiques/images/pla.svg]]
+[[file:Images_svg/pla.svg]]
 
 *** Logique à matrice programmable (PAL)
 
@@ -5690,7 +5758,7 @@ typiquement des dizaines.
 #+CAPTION: Logique à matrice programmable
 #+attr_latex: :scale 0.75
 #+NAME:fig-pal
-[[file:Sources_images_logiques/images/pal.svg]]
+[[file:Images_svg/pal.svg]]
 
 *** Logique programmable séquentielle
 
@@ -5720,7 +5788,7 @@ figure [[fig-circuit_seq_prog]].
 #+CAPTION: Modèle de circuit séquentiel programmable
 #+attr_latex: :scale 0.55
 #+NAME:fig-circuit_seq_prog
-[[file:Sources_images_logiques/images/circuit_seq_prog.png]] 
+[[file:Images_png/circuit_seq_prog.png]] 
 
 Plusieurs fabricants proposent une variété de dispositifs de ce type,
 avec diverses options de configuration, d'interconnexion, etc.  On
@@ -5760,7 +5828,7 @@ ce genre de dispositif complexe est présentée à la figure [[fig-CPLD]].
 #+CAPTION: Modèle de circuit séquentiel programmable complexe
 #+attr_latex: :scale 0.45
 #+NAME:fig-CPLD
-[[file:Sources_images_logiques/images/CPLD.png]]
+[[file:Images_png/CPLD.png]]
 
 ** Circuits intégrés programmables
 
@@ -5781,7 +5849,7 @@ logique comportant:
 #+CAPTION:  Cellule logique
 #+attr_latex: :scale 0.75
 #+NAME:fig-cell_logique
-[[file:Sources_images_logiques/images/cell_logique.svg]]
+[[file:Images_svg/cell_logique.svg]]
 
 Le tableau de correspondance (LUT) à quatre entrées \(a, b, c, d\) est
 fractionné en deux LUT de trois entrées, combinés par un multiplexeur
@@ -6236,7 +6304,7 @@ vhdl complet pour cette bascule JK maître-esclave est donné ensuite.
 #+CAPTION:Bascule JK maître-esclave à modéliser
 #+attr_latex: :scale 0.75
 #+NAME:fig-bascule_JK
-[[file:Sources_images_logiques/images/JK-MS.svg]]
+[[file:Images_svg/JK-MS.svg]]
 
 
 #+CAPTION:Bascule JK maître-esclave 
@@ -6773,7 +6841,7 @@ d'entrée est appelée un *banc d'essai*.
 
 #+CAPTION:Banc d'essai
 #+NAME:fig-banc_essai
-[[file:Sources_images_logiques/images/banc_essai.png]]
+[[file:Images_png/banc_essai.png]]
 
 Le bloc stimulus génère les signaux d'excitation qui sont appliqués
 aux entrées du modèle à tester. Un bloc se charge de valider les
@@ -7328,7 +7396,6 @@ gratuits.
 - On doit s'enregistrer
 - Il est possible de choisir le simulateur
 - On y trouve également des exemples de code
-
 
 * Exercices
 
