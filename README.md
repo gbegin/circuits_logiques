@@ -34,6 +34,8 @@ Transparents pour les chapitres 1 à 12, en version pdf
 
 * [Version source du manuel](circuits_log.tex) en format [LaTeX](https://www.latex-project.org/)
 
+* [Version source du manuel](circuits_log.md) en format [Markdown](https://daringfireball.net/projects/markdown/)
+
 Versions source des transparents pour les chapitres 1 à 12, en format  [org](https://orgmode.org/) et [LaTeX](https://www.latex-project.org/)
 
 * [Chapitre 1 en format org](Transparents/presentation_ch_syst_numer.org) ou [Chapitre 1 en format LaTeX](Transparents/presentation_ch_syst_numer.tex)
