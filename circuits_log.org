@@ -8,6 +8,9 @@
 #+LATEX_HEADER: \usepackage[]{babel}
 #+LATEX_HEADER: \frenchbsetup{og=«,fg=»}
 
+#+LATEX_HEADER: \usepackage{newunicodechar}
+#+LATEX_HEADER: \newunicodechar{−}{\textemdash}
+
 #+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \usepackage{titlesec}
 #+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
@@ -8071,14 +8074,14 @@ gratuits.
 *** Question
   Considérez le tableau de couverture suivant:
 
- |      | 0101 | 0110 | 0000 | 1100 | 1101 | 1011 | 0111 |
- |−−−−−−+−−−−−−+−−−−−−+−−−−−−+−−−−−−+−−−−−−+−−−−−−+−−−−−−|
- | −10− |      |      |      |      |      |      |      |
- | 110− |      |      |      |      |      |      |      |
- | 1011 |      |      |      |      |      |      |      |
- | −00− |      |      |      |      |      |      |      |
- | 01−− |      |      |      |      |      |      |      |
- | −111 |      |      |      |      |      |      |      |
+|      | 0101 | 0110 | 0000 | 1100 | 1101 | 1011 | 0111 |
+|------+------+------+------+------+------+------+------|
+| −10− |      |      |      |      |      |      |      |
+| 110− |      |      |      |      |      |      |      |
+| 1011 |      |      |      |      |      |      |      |
+| −00− |      |      |      |      |      |      |      |
+| 01−− |      |      |      |      |      |      |      |
+| −111 |      |      |      |      |      |      |      |
 
     1. Complétez le tableau en mettant les '+' dans les cases
        appropriées.
