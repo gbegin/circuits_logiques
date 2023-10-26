@@ -1,13 +1,13 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Portes logiques
 
 ** Objectifs
-- Être familier avec les symboles usuels des portes logiques
-- Être familier avec les conventions et règles de dessin de schémas
+- Se familiariser avec les symboles usuels des portes logiques
+- Se familiariser avec les conventions et règles de dessin de schémas
   logiques
 - Faire la différence entre niveau de signal et valeur logique
-- Pouvoir expliquer les différences entre le fonctionnement idéalisé
+- Expliquer les différences entre le fonctionnement idéalisé
   et la réalité physique des portes logiques
 
 ** Niveaux logiques
@@ -25,7 +25,7 @@
 
 ** Niveaux logiques ... 2
  
-- Les portes logiques sont manufacturées selon différents standards technologiques qu'on appelle familièrement des *familles logiques*.
+- Les portes logiques sont manufacturées selon différents standards technologiques qu'on appelle communément des *familles logiques*.
 
 - Au sein d'une même famille, les portes respectent les mêmes références de niveaux pour pouvoir fonctionner ensemble adéquatement.
 
@@ -61,9 +61,9 @@ La convention implicite est généralement que les signaux sont *actifs haut*.
 #+CAPTION: Porte ET à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-et2
-[[file:../../Sources_images_logiques/images/and_logique.svg]]
+[[file:../Images_svg/and_logique.svg]]
 
-- Les portes qui réalisent des fonctions qui sont associative et commutatives peuvent aussi se définir avec plus de deux entrées.
+- Les portes qui réalisent des fonctions qui sont associatives et commutatives peuvent aussi se définir avec plus de deux entrées.
 
 - C'est le cas avec les fonctions ET et OU.
 
@@ -74,7 +74,7 @@ La convention implicite est généralement que les signaux sont *actifs haut*.
 #+CAPTION: Porte ET à trois entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-et2
-[[file:../../Sources_images_logiques/images/and3_logique.svg]]
+[[file:../Images_svg/and3_logique.svg]]
 
 ** Porte OU
 
@@ -83,25 +83,25 @@ La convention implicite est généralement que les signaux sont *actifs haut*.
 #+CAPTION: Porte OU à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-ou2
-[[file:../../Sources_images_logiques/images/or_logique.svg]]
+[[file:../Images_svg/or_logique.svg]]
    
 ** Porte inverseur
 
 - L'opération NON qui consiste à complémenter une valeur binaire s'effectue avec une porte appelée *inverseur*.
 
-- Il n'y a toujours qu'une seule entrée. \(B = A^\prime\)
+- Il n'y a toujours qu'une entrée. \(B = A^\prime\)
 
 #+CAPTION: Porte inverseur
 #+attr_latex: :scale 0.75
 #+NAME:fig-inverseur
-[[file:../../Sources_images_logiques/images/not_logique.svg]] 
+[[file:../Images_svg/not_logique.svg]] 
 
 ** Porte NON-OU (NOR)
 
 #+CAPTION: Porte NOR à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-nor2
-[[file:../../Sources_images_logiques/images/nor_logique.svg]]
+[[file:../Images_svg/nor_logique.svg]]
 
 ** Porte NON-ET (NAND) et NON_OU (NOR)
     
@@ -113,9 +113,13 @@ $$
 
 - On peut néanmoins définir des versions à plusieurs entrées de ces fonctions en ajustant la priorité d'évaluation.
 
-- Pour une porte NOR à trois entrées, on fera \((A + B + C)^\prime\).
+** Porte NON-ET (NAND) et NON-OU (NOR)
 
-** Porte NON-ET (NAND)
+
+- Pour une porte NAND à trois entrées, on fera \(S = (A \cdot B \cdot C)^\prime\).
+
+Pour une porte NOR à trois entrées, on fera \((A + B + C)^\prime\).
+
 
    
 - Pour une porte NAND à trois entrées, on fera \(S = (A \cdot B \cdot C)^\prime\).
@@ -123,7 +127,7 @@ $$
 #+CAPTION: Porte NAND à trois entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-nand3
-[[file:../../Sources_images_logiques/images/nand3_logique.svg]]
+[[file:../Images_svg/nand3_logique.svg]]
    
 ** Entrées inversées
 
@@ -138,7 +142,7 @@ $$
 #+CAPTION: Porte NAND à trois entrées dont une inversée
 #+attr_latex: :scale 0.75
 #+NAME:fig-nand3_inv
-[[file:../../Sources_images_logiques/images/nand3_logique_invin1.svg]] 
+[[file:../Images_svg/nand3_logique_invin1.svg]] 
 
 ** NAND et NOR, représentations équivalentes
 
@@ -146,19 +150,16 @@ $$
 
 - On peut donc représenter les portes NAND et NOR de deux façons équivalentes.
 
-** NOR, représentations équivalentes
-
+#+CAPTION: Deux représentations équivalentes pour une porte NAND
+#+attr_latex: :scale 0.75
+#+NAME:nand_equiv
+[[file:../Images_svg/NANDequiv.svg]]
 
 #+CAPTION: Deux représentations équivalentes pour une porte NOR
 #+attr_latex: :scale 0.75
 #+NAME:fig-nor_equiv
-[[file:../../Sources_images_logiques/images/NORequiv.svg]]
-** NAND, représentations équivalentes
+[[file:../Images_svg/NORequiv.svg]]
 
-#+CAPTION: Deux représentations équivalentes pour une porte NAND
-#+attr_latex: :scale 0.75
-#+NAME:nand_equiv
-[[file:../../Sources_images_logiques/images/NANDequiv.svg]]
 
 ** Porte OU-exclusif (XOR)
 
@@ -166,7 +167,7 @@ $$
 
 - Il est possible de définir des portes XOR à plus de deux entrées, mais il y a différentes interprétations de ce qu'une telle porte devrait avoir comme comportement.
 
-- De plus, comme la réalisation pratique de cette fonction n'est pas aussi simple que pour les autres fonctions, on se retrouve plus souvent qu'autrement à devoir mettre des portes à deux entrées en cascade pour augmenter le nombre d'entrées, ce qui rend moins intéressantes les portes XOR avec entrées nombreuses.
+- De plus, comme la réalisation pratique de cette fonction n'est pas aussi simple que pour les autres fonctions, on se retrouve la plupart du temps à devoir mettre des portes à deux entrées en cascade pour augmenter le nombre d'entrées, ce qui rend moins intéressantes les portes XOR avec entrées nombreuses.
 
 ** Porte OU-exclusif (XOR) ... 2
 
@@ -175,7 +176,7 @@ $$ S= A \cdot B^\prime + A^\prime \cdot B $$
 #+CAPTION: Porte XOR à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-xor
-[[file:../../Sources_images_logiques/images/exor_logique.svg]]
+[[file:../Images_svg/exor_logique.svg]]
 
 ** Porte NON-OU-exclusif ou Équivalence (XNOR)
 
@@ -186,7 +187,7 @@ $$ S= A \cdot B^\prime + A^\prime \cdot B $$
 #+CAPTION: Porte XNOR
 #+attr_latex: :scale 0.75
 #+NAME:fig-xnor
-[[file:../../Sources_images_logiques/images/xnor_logique.svg]]
+[[file:../Images_svg/xnor_logique.svg]]
 
 ** Universalité des NAND et NOR
 
@@ -194,9 +195,9 @@ En faisant appel uniquement à des portes de type NAND ou NOR, il est possible d
 
 1) Pour réaliser un inverseur, on utilise une porte NAND à une seule entrée (ou dont toutes les entrées sont reliées ensemble).
 2) Pour réaliser une porte ET, on fait suivre une porte NAND d'un inverseur.
-3) Pour réaliser une porte OU, on précède chaque entrée d'une porte NAND d'un inverseur.
+3) Pour réaliser une porte OU, on place un inverseur devant chaque entrée d'une porte NAND.
 
-On verra plus loin qu'il est aussi possible de réaliser avantageusement des fonctions quelconques avec des portes NAND en exploitant la forme /somme de produits/.
+Nous verrons plus loin qu'il est aussi possible de réaliser avantageusement des fonctions quelconques avec des portes NAND en exploitant la forme /somme de produits/.
 
 ** Limites physiques
 
@@ -206,19 +207,19 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 - En raffinant nos modèles pour y incorporer des caractéristiques, limites ou contraintes appropriées, il sera possible de mieux tenir compte de la réalité physique.
 
-** /Fan-out/
+**  Sortance (/Fan-out/)
 
-- Le /fan-out/ d'une porte logique mesure sa capacité à commander d'autres portes reliées à sa sortie.
+- La sortance (/fan-out/) d'une porte logique mesure sa capacité à commander d'autres portes reliées à sa sortie.
 
 - Puisque les portes sont des dispositifs électroniques qui doivent faire circuler un certain courant électrique pour concrétiser les niveaux de tensions qui définissent leurs valeurs d'entrée et de sortie, il y a une limite pratique à la capacité d'une porte de fournir le courant nécessaire pour faire réagir la sortie des portes qu'elle devrait commander.
 
-- Le /fan-out/ mesure cette limite, en nombre de portes à commander.
+- La sortance mesure cette limite, en nombre de portes à commander.
 
-- Si on connecte plus d'entrées à une sortie que sa valeur de /fan-out/, cette sortie ne pourra pas atteindre le niveau de tension adéquat, et les opérations logiques seront faussées.
+- Si on connecte plus d'entrées à une sortie que sa valeur de sortance, cette sortie ne pourra pas atteindre le niveau de tension adéquat, et les opérations logiques seront faussées.
 
 ** Modèles de délai
 
-- Dans la mesure où on respecte ses contraintes d'utilisation, notamment de /fan-out/, une porte logique se comporte globalement de la façon attendue, étant donné sa fonction et les conventions de niveaux de signal établies.
+- Dans la mesure où on respecte ses contraintes d'utilisation, notamment de sortance, une porte logique se comporte globalement de la façon attendue, étant donné sa fonction et les conventions de niveaux de signal établies.
 
 - Par exemple, le niveau signal à la sortie d'un inverseur correspondra au niveau de signal attendu pour le complément de la valeur logique à son entrée.
 
@@ -226,7 +227,7 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 ** Modèles de délai ... 2
 
-- Une de ces «imperfections» dont on doit impérativement tenir compte est le *délai de propagation* qui se manifeste comme un retard entre le moment où le signal à l'entrée de la porte assume (se stabilise à) son niveau de signal, et le moment où la sortie de la porte atteint son niveau de signal attendu.
+- Une de ces «imperfections» dont on doit impérativement tenir compte est le *délai de propagation* qui se manifeste comme un retard entre le moment où le signal à l'entrée de la porte assume (se stabilise à) son niveau de signal et le moment où la sortie de la porte atteint son niveau de signal attendu.
 
 - C'est en quelque sorte le délai entre une action à l'entrée et son effet sur la sortie.
 
@@ -238,7 +239,8 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 ** Modèles de délai ... 3
 
-- Le délai de propagation peut dépendre de plusieurs facteurs: la famille logique, le type de porte, le sens de la transition, le /fan-out/ effectif, les caractéristiques d'interconnexions, etc.
+- Le délai de propagation peut dépendre de plusieurs facteurs: la famille logique, le type de porte, le sens de la transition, la
+sortance effective, les caractéristiques d'interconnexions, etc.
 
 - Pour faciliter l'analyse, on fait appel à des modèles de délais plus ou moins sophistiqués.
 
@@ -246,25 +248,25 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 - Un modèle un peu plus subtil pourrait prendre en compte des délais de propagation moyens différents par types de portes.
 
-- Le délai de propagation moyen est une caractéristique clé qui différencies les différentes familles logiques.
+- Le délai de propagation moyen est une caractéristique clé qui différencie les différentes familles logiques.
 
-- Les délais sont typiquement de l'ordre de nanosecondes, permettant des vitesse de commutation dans les dizaines, centaines, voire, des milliers de MHz.
+- Les délais sont typiquement de l'ordre de nanosecondes, permettant des vitesses de commutation dans les dizaines, centaines, voire des milliers de MHz.
 
 ** Modèles de délai ... 4
 
 - Lorsqu'un signal doit se propager à travers plusieurs portes, les délais de propagation s'accumulent, limitant encore davantage la vitesse de commutation de l'ensemble du circuit.
 
-- La vitesse qui pourra être atteinte pour l'ensemble d'un circuit sera typiquement déterminée par le plus lent chemin en terme de temps de propagation.
+- La vitesse qui pourra être atteinte pour l'ensemble d'un circuit sera typiquement déterminée par le plus lent chemin (c'est-à-dire celui qui cumule le plus long temps de propagation).
 
 ** Modèles simples
 
-- Considérons pour illustrer une porte ET à deux entrées \(S = A B\). 
+- À titre d'exemple, considérons une porte ET à deux entrées \(S = A B\). 
 
 - Le modèle le plus simple suppose une porte idéale, sans aucun délai: le chronogramme suivant montre la sortie qui commute immédiatement lorsque les conditions d'entrée changent.
 
 #+CAPTION: Porte ET sans délai
 #+NAME:fig-course
-[[file:../../Sources_images_logiques/images/chronopasdelais.svg]]
+[[file:../Images_svg/chronopasdelais.svg]]
 
 ** Modèle avec délai en sortie
 
@@ -273,7 +275,7 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 #+CAPTION: Porte ET avec délai en sortie
 #+NAME:fig-course
-[[file:../../Sources_images_logiques/images/chrononodelaisortie.svg]]
+[[file:../Images_svg/chrononodelaisortie.svg]]
 
 ** Modèle avec délai en entrée
 
@@ -281,11 +283,11 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 #+CAPTION: Porte ET avec délai aux entrées
 #+NAME:fig-course
-[[file:../../Sources_images_logiques/images/chrononodelaientree.svg]]
+[[file:../Images_svg/chrononodelaientree.svg]]
 
 ** Modèle combiné
 
-- Le modèle combiné consiste à considérer des délais différents par entrée, et en plus, un délai global en sortie.
+- Le modèle combiné consiste à considérer des délais différents par entrée et, en plus, un délai global en sortie.
 
 ** Condition de course et aléas
 
@@ -302,7 +304,7 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 #+CAPTION: Cas à risque de condition de course
 #+attr_latex: :scale 0.75
 #+NAME:fig-course
-[[file:../../Sources_images_logiques/images/course.svg]]
+[[file:../Images_svg/course.svg]]
 
 ** Condition de course et aléas ... 2
 
@@ -311,12 +313,12 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 #+CAPTION: Chronogramme montrant une condition de course
 #+NAME:fig-chronocourse
-[[file:../../Sources_images_logiques/images/chronocourse.svg]]
+[[file:../Images_svg/chronocourse.svg]]
 ** Condition de course et aléas ... 3
 
 - Une courte impulsion 1 sera donc générée sur le signal \(s\) en sortie de la porte ET, après le délai de propagation \(t_{p2}\) de celle-ci.
 
-- Cette impulsion, qui ne correspond à rien selon la logique du circuit est appelé un *aléa* (ou en anglais, /glitch/).
+- Cette impulsion, qui ne correspond à rien selon la logique du circuit est appelée un *aléa* (ou en anglais, /glitch/).
 
 - Ces aléas peuvent être la source de problèmes et de dysfonctionnements qui sont parfois difficiles à diagnostiquer, et il faut vraiment s'en méfier.
 
@@ -332,6 +334,6 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 - Une façon pratique de réaliser une porte tampon est de placer deux inverseurs l'un à la suite de l'autre.
 
-- L'utilisation de portes tampon est un des moyens de s'assurer de respecter les conditions de /fan-out/.
+- L'utilisation de portes tampons est un des moyens de s'assurer de respecter les conditions de sortance.
 
 

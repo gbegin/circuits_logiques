@@ -1,4 +1,4 @@
-% Created 2022-11-16 mer 14:33
+% Created 2023-10-26 jeu 09:48
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,8 @@
 \usepackage{minted}
 \usepackage[, french]{babel}
 \usepackage{svg}
-\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\logo{\includegraphics[width=.1\textwidth]{../by-sa.png}}
+\AtBeginEnvironment{minted}{\renewcommand{\fcolorbox}[4][]{#4}}
 \usetheme{metropolis}
 \usecolortheme{}
 \usefonttheme{}
@@ -30,46 +31,46 @@
  pdftitle={Circuits logiques combinatoires et séquentiels},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdfcreator={Emacs 28.1 (Org mode 9.6.6)}, 
  pdflang={French}}
 \begin{document}
 
 \maketitle
 
 \section{Analyse de circuits logiques séquentiels synchrones}
-\label{sec:orga4a65c0}
-\begin{frame}[label={sec:org6862807}]{Objectifs}
+\label{sec:org8ec86c6}
+\begin{frame}[label={sec:org141cf39}]{Objectifs}
 \begin{itemize}
-\item Pouvoir analyser en détail le comportement d'un circuit séquentiel
+\item Analyser en détail le comportement d'un circuit séquentiel
 synchrone à partir de son schéma, selon différents types de bascules
-employées
-\item Pouvoir établir les équations de transition qui commandent les bascules
-\item Être familier avec la notion de tableau d'excitation
-\item Pouvoir tracer un diagramme d'état
-\item Pouvoir interpréter le comportement du système à partir de son
+employés
+\item Établir les équations de transition qui commandent les bascules
+\item Se familiariser avec la notion de tableau d'excitation
+\item Tracer un diagramme d'état
+\item Interpréter le comportement du système à partir de son
 diagramme d'état
-\item Savoir distinguer entre les deux modèles de circuit séquentiels
-(Moore et Mealy)
+\item Faire la distinction entre les deux modèles de circuits séquentiels
+(Mealy et Moore)
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge4ca596}]{Démarche d'analyse}
+\begin{frame}[label={sec:orge130da3}]{Démarche d'analyse}
 \begin{itemize}
-\item Analyser un circuit logique séquentiel a pour but de déterminer le comportement qu'aura le circuit selon les séquences d'entrées qui lui seront appliquées et l'état dans lequel il se trouve initialement.
+\item Analyser un circuit logique séquentiel a pour but de déterminer le comportement qu'aura le circuit selon les séquences d'entrée qui lui seront appliquées et l'état dans lequel il se trouve initialement.
 
-\item On voudra aussi connaître quelles séquences de sorties seront produites.
+\item On voudra aussi connaître quelles séquences de sortie seront produites.
 
 \item Dans la mesure où un circuit comporte une ou des bascules (peu importe le type) et un signal d'horloge, on peut considérer qu'il s'agit d'un circuit séquentiel synchrone.
 
-\item Le type de bascule sera pris en compte pour l'analyse, qui consistera à déterminer, pour un état présent donné, quel seront les prochains états possibles selon les valeurs d'entrée.
+\item Le type de bascule sera pris en compte pour l'analyse, qui consistera à déterminer, pour un état présent donné, quels seront les prochains états possibles selon les valeurs d'entrée.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgfb9cb1f}]{Étapes}
+\begin{frame}[label={sec:orge69140c}]{Étapes}
 Les grandes lignes de la démarche sont les suivantes.
 \end{frame}
 
-\begin{frame}[label={sec:org2cc9be0}]{Identification des éléments fonctionnels}
+\begin{frame}[label={sec:org70d0102}]{Identification des éléments fonctionnels}
 \begin{enumerate}
 \item Identification des éléments fonctionnels:
 
@@ -87,100 +88,94 @@ Les grandes lignes de la démarche sont les suivantes.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org4eff5ab}]{Expressions logiques}
+\begin{frame}[label={sec:org2832eb2}]{Expressions logiques}
 \begin{enumerate}
 \setcounter{enumi}{1}
 \item Expressions logiques du décodeur de prochain état: établies pour
 chaque entrée des bascules, en fonction des entrées externes et des
-variables d'état.
+variables d'état
 
 \item Expressions logiques des sorties externes, établies en fonction des
-entrées externes et des variables d'état.
-\end{enumerate}
-\end{frame}
+entrées externes et des variables d'état
 
-\begin{frame}[label={sec:org0b5f7b8}]{Tableau d'excitation, diagramme d'état et interprétation}
-\begin{enumerate}
 \setcounter{enumi}{3}
-\item Construction du tableau d'excitation.
+\item Construction du tableau d'excitation
 
 \setcounter{enumi}{4}
-\item Diagramme d'état.
+\item Diagramme d'état
 
-\item Interprétation du comportement du circuit séquentiel.
+\item Interprétation du comportement du circuit séquentiel
 \end{enumerate}
-\end{frame}
 
-\begin{frame}[label={sec:org8626f43}]{Équations de transition}
+Au centre de ce processus se trouve l'analyse des circuits combinatoires qui déterminent ce que seront les entrées des bascules.
+
 \begin{itemize}
-\item Au centre de ce processus se trouve l'analyse des circuits combinatoires qui déterminent ce que seront les entrées des bascules.
-
 \item Nous chercherons à établir les \alert{équations de transition} qui précisent ce que sera le prochain état en fonction des entrées et de l'état présent.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org7a6e0fc}]{Exemple d'analyse}
+\begin{frame}[label={sec:org62c4e18}]{Exemple d'analyse}
 Nous allons appliquer la démarche à un exemple qui nous permettra de
 mieux expliquer chacune des étapes. Considérons le circuit de la
-figure \ref{fig:orgb45f17a}.
+figure \ref{fig:org540b8d7}.
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.55]{../../Sources_images_logiques/images/exemple_seq1}
-\caption{\label{fig:orgb45f17a}Circuit séquentiel synchrone à analyser}
+\includesvg[scale=0.55]{../Images_svg/exemple_seq1}
+\caption{\label{fig:org540b8d7}Circuit séquentiel synchrone à analyser}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}[label={sec:orgdf61e8e}]{Identification des éléments fonctionnels}
+\begin{frame}[label={sec:org99fdb1b}]{Identification des éléments fonctionnels}
 \begin{enumerate}
-\item Il y a une seule entrée externe \(I\).
-\item Il y a deux éléments de mémoire, étiquetés \(Z_0^n\) et  \(Z_1^n\).
-\item On a un décodeur de prochain état pour deux bascules D.
-\item Il y a deux sorties externes: \(S\) et \(U\).
-\item Il y a un décodeur de sortie.
+\item Il y a une seule entrée externe \(I\)
+\item Il y a deux éléments de mémoire, étiquetés \(Z_0^n\) et  \(Z_1^n\)
+\item On a un décodeur de prochain état pour deux bascules D
+\item Il y a deux sorties externes: \(S\) et \(U\)
+\item Il y a un décodeur de sortie
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org82637d0}]{Expressions logiques pour le décodeur de prochain état}
+\begin{frame}[label={sec:org01b45d8}]{Expressions logiques pour le décodeur de prochain état}
 $$ Z_0^{n+1} = I \cdot (Z_1^n)^\prime  + I \cdot Z_0^n $$
 
 $$ Z_1^{n+1} = I \cdot Z_1^n +  Z_0^n  $$
 \end{frame}
 
-\begin{frame}[label={sec:org51c5f8c}]{Expressions logiques des sorties externes}
+\begin{frame}[label={sec:org8f0fd8d}]{Expressions logiques des sorties externes}
 $$ S =  Z_0^n \cdot (Z_1^{n})^\prime $$
 
 $$ U =  Z_0^n \cdot Z_1^{n} $$
 \end{frame}
 
-\begin{frame}[label={sec:org3ccd08a}]{Tableau d'excitation}
-Chaque ligne du tableau d'excitation \ref{tab:orgab30ac7} montre, à gauche,
-un état présent (identifiable par les valeurs de bascules) et une
-combinaison de valeurs d'entrées, et à droite, le prochain état et les
+\begin{frame}[label={sec:org76f8bec}]{Tableau d'excitation}
+Chaque ligne du tableau d'excitation \ref{tab:orgdd7b5f1} montre, à gauche,
+un état présent (identifiable par les valeurs des bascules) et une
+combinaison de valeurs d'entrée, et à droite, le prochain état et les
 valeurs de sortie produites.
 \end{frame}
 
-\begin{frame}[label={sec:org163c394}]{Tableau d'excitation \ldots{} 2}
+\begin{frame}[label={sec:org55fe1d2}]{Tableau d'excitation \ldots{} 2}
 \begin{table}[htbp]
-\caption{\label{tab:orgab30ac7}Tableau d'excitation pour l'exemple}
+\caption{\label{tab:orgdd7b5f1}Tableau d'excitation pour l'exemple}
 \centering
 \begin{tabular}{rrrlrrrr}
-\(Z_1^n\) & \(Z_0^n\) & \(I\) &  & \(Z_1^{n+1}\) & \(Z_0^{n+1}\) & \(S\) & \(U\)\\
+\(Z_1^n\) & \(Z_0^n\) & \(I\) &  & \(Z_1^{n+1}\) & \(Z_0^{n+1}\) & \(S\) & \(U\)\\[0pt]
 \hline
-0 & 0 & 0 &  & 0 & 0 & 0 & 0\\
-0 & 0 & 1 &  & 0 & 1 & 0 & 0\\
-0 & 1 & 0 &  & 1 & 0 & 1 & 0\\
-0 & 1 & 1 &  & 1 & 1 & 1 & 0\\
-1 & 0 & 0 &  & 0 & 0 & 0 & 0\\
-1 & 0 & 1 &  & 1 & 0 & 0 & 0\\
-1 & 1 & 0 &  & 1 & 0 & 0 & 1\\
-1 & 1 & 1 &  & 1 & 1 & 0 & 1\\
+0 & 0 & 0 &  & 0 & 0 & 0 & 0\\[0pt]
+0 & 0 & 1 &  & 0 & 1 & 0 & 0\\[0pt]
+0 & 1 & 0 &  & 1 & 0 & 1 & 0\\[0pt]
+0 & 1 & 1 &  & 1 & 1 & 1 & 0\\[0pt]
+1 & 0 & 0 &  & 0 & 0 & 0 & 0\\[0pt]
+1 & 0 & 1 &  & 1 & 0 & 0 & 0\\[0pt]
+1 & 1 & 0 &  & 1 & 0 & 0 & 1\\[0pt]
+1 & 1 & 1 &  & 1 & 1 & 0 & 1\\[0pt]
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:org9e10d8d}]{Diagramme d'état}
+\begin{frame}[label={sec:org729eb14}]{Diagramme d'état}
 \begin{itemize}
 \item Le diagramme d'état représente de façon schématique le comportement du circuit séquentiel.
 
@@ -188,11 +183,11 @@ valeurs de sortie produites.
 
 \item On peut utiliser des étiquettes à l'intérieur des cercles pour nommer les états.
 
-\item On peut aussi y indiquer les numéros d'états (soit en vecteurs de bits, soit avec des nombres binaires comme ici sur la figure).
+\item On peut aussi y indiquer les numéros d'état (soit en vecteurs de bits, soit avec des nombres binaires comme ici sur la figure).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb4bc0e3}]{Diagramme d'état \ldots{} 2}
+\begin{frame}[label={sec:org11c02eb}]{Diagramme d'état \ldots{} 2}
 \begin{itemize}
 \item Les sorties produites par le système sont aussi indiquées dans les cercles.
 
@@ -204,7 +199,7 @@ valeurs de sortie produites.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgfdc2e8b}]{Diagramme d'état \ldots{} 3}
+\begin{frame}[label={sec:org9a04483}]{Diagramme d'état \ldots{} 3}
 \begin{itemize}
 \item Dans la figure, on voit aussi l'état initial, identifié par une flèche partant d'un gros point noir.
 
@@ -212,15 +207,15 @@ valeurs de sortie produites.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org416573c}]{Diagramme d'état obtenu}
+\begin{frame}[label={sec:org3418fcf}]{Diagramme d'état obtenu}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.55]{../../Sources_images_logiques/images/exemple_seq1_fsm}
-\caption{\label{fig:org70e9402}Diagramme d'état}
+\includesvg[scale=0.55]{../Images_svg/exemple_seq1_fsm}
+\caption{\label{fig:org9d5b4f3}Diagramme d'état}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org7171914}]{Interprétation du comportement du circuit séquentiel.}
+\begin{frame}[label={sec:org86bcfe8}]{Interprétation du comportement du circuit séquentiel.}
 \begin{itemize}
 \item Le système est initialement à l'état \emph{a}.
 
@@ -238,23 +233,23 @@ valeurs de sortie produites.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgfe2df44}]{Comportement}
+\begin{frame}[label={sec:orgd630d44}]{Comportement}
 \begin{itemize}
-\item La figure \ref{fig:org8633e5a} montre une trace des formes d'onde observées en fonctionnement pour le système.
+\item La figure \ref{fig:org827882f} montre une trace des formes d'onde observées en fonctionnement pour le système.
 
-\item Dans cet exemple, le système boucle d'abord sur l'état \emph{a} (valeur 0 sur la trace) puis, passe à l'état \emph{b} (valeur 1) et ensuite l'état \emph{d} (valeur 3), boucle sur l'état \emph{d} et passe ensuite à l'état \emph{c} (valeur 2) pour finalement revenir à l'état \emph{a}.
+\item Dans cet exemple, le système boucle d'abord sur l'état \emph{a} (valeur 0 sur la trace), puis passe à l'état \emph{b} (valeur 1) et ensuite à l'état \emph{d} (valeur 3), boucle sur l'état \emph{d} et passe ensuite à l'état \emph{c} (valeur 2) pour finalement revenir à l'état \emph{a}.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org73bc1c0}]{Exemple de fonctionnement}
+\begin{frame}[label={sec:orge08877c}]{Exemple de fonctionnement}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.55]{../../Sources_images_logiques/images/exemple_seq1_run}
-\caption{\label{fig:org8633e5a}Exemple de fonctionnement}
+\includesvg[scale=0.55]{../Images_svg/exemple_seq1_run}
+\caption{\label{fig:org827882f}Exemple de fonctionnement}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org3690dbf}]{Analyse pour des bascules JK}
+\begin{frame}[label={sec:org94968e4}]{Analyse pour des bascules JK}
 \begin{itemize}
 \item Pour analyser un circuit séquentiel utilisant des bascules JK, on détermine d'abord les expressions \(J_A\) et \(K_A\), \(J_B\) et \(K_B\), etc., pour chacune des bascules.
 
@@ -264,18 +259,18 @@ valeurs de sortie produites.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgca53c92}]{Exemple avec bascules JK}
-Considérons le circuit séquentiel de la figure \ref{fig:org61aaa93}.
+\begin{frame}[label={sec:org0e75bde}]{Exemple avec bascules JK}
+Considérons le circuit séquentiel de la figure \ref{fig:orgab1de13}.
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/seq_JK}
-\caption{\label{fig:org61aaa93}Exemple de circuit séquentiel avec des bascules JK}
+\includesvg[scale=0.75]{../Images_svg/seq_JK}
+\caption{\label{fig:orgab1de13}Exemple de circuit séquentiel avec des bascules JK}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgcbf2e40}]{Exemple avec bascules JK \ldots{} 2}
-À partir des expression des entrées \(J\) et \(K\) suivantes:
+\begin{frame}[label={sec:orgc6f7092}]{Exemple avec bascules JK \ldots{} 2}
+À partir des expressions des entrées \(J\) et \(K\) suivantes:
 
 $$ J_0 = (q_1^{n})^\prime $$
 
@@ -285,60 +280,60 @@ $$ J_1 = q_0^{n} $$
 
 $$ K_1 = (q_0^{n})^\prime \cdot q_1^{n} $$
 
-on peut remplir le tableau d'excitation (tableau \ref{tab:org6166e18}).
+on peut remplir le tableau d'excitation (tableau \ref{tab:orgc11b9d8}).
 \end{frame}
 
-\begin{frame}[label={sec:orga7c25cf}]{Tableau d'excitation circuit séquentiel JK}
+\begin{frame}[label={sec:org999d297}]{Tableau d'excitation circuit séquentiel JK}
 \begin{table}[htbp]
-\caption{\label{tab:org6166e18}Tableau d'excitation circuit séquentiel JK}
+\caption{\label{tab:orgc11b9d8}Tableau d'excitation circuit séquentiel JK}
 \centering
 \begin{tabular}{rrrrrrlrr}
-\(q_1^{n+1}\) & \(q_0^n\) & \(J_0\) & \(K_0\) & \(J_1\) & \(K_1\) &  & \(q_1^{n+1}\) & \(q_0^{n+1}\)\\
+\(q_1^{n+1}\) & \(q_0^n\) & \(J_0\) & \(K_0\) & \(J_1\) & \(K_1\) &  & \(q_1^{n+1}\) & \(q_0^{n+1}\)\\[0pt]
 \hline
-0 & 0 & 1 & 0 & 0 & 0 &  & 0 & 1\\
-0 & 1 & 1 & 1 & 1 & 0 &  & 1 & 0\\
-1 & 0 & 0 & 0 & 0 & 1 &  & 0 & 0\\
-1 & 1 & 0 & 0 & 1 & 0 &  & 1 & 1\\
+0 & 0 & 1 & 0 & 0 & 0 &  & 0 & 1\\[0pt]
+0 & 1 & 1 & 1 & 1 & 0 &  & 1 & 0\\[0pt]
+1 & 0 & 0 & 0 & 0 & 1 &  & 0 & 0\\[0pt]
+1 & 1 & 0 & 0 & 1 & 0 &  & 1 & 1\\[0pt]
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgd4e853a}]{Diagramme d'état}
+\begin{frame}[label={sec:org45ff521}]{Diagramme d'état}
 À partir du tableau d'excitation, on peut tracer le diagramme d'état
-(figure \ref{fig:org3cd5540}).
+(figure \ref{fig:org55cc3e7}).
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.55]{../../Sources_images_logiques/images/seq_JKb_FSM}
-\caption{\label{fig:org3cd5540}Diagramme d'état du circuit séquentiel avec bascules JK}
+\includesvg[scale=0.55]{../Images_svg/seq_JKb_FSM}
+\caption{\label{fig:org55cc3e7}Diagramme d'état du circuit séquentiel avec bascules JK}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org0063b9d}]{Modèles de machines séquentielles}
+\begin{frame}[label={sec:org9b4119c}]{Modèles de machines séquentielles}
 \begin{itemize}
-\item On appelle les modèles abstraits de systèmes séquentiels des \alert{machines à état fini} (en anglais, \emph{Finite State Machines}, (FSM)).
+\item On appelle les modèles abstraits de systèmes séquentiels des \alert{automates finis} ou des \alert{machines à état fini} (en anglais, \emph{Finite State Machines} (FSM)).
 
-\item On distingue deux modèles de circuit séquentiels, selon la façon dont les sortie sont obtenues.
+\item On distingue deux modèles de circuits séquentiels, selon la façon dont les sorties sont obtenues.
 
-\item Dans le modèle de Mealy, les sorties dépendent à la fois des entrées et des variables d'état présent (figure \ref{fig:org7fbfceb}).
+\item Dans le modèle de Mealy, les sorties dépendent à la fois des entrées et des variables d'état présent (figure \ref{fig:org649efd6}).
 
-\item Dans le modèle de Moore, les sorties ne dépendent que des variables d'état présent (figure \ref{fig:orgaa31e29}).
+\item Dans le modèle de Moore, les sorties ne dépendent que des variables d'état présent (figure \ref{fig:org16205da}).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org26e23c5}]{Machine de Mealy}
+\begin{frame}[label={sec:orgf4b8ddc}]{Machine de Mealy}
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{../../Sources_images_logiques/images/mealy.png}
-\caption{\label{fig:org7fbfceb}Machine de Mealy}
+\includegraphics[width=.9\linewidth]{../Images_png/mealy.png}
+\caption{\label{fig:org649efd6}Machine de Mealy}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org21e27ea}]{Machine de Moore}
+\begin{frame}[label={sec:org77818ff}]{Machine de Moore}
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=.9\linewidth]{../../Sources_images_logiques/images/moore.png}
-\caption{\label{fig:orgaa31e29}Machine de Moore}
+\includegraphics[width=.9\linewidth]{../Images_png/moore.png}
+\caption{\label{fig:org16205da}Machine de Moore}
 \end{figure}
 \end{frame}
 \end{document}

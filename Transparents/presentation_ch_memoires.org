@@ -1,17 +1,17 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Mémoires
 ** Objectifs
-- Pouvoir distinguer entre mémoire volatile et non-volatile
-- Pouvoir distinguer entre mémoire volatile statique et dynamique
+- Faire la distinction entre mémoire volatile et non-volatile
+- Faire la distinction entre mémoire volatile statique et dynamique
 - Connaître l'organisation typique d'une mémoire et le fonctionnement
   de l'adressage
 - Comprendre le fonctionnement d'un bus de données
-- Pouvoir interpréter les cycles d'écriture et de lecture
-- Pouvoir implémenter une fonction combinatoire arbitraire à l'aide d'une
+- Interpréter les cycles d'écriture et de lecture
+- Implémenter une fonction combinatoire arbitraire à l'aide d'une
   mémoire ROM
-- Pouvoir utiliser un tableau de correspondance
-- Être familier avec les différents types de mémoires non-volatiles
+- Utiliser un tableau de correspondance
+- Se familiariser avec les différents types de mémoires non-volatiles
 
 ** Mémoires
 
@@ -23,23 +23,24 @@
 
 - Constituée d'un grand nombre de cellules permettant chacune de stocker un bit, la mémoire est dotée de mécanismes permettant d'accéder aux cellules pour en faire la lecture ou l'écriture.
 
-- On distingue les mémoires non-volatiles (en anglais, /Read Only Memories/, (ROM)) et les mémoires volatiles (en anglais, /Random Access Memories/, (RAM)).
+- On distingue les mémoires non volatiles (en anglais, /Read Only Memories/ (ROM)) et les mémoires volatiles (en anglais, /Random Access Memories/ (RAM)).
 
 ** Mémoires non-volatiles
 
-- Dans une mémoire ROM, les données sont stockées une fois pour toute.
+- Dans une mémoire ROM, les données sont stockées une fois pour toutes.
 
 - Elles y demeurent même après que la mémoire ait été mise hors tension.
 
 - Dans le cycle de vie des données, il y a donc *une* écriture initiale, mais autant de lectures qu'on le souhaite.
 
-- Il ne peut pas y avoir de récriture.
+- Il ne peut pas y avoir de réécriture.
 
 ** Mémoire ROM
 
-- Une mémoire ROM est considérée comme un dispositif *programmable*, dans le sens que le processus d'écriture initial demande une action particulière, une procédure spécifique au niveau matériel.
+- Une mémoire ROM est considérée comme un dispositif *programmable*, dans le sens où le processus d'écriture initial demande une action particulière, une procédure spécifique sur le plan matériel.
 
-- On verra plus loin d'autres dispositifs logiques programmables.
+Nous verrons
+plus loin d'autres dispositifs logiques programmables.
 
 - La programmation d'une ROM se fait en agissant sur des connexions dites *fusibles*.
 
@@ -51,9 +52,9 @@
 
 - Une mémoire RAM stocke l'information de façon temporaire.
 
-- En principe, le contenu est conservé tant que la mémoire est maintenue sous tension. Mais la réalité est un peu plus complexe, comme on le verra plus loin.
+- En principe, le contenu est conservé tant que la mémoire est maintenue sous tension. Mais la réalité est un peu plus complexe, comme nous le verrons plus loin.
 
-- L'opération d'*écriture* permet de stocker des valeurs, et la *lecture* permet d'extraire l'information de la mémoire.
+- L'opération d'*écriture* permet de stocker des valeurs et la *lecture* permet d'extraire l'information de la mémoire.
 
 ** RAM statique
 
@@ -81,17 +82,17 @@
 
 - Le temps d'accès aux données est le même, quel que soit l'endroit dans la mémoire où un mot en particulier est stocké.
 
-- Les mots sont généralement constitués d'un nombre de bits multiple de huit: 8, 16 ou 32 bits sont des tailles de mots courantes.
+- Les mots sont généralement constitués d'un nombre de bits multiple de huit: 8, 16 ou 32 bits sont des tailles de mot courantes.
 
 - Un groupe de huit bits est appelé *octet*.
 
 ** Décodeur d'adresses
 
-- L'adressage se fait au moyen d'un *décodeur d'adresses*, qui est simplement un décodeur binaire tel que vu précédemment.
+- L'adressage se fait au moyen d'un *décodeur d'adresses*, qui est simplement un décodeur binaire tel que nous l'avons vu précédemment.
 
 - Le nombre de bits d'adresse détermine la capacité (en nombre de mots) de la mémoire: pour \(k\) adresses, on aura \(2^k\) mots distincts.
 
-- Les tailles de mémoire sont souvent exprimées au moyen de multiplicateurs: K (kilo) correspondant à \(2^{10}\), M (mega) correspondant à \(2^{20}\) ou G (giga) correspondant à \(2^{30}\).
+- Les tailles de mémoire sont souvent exprimées au moyen de multiplicateurs: K (kilo) correspondant à \(2^{10}\), M (méga) correspondant à \(2^{20}\) ou G (giga) correspondant à \(2^{30}\).
 
 
 #+begin_src ditaa :file Sources_images_logiques/images/memoire.png :results silent :exports none
@@ -118,37 +119,37 @@
 #+CAPTION: Schéma d'une mémoire
 #+attr_latex: :scale 0.65
 #+NAME:fig-memoire
-[[file:../../Sources_images_logiques/images/memoire.png]]
+[[file:../Images_png/memoire.png]]
 
 ** Lecture et écriture
 
 - L'opération choisie, écriture ou lecture, est commandée par une ou des entrées à cet effet.
 
-- L'accès à un espace-mémoire (un mot) se fait selon une séquence bien précise.
+- L'accès à un espace mémoire (un mot) se fait selon une séquence bien précise.
 
 ** Écriture
 
 Pour une écriture:
 
-1) Les bits d'adresse du mot sont appliqués aux lignes d'adresses.
+1) Les bits d'adresse du mot sont appliqués aux lignes d'adresse.
 2) Les données à écrire sont appliquées aux lignes d'entrée.
 3) On active l'entrée de commande =Écriture=.
 
-- Les données de l'entrée sont alors stockées dans la case-mémoire adressée.
+- Les données de l'entrée sont alors stockées dans la case mémoire adressée.
 
 ** Lecture
 
 Pour une lecture:
 
-1) Les bits d'adresse du mot sont appliqués aux lignes d'adresses.
+1) Les bits d'adresse du mot sont appliqués aux lignes d'adresse.
 2) On active l'entrée de commande =Lecture=.
 
-Les données présentes dans la case-mémoire adressée sont ensuite
+Les données présentes dans la case mémoire adressée sont ensuite
 disponibles à la sortie de la mémoire.
 
 ** Signal de contrôle combiné
 
-- Les mémoires disponibles sur le marché optent souvent pour une combinaison des signaux de contrôle, avec un seul signal qui détermine le sens de l'action, comme on peut le voir dans le tableau [[tab-controle_memoire]].
+- Les mémoires offertes sur le marché optent souvent pour une combinaison des signaux de contrôle, avec un seul signal qui détermine le sens de l'action, comme le montre le tableau [[tab-controle_memoire]].
 
 - Le signal =Enable=, parfois appelé =Chip select=, permet d'activer une mémoire dans un ensemble où plusieurs mémoires sont utilisées.
 
@@ -164,7 +165,7 @@ disponibles à la sortie de la mémoire.
 
 ** Bus de données
 
-- Pour acheminer les données lues ou à écrire dans la mémoire, on utilise des tampons émetteur-récepteurs de bus, organisés en vecteur, pour créer un *bus de données* qui permet un aller-retour des données, selon le sens de l'action.
+- Pour acheminer les données lues ou à écrire dans la mémoire, on utilise des tampons émetteurs-récepteurs de bus organisés en vecteur, pour créer un *bus de données* qui permet un aller-retour des données, selon le sens de l'action.
 
 - Cela permet de diminuer de moitié le nombre de connexions nécessaires pour l'échange des données.
 
@@ -175,13 +176,13 @@ disponibles à la sortie de la mémoire.
 #+CAPTION:  Bus de données, 8 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-bus_trans8
-[[file:../../Sources_images_logiques/images/bus_trans8.svg]]
+[[file:../Images_svg/bus_trans8.svg]]
 
 ** Chronogrammes
 
 - La figure [[fig-chron_ram_ecriture]] présente un chronogramme qui décrit l'opération d'écriture dans une mémoire RAM.
 
-- Les valeurs d'adresses sont d'abord présentée aux entrées d'adressage.
+- Les valeurs d'adresse sont d'abord présentées aux entrées d'adressage.
 
 - Le signal =L/not E= est amené au niveau bas, en même temps que le signal =CS= est activé (au niveau bas).
 
@@ -194,7 +195,7 @@ disponibles à la sortie de la mémoire.
 #+CAPTION: Mémoire RAM, chronogramme pour l'écriture
 #+attr_latex: :scale 0.75
 #+NAME:fig-chron_ram_ecriture
-[[file:../../Sources_images_logiques/images/chron_ram_ecriture.svg]]
+[[file:../Images_svg/chron_ram_ecriture.svg]]
 
 ** Mémoire RAM, chronogramme pour la lecture
 
@@ -211,7 +212,7 @@ disponibles à la sortie de la mémoire.
 #+CAPTION: Mémoire RAM, chronogramme pour la lecture
 #+attr_latex: :scale 0.75
 #+NAME:fig-chron_ram_lecture
-[[file:../../Sources_images_logiques/images/chron_ram_lecture.svg]]
+[[file:../Images_svg/chron_ram_lecture.svg]]
 
 ** Cellule de base
 
@@ -219,14 +220,14 @@ disponibles à la sortie de la mémoire.
 
 - Elle est construite autour d'un loquet SR et de portes logiques pour le contrôle.
 
-- Une mémoire complète de \(m\) mots de taille \(n\) bits sera constituée d'une matrice de format \(m \times n\) de telles cellules, avec un décodeur d'adresses pour sélectionner quel mot sera affecté par l'opération choisie.
+- Une mémoire complète de \(m\) mots de taille \(n\) bits sera constituée d'une matrice de format \(m \times n\) de telles cellules, avec un décodeur d'adresse pour sélectionner quel mot sera affecté par l'opération choisie.
 
 ** Cellule mémoire RAM
 
 #+CAPTION: Cellule mémoire RAM
 #+attr_latex: :scale 0.75
 #+NAME:fig-cell_ram
-[[file:../../Sources_images_logiques/images/cell_ram.svg]]
+[[file:../Images_svg/cell_ram.svg]]
 
 
 ** Mémoires mortes
@@ -239,17 +240,19 @@ disponibles à la sortie de la mémoire.
 
 - La figure [[fig-proto_rom1_prog]] montre l'essentiel d'une mémoire ROM de 16 mots de 4 bits.
 
-- Cette relativement petite mémoire comporte ainsi 64 intersections programmables, permettant de définir la valeur des 16 mots de mémoire de 8 bits chacun.
 
 ** Modèle d'une mémoire ROM
 
 #+CAPTION: Modèle d'une mémoire ROM
 #+attr_latex: :scale 0.75
 #+NAME:fig-proto_rom1_prog
-[[file:../../Sources_images_logiques/images/proto_rom1_prog.svg]]
+[[file:../Images_svg/proto_rom1_prog.svg]]
 
 
 ** Mémoires mortes ... 2
+
+- Cette mémoire relativement petite comporte ainsi 64 intersections
+programmables, permettant de définir la valeur des 16 mots de mémoire de 8 bits chacun.
 
 - Un décodeur d'adresse permet de sélectionner quel mot sera lu, et la sortie est disponible sur les lignes \(A_3, \ldots, A_0\).
 
@@ -267,7 +270,7 @@ disponibles à la sortie de la mémoire.
 
 - Regrouper avec une porte OU les minterms d'une fonction permet d'implémenter cette fonction.
 
-- Une mémoire ROM permet de faire exactement cela sans avoir rien à ajouter, car elle est munie d'un décodeur d'entrées et la porte OU de sortie fait déjà partie de la ROM.
+- Une mémoire ROM permet de faire exactement cela sans avoir rien à ajouter, car elle est munie d'un décodeur d'entrée et la porte OU de sortie fait déjà partie de la ROM.
 
 ** Implémentation de fonctions combinatoires ... 2
 
@@ -279,7 +282,7 @@ disponibles à la sortie de la mémoire.
 
 - Cette approche qui consiste à réaliser une fonction logique combinatoire au moyen d'une mémoire qui spécifie, pour chaque combinaison d'entrée possible, une valeur de sortie, est largement utilisée dans les composants programmables.
 
-- On parle alors de tableau de correspondance (en anglais, /LookUp Table/, (LUT)).
+- On parle alors de tableau de correspondance (en anglais, /LookUp Table/ (LUT)).
 
 - Il s'agit ni plus ni moins que de stocker en mémoire le tableau de vérité de la fonction à réaliser.
 
@@ -289,13 +292,13 @@ disponibles à la sortie de la mémoire.
 
 - On distingue quatre grandes approches technologiques pour réaliser des mémoires mortes.
 
-- Leurs usages typiques sont surtout déterminés par la façon de les configurer (on dit couramment /programmer/, même s'il s'agit d'un intervention au niveau du matériel).
+- Leurs usages typiques sont surtout déterminés par la façon de les configurer (on dit couramment /programmer/, même s'il s'agit d'une intervention sur le plan matériel).
 
 ** Programmation par masque
 
 - Dans la *programmation par masque*, la mémoire est programmée lors de la fabrication de la puce.
 
-- Le fabricant se base sur un tableau de vérité fourni par le client pour établir des connexions qui seront implémentées (ou pas) dans le procédé de fabrication via des masques qui empêchent la déposition de matériau conducteur sur les couches du circuit intégré.
+- Le fabricant se base sur un tableau de vérité fourni par le client pour établir des connexions qui seront implémentées (ou pas) dans le procédé de fabrication via des masques qui empêchent le dépôt de matériau conducteur sur les couches du circuit intégré.
 
 - Cette approche convient à la production de masse à grand volume.
 
@@ -305,17 +308,17 @@ disponibles à la sortie de la mémoire.
 
 - La programmation, qui peut se faire chez le développeur au moyen d'un dispositif de programmation (ou programmeur) spécialement conçu à cette fin, consiste à supprimer les connexions qui ne sont pas nécessaires en envoyant des impulsions à forte tension pour faire fondre les fusibles de connexions spécifiques.
 
-- Un fusible fondu (pas de connexion) correspondant à un bit 0 dans la mémoire.
+- Un fusible fondu (pas de connexion) correspond à un bit 0 dans la mémoire.
 
-- Cette programmation est bien entendu irréversible: impossible de reconnecter une fois que le fusible est fondu.
+- Cette programmation est bien entendu irréversible: impossible de rétablir la connexion une fois que le fusible est fondu.
 
 ** PROM
 
-- Avec un *PROM* (pour /Programmable ROM/), il est possible d'effacer la configuration dans son ensemble en soumettant la puce à une lumière ultraviolet pendant un certain temps.
+- Avec une *PROM* (pour /Programmable ROM/), il est possible d'effacer la configuration dans son ensemble en soumettant la puce à une lumière ultraviolette pendant un certain temps.
 
-- Ce bombardement énergétique permet de décharger les grilles flottantes des dispositifs qui implémente les connexions.
+- Ce bombardement énergétique permet de décharger les grilles flottantes des dispositifs qui implémentent les connexions.
 
-- La mémoire PROM peut être reconfigurée de nouveau.
+- La mémoire PROM peut être configurée de nouveau.
 
 - Avec la *programmation électrique*, il est possible de reconfigurer l'ensemble d'une mémoire dite EEPROM (/Electrically Erasable PROM/) en la soumettant à un signal électrique d'effacement.
 

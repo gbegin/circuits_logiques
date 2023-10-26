@@ -1,14 +1,15 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 
 * Théorèmes et propriétés
 ** Objectifs
 - Bien saisir les relations de dualité entre les opérations
-- Connaître les principaux théorèmes de l'algèbre de Boole et pouvoir
+- Connaître les principaux théorèmes de l'algèbre de Boole et 
   les appliquer correctement
-- Pouvoir passer d'une version d'un théorème à sa version duale
+- Appliquer les théorèmes de DeMorgan
+- Passer d'une version d'un théorème à sa version duale
 - Connaître les autres fonctions logiques importantes
-- Pouvoir construire un tableau de vérité
+- Construire un tableau de vérité
 
 ** Dualité
 
@@ -37,20 +38,20 @@ duale.
 |------------+----------------------------------------------+---------------------------------------------|
 | Postulat 2 | \(x+0=x\)                                    | \(x \cdot 1 = x\)                           |
 | Postulat 5 | \(x+x^{\prime} = 1\)                         | \(x \cdot x^{\prime} = 0\)                  |
-| Theorème 1 | \(x + x = x\)                                | \(x \cdot x = x\)                           |
-| Theorème 2 | \(x + 1 = 1\)                                | \(x \cdot 0 = 0\)                           |
-| Theorème 3 | \((x^{\prime})^{\prime} = x\)                |                                             |
+| Théorème 1 | \(x + x = x\)                                | \(x \cdot x = x\)                           |
+| Théorème 2 | \(x + 1 = 1\)                                | \(x \cdot 0 = 0\)                           |
+| Théorème 3 | \((x^{\prime})^{\prime} = x\)                |                                             |
 | Postulat 3 | \(x + y = y + x\)                            | \(xy = yx\)                                 |
-| Theorème 4 | \(x + (y + z) = (x + y ) + z\)               | \(x(yz) = (xy)z\)                           |
+| Théorème 4 | \(x + (y + z) = (x + y ) + z\)               | \(x(yz) = (xy)z\)                           |
 | Postulat 4 | \(x(y+z) = xy + xz\)                         | \(x + yz = (x+y)(x+z)\)                     |
-| Theorème 5 | \((x + y)^{\prime} = x^{\prime} y^{\prime}\) | \((xy)^{\prime} = x^{\prime} + y^{\prime}\) |
-| Theorème 6 | \(x + xy = x\)                               | \(x(x+y) = x\)                              |
+| Théorème 5 | \((x + y)^{\prime} = x^{\prime} y^{\prime}\) | \((xy)^{\prime} = x^{\prime} + y^{\prime}\) |
+| Théorème 6 | \(x + xy = x\)                               | \(x(x+y) = x\)                              |
 
 ** Autres fonctions logiques
 
 - Nous avons vu que les opérateurs logiques ET, OU et NON, qu'on peut aussi appeler fonctions logiques, sont à la base même de la définition de notre algèbre de Boole.
 
-- Il est possible de concevoir d'autres fonctions logiques qui vont s'avérer utiles pour la formulation, la conception et la réalisation de systèmes logiques. Voici quelques unes des plus souvent utilisées.
+- Il est possible de concevoir d'autres fonctions logiques qui vont s'avérer utiles pour la formulation, la conception et la réalisation de systèmes logiques. Voici quelques-unes des plus souvent utilisées.
 
 ** Fonction NON-ET
 
@@ -103,18 +104,18 @@ duale.
 
 ** Expressions et fonctions binaires
 
-- Une fonction binaire peut être décrite par une expression algébrique Booléenne.
+- Une fonction binaire peut être décrite par une expression algébrique booléenne.
 
-- Selon les valeurs des variables, la valeur de l'expression Booléenne détermine la valeur de la fonction.
+- Selon les valeurs des variables, la valeur de l'expression booléenne détermine la valeur de la fonction.
 
-- Par exemple, \(F_1\) est une fonction de trois entrées \(a\) \(b\) et \(c\) définie par l'expression
+- Par exemple, \(F_1\) est une fonction de trois entrées \(a\), \(b\) et \(c\) définie par l'expression
 
 $$ F_1 = a + b \cdot c^\prime $$
 
 ** Expressions et fonctions binaires ... 2
 
 
-- La précédence des opération dans les expressions algébriques est (1) parenthèses, (2) NON, (3) ET, et (4) OU.
+- La priorité des opération dans les expressions algébriques est (1) parenthèses, (2) NON, (3) ET, (4) OU.
 
 - Il est possible de construire le tableau de vérité pour \(F_1\) en évaluant la fonction pour les \(2^3 = 8\) combinaisons d'entrées possibles, comme dans le tableau [[tab-fonct_3v]].
 

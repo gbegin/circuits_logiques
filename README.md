@@ -26,6 +26,7 @@ Transparents pour les chapitres 1 à 12, en version pdf
 * [Chapitre 10](Transparents/presentation_ch_seq_reg_compt.pdf)
 * [Chapitre 11](Transparents/presentation_ch_memoires.pdf)
 * [Chapitre 12](Transparents/presentation_ch_log_prog.pdf)
+* [Chapitre 13](Transparents/presentation_ch_hdl.pdf)
 
 
 ## Documents et fichiers source:
@@ -50,6 +51,7 @@ Versions source des transparents pour les chapitres 1 à 12, en format  [org](ht
 * [Chapitre 10 en format org](Transparents/presentation_ch_seq_reg_compt.org) ou [Chapitre 10 en format LaTeX](Transparents/presentation_ch_seq_reg_compt.tex)
 * [Chapitre 11 en format org](Transparents/presentation_ch_memoires.org) ou [Chapitre 11 en format LaTeX](Transparents/presentation_ch_memoires.tex)
 * [Chapitre 12 en format org](Transparents/presentation_ch_log_prog.org) ou [Chapitre 12 en format LaTeX](Transparents/presentation_ch_log_prog.tex)
+* [Chapitre 13 en format org](Transparents/presentation_ch_hdl.org) ou [Chapitre 12 en format LaTeX](Transparents/presentation_ch_hdl.tex)
 
 
 * Fichier comportant les [spécifications de génération de

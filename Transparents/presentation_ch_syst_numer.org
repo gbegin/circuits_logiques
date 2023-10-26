@@ -1,4 +1,4 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Systèmes de numération
 
@@ -8,7 +8,7 @@
 - Comprendre le fonctionnement du système de numération binaire
 - Pouvoir effectuer des conversions entre nombres en représentation
   binaire, octale, hexadécimale
-- Comprendre le rôle des compléments, et la représentation de nombres signés
+- Comprendre le rôle des compléments et la représentation de nombres signés
 - Comprendre la notation fractionnaire
 - Se familiariser avec quelques codes courants
 - Pouvoir effectuer des opérations arithmétiques sur des nombres binaires
@@ -34,7 +34,7 @@
 
 ** Nombres binaires
  
-- Les nombres binaires sont essentiellement construits de la même façon que les nombres décimaux avec lesquels nous sommes plus familiers.
+- Les nombres binaires sont essentiellement construits de la même façon que les nombres décimaux qui nous sont plus familiers.
 
 - La différence fondamentale tient au fait qu'il n'est possible d'utiliser que deux symboles (chiffres), 0 et 1, plutôt que les dix chiffres de 0 à 9.  
 
@@ -56,7 +56,7 @@
 
 - On peut imaginer une virgule après le chiffre le moins significatif, pour délimiter la partie entière du nombre.
 
-- D'autres chiffres, placés à droite de cette virgule correspondraient à la partie fractionnaire.  On y reviendra.
+- D'autres chiffres, placés à droite de cette virgule correspondraient à la partie fractionnaire.  Nous y reviendrons.
 
 ** Nombres binaires ... 4
 
@@ -81,7 +81,7 @@ comme on peut voir dans le tableau [[tab-conversion_21]].
 
 - Nous avons ici le *bit le plus significatif* à gauche et le *bit le moins significatif* à droite.
 
-- Chaque chiffre vaut 2 fois plus que le chiffre immédiatement placé à sa droite.
+- Chaque chiffre vaut deux fois plus que le chiffre immédiatement placé à sa droite.
 
 ** Conversion binaire <-> décimal
 
@@ -94,11 +94,11 @@ comme on peut voir dans le tableau [[tab-conversion_21]].
 
 - La méthode consiste à faire une division entière du nombre (et des quotients successifs) par 2 et à noter les restes obtenus.
 
-- Le premier reste correspond au bit le moins significatif, et le dernier au bit le plus significatif.
+- Le premier reste correspond au bit le moins significatif, et le dernier, au bit le plus significatif.
 
 ** Conversion binaire <-> décimal ... 3
 
-- Par exemple, les opération pour convertir 37 en binaire sont résumées dans le tableau [[tab-conversion_d_b]].
+- Par exemple, les opérations pour convertir 37 en binaire sont résumées dans le tableau [[tab-conversion_d_b]].
 
 #+CAPTION:  Étapes de conversion de 37 en binaire
 #+NAME:tab-conversion_d_b
@@ -115,15 +115,15 @@ On obtient ainsi 100101.
 
 ** Notation
 
-- Puisque les notations de nombres binaires, octaux, hexadécimaux ou décimaux font appel à des chiffres qui sont tous tirés du même ensemble, il y a un risque d’ambiguïté si on ne connaît pas la base utilisée.  
+- Puisque les notations de nombres binaires, octaux, hexadécimaux ou décimaux font appel à des chiffres qui sont tous tirés du même ensemble, il y a un risque d'ambiguïté si on ne connaît pas la base utilisée.  
 
-- Par exemple 11 peut soit s'interpréter comme onze (si on suppose la base dix) ou comme trois (si on suppose la base deux).
+- Par exemple 11 peut soit s'interpréter comme onze (si on suppose la base 10) ou comme trois (si on suppose la base 2).
 
 - À moins que le contexte ne soit absolument clair, il vaut mieux être explicite pour éviter de telles ambiguïtés.
 
 ** Notation ... 2
 
-- C'est pourquoi on dénote souvent explicitement la base, comme par exemple, (11)2 pour le nombre trois en binaire qui pourra être distingué de (11)10, le nombre onze en décimal.
+- C'est pourquoi on dénote souvent explicitement la base; par exemple, (11)2 pour le nombre trois en binaire qui pourra être distingué de (11)10, le nombre onze en décimal.
 
 ** Représentations compactes de nombres binaires
 
@@ -139,7 +139,7 @@ On obtient ainsi 100101.
     :BEAMER_ENV: block
     :END:
 
-- La représentation octale correspond à utiliser la base 8, avec les chiffres \(0, 1, \ldots, 7\)
+- La représentation octale consiste à utiliser la base 8, avec les chiffres \(0, 1, \ldots, 7\)
 
 - On voit la correspondance entre les nombres en binaire et les chiffres de la représentation octale dans le tableau [[tab-octal]].
 
@@ -166,7 +166,7 @@ On obtient ainsi 100101.
 
 - Pour convertir un nombre binaire en nombre octal, il suffit de regrouper les bits par groupes de trois bits, en partant de la droite (bit le moins significatif), et de remplacer chaque groupe par le chiffre en base 8 correspondant.
 
-- Par exemple pour (1010011110001)2, on aura le découpage du tableau [[tab-octal_dec]].
+- Par exemple, pour (1010011110001)2, on aura le découpage du tableau [[tab-octal_dec]].
 
 #+CAPTION:  Regroupement pour conversion en octal
 #+NAME:tab-octal_dec
@@ -179,7 +179,7 @@ On obtient ainsi 100101.
 
 **  Représentation hexadécimale
 
-- La représentation hexadécimale correspond à utiliser la base 16, avec les chiffres \(0, 1, \ldots, 9\), auxquels on ajoute les lettres A, B, C, D, E et F pour représenter les valeurs de dix à quinze respectivement.
+- La représentation hexadécimale consiste à utiliser la base 16, avec les chiffres \(0, 1, \ldots, 9\), auxquels on ajoute les lettres A, B, C, D, E et F pour représenter les valeurs de dix à quinze respectivement.
 
 - Pour simplifier, dans le contexte, on appellera ici ces cinq lettres des /chiffres/ de la notation hexadécimale.
 
@@ -229,7 +229,7 @@ On obtient ainsi 100101.
 
 - Pour convertir un nombre binaire en nombre hexadécimal, il suffit de regrouper les bits par groupes de quatre bits, en partant de la droite (bit le moins significatif), et de remplacer chaque groupe par le chiffre en base 16 correspondant
 
-- Par exemple pour (1010011110001)2, on aura le découpage du tableau [[tab-hex_dec]].
+- Par exemple, pour (1010011110001)2, on aura le découpage du tableau [[tab-hex_dec]].
 
 #+CAPTION:  Regroupement pour conversion en hexadécimal
 #+NAME:tab-hex_dec
@@ -247,13 +247,13 @@ On obtient ainsi 100101.
 
 ** Nombres binaires fractionnaires
 
-- Il est aussi possible de représenter des nombres fractionnaires en base deux.
+- Il est aussi possible de représenter des nombres fractionnaires en base 2.
 
 - En gardant à l'esprit que la position d'un bit détermine sa valeur, il suffit d'étendre le principe déjà établi aux bits qui seront placés après la virgule qui sépare la partie entière de la partie fractionnaire.
 
 - Les indices des positions à droite de la virgule seront négatifs.
 
-- Le tableau [[tab-eval_frac]] donne par exemple le détail de l'évaluation de la valeur du nombre fractionnaire (101,11)2.
+- Le tableau [[tab-eval_frac]] donne en exemple le détail de l'évaluation de la valeur du nombre fractionnaire (101,11)2.
 
 - On obtient comme valeur \(1 \times 4 + 0 \times 2 + 1 \times 1 + 1 \times 1/2 + 1 \times 1/4 = 5,75\).
 
@@ -269,9 +269,9 @@ On obtient ainsi 100101.
 
 ** Opérations arithmétiques binaires
 
-- Il est possible de transposer les opérations arithmétiques habituelles pour effectuer différentes opération arithmétiques: addition, soustraction, multiplication, division, avec des nombres binaires.
+- Il est possible de transposer les opérations arithmétiques habituelles pour effectuer différentes opérations arithmétiques: addition, soustraction, multiplication, division, avec des nombres binaires.
 
-- Nous verrrons plus loin comment ces opérations s'exécutent lorsque nous aurons établi les formes d'encodages binaires qui seront utilisés pour les nombres, notamment la représentation des nombres signés.
+- Nous verrons plus loin comment ces opérations s'exécutent lorsque nous aurons établi les formes d'encodages binaires qui seront utilisés pour les nombres, notamment la représentation des nombres signés.
 
 ** Multiplication par deux
 
@@ -309,9 +309,9 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
 - Dans un système de numération de base \(b\), on considère deux types de compléments: le complément à \(b\) et le complément à \(b-1\).
 
-- Pour la base dix, nous aurons donc le complément à dix et le complément à neuf.
+- Pour la base 10, nous aurons donc le complément à dix et le complément à neuf.
 
-- Pour les nombres binaires (base 2), on aura le complément à deux et le complément à un.
+- Pour les nombres binaires (base 2), nous aurons le complément à deux et le complément à un.
 
 - Pour évaluer les compléments d'un nombre, on doit tenir compte du nombre de chiffres que comporte ce nombre.
 
@@ -340,7 +340,7 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
 - Cela correspond à ajouter 1 au complément à \(b-1\).
 
-- Ainsi pour notre exemple précédent en base \(b=10\), le complément à dix pour le nombre décimal \(N = 4576\) formé de \(n=4\) chiffres sera \((b^n)-N = (10^4) - 4576 = 5425\).
+- Ainsi, pour notre exemple précédent en base \(b=10\), le complément à dix pour le nombre décimal \(N = 4576\) formé de \(n=4\) chiffres sera \((b^n)-N = (10^4) - 4576 = 5425\).
 
 ** Complément à deux
 
@@ -349,7 +349,7 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 ** Complément à deux ... 2
 
 - L'évaluation directe à la main, sans calculs, du complément à deux est également possible en suivant la démarche suivante:
-   1) On parcourt le nombre binaire initial à partir (à droite) du bit le moins significatif, et on retranscrit les bits rencontrés jusqu'à atteindre un premier bit 1, que l'on retranscrit également.
+   1) On parcourt le nombre binaire initial à partir (à droite) du bit le moins significatif, en retranscrivant les bits rencontrés jusqu'à atteindre un premier bit 1, que l'on retranscrit également.
    2) On continue la retranscription vers la gauche, en inversant cette fois les bits subséquents.
 
 ** Complément à deux ... 3
@@ -374,18 +374,18 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
 ** Nombres signés et codage
 
-- Représenter de nombres \(\geq 0\) en binaire est donc relativement naturel.
+- Représenter des nombres \(\geq 0\) en binaire est donc relativement naturel.
 
 - Dans l'optique où on voudra stocker ces nombres dans une mémoire binaire numérique, il n'y a qu'à prévoir une taille suffisante (en nombre de bits) pour pouvoir accommoder des nombres assez grands pour l'application considérée.
 
-- Avec \(n\) bits, il est possible de représenter des entiers de 0 à \(2^n-1\) avec cette représentation «naturelle».
+- Avec \(n\) bits, il est possible de représenter des entiers de \(0\) à \(2^n-1\) avec cette représentation «naturelle».
 
 ** Nombres signés et codage ... 2
 
 
 - Mais on peut se demander comment représenter des nombres négatifs, c'est-à-dire \(< 0\).
 
-- Une première observation est le fait que si on considère des nombres positif *et* négatifs, on double en quelque sorte la quantité de valeurs à représenter.
+- Une première observation est le fait que si on considère des nombres positifs *et* négatifs, on double en quelque sorte la quantité de valeurs à représenter.
 
 ** Nombres signés et codage ... 3
 
@@ -393,7 +393,7 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
 #+CAPTION:  Nombre de valeurs à représenter entre \(-10\) et \(+10\)
 #+NAME:tab-nombre_neg_pos
-| Gamme       | n. de valeurs |
+| Gamme       | N. de valeurs |
 |-------------+---------------|
 | de -10 à -1 |            10 |
 | 0           |             1 |
@@ -411,25 +411,25 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
 ** Nombres signés et codage ... 5
 
-- Nous devons donc établir un *code*, c'est-à-dire, une *convention* qui permettra de donner un sens à un groupe de bits.
+- Nous devons donc établir un *code*, c'est-à-dire une *convention* qui permettra de donner un sens à un groupe de bits.
 
 - Le choix de la convention devrait être guidé par les usages qui seront ultimement faits des nombres qui seront représentés.
 
-- En fait, lorsque nous avons convenu (implicitement) de représenter des nombres entiers en utilisant directement la conversion en base 2 des nombres décimaux, nous avons établi un code de représentation, qui, bien que naturel, n'en est pas moins une convention.
+- En fait, lorsque nous avons convenu (implicitement) de représenter des nombres entiers en utilisant directement la conversion en base 2 des nombres décimaux, nous avons établi un code de représentation qui, bien que naturel, n'en est pas moins une convention.
 
 ** Nombres signés et codage ... 6
 
-- Ici, nous devrons formuler plus explicitement la convention qui sera utilisée pour représenter les entier signés.
+- Ici, nous devrons formuler plus explicitement la convention qui sera utilisée pour représenter les entiers signés.
 
 - Une convention de représentation peut être établie totalement arbitrairement, mais elle sera sans doute plus utile si elle peut contribuer à faciliter des opérations courantes réalisées avec les éléments à représenter.
 
-- Puisqu'il est question ici de nombre entiers signés, l'opération à considérer en priorité est l'addition.
+- Puisqu'il est question ici de nombres entiers signés, l'opération à considérer en priorité est l'addition.
 
 ** Nombres signés et convention
 
-- On devrait aussi considérer les trois points suivants dans notre choix de convention pour attribuer des codes binaires aux valeurs.
+- Nous devrions aussi considérer les trois points suivants dans notre choix de convention pour attribuer des codes binaires aux valeurs.
 
-- Pour illustrer notre réflexion, nous allons considérer des nombre pouvant être représentés par des codes binaires de quatre bits, ce qui permet en théorie de représenter un total de 16 valeurs.
+- Pour illustrer notre réflexion, nous allons considérer des nombres pouvant être représentés par des codes binaires de 4 bits, ce qui permet en théorie de représenter un total de 16 valeurs.
 
   1) Puisqu'il faudra partager notre ensemble de codes binaires en deux, il serait logique de placer la représentation pour zéro au centre de ce découpage.
 
@@ -447,7 +447,7 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
 ** Nombres signés et convention ... 3
 
-- Quel code binaire devrait-on placer juste avant le zéro, pour représenter -1? Si on dispose l'ensemble des codes binaires entre 0000 et 1111 selon un cycle, tel qu'illustré sur la figure [[fig-cycle-pos-neg]], alors le code approprié pour -1 sera 1111.
+- Quel code binaire devrait-on placer juste avant le zéro, pour représenter -1? Si on dispose l'ensemble des codes binaires entre 0000 et 1111 selon un cycle, comme illustré sur la figure [[fig-cycle-pos-neg]], alors le code approprié pour -1 sera 1111.
 
 - Et le code pour -2 sera 1110.
 
@@ -458,14 +458,14 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
      splines=true;
    node [style=filled]
 
-     id0001 [label="0001" fillcolor="lightgreen"]
-     id0010 [label="0010" fillcolor="lightgreen"]
-     id0011 [label="0011" fillcolor="lightgreen"]
-     id0100 [label="0100" fillcolor="lightgreen"]
-     id0101 [label="0101" fillcolor="lightgreen"]
-     id0110 [label="0110" fillcolor="lightgreen"]
-     id0111 [label="0111" fillcolor="lightgreen"]
-     id1000 [label="1000"]
+     id0001 [label="0001" fillcolor="lightgreen" shape="hexagon"]
+     id0010 [label="0010" fillcolor="lightgreen" shape="hexagon"]
+     id0011 [label="0011" fillcolor="lightgreen" shape="hexagon"]
+     id0100 [label="0100" fillcolor="lightgreen" shape="hexagon"]
+     id0101 [label="0101" fillcolor="lightgreen" shape="hexagon"]
+     id0110 [label="0110" fillcolor="lightgreen" shape="hexagon"]
+     id0111 [label="0111" fillcolor="lightgreen" shape="hexagon"]
+     id1000 [label="1000" shape="diamond"]
      id1001 [label="1001" fillcolor="gold"]
      id1010 [label="1010" fillcolor="gold"]
      id1011 [label="1011" fillcolor="gold"]
@@ -473,7 +473,7 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
      id1101 [label="1101" fillcolor="gold"]
      id1110 [label="1110" fillcolor="gold"]
      id1111 [label="1111" fillcolor="gold"]
-     id0000 [label="0000" fillcolor="lightblue" ]
+     id0000 [label="0000" fillcolor="lightblue" shape="circle"]
 
       id0000 ->  id0001 
       id0001 ->  id0010 
@@ -499,15 +499,15 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 #+CAPTION:Relations entre les codes dans l'assignation en complément à deux
 #+attr_latex: :scale 0.15
 #+NAME:fig-cycle-pos-neg
-[[file:../../Sources_images_logiques/images/cycle.png]]
+[[file:../Images_png/cycle.png]]
 
 ** Nombres signés et codage ... 2
 
-- En suivant cette logique, on pourra, comme indiqué sur la figure, assigner les codes en jaune à des valeurs positives et les codes en vert à des valeurs négatives.
+- En suivant cette logique, on pourra, comme indiqué sur la figure, assigner les codes dans les boîtes en ellipses, en jaune, à des valeurs positives et les codes dans les boîtes en hexagones, en vert, à des valeurs négatives.
 
-- Si on assigne autant de valeur positives que de valeurs négatives, un seul code binaire ne sera pas utilisable, le code 1000.
+- Si on assigne autant de valeurs positives que de valeurs négatives, un seul code binaire ne sera pas utilisable, le code 1000, dans la boîte en losange.
 
-- Tout mouvement selon le sens des flèches correspond à une addition; tout mouvement en sens inverse correspond à une soustraction.
+- Tout mouvement selon le sens des flèches (horaire) sur l'illustration correspond à une addition; tout mouvement en sens inverse correspond à une soustraction.
 
 - Les nombres binaires seront ainsi symétriques par rapport à notre zéro.
 
@@ -553,7 +553,7 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
 - Voici quelques observations importantes sur cette représentation.
 
-  1) Tous les codes des nombres négatifs ont le premier bit à gauche (qui serait le bit le plus significatif) à la valeur 1, alors que les autres ont codes ont la valeur 0.
+  1) Tous les codes des nombres négatifs ont le premier bit à gauche (qui serait le bit le plus significatif) à la valeur 1, alors que les autres codes ont la valeur 0.
 
      Ce bit peut ainsi servir d'indicateur de signe, avec la convention habituelle qu'on ne met pas de signe au zéro.
 
@@ -565,24 +565,24 @@ $$ (10011)2 \div 2 = (1001,1)2 $$
 
      Ceci signifie que pour trouver l'inverse additif d'un nombre, il suffit de calculer son complément à deux.
 
-     Le complément à deux du complément à deux nous re-donnera le nombre initial, conformément à la double négation \(--n = n\).
+     Le complément à deux du complément à deux nous redonnera le nombre initial, conformément à la double négation \(--n = n\).
 
-- Il existe d'autres conventions pour la représentation de nombres signés, comme par exemple, la représentation signe+magnitude, mais la représentation en complément à deux est de loin la plus utilisée.
+- Il existe d'autres conventions pour la représentation de nombres signés, comme la représentation signe+magnitude, mais la représentation en complément à deux est de loin la plus utilisée.
 
 ** Opérations arithmétiques binaires: addition de nombres non signés
    
 - En transposant les opérations classiques pour effectuer à la main des additions ou des soustractions, il est possible d'effectuer des calculs avec des nombres binaires.
 
-- Additionner des nombres entier non signés ne pose pas de difficultés particulières.
+- Additionner des nombres entiers non signés ne pose pas de difficultés particulières.
 
-- On suppose deux nombre entiers binaires non signés \(A\) et \(B\) représentés en utilisant le même nombre de bits (si un nombre est plus petit, on ajoutera des 0 non significatifs à gauche pour compléter la représentation).
+- On suppose deux nombres entiers binaires non signés \(A\) et \(B\) représentés en utilisant le même nombre de bits (si un nombre est plus petit, on ajoutera des 0 non significatifs à gauche pour compléter la représentation).
 
 
 ** Addition de nombres non signés ... 2
    
-- Lorsqu'on effectue l'opération bit par bit, en partant de la position la moins significative, on peut utiliser la table d'addition suivante:
+- Lorsqu'on effectue l'opération bit par bit, en partant de la position la moins significative, on peut utiliser la table d'addition suivante.
 
-- À la position \(i\), on a trois entrées à prendre en considération: \(A_{i}\) et \(B_{i}\), les bits des nombres à additionner et \(R_{i-1}\), la retenue provenant de la position \(i-1\).
+- À la position \(i\), on a trois entrées à prendre en considération: \(A_{i}\) et \(B_{i}\), les bits des nombres à additionner, et \(R_{i-1}\), la retenue provenant de la position \(i-1\).
 
 - En sortie, on a la somme \(S_{i}\) et la retenue \(R_{i}\).
 
@@ -616,9 +616,9 @@ S'il y a une retenue non nulle à la suite de l'addition à la position la plus 
 
 ** Addition de nombres signés ... 4
 
-- L'addition de nombre signés codés avec la représentation en complément à deux est nettement avantageuse.
+- L'addition de nombres signés codés avec la représentation en complément à deux est nettement avantageuse.
 
-- Il suffit d’additionner les deux nombres comme s'il s'agissait de nombre non signés, en incluant les bits de signe dans le calcul.
+- Il suffit d'additionner les deux nombres comme s'il s'agissait de nombres non signés, en incluant les bits de signe dans le calcul.
 
 - La retenue qui émane de la position la plus significative ne doit pas être prise en compte.
 
@@ -646,9 +646,9 @@ qui nous donne bien le résultat escompté: S = (1110)2 = (-2)10.
 
 ** Addition de nombres signés ... 5
 
-- On peut vérifier facilement qu'additionner un nombre avec son complément à deux donne toujours zéro, ce qui correspond à faire \(-n + n = 0\).
+- On peut vérifier facilement qu'additionner un nombre avec son complément à deux donne toujours zéro, ce qui revient à faire \(-n + n = 0\).
 
-- Comme avec l'addition de nombre entiers non signés, il faudra se préoccuper des débordements qui peuvent survenir parce que la capacité de représentation est limitée par la taille (en nombre de bits) des codes binaires utilisés.
+- Comme avec l'addition de nombres entiers non signés, il faudra se préoccuper des débordements qui peuvent survenir parce que la capacité de représentation est limitée par la taille (en nombre de bits) des codes binaires utilisés.
 
 ** Soustraction de nombres signés
 
@@ -663,7 +663,7 @@ qui nous donne bien le résultat escompté: S = (1110)2 = (-2)10.
 
 ** Extension de signe
 
-- Dans la représentation des nombres signés en complément à deux, le bit de signe (bit le plus à gauche) est un indication directe du signe d'un nombre.
+- Dans la représentation des nombres signés en complément à deux, le bit de signe (bit le plus à gauche) est une indication directe du signe d'un nombre.
 
 - Si on change la taille des nombres, c'est-à-dire, le nombre de bits utilisés au total pour la représentation, il faut une opération spécifique pour préserver l'encodage en complément à deux.
 
@@ -675,11 +675,11 @@ On a pour 5 $$ 0101 $$
 
 ou encore $$ 00000101 $$
 
-- Quand on compare ces deux représentations, on observe que: 
+- Quand on compare ces deux représentations, on observe: 
 
-  - elles se terminent de la même façon, avec les trois bits 101 qui représentent la grandeur du nombre;
-  - le bit le plus à gauche est 0 dans les deux cas (même signe);
-  - dans la représentation sur huit bits, il y a des bits 0 entre le bit  de signe et les trois derniers bits.
+  - qu'elles se terminent de la même façon, avec les trois bits 101 qui représentent la grandeur du nombre;
+  - que le bit le plus à gauche est 0 dans les deux cas (même signe);
+  - que dans la représentation sur huit bits, il y a des bits 0 entre le bit  de signe et les trois derniers bits.
 
 ** Extension de signe ... 3
 
@@ -691,11 +691,11 @@ $$ 1011 $$
 
 alors que le complément à deux de 5 = (00000101)2 est $$ 11111011 $$
 
-- Quand on compare ces deux représentations, on observe que: 
+- Quand on compare ces deux représentations, on observe: 
 
-  - elles se terminent de la même façon, avec les trois bits 011;
-  - le bit le plus à gauche est 1 dans les deux cas (même signe);
-  - dans la représentation sur huit bits, il y a des bits 1 entre le bit de signe et les trois derniers bits.
+  - qu'elles se terminent de la même façon, avec les trois bits 011;
+  - que le bit le plus à gauche est 1 dans les deux cas (même signe);
+  - que dans la représentation sur huit bits, il y a des bits 1 entre le bit de signe et les trois derniers bits.
 
 ** Extension de signe ... 4
 
@@ -717,21 +717,21 @@ alors que le complément à deux de 5 = (00000101)2 est $$ 11111011 $$
 
 - Il est maintenant le temps de définir ce qu'on appelle un *code binaire*, car cette notion est au centre de tous les encodages que nous aurons à utiliser.
 
-- Un code binaire sur \(n\) bits est typiquement une association entre, d'une part, les éléments d'un ensemble que l'on cherche à représenter et d’autre part, les différents groupes ou patrons possibles avec \(n\) bits.
+- Un code binaire sur \(n\) bits est typiquement une association entre, d'une part, les éléments d'un ensemble que l'on cherche à représenter et d'autre part, les différents groupes ou patrons possibles avec \(n\) bits.
 
 ** Codes binaires ... 2
 
-- On appelle parfois ces patrons des mots-code (ou par abus de langage, des codes).
+- On appelle parfois ces patrons des mots du code (ou par abus de langage, des codes).
 
 - Comme il y a \(2^n\) patrons de bits différents, il est possible d'associer jusqu'à ce nombre d'éléments.
 
-- Une règle, souvent implicite mais essentielle, est qu'*on ne devrait associer qu'un seul élément à un patron de bits donné.* Sinon, l'interprétation du code (le décodage) devient ambiguë.
+- Une règle, souvent implicite mais essentielle, stipule qu'*on ne devrait associer qu'un seul élément à un patron de bits donné.* Sinon, l'interprétation du code (le décodage) devient ambiguë.
 
 - Selon l'application, il n'est pas toujours nécessaire d'associer tous les patrons de bits à des éléments.
 
 ** Codes binaires ... 3
 
-- Par exemple, si on veut représenter les chiffres décimaux, il est nécessaires de disposer d'au moins 10 patrons de bits, ce qui est possible avec \(n=4\).
+- Par exemple, si on veut représenter les chiffres décimaux, il est nécessaire de disposer d'au moins 10 patrons de bits, ce qui est possible avec \(n=4\).
 
 - Puisque \(2^4 = 16\), il y aura \(16 - 10 = 6\) patrons de bits inutilisés.
 
@@ -741,9 +741,9 @@ alors que le complément à deux de 5 = (00000101)2 est $$ 11111011 $$
  
 ** Code Gray
 
-- Lorsqu'on utilise un code binaire pour représenter des valeurs associées à des phénomènes physiques, il peut être opportun d’utiliser un encodage dans lequel le nombre de changements de bits est minimal lorsqu'on passe d'un patron de bits au suivant dans la séquence des codes.
+- Lorsqu'on utilise un code binaire pour représenter des valeurs associées à des phénomènes physiques, il peut être opportun d'utiliser un encodage dans lequel le nombre de changements de bits est minimal lorsqu'on passe d'un patron de bits au suivant dans la séquence des codes.
 
-- Par exemple, si on cherche à encoder des positions d'un interrupteur rotatif (comme pour encoder des angles), il est préférable que lorsqu'on passe d'un position à la suivante en tournant le commutateur, un seul bit ne change dans la sortie.
+- Par exemple, si on cherche à encoder des positions d'un interrupteur rotatif (comme pour encoder des angles), il est préférable que lorsqu'on passe d'une position à la suivante en tournant le commutateur, un seul bit ne change dans la sortie.
 
 - Ainsi, une erreur sur un bit n'introduit pas un gros changement dans l'interprétation de la valeur encodée.
 
@@ -751,7 +751,7 @@ alors que le complément à deux de 5 = (00000101)2 est $$ 11111011 $$
 
 - Un code Gray permet d'atteindre cet objectif.
 
-- Avec le code Gray du tableau [[tab-gray4]], on peut voir par exemple que la transition entre les codes pour 7 et 8 n’entraîne qu'un changement sur un bit, de 0110 à 1100.
+- Avec le code Gray du tableau [[tab-gray4]], on peut voir par exemple que la transition entre les codes pour 7 et 8 n'entraîne qu'un changement sur un bit, de 0110 à 1100.
 
 - Avec un encodage classique basé sur les entiers binaires, on aurait observé pour ce cas une transition entre 0111 et 1000, qui comporte quatre changements de valeurs de bits.
 
@@ -795,11 +795,11 @@ alors que le complément à deux de 5 = (00000101)2 est $$ 11111011 $$
 
 ** Codes alphanumériques et autres
 
-- Vous rencontrerez sans doute plusieurs autres encodages courants, comme par exemple pour encoder des caractères (code ASCII, codes UTF) ou pour encoder uniquement des chiffre décimaux (code BCD).
+- Vous rencontrerez sans doute plusieurs autres encodages courants, par exemple pour encoder des caractères (code ASCII, codes UTF) ou pour encoder uniquement des chiffres décimaux (code BCD).
 
 - Une fois qu'on a bien compris la règle d'encodage, il n'y a généralement pas de difficultés à les utiliser.
 
-- Certains codes sont construits de manière à permettre d’identifier et même, dans certains cas, de corriger des erreurs dans le stockage ou la transmission des données encodées.
+- Certains codes sont construits de manière à permettre d'identifier et même, dans certains cas, de corriger des erreurs dans le stockage ou la transmission des données encodées.
 
 - Ces codes sont construits en fonction de règles d'encodage, qui, lorsqu'elles ne sont pas respectées, permettent de constater la présence d'erreurs.
   

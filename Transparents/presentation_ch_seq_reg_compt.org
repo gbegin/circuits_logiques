@@ -1,14 +1,14 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Circuit séquentiels: registres et compteurs
 ** Objectifs
-- Être familier avec les principaux circuits séquentiels classiques:
+- Se familiariser avec les principaux circuits séquentiels classiques:
   registres, registres à décalage, compteurs
 - Savoir comment sont implémentées les différentes opérations:
   chargement, remise à zéro, comptage vers le haut/bas, décalage
-- Pouvoir utiliser des compteurs pour générer des séquences de
+- Utiliser des compteurs pour générer des séquences de
   synchronisation
-- Pouvoir distinguer entre compteur synchrone et compteur asynchrone
+- Faire la distinction entre compteur synchrone et compteur asynchrone
 
 ** Registres
 
@@ -16,11 +16,11 @@
 
 - Chaque bascule permet de stocker un bit en mémoire.
 
-- Différentes configurations d'interconnexion entre les bascules et éventuellement des composantes combinatoires permettent de concevoir des types de registres pouvant remplir des rôles variés.
+- Différentes configurations d'interconnexion entre les bascules et éventuellement des composants combinatoires permettent de concevoir des types de registres pouvant remplir des rôles variés.
 
 ** Registre parallèle à quatre bits
 
-- La figure [[fig-regist_4]] montre un registre parallèle de quatre bits, qui permet de stocker 4 valeurs binaires indépendantes.
+- La figure [[fig-regist_4]] montre un registre parallèle de quatre bits, qui permet de stocker quatre valeurs binaires indépendantes.
 
 - Le schéma du bas est une représentation symbolique du registre, dans laquelle on représente les entrées et sorties comme des vecteurs de quatre bits.
 
@@ -30,7 +30,7 @@
 #+CAPTION:  Registre parallèle à quatre bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-regist_4
-[[file:../../Sources_images_logiques/images/regist_4.svg]]
+[[file:../Images_svg/regist_4.svg]]
 
 ** Chargement parallèle
 
@@ -38,11 +38,12 @@
 
 - On ajoutera donc une entrée /charge/ au registre pour contrôler ces opérations.
 
-- Comment mettre en oeuvre ce chargement/maintien demande un peu de réflexion.
+- Pour mettre en oeuvre ce chargement/maintien, il faut un peu de
+réflexion.
 
-- Il serait possible d'agir (à la façon d'un signal /enable/ via une porte ET par exemple) sur l'entrée d'horloge des bascules pour empêcher leur contenu d'être affecté par les entrées.
+- Il serait possible d'agir (à la façon d'un signal /enable/ via une porte ET, par exemple) sur l'entrée d'horloge des bascules pour empêcher leur contenu d'être affecté par les entrées.
 
-- Mais alors, on briserait le principe de synchronisation qui veut que tous les éléments d'un système soient tous commandés en même temps par une même horloge.
+- Mais alors, on briserait le principe de synchronisation qui veut que tous les éléments d'un système soient commandés en même temps par une même horloge.
 
 ** Mise à jour
 
@@ -62,7 +63,7 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
 #+CAPTION:  Registre parallèle à quatre bits chargeable
 #+attr_latex: :scale 0.4
 #+NAME:fig-reg_4_paral
-[[file:../../Sources_images_logiques/images/reg_4_paral.svg]]
+[[file:../Images_svg/reg_4_paral.svg]]
 
 ** Registres à décalage
 
@@ -79,25 +80,25 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
 #+CAPTION:  Registre à décalage 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-shift4
-[[file:../../Sources_images_logiques/images/shift4.svg]]
+[[file:../Images_svg/shift4.svg]]
 
 ** Sélection de l'entrée des cellules
 
 - En utilisant un multiplexeur quatre-vers-un pour sélectionner ce qui sera inséré dans une bascule, il est possible de concevoir un registre à décalage universel.
 
-- Les différents opérations sont le /maintien/, le /décalage à droite/ avec entrée \(G\), le /décalage à gauche/ avec entrée \(D\) et le /chargement parallèle/, avec les entrées \(I_i, i=1, \ldots, 4\).
+- Les différentes opérations sont le /maintien/, le /décalage à droite/ avec entrée \(G\), le /décalage à gauche/ avec entrée \(D\) et le /chargement parallèle/, avec les entrées \(I_i, i=1, \ldots, 4\).
 
 ** Codes de sélection
 
-- Les différentes opérations sont commandées par les deux signaux de sélection, tel qu'indiqué dans le tableau [[tab-shift_oper]].
+- Les différentes opérations sont commandées par les deux signaux de sélection, comme indiqué dans le tableau [[tab-shift_oper]].
 
 #+CAPTION:  Codes de sélection et opérations
 #+NAME:tab-shift_oper
 | Sél. | Action               |
 |------+----------------------|
 |   00 | Maintien             |
-|   01 | Décalage droite      |
-|   10 | Décalage gauche      |
+|   01 | Décalage à droite    |
+|   10 | Décalage à gauche    |
 |   11 | Chargement parallèle |
 
 ** Registre à décalage universel
@@ -105,11 +106,11 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
 #+CAPTION:  Registre à décalage universel
 #+attr_latex: :scale 0.75
 #+NAME:fig-shift4_univ
-[[file:../../Sources_images_logiques/images/shift4_univ.svg]] 
+[[file:../Images_svg/shift4_univ.svg]] 
 
 ** Utilisations
 
-- Les registres à décalage sont notamment utilisés pour convertir des données parallèles en données sérielles et vice versa, des opérations très utiles dans le contexte d'interfaces de communication.
+- Les registres à décalage sont notamment utilisés pour convertir des données parallèles en données sérielles et /vice versa/, des opérations très utiles dans le contexte d'interfaces de communication.
 
 - On peut également s'en servir pour faire des multiplications ou divisions par deux, comme on l'a vu précédemment.
 
@@ -145,7 +146,7 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
 #+CAPTION:  Compteur asynchrone
 #+attr_latex: :scale 0.75
 #+NAME:fig-rippleT
-[[file:../../Sources_images_logiques/images/rippleT3.svg]]
+[[file:../Images_svg/rippleT3.svg]]
 
 
 ** Séquence du compteur
@@ -166,7 +167,7 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
 
 ** Avantages et inconvénients
 
-- Les compteurs asynchrones sont très simples, mais l'inconvénient est que les transitions d'états ne sont pas synchrones.
+- Les compteurs asynchrones sont très simples, mais l'inconvénient est que les transitions d'état ne sont pas synchrones.
 
 - En particulier, les bits d'état ne changent pas tous en même temps.
 
@@ -174,9 +175,9 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
 
 ** Compteur synchrone
 
-- Dans un compteur synchrone, toutes les bascules sont commandées par un même signal d'horloge, et les changements d'états sont synchronisés.
+- Dans un compteur synchrone, toutes les bascules sont commandées par un même signal d'horloge et les changements d'état sont synchronisés.
 
-- Les changements d'états sont contrôlés par les signaux d'entrée appliqués aux bascules, comme dans le fonctionnement normal d'un circuit séquentiel synchrone.
+- Les changements d'état sont contrôlés par les signaux d'entrée appliqués aux bascules, comme dans le fonctionnement normal d'un circuit séquentiel synchrone.
 
 - Le diagramme d'état d'un compteur trois bits (huit états) est un cycle, comme on peut le voir sur la figure [[fig-compt8_FSM]].
 
@@ -187,7 +188,7 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
 #+CAPTION:  Diagramme d'état d'un compteur
 #+attr_latex: :scale 0.5
 #+NAME:fig-compt8_FSM
-[[file:../../Sources_images_logiques/images/compt8_FSM.svg]]
+[[file:../Images_svg/compt8_FSM.svg]]
 
 ** Tableau d'état du compteur
 
@@ -221,7 +222,7 @@ Le schéma correspondant est donné à la figure [[fig-compt8]].
 #+CAPTION:  Schéma logique du compteur à 3 bits
 #+attr_latex: :scale 0.6
 #+NAME:fig-compt8
-[[file:../../Sources_images_logiques/images/compt8.svg]]
+[[file:../Images_svg/compt8.svg]]
 
 ** Fonctions supplémentaires
 
@@ -268,11 +269,11 @@ doit changer d'état seulement lorsque les bits précédents
 #+CAPTION:  Schéma logique du compteur à 4 bits
 #+attr_latex: :scale 0.5
 #+NAME:fig-compt_4bits
-[[file:../../Sources_images_logiques/images/compt_4bits.svg]]
+[[file:../Images_svg/compt_4bits.svg]]
 
 ** Comptage vers le bas
 
-Si on réfléchit de la même façon au comptage vers le bas, on constate
+Si on réfléchit de la même façon pour le comptage vers le bas, on constate
 que la règle devient:
 
 #+BEGIN_QUOTE
@@ -286,14 +287,15 @@ complémentées des bascules précédentes.
 
 ** Compteur bidirectionnel
 
-- En combinant les deux conditions au moyen d'un multiplexeur deux-vers- un, il est facile de concevoir un compteur haut/bas, tel qu'illustré sur la figure [[fig-compt_updown]].
+- En combinant les deux conditions au moyen d'un multiplexeur deux-vers-un, il est facile de concevoir un compteur haut/bas, comme
+illustré sur la figure [[fig-compt_updown]].
 
 ** Compteur haut/bas à 4 bits
 
 #+CAPTION:  Schéma logique du compteur haut/bas à 4 bits
 #+attr_latex: :scale 0.4
 #+NAME:fig-compt_updown
-[[file:../../Sources_images_logiques/images/compt_updown.svg]]
+[[file:../Images_svg/compt_updown.svg]]
 
 ** Compteur en anneau
 
@@ -308,7 +310,7 @@ complémentées des bascules précédentes.
 #+CAPTION:  Compteur en anneau à 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-ring4
-[[file:../../Sources_images_logiques/images/ring4.svg]]
+[[file:../Images_svg/ring4.svg]]
 
 ** Compteur en anneau ... 2
 
@@ -334,14 +336,14 @@ complémentées des bascules précédentes.
 #+CAPTION:  Compteur Johnson à 4 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-johnson4
-[[file:../../Sources_images_logiques/images/johnson4.svg]]
+[[file:../Images_svg/johnson4.svg]]
 
 ** Séquence d'états du compteur Johnson
 
 #+CAPTION:  Séquence d'états du compteur Johnson
 #+NAME:tab-seqjohn4
-| No. | \(a\) | \(b\) | \(c\) | \(d\) | ET requis              |
-|-----+-------+-------+-------+-------+------------------------|
+| No | \(a\) | \(b\) | \(c\) | \(d\) | ET requis              |
+|----+-------+-------+-------+-------+------------------------|
 |   1 |     0 |     0 |     0 |     0 | \(a^\prime d^\prime\) |
 |   2 |     1 |     0 |     0 |     0 | \(a b^\prime\)        |
 |   3 |     1 |     1 |     0 |     0 | \(b c^\prime\)        |
@@ -361,14 +363,14 @@ complémentées des bascules précédentes.
 
 - La figure montre une trace d'exécution avec les signaux de sortie.
 
-- On y voit que chacun des quatres signaux est activé à son tour.
+- On y voit que chacun des quatre signaux est activé à son tour.
 
 ** Compteur Johnson à 2 bits et circuit de décodage
 
 #+CAPTION:  Compteur Johnson à 2 bits et circuit de décodage pour signaux de synchronisation
 #+attr_latex: :scale 0.75
 #+NAME:fig-johnson2_quad_decode
-[[file:../../Sources_images_logiques/images/johnson2_quad_decode.svg]]
+[[file:../Images_svg/johnson2_quad_decode.svg]]
 
 ** Signaux en quadrature
 
@@ -384,7 +386,7 @@ rapport aux autres, comme le sont des fonctions \(\sin(), \cos(),
 #+CAPTION:  Signaux en quadrature obtenus au moyen d'un compteur Johnson à 2 bits
 #+attr_latex: :scale 0.75
 #+NAME:fig-johnson2_quad
-[[file:../../Sources_images_logiques/images/johnson2_quad.svg]] 
+[[file:../Images_svg/johnson2_quad.svg]] 
 
 ** Diviseur de fréquence
 
@@ -414,18 +416,18 @@ rapport aux autres, comme le sont des fonctions \(\sin(), \cos(),
 #+CAPTION:  Compteur à chargement parallèle
 #+attr_latex: :scale 0.4
 #+NAME:fig-comptchargement
-[[file:../../Sources_images_logiques/images/comptchargement.svg]]
+[[file:../Images_svg/comptchargement.svg]]
 
 ** Trace d'exécution, de 0 à 15
 
-- La trace d’exécution de la figure [[fig-compt_chargement_tracecompte]] montre le comptage de 4 jusqu'à 15 et retour à 0.
+- La trace d'exécution de la figure [[fig-compt_chargement_tracecompte]] montre le comptage de 4 jusqu'à 15 et retour à 0.
 
 - On voit le signal =ov= s'activer sur 15.
 
 #+CAPTION:  Trace d'exécution, de 0 à 15
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_chargement_tracecompte
-[[file:../../Sources_images_logiques/images/compt_chargement_tracecompte.svg]]
+[[file:../Images_svg/compt_chargement_tracecompte.svg]]
 
 ** Trace d'exécution, de 0 à 5 et chargement de 12
 
@@ -434,7 +436,7 @@ rapport aux autres, comme le sont des fonctions \(\sin(), \cos(),
 #+CAPTION:   Trace d'exécution, de 0 à 5 et chargement de 12
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_chargement_trace_charge
-[[file:../../Sources_images_logiques/images/compt_chargement_trace_charge.svg]]
+[[file:../Images_svg/compt_chargement_trace_charge.svg]]
 
 ** Compteur modulo
 
@@ -451,7 +453,7 @@ rapport aux autres, comme le sont des fonctions \(\sin(), \cos(),
 #+CAPTION:   Compteur modulo-13
 #+attr_latex: :scale 0.75
 #+NAME:fig-compt_mod13
-[[file:../../Sources_images_logiques/images/compt_mod13.svg]]
+[[file:../Images_svg/compt_mod13.svg]]
 
 On pourrait aussi réaliser un compteur qui compte par exemple de 4 à
 15, en utilisant cette fois la sortie =ov= pour activer le chargement

@@ -1,0 +1,22 @@
+#+STARTUP: beamer
+#+LANGUAGE: fr
+#+latex_class: beamer
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col)
+#+beamer_color_theme:
+#+beamer_font_theme:
+#+beamer_inner_theme:
+#+beamer_outer_theme:
+#+beamer_header:
+
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{svg}
+
+#+TITLE: Circuits logiques combinatoires et séquentiels
+#+AUTHOR: Guy Bégin
+#+OPTIONS: H:2 toc:nil num:t
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: metropolis
+
+#+LATEX_HEADER: \logo{\includegraphics[width=.1\textwidth]{../by-sa.png}}
+#+LATEX_HEADER: \AtBeginEnvironment{minted}{\renewcommand{\fcolorbox}[4][]{#4}}
+

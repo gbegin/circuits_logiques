@@ -1,4 +1,4 @@
-% Created 2022-11-16 mer 14:36
+% Created 2023-10-26 jeu 09:52
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,8 @@
 \usepackage{minted}
 \usepackage[, french]{babel}
 \usepackage{svg}
-\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\logo{\includegraphics[width=.1\textwidth]{../by-sa.png}}
+\AtBeginEnvironment{minted}{\renewcommand{\fcolorbox}[4][]{#4}}
 \usetheme{metropolis}
 \usecolortheme{}
 \usefonttheme{}
@@ -30,30 +31,29 @@
  pdftitle={Circuits logiques combinatoires et séquentiels},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdfcreator={Emacs 28.1 (Org mode 9.6.6)}, 
  pdflang={French}}
 \begin{document}
 
 \maketitle
 
 \section{Logique binaire, fonctions logiques et algèbre de Boole}
-\label{sec:org628e4b3}
+\label{sec:org7ee3e99}
 
 
-\begin{frame}[label={sec:org75276c0}]{Objectifs}
+\begin{frame}[label={sec:orgbb6b8be}]{Objectifs}
 \begin{itemize}
 \item Situer les opérations de la logique binaire dans leur contexte algébrique
-\item Être familier avec les postulats de l'algèbre de Boole, et les
+\item Se familiariser avec les postulats de l'algèbre de Boole, et les
 principaux théorèmes
-\item Pouvoir exprimer une fonction logique par un tableau de vérité
-\item Pouvoir appliquer les théorèmes de DeMorgan
-\item Pouvoir formuler une expression logique à partir d'un tableau de vérité
-\item Pouvoir exprimer une fonction logique en \emph{somme de produits}, ou en
-\emph{produit de sommes}, et pouvoir convertir d'une forme à l'autre
+\item Exprimer une fonction logique par un tableau de vérité
+\item Formuler une expression logique à partir d'un tableau de vérité
+\item Exprimer une fonction logique en \emph{somme de produits}, ou en
+\emph{produit de sommes}, et  convertir d'une forme à l'autre
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgcbdd598}]{Logique binaire}
+\begin{frame}[label={sec:orgb6ead88}]{Logique binaire}
 \begin{itemize}
 \item La logique binaire associe une valeur de vérité à des variables,
 selon une convention préétablie.
@@ -61,25 +61,25 @@ selon une convention préétablie.
 \item Ces valeurs de vérité sont binaires, à savoir, \alert{vrai} ou \alert{faux}.
 
 \item Pour représenter ces valeurs de vérité, on peut utiliser un encodage
-binaire, comme par exemple
+binaire,  par exemple:
 \end{itemize}
 
 \begin{center}
 \begin{tabular}{llr}
-Valeur de vérité &  & Valeur binaire\\
+Valeur de vérité &  & Valeur binaire\\[0pt]
 \hline
-Vrai &  & 1\\
-Faux &  & 0\\
+Vrai &  & 1\\[0pt]
+Faux &  & 0\\[0pt]
 \end{tabular}
 \end{center}
 \end{frame}
 
 
-\begin{frame}[label={sec:orgb04b3f3}]{Variable binaire}
+\begin{frame}[label={sec:orge70a30a}]{Variable binaire}
 \begin{itemize}
-\item Une variable binaire, dénotée par une lettre, permet de désigner une valeur binaire pouvant assumer une de deux valeurs possible, 0 ou 1.
+\item Une variable binaire, dénotée par une lettre, permet de désigner une valeur binaire pouvant assumer une des deux valeurs possible, 0 ou 1.
 
-\item La variable est typiquement associée à une proposition, l'état d'un élément ou toute autre condition pouvant admettre deux états distincts.
+\item La variable est typiquement associée à une proposition, à l'état d'un élément ou à toute autre condition pouvant admettre deux états distincts.
 
 \item En assignant une valeur binaire à la variable, on définit une valeur de vérité associée à cette variable, et ainsi à la condition qu'elle représente.
 
@@ -89,14 +89,14 @@ Faux &  & 0\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgff4bdc4}]{Opérations logiques}
+\begin{frame}[label={sec:org2e5c247}]{Opérations logiques}
 \begin{itemize}
 \item Trois opérations logiques de base permettent d'agir sur des variables binaires, de les combiner et de formuler des expressions logiques à partir d'elles.
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[label={sec:org07168ff}]{Opérations logiques \ldots{} 1}
+\begin{frame}[label={sec:org19426e6}]{Opérations logiques \ldots{} 1}
 \begin{enumerate}
 \item ET: cette opération est représentée (comme la multiplication) par
 un point central ou par l'absence de signe d'opérateur entre les
@@ -106,7 +106,7 @@ valeur 1. Sinon, la valeur est 0.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org9049a5a}]{Opérations logiques \ldots{} 2}
+\begin{frame}[label={sec:org9798199}]{Opérations logiques \ldots{} 2}
 \begin{enumerate}
 \item OU: cette opération est représentée (comme l'addition) par un signe
 +. Par exemple, \(x + y\). La valeur de l'expression est 1 si au
@@ -115,9 +115,9 @@ vaut 1, la valeur de l'expression est 0.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:orgf0a8aa9}]{Opérations logiques \ldots{} 3}
+\begin{frame}[label={sec:org5926c57}]{Opérations logiques \ldots{} 3}
 \begin{enumerate}
-\item NON: cette opération est représentée par un prime, comme par
+\item NON: cette opération est représentée par un prime, par
 exemple \(x^\prime\), ou par une barre au-dessus de la variable,
 \(\overline{x}\).  L'opération NON renverse la valeur binaire de
 son argument: si \(x =0\) alors \(x^ \prime = 1\); si \(x =1\)
@@ -127,9 +127,9 @@ faire basculer sa valeur.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org17a5a62}]{Expression logique}
+\begin{frame}[label={sec:orga74d6a9}]{Expression logique}
 \begin{itemize}
-\item Une expression logique combine des variables logiques et des opérations, et peut donc assumer une valeur binaire logique.
+\item Une expression logique combine des variables logiques et des opérations et peut donc assumer une valeur binaire logique.
 
 \item Cette valeur logique peut être assignée à une autre variable, en créant ainsi une équation logique.
 
@@ -139,11 +139,11 @@ faire basculer sa valeur.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org8cd1519}]{Tableaux de vérité}
+\begin{frame}[label={sec:orge9ea3c2}]{Tableaux de vérité}
 \begin{itemize}
-\item Une façon de décrire la valeur logique d'une variable de sortie en fonction des valeurs possibles des variables d'entrée est au moyen d'un tableau de vérité.
+\item On peut décrire la valeur logique d'une variable de sortie en fonction des valeurs possibles des variables d'entrée au moyen d'un tableau de vérité.
 
-\item Dans un tel tableau, il y a une ligne pour chaque combinaison possible des valeurs d'entrée, et sur chaque ligne, on indique la valeur de sortie correspondante.
+\item Dans un tel tableau, il y a une ligne pour chaque combinaison possible des valeurs d'entrée et, sur chaque ligne, on indique la valeur de sortie correspondante.
 
 \item C'est en quelque sorte une description en extension de la valeur de l'expression de sortie.
 \end{itemize}
@@ -151,44 +151,44 @@ faire basculer sa valeur.
 Voici par exemple les tableaux de vérité pour les opérations de base.
 \end{frame}
 
-\begin{frame}[label={sec:orgac18b93}]{Opération ET}
+\begin{frame}[label={sec:org8678d16}]{Opération ET}
 \begin{center}
 \begin{tabular}{rrlr}
-\(x\) & \(y\) &  & \(x \cdot y\)\\
+\(x\) & \(y\) &  & \(x \cdot y\)\\[0pt]
 \hline
-0 & 0 &  & 0\\
-0 & 1 &  & 0\\
-1 & 0 &  & 0\\
-1 & 1 &  & 1\\
+0 & 0 &  & 0\\[0pt]
+0 & 1 &  & 0\\[0pt]
+1 & 0 &  & 0\\[0pt]
+1 & 1 &  & 1\\[0pt]
 \end{tabular}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org2b55d25}]{Opération OU}
+\begin{frame}[label={sec:org0b2de98}]{Opération OU}
 \begin{center}
 \begin{tabular}{rrlr}
-\(x\) & \(y\) &  & \(x + y\)\\
+\(x\) & \(y\) &  & \(x + y\)\\[0pt]
 \hline
-0 & 0 &  & 0\\
-0 & 1 &  & 1\\
-1 & 0 &  & 1\\
-1 & 1 &  & 1\\
+0 & 0 &  & 0\\[0pt]
+0 & 1 &  & 1\\[0pt]
+1 & 0 &  & 1\\[0pt]
+1 & 1 &  & 1\\[0pt]
 \end{tabular}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org88af66c}]{Opération complément}
+\begin{frame}[label={sec:org1c92b6a}]{Opération complément}
 \begin{center}
 \begin{tabular}{rlr}
-\(x\) &  & \(x^{\prime}\)\\
+\(x\) &  & \(x^{\prime}\)\\[0pt]
 \hline
-0 &  & 1\\
-1 &  & 0\\
+0 &  & 1\\[0pt]
+1 &  & 0\\[0pt]
 \end{tabular}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org198c947}]{Formalisme mathématique}
+\begin{frame}[label={sec:org629db48}]{Formalisme mathématique}
 Un formalisme mathématique, élaboré bien avant l'avènement des circuits électroniques numériques, permet de formuler, analyser et simplifier les expressions de la logique binaire. Il s'agit de l'algèbre de Boole.
 
 \begin{block}{Définitions}
@@ -206,10 +206,10 @@ Une algèbre nécessite donc:
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org0323b95}]{Formalisme mathématique \ldots{} 2}
+\begin{frame}[label={sec:org5d6b079}]{Formalisme mathématique \ldots{} 2}
 \begin{enumerate}
 \setcounter{enumi}{2}
-\item L'application des opérateurs aux différents éléments doit respecter un certain nombre de propriétés appelées postulats, comme par exemple:
+\item L'application des opérateurs aux différents éléments doit respecter un certain nombre de propriétés appelées postulats, comme:
 \end{enumerate}
 \begin{itemize}
 \item Fermeture
@@ -226,15 +226,15 @@ Une algèbre nécessite donc:
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org9524bf9}]{Formalisme mathématique \ldots{} 3}
+\begin{frame}[label={sec:org00d9a20}]{Formalisme mathématique \ldots{} 3}
 \begin{itemize}
 \item Selon le choix des postulats, on arrive à définir différents types de systèmes algébriques.
 
-\item Par exemple, les nombres réels avec lequel nous sommes familiers est un système algébrique d'un type appelé \alert{corps}.
+\item Par exemple, les nombres réels qui nous sont familiers constituent un système algébrique d'un type appelé \alert{corps}.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge0af91f}]{Algèbre de Boole}
+\begin{frame}[label={sec:orgd864595}]{Algèbre de Boole}
 Une algèbre de Boole est un type de système algébrique défini sur un
 ensemble \(B\), muni de deux opérateurs dénotés \(+\) et \(\cdot\), et qui
 respecte les postulats suivants (postulats de Huntington):
@@ -243,7 +243,7 @@ Note: certains postulats viennent en paires; nous les distinguons ici au
 moyen d'étiquettes \(\spadesuit\) ou \(\heartsuit\).
 \end{frame}
 
-\begin{frame}[label={sec:org5e0e29f}]{Postulats}
+\begin{frame}[label={sec:orgb57287d}]{Postulats}
 \begin{enumerate}
 \item Fermeture: tout résultat d'une opération sur un élément de
 l'ensemble donne un élément de l'ensemble.
@@ -273,7 +273,7 @@ l'ensemble donne un élément de l'ensemble.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:orgdd25dd9}]{Postulats \ldots{} 2}
+\begin{frame}[label={sec:org82b7811}]{Postulats \ldots{} 2}
 \begin{enumerate}
 \setcounter{enumi}{3}
 \item Distributivité
@@ -299,7 +299,7 @@ l'ensemble donne un élément de l'ensemble.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org40bc7ba}]{Remarques}
+\begin{frame}[label={sec:orga4f4e9e}]{Remarques}
 Observons des différences entre une algèbre de Boole et le corps des réels:
 
 \begin{enumerate}
@@ -315,7 +315,7 @@ Observons des différences entre une algèbre de Boole et le corps des réels:
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org5da0777}]{Algèbre de Boole à deux valeurs}
+\begin{frame}[label={sec:org1dd3424}]{Algèbre de Boole à deux valeurs}
 \begin{columns}
 \begin{column}{0.48\columnwidth}
 \begin{block}{}
@@ -325,12 +325,12 @@ Opérateur \(\cdot\)
 
 \begin{center}
 \begin{tabular}{rrlr}
-\(x\) & \(y\) &  & \(x \cdot y\)\\
+\(x\) & \(y\) &  & \(x \cdot y\)\\[0pt]
 \hline
-0 & 0 &  & 0\\
-0 & 1 &  & 0\\
-1 & 0 &  & 0\\
-1 & 1 &  & 1\\
+0 & 0 &  & 0\\[0pt]
+0 & 1 &  & 0\\[0pt]
+1 & 0 &  & 0\\[0pt]
+1 & 1 &  & 1\\[0pt]
 \end{tabular}
 \end{center}
 \end{block}
@@ -343,12 +343,12 @@ Opérateur \(+\)
 
 \begin{center}
 \begin{tabular}{rrlr}
-\(x\) & \(y\) &  & \(x + y\)\\
+\(x\) & \(y\) &  & \(x + y\)\\[0pt]
 \hline
-0 & 0 &  & 0\\
-0 & 1 &  & 1\\
-1 & 0 &  & 1\\
-1 & 1 &  & 1\\
+0 & 0 &  & 0\\[0pt]
+0 & 1 &  & 1\\[0pt]
+1 & 0 &  & 1\\[0pt]
+1 & 1 &  & 1\\[0pt]
 \end{tabular}
 \end{center}
 
@@ -356,10 +356,10 @@ Règle de complémentation
 
 \begin{center}
 \begin{tabular}{rlr}
-\(x\) &  & \(x^{\prime}\)\\
+\(x\) &  & \(x^{\prime}\)\\[0pt]
 \hline
-0 &  & 1\\
-1 &  & 0\\
+0 &  & 1\\[0pt]
+1 &  & 0\\[0pt]
 \end{tabular}
 \end{center}
 \end{block}
@@ -368,7 +368,7 @@ Règle de complémentation
 \end{frame}
 
 
-\begin{frame}[label={sec:org6e29258}]{Vérification des postulats}
+\begin{frame}[label={sec:orgeadb8d6}]{Vérification des postulats}
 \begin{enumerate}
 \item La fermeture est évidente (en regardant les tableaux des opérations).
 
@@ -386,7 +386,7 @@ ce qui définit les deux éléments identité: 0 pour \(+\) et 1 pour  \(\cdot\)
 symétriques.
 
 \item Les lois de distributivité se démontrent aisément en établissant des
-tables de vérité pour les différentes valeurs de \(x, y\) et \(z\).
+tableaux de vérité pour les différentes valeurs de \(x, y\) et \(z\).
 
 \item Par le tableau de complément, on vérifie que
 

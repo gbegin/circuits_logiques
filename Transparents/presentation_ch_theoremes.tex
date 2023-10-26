@@ -1,4 +1,4 @@
-% Created 2022-11-16 mer 14:32
+% Created 2023-10-26 jeu 09:31
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,8 @@
 \usepackage{minted}
 \usepackage[, french]{babel}
 \usepackage{svg}
-\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\logo{\includegraphics[width=.1\textwidth]{../by-sa.png}}
+\AtBeginEnvironment{minted}{\renewcommand{\fcolorbox}[4][]{#4}}
 \usetheme{metropolis}
 \usecolortheme{}
 \usefonttheme{}
@@ -30,7 +31,7 @@
  pdftitle={Circuits logiques combinatoires et séquentiels},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdfcreator={Emacs 28.1 (Org mode 9.6.6)}, 
  pdflang={French}}
 \begin{document}
 
@@ -38,19 +39,20 @@
 
 
 \section{Théorèmes et propriétés}
-\label{sec:orgd3769e9}
-\begin{frame}[label={sec:org4e97259}]{Objectifs}
+\label{sec:orgb6a0084}
+\begin{frame}[label={sec:org0343b0f}]{Objectifs}
 \begin{itemize}
 \item Bien saisir les relations de dualité entre les opérations
-\item Connaître les principaux théorèmes de l'algèbre de Boole et pouvoir
+\item Connaître les principaux théorèmes de l'algèbre de Boole et 
 les appliquer correctement
-\item Pouvoir passer d'une version d'un théorème à sa version duale
+\item Appliquer les théorèmes de DeMorgan
+\item Passer d'une version d'un théorème à sa version duale
 \item Connaître les autres fonctions logiques importantes
-\item Pouvoir construire un tableau de vérité
+\item Construire un tableau de vérité
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org960e1d1}]{Dualité}
+\begin{frame}[label={sec:orgc19c5fb}]{Dualité}
 \begin{itemize}
 \item Les postulats ont été formulés en paires, identifiés par \(\spadesuit\) et \(\heartsuit\).
 
@@ -66,79 +68,79 @@ les appliquer correctement
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org22a2c4e}]{Théorèmes de base}
-Le tableau \ref{tab:orgf464d1e} résume les postulats et théorèmes de base de
+\begin{frame}[label={sec:org67e0b05}]{Théorèmes de base}
+Le tableau \ref{tab:org2fca1d5} résume les postulats et théorèmes de base de
 notre algèbre. On présente en parallèle chaque version et sa version
 duale.
 \end{frame}
-\begin{frame}[label={sec:orgd8dbca5}]{Théorèmes de base \ldots{} 2}
+\begin{frame}[label={sec:orgaa1d90e}]{Théorèmes de base \ldots{} 2}
 \begin{table}[htbp]
-\caption{\label{tab:orgf464d1e}Théorèmes de l'algèbre de Boole}
+\caption{\label{tab:org2fca1d5}Théorèmes de l'algèbre de Boole}
 \centering
 \begin{tabular}{lll}
- & Version  \(\spadesuit\) & Version  \(\heartsuit\)\\
+ & Version  \(\spadesuit\) & Version  \(\heartsuit\)\\[0pt]
 \hline
-Postulat 2 & \(x+0=x\) & \(x \cdot 1 = x\)\\
-Postulat 5 & \(x+x^{\prime} = 1\) & \(x \cdot x^{\prime} = 0\)\\
-Theorème 1 & \(x + x = x\) & \(x \cdot x = x\)\\
-Theorème 2 & \(x + 1 = 1\) & \(x \cdot 0 = 0\)\\
-Theorème 3 & \((x^{\prime})^{\prime} = x\) & \\
-Postulat 3 & \(x + y = y + x\) & \(xy = yx\)\\
-Theorème 4 & \(x + (y + z) = (x + y ) + z\) & \(x(yz) = (xy)z\)\\
-Postulat 4 & \(x(y+z) = xy + xz\) & \(x + yz = (x+y)(x+z)\)\\
-Theorème 5 & \((x + y)^{\prime} = x^{\prime} y^{\prime}\) & \((xy)^{\prime} = x^{\prime} + y^{\prime}\)\\
-Theorème 6 & \(x + xy = x\) & \(x(x+y) = x\)\\
+Postulat 2 & \(x+0=x\) & \(x \cdot 1 = x\)\\[0pt]
+Postulat 5 & \(x+x^{\prime} = 1\) & \(x \cdot x^{\prime} = 0\)\\[0pt]
+Théorème 1 & \(x + x = x\) & \(x \cdot x = x\)\\[0pt]
+Théorème 2 & \(x + 1 = 1\) & \(x \cdot 0 = 0\)\\[0pt]
+Théorème 3 & \((x^{\prime})^{\prime} = x\) & \\[0pt]
+Postulat 3 & \(x + y = y + x\) & \(xy = yx\)\\[0pt]
+Théorème 4 & \(x + (y + z) = (x + y ) + z\) & \(x(yz) = (xy)z\)\\[0pt]
+Postulat 4 & \(x(y+z) = xy + xz\) & \(x + yz = (x+y)(x+z)\)\\[0pt]
+Théorème 5 & \((x + y)^{\prime} = x^{\prime} y^{\prime}\) & \((xy)^{\prime} = x^{\prime} + y^{\prime}\)\\[0pt]
+Théorème 6 & \(x + xy = x\) & \(x(x+y) = x\)\\[0pt]
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:org7255333}]{Autres fonctions logiques}
+\begin{frame}[label={sec:org5541e96}]{Autres fonctions logiques}
 \begin{itemize}
 \item Nous avons vu que les opérateurs logiques ET, OU et NON, qu'on peut aussi appeler fonctions logiques, sont à la base même de la définition de notre algèbre de Boole.
 
-\item Il est possible de concevoir d'autres fonctions logiques qui vont s'avérer utiles pour la formulation, la conception et la réalisation de systèmes logiques. Voici quelques unes des plus souvent utilisées.
+\item Il est possible de concevoir d'autres fonctions logiques qui vont s'avérer utiles pour la formulation, la conception et la réalisation de systèmes logiques. Voici quelques-unes des plus souvent utilisées.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org0b0ab54}]{Fonction NON-ET}
+\begin{frame}[label={sec:org4b1cdf6}]{Fonction NON-ET}
 \begin{itemize}
 \item La fonction NON-ET, souvent désignée NAND, est obtenue en complémentant la sortie d'une fonction ET: \((x \cdot y)^\prime\).
 \end{itemize}
 
 \begin{table}[htbp]
-\caption{\label{tab:orgafdacc7}Tableau de vérité de la fonction NON-ET}
+\caption{\label{tab:orgea5b85f}Tableau de vérité de la fonction NON-ET}
 \centering
 \begin{tabular}{rrlr}
-\(x\) & \(y\) &  & \((x \cdot y)^\prime\)\\
+\(x\) & \(y\) &  & \((x \cdot y)^\prime\)\\[0pt]
 \hline
-0 & 0 &  & 1\\
-0 & 1 &  & 1\\
-1 & 0 &  & 1\\
-1 & 1 &  & 0\\
+0 & 0 &  & 1\\[0pt]
+0 & 1 &  & 1\\[0pt]
+1 & 0 &  & 1\\[0pt]
+1 & 1 &  & 0\\[0pt]
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:org0ab3aa0}]{Fonction NON-OU (NOR)}
+\begin{frame}[label={sec:org1b073b9}]{Fonction NON-OU (NOR)}
 \begin{itemize}
 \item La fonction NON-OU, souvent désignée NOR, est obtenue en complémentant la sortie d'une fonction OU: \((x + y)^\prime\).
 \end{itemize}
 
 \begin{table}[htbp]
-\caption{\label{tab:org0688c2f}Tableau de vérité de la fonction NON-OU}
+\caption{\label{tab:org11af41f}Tableau de vérité de la fonction NON-OU}
 \centering
 \begin{tabular}{rrlr}
-\(x\) & \(y\) &  & \((x + y)^\prime\)\\
+\(x\) & \(y\) &  & \((x + y)^\prime\)\\[0pt]
 \hline
-0 & 0 &  & 1\\
-0 & 1 &  & 0\\
-1 & 0 &  & 0\\
-1 & 1 &  & 0\\
+0 & 0 &  & 1\\[0pt]
+0 & 1 &  & 0\\[0pt]
+1 & 0 &  & 0\\[0pt]
+1 & 1 &  & 0\\[0pt]
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgfdba10e}]{Fonction OU-exclusif (XOR)}
+\begin{frame}[label={sec:orgc6be7ad}]{Fonction OU-exclusif (XOR)}
 \begin{itemize}
 \item La fonction OU-exclusif, souvent désignée XOR, est obtenue en évaluant \(x \cdot y^\prime + x^\prime \cdot y\).
 
@@ -148,20 +150,20 @@ Theorème 6 & \(x + xy = x\) & \(x(x+y) = x\)\\
 \end{itemize}
 
 \begin{table}[htbp]
-\caption{\label{tab:orgd7d98cc}Tableau de vérité de la fonction OU-exclusif}
+\caption{\label{tab:org877423d}Tableau de vérité de la fonction OU-exclusif}
 \centering
 \begin{tabular}{rrlr}
-\(x\) & \(y\) &  & \((x \cdot y^\prime + x^\prime \cdot y)\)\\
+\(x\) & \(y\) &  & \((x \cdot y^\prime + x^\prime \cdot y)\)\\[0pt]
 \hline
-0 & 0 &  & 0\\
-0 & 1 &  & 1\\
-1 & 0 &  & 1\\
-1 & 1 &  & 0\\
+0 & 0 &  & 0\\[0pt]
+0 & 1 &  & 1\\[0pt]
+1 & 0 &  & 1\\[0pt]
+1 & 1 &  & 0\\[0pt]
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgd0f89ad}]{Fonctions de plusieurs entrées}
+\begin{frame}[label={sec:org8a2722f}]{Fonctions de plusieurs entrées}
 \begin{itemize}
 \item La plupart des fonctions logiques simples peuvent naturellement se formuler en fonction de plus de deux entrées.
 
@@ -169,41 +171,41 @@ Theorème 6 & \(x + xy = x\) & \(x(x+y) = x\)\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org86a0d12}]{Expressions et fonctions binaires}
+\begin{frame}[label={sec:orgca9c905}]{Expressions et fonctions binaires}
 \begin{itemize}
-\item Une fonction binaire peut être décrite par une expression algébrique Booléenne.
+\item Une fonction binaire peut être décrite par une expression algébrique booléenne.
 
-\item Selon les valeurs des variables, la valeur de l'expression Booléenne détermine la valeur de la fonction.
+\item Selon les valeurs des variables, la valeur de l'expression booléenne détermine la valeur de la fonction.
 
-\item Par exemple, \(F_1\) est une fonction de trois entrées \(a\) \(b\) et \(c\) définie par l'expression
+\item Par exemple, \(F_1\) est une fonction de trois entrées \(a\), \(b\) et \(c\) définie par l'expression
 \end{itemize}
 
 $$ F_1 = a + b \cdot c^\prime $$
 \end{frame}
 
-\begin{frame}[label={sec:org854879e}]{Expressions et fonctions binaires \ldots{} 2}
+\begin{frame}[label={sec:org3875063}]{Expressions et fonctions binaires \ldots{} 2}
 \begin{itemize}
-\item La précédence des opération dans les expressions algébriques est (1) parenthèses, (2) NON, (3) ET, et (4) OU.
+\item La priorité des opération dans les expressions algébriques est (1) parenthèses, (2) NON, (3) ET, (4) OU.
 
-\item Il est possible de construire le tableau de vérité pour \(F_1\) en évaluant la fonction pour les \(2^3 = 8\) combinaisons d'entrées possibles, comme dans le tableau \ref{tab:org724446f}.
+\item Il est possible de construire le tableau de vérité pour \(F_1\) en évaluant la fonction pour les \(2^3 = 8\) combinaisons d'entrées possibles, comme dans le tableau \ref{tab:org645b0c0}.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org2d20f76}]{Expressions et fonctions binaires \ldots{} 3}
+\begin{frame}[label={sec:org07ee712}]{Expressions et fonctions binaires \ldots{} 3}
 \begin{table}[htbp]
-\caption{\label{tab:org724446f}Fonction de trois variables}
+\caption{\label{tab:org645b0c0}Fonction de trois variables}
 \centering
 \begin{tabular}{rrrlr}
-\(a\) & \(b\) & \(c\) &  & \(F_1\)\\
+\(a\) & \(b\) & \(c\) &  & \(F_1\)\\[0pt]
 \hline
-0 & 0 & 0 &  & 0\\
-0 & 0 & 1 &  & 0\\
-0 & 1 & 0 &  & 1\\
-0 & 1 & 1 &  & 0\\
-1 & 0 & 0 &  & 1\\
-1 & 0 & 1 &  & 1\\
-1 & 1 & 0 &  & 1\\
-1 & 1 & 1 &  & 1\\
+0 & 0 & 0 &  & 0\\[0pt]
+0 & 0 & 1 &  & 0\\[0pt]
+0 & 1 & 0 &  & 1\\[0pt]
+0 & 1 & 1 &  & 0\\[0pt]
+1 & 0 & 0 &  & 1\\[0pt]
+1 & 0 & 1 &  & 1\\[0pt]
+1 & 1 & 0 &  & 1\\[0pt]
+1 & 1 & 1 &  & 1\\[0pt]
 \end{tabular}
 \end{table}
 
@@ -211,13 +213,13 @@ En général, pour une fonction à \(n\) entrées, le tableau de vérité
 comportera \(2^n\) lignes.
 \end{frame}
 
-\begin{frame}[label={sec:org56a1515}]{Théorèmes de DeMorgan}
+\begin{frame}[label={sec:org8ed7153}]{Théorèmes de DeMorgan}
 \begin{itemize}
 \item Le complément d'une fonction \(F\), \(F^\prime\), s'obtient en remplaçant tous les 0 par des 1 et tous les 1 par des 0 dans les valeurs de la fonction.
 
 \item Par exemple, en complémentant ainsi les valeurs dans le tableau de vérité, on effectue ce changement.
 
-\item On peut aussi effectuer ce changement en appliquant les théorèmes de DeMorgan (Théorème 5 \(\spadesuit\) et \(\heartsuit\) du tableau \ref{tab:orgf464d1e}) qui peuvent se généraliser à plus de deux variables.
+\item On peut aussi effectuer ce changement en appliquant les théorèmes de DeMorgan (Théorème 5 \(\spadesuit\) et \(\heartsuit\) du tableau \ref{tab:org2fca1d5}) qui peuvent se généraliser à plus de deux variables.
 \end{itemize}
 \end{frame}
 \end{document}

@@ -1,4 +1,4 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Logique binaire, fonctions logiques et algèbre de Boole
 
@@ -6,13 +6,12 @@
 ** Objectifs
 
 - Situer les opérations de la logique binaire dans leur contexte algébrique
-- Être familier avec les postulats de l'algèbre de Boole, et les
+- Se familiariser avec les postulats de l'algèbre de Boole, et les
   principaux théorèmes
-- Pouvoir exprimer une fonction logique par un tableau de vérité
-- Pouvoir appliquer les théorèmes de DeMorgan
-- Pouvoir formuler une expression logique à partir d'un tableau de vérité
-- Pouvoir exprimer une fonction logique en /somme de produits/, ou en
-  /produit de sommes/, et pouvoir convertir d'une forme à l'autre
+- Exprimer une fonction logique par un tableau de vérité
+- Formuler une expression logique à partir d'un tableau de vérité
+- Exprimer une fonction logique en /somme de produits/, ou en
+  /produit de sommes/, et  convertir d'une forme à l'autre
 
 ** Logique binaire
 
@@ -22,7 +21,7 @@
 - Ces valeurs de vérité sont binaires, à savoir, *vrai* ou *faux*.
 
 - Pour représenter ces valeurs de vérité, on peut utiliser un encodage
-  binaire, comme par exemple
+  binaire,  par exemple:
 
 | Valeur de vérité |   | Valeur binaire |
 |------------------+---+----------------|
@@ -32,9 +31,9 @@
 
 ** Variable binaire
 
-- Une variable binaire, dénotée par une lettre, permet de désigner une valeur binaire pouvant assumer une de deux valeurs possible, 0 ou 1.
+- Une variable binaire, dénotée par une lettre, permet de désigner une valeur binaire pouvant assumer une des deux valeurs possible, 0 ou 1.
 
-- La variable est typiquement associée à une proposition, l'état d'un élément ou toute autre condition pouvant admettre deux états distincts.
+- La variable est typiquement associée à une proposition, à l'état d'un élément ou à toute autre condition pouvant admettre deux états distincts.
 
 - En assignant une valeur binaire à la variable, on définit une valeur de vérité associée à cette variable, et ainsi à la condition qu'elle représente.
 
@@ -64,7 +63,7 @@
 
 ** Opérations logiques ... 3
 
-3) NON: cette opération est représentée par un prime, comme par
+3) NON: cette opération est représentée par un prime, par
    exemple \(x^\prime\), ou par une barre au-dessus de la variable,
    \(\overline{x}\).  L'opération NON renverse la valeur binaire de
    son argument: si \(x =0\) alors \(x^ \prime = 1\); si \(x =1\)
@@ -74,7 +73,7 @@
    
 ** Expression logique
 
-- Une expression logique combine des variables logiques et des opérations, et peut donc assumer une valeur binaire logique.
+- Une expression logique combine des variables logiques et des opérations et peut donc assumer une valeur binaire logique.
 
 - Cette valeur logique peut être assignée à une autre variable, en créant ainsi une équation logique.
 
@@ -84,9 +83,9 @@
 
 ** Tableaux de vérité
 
-- Une façon de décrire la valeur logique d'une variable de sortie en fonction des valeurs possibles des variables d'entrée est au moyen d'un tableau de vérité.
+- On peut décrire la valeur logique d'une variable de sortie en fonction des valeurs possibles des variables d'entrée au moyen d'un tableau de vérité.
 
-- Dans un tel tableau, il y a une ligne pour chaque combinaison possible des valeurs d'entrée, et sur chaque ligne, on indique la valeur de sortie correspondante.
+- Dans un tel tableau, il y a une ligne pour chaque combinaison possible des valeurs d'entrée et, sur chaque ligne, on indique la valeur de sortie correspondante.
 
 - C'est en quelque sorte une description en extension de la valeur de l'expression de sortie.
 
@@ -133,7 +132,7 @@ Une algèbre nécessite donc:
 
 ** Formalisme mathématique ... 2
 
-     3. [@3]L'application des opérateurs aux différents éléments doit respecter un certain nombre de propriétés appelées postulats, comme par exemple:
+     3. [@3]L'application des opérateurs aux différents éléments doit respecter un certain nombre de propriétés appelées postulats, comme:
 
   - Fermeture
 
@@ -151,7 +150,7 @@ Une algèbre nécessite donc:
 
 - Selon le choix des postulats, on arrive à définir différents types de systèmes algébriques.
 
-- Par exemple, les nombres réels avec lequel nous sommes familiers est un système algébrique d'un type appelé *corps*.
+- Par exemple, les nombres réels qui nous sont familiers constituent un système algébrique d'un type appelé *corps*.
 
 ** Algèbre de Boole
 
@@ -277,7 +276,7 @@ Règle de complémentation
    symétriques.
 
 4. Les lois de distributivité se démontrent aisément en établissant des
-   tables de vérité pour les différentes valeurs de \(x, y\) et \(z\).
+   tableaux de vérité pour les différentes valeurs de \(x, y\) et \(z\).
 
 5. Par le tableau de complément, on vérifie que
 

@@ -1,61 +1,61 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Conception de circuits logiques séquentiels
 ** Objectifs
-- Pouvoir concevoir un circuit logique séquentiel synchrone à partir
+- Concevoir un circuit logique séquentiel synchrone à partir
   d'une spécification fonctionnelle
-- Savoir construire un diagramme d'état en fonction d'un besoin
-- Savoir construire un tableau d'état en fonction d'un diagramme d'état
-- Pouvoir réduire le nombre d'état nécessaires
-- Savoir comment assigner des codes binaires aux états et pouvoir
+- Construire un diagramme d'état en fonction d'un besoin
+- Construire un tableau d'état en fonction d'un diagramme d'état
+- Réduire le nombre d'états nécessaires
+- Assigner des codes binaires aux états et 
   choisir une approche
-- Pouvoir concevoir un décodeur de prochain état et un décodeur de sortie
+- Concevoir un décodeur de prochain état et un décodeur de sortie
 
 ** Conception d'un circuit séquentiel synchrone
 
 - Concevoir un circuit logique séquentiel permet de répondre à un besoin pratique qui ne peut pas être satisfait par un circuit combinatoire.  
 
-- Le point de départ est une description, la plus précise possible, du besoin à remplir: quelle doit ou doivent être les entrées, les sorties, les conditions qui font passer d'un état au suivant, etc.
+- Le point de départ est une description, la plus précise possible, du besoin à satisfaire: quelles doivent être la ou les entrées,  sorties ou conditions qui font passer d'un état au suivant, etc.
 
-- Pour un besoin donné, une multitude de solutions fonctionnellement équivalentes sont possibles, aussi il faudra établir des critères ou identifier des contraintes qui permettront d'orienter la conception et le choix final d'une solution.
+- Pour un besoin donné, une multitude de solutions fonctionnellement équivalentes sont possibles; ainsi, il faudra établir des critères ou identifier des contraintes qui permettront d'orienter la conception et le choix final d'une solution.
 
 ** Conception d'un circuit séquentiel synchrone ... 2
 
 - Deux systèmes peuvent avoir un même comportement vu de l'extérieur, mais comporter des nombres d'états internes différents.
 
-- Des considérations pratiques nous amèneront souvent à vouloir réduire le nombre d'états nécessaires, et à simplifier les différents circuit combinatoires utilisés.
+- Des considérations pratiques nous amèneront souvent à vouloir réduire le nombre d'états nécessaires, et à simplifier les différents circuits combinatoires utilisés.
 
-- Réduire le nombre de bascules utilisées ne se traduit pas toujours par un système plus simple, car les décodeurs d'état et de sortie peuvent s'en retrouver plus complexes.
+- Réduire le nombre de bascules utilisées ne se traduit pas toujours par un système plus simple, car les décodeurs d'état et de sortie peuvent alors s'en trouver plus complexes.
 
 ** Spécification fonctionnelle
 
 - Comme dans tout problème de conception, la formulation en mots de la spécification du système est cruciale.
 
-- Appliquer parfaitement une procédure de conception en se basant sur une spécification erronée ne peut pas conduire à système adéquat.
+- Appliquer parfaitement une procédure de conception en se basant sur une spécification erronée ne peut pas conduire à un système adéquat.
 
-- Il faudra un bon bagage d'expérience et d'intuition au concepteur pour pouvoir interpréter et traduire correctement une description informelle, plus souvent qu'autrement incomplète, ambiguë et imprécise, en un design concret qui répond à un besoin maladroitement exprimé.
+- Il faudra un bon bagage d'expérience et d'intuition au concepteur ou à
+la conceptrice pour pouvoir interpréter une description informelle, très souvent  incomplète, ambiguë et imprécise, et la traduire
+correctement en un design concret qui répond à un besoin maladroitement exprimé.
 
-- Il revient au concepteur de s'assurer que ce qu'il a compris correspond bien à ce qui était demandé.
+- Il revient à cette personne de s'assurer que ce qu'elle a compris correspond bien à ce qui était demandé.
 
 ** Questions à se poser
 
 La première question à poser est: 
 
-- Que doit faire le système? 
+- /Que doit faire le système?/ 
 
 Suivront d'autres questions, amenant à définir davantage de détails: 
 
-- Combien d'entrées sont nécessaires?
+- /Doit-il y avoir des entrées? Si oui, combien?/ 
 
-- Doit-il y avoir des entrées?
-
-- Combien de sorties sont nécessaires?
+- /Combien de sorties sont nécessaires?/
 
 ** Questions à se poser ... 2
 
 Le comportement du système pourra être essentiellement caractérisé en répondant à la question:
 
-- Quelle doit être la séquence des sorties, pour une certaine séquence d'entrées?
+- /Quelle doit être la séquence des sorties, pour une certaine séquence d'entrées?/
 
 Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra identifier des patrons qui permettront de résumer le comportement du système.
 
@@ -69,9 +69,9 @@ Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra i
 
 - À partir du diagramme d'état, il est possible de vérifier quelle séquence de sortie correspond à une séquence d'entrée donnée, et ainsi de valider le comportement.
 
-** Tableau d'états
+** Tableau d'état
 
-- Un tableau d'états comporte une ligne par état présent et combinaison d'entrées.
+- Un tableau d'état comporte une ligne par état présent et combinaison d'entrées.
 
 - Selon les combinaisons d'entrées possibles, on donne le prochain état et les valeurs de sortie.
 
@@ -88,7 +88,7 @@ Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra i
 #+CAPTION:  Diagramme d'état avant réduction
 #+attr_latex: :scale 0.5
 #+NAME:fig-exemp_simplif
-[[file:../../Sources_images_logiques/images/exemp_simplif_net.svg]]
+[[file:../Images_svg/exemp_simplif_net.svg]]
  
 ** Tableau d'état initial
 
@@ -228,7 +228,7 @@ Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra i
    - Si les sorties sont les mêmes et les paires d'états suivants sont
      identiques ou encore sont les états mêmes qu'on est en train de
      considérer, on met directement OUI dans le tableau. Par exemple,
-     pour la case [a;g] on a les paires g=a et c=c, donc on met
+     pour la case [a;g], on a les paires g=a et c=c, donc on met
      OUI. Pour la case [d;g], on a a=a et c=c, on met OUI
      également. On continue ainsi, de colonne en colonne, pour obtenir
      après ces étapes le résultat suivant (tableau [[tab-tableau_implication_et1]]).
@@ -312,7 +312,7 @@ Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra i
 
 - Si on doit coder \(m\) états, il faudra \(n\) bits, avec \(2^n \geq m\).
 
-- Si le nombre de combinaisons binaires est plus grand que le nombre d'état nécessaires, les combinaisons inutilisées seront considérées comme des cas facultatifs.
+- Si le nombre de combinaisons binaires est plus grand que le nombre d'états nécessaires, les combinaisons inutilisées seront considérées comme des cas facultatifs.
 
 ** Codage des états ... 2
 
@@ -343,7 +343,7 @@ Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra i
 
 - Le type de bascules à utiliser déterminera les sorties nécessaires pour le décodeur d'état, en se basant sur les tableaux caractéristiques du chapitre précédent.
 
-** Décodeur de sorties
+** Décodeur de sortie
 
 - Une fois que le codage d'état est établi, la conception du décodeur de sortie est directe.
 
@@ -353,7 +353,7 @@ Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra i
 
 - La conception d'un circuit séquentiel suit une procédure bien définie.
 
-- Étant donnée la complexité de cette tâche, on limite la conception manuelle à des relativement petits circuits.
+- Étant donnée la complexité de cette tâche, on limite la conception manuelle à des circuits relativement petits.
 
 - Pour des besoins plus ambitieux, des outils de synthèse automatisés ont été développés.
 
@@ -364,14 +364,14 @@ Mais comme les séquences d'entrées peuvent être en nombre infini, il faudra i
 Voici les étapes à suivre:
 
 1) À partir de la description et des spécifications du comportement
-   souhaité, concevoir un diagramme d'état.
-2) Réduire le nombre d'état (si pertinent).
-3) Assigner des codes binaires aux états.
-4) Compléter le tableau de transition.
-5) Sélectionner un type de bascules à utiliser.
+   souhaité, concevoir un diagramme d'état
+2) Réduire le nombre d'états (si pertinent)
+3) Assigner des codes binaires aux états
+4) Remplir le tableau de transition
+5) Sélectionner un type de bascules à utiliser
 6) Déterminer les expressions simplifiées pour le décodeur de prochain
-   état et le décodeur de sortie.
-7) Tracer le schéma logique du circuit.
+   état et le décodeur de sortie
+7) Tracer le schéma logique du circuit
 
 ** Exemple de conception
 
@@ -381,12 +381,12 @@ Voici les étapes à suivre:
 
 ** Diagramme d'état pour l'exemple
 
-- Selon le diagramme d'état de la figure [[fig-seq_101_sanscode]], le système démarre dans l'état /a/, et demeure dans cet état tant que l'entrée \(A=0\).
+- Selon le diagramme d'état de la figure [[fig-seq_101_sanscode]], le système démarre dans l'état /a/ et demeure dans cet état tant que l'entrée \(A=0\).
 
 #+CAPTION:  Diagramme d'état pour détecter la séquence 101
 #+attr_latex: :scale 0.55
 #+NAME:fig-seq_101_sanscode
-[[file:../../Sources_images_logiques/images/seq_101_sanscode.svg]]
+[[file:../Images_svg/seq_101_sanscode.svg]]
 
 ** Comportement selon le diagramme d'état
 
@@ -396,16 +396,16 @@ Voici les étapes à suivre:
 
 - De l'état /b/, si \(A=0\), on passe à l'état /c/, car on a observé 10 en séquence.
 
-- De l'état /c/, si on a \(A=0\), la séquence observée est maintenant de 100, et on doit tout recommencer en retournant à l'état /a/.
+- De l'état /c/, si on a \(A=0\), la séquence observée est maintenant de 100 et on doit tout recommencer en retournant à l'état /a/.
 
 - De l'état /c/, si on a \(A=1\), alors on a reconnu la séquence 101.
 
 - On met la sortie \(S=1\) et on reste dans cet état pour toutes les autres transitions, quelle que soit l'entrée.
 
-- Il s'agit ici d'une machine de Moore, puisque la sortie est \(S=1\) produite lorsqu'on est dans l'état /d/; on a \(S=0\) dans les autres états.
+- Il s'agit ici d'une machine de Moore, puisque la sortie  \(S=1\) est produite lorsqu'on est dans l'état /d/; on a \(S=0\) dans les autres états.
 
 
-** Réduction d'état 
+** Réduction d'états 
 
 Il n'y a pas de réduction d'états possible ici.
 
@@ -423,7 +423,7 @@ Il n'y a pas de réduction d'états possible ici.
 | d    |   11 |
 
 
-** Compléter le tableau de transition
+** Remplir le tableau de transition
 
 Le tableau [[tab-exemp_trans_seq101]] donne les transitions d'états. 
 
@@ -451,26 +451,41 @@ Les diagrammes de Karnaugh correspondants sont donnés pour
 \(Z_0^{n+1}\) (figure [[fig-diag-k_z0]]), \(Z_1^{n+1}\) (figure
 [[fig-diag-k_z1]]) et \(S\) (figure [[fig-diag-k_S]]).
 
+** Note sur la convention d'étiquetage
+
+- Notons que la convention d'étiquetage des diagrammes est différente
+  de ce que nous avons vu précédemment.
+- Au lieu d'étiqueter les lignes et
+les colonnes avec bits de minterms, on indique ici à l'extérieur du
+diagramme proprement dit les variables (telles quelles ou
+complémentées) et les régions du diagramme où on les retrouve. 
+
+- Par exemple, en dessous du diagramme de la figure [[fig-diag-k_z0]], on indique à partir de la gauche, une première région où la variable
+\(A\) est complémentée (première colonne à gauche), puis une région
+correspondant à deux colonnes où la variable est telle quelle (deux
+colonnes du centre), et enfin une région où la variable est
+complémentée (colonne du centre).
+
 ** Diag-K pour \(Z_0^{n+1}\)
 
 #+CAPTION:  Diag-K pour \(Z_0^{n+1}\)
 #+attr_latex: :scale 0.65
 #+NAME:fig-diag-k_z0
-[[file:../../Sources_images_logiques/images/diag-k_z0.png]]
+[[file:../Images_png/diag-k_z0.png]]
 
 ** Diag-K pour \(Z_1^{n+1}\)
 
 #+CAPTION:  Diag-K pour \(Z_1^{n+1}\)
 #+attr_latex: :scale 0.65
 #+NAME:fig-diag-k_z1
-[[file:../../Sources_images_logiques/images/diag-k_z1.png]]
+[[file:../Images_png/diag-k_z1.png]]
 
 ** Diag-K pour \(S\)
 
 #+CAPTION:  Diag-K pour \(S\)
 #+attr_latex: :scale 0.65
 #+NAME:fig-diag-k_S
-[[file:../../Sources_images_logiques/images/diag-k_S.png]]
+[[file:../Images_png/diag-k_S.png]]
 
 ** Décodeur de prochain état
 
@@ -493,7 +508,7 @@ $$ S = Z_0^{n} \cdot Z_1^{n} $$
 #+CAPTION:  Détecteur pour la séquence 101
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_seq_101_circ
-[[file:../../Sources_images_logiques/images/exemp_seq101_circ.svg]]
+[[file:../Images_svg/exemp_seq101_circ.svg]]
 
 ** Trace d'exécution avec succès
 
@@ -507,7 +522,7 @@ $$ S = Z_0^{n} \cdot Z_1^{n} $$
 #+CAPTION:  Trace d'exécution avec succès
 #+attr_latex: :scale 0.5
 #+NAME:fig-exemp_seq_101_trace1
-[[file:../../Sources_images_logiques/images/exemp_seq101_trace1.svg]]
+[[file:../Images_svg/exemp_seq101_trace1.svg]]
 
 ***                                                                 :B_block:
     :PROPERTIES:
@@ -525,7 +540,8 @@ $$ S = Z_0^{n} \cdot Z_1^{n} $$
 
 - Avec \(A=1\) de nouveau, on passe à l'état 3 en activant la sortie \(S=1\).
 
-- On ne quittera plus cet état ensuite.
+- On ne quittera plus cet état par la
+suite.
 
 ** Trace d'exécution sans succès
 
@@ -534,13 +550,13 @@ $$ S = Z_0^{n} \cdot Z_1^{n} $$
 #+CAPTION:  Trace d'exécution sans succès
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_seq_101_trace2
-[[file:../../Sources_images_logiques/images/exemp_seq101_trace2.svg]]
+[[file:../Images_svg/exemp_seq101_trace2.svg]]
 
 ** Autres types de bascules
 
 - Les fonctions du décodeur de prochain état se formulent naturellement en fonction de bascules D.
 
-- Pour faire l'implémentation avec des bascules JK ou T, il faut pouvoir déterminer les entrées nécessaires pour amener les changements d'états requis.
+- Pour faire l'implémentation avec des bascules JK ou T, il faut pouvoir déterminer les entrées nécessaires pour amener les changements d'état requis.
 
 - Pour ce faire, on utilisera des *tableaux d'excitation* qui listent les combinaisons d'entrées pour passer d'un état présent \(Q_n\) à un état prochain \(Q_{n+1}\).
 
@@ -608,17 +624,17 @@ Ce qui nous donne l'implémentation de la figure [[fig-exemp_seq101_JK]].
 #+CAPTION:  Détecteur pour la séquence 101, bascules JK
 #+attr_latex: :scale 0.75
 #+NAME:fig-exemp_seq101_JK
-[[file:../../Sources_images_logiques/images/exemp_seq101_JK.svg]]
+[[file:../Images_svg/exemp_seq101_JK.svg]]
 
 ** États interdits
 
-- Lorsque le nombre d'états nécessaires pour le fonctionnement de la machine à état fini est strictement inférieur au nombre total d'états possibles avec les bascules utilisées, un certain nombre d'états (physiques) ne seront pas utilisés dans le fonctionnement normal du circuit séquentiel.
+- Lorsque le nombre d'états nécessaires pour le fonctionnement de l'automate fini est strictement inférieur au nombre total d'états possibles avec les bascules utilisées, un certain nombre d'états (physiques) ne seront pas utilisés dans le fonctionnement normal du circuit séquentiel.
 
 - On parlera alors d'*états interdits*.
 
 - Lors de la formulation des tableaux de vérité pour le décodeur de prochain état, ces états donneront lieu à des cas facultatifs, qui pourront permettre la simplification du circuit combinatoire du décodeur.
 
-- Il faut toutefois se méfier de scénarios dans lesquels la machine à état pourrait se retrouver dans un tel état interdit en raison d'un dysfonctionnement momentané ou lors de la mise en marche du système.
+- Il faut toutefois se méfier de scénarios dans lesquels l'automate fini pourrait se retrouver dans un tel état interdit en raison d'un dysfonctionnement momentané ou lors de la mise en marche du système.
 
 ** États interdits ... 2
 
@@ -633,7 +649,7 @@ Ce qui nous donne l'implémentation de la figure [[fig-exemp_seq101_JK]].
 #+CAPTION:  Diagramme d'état avec état interdit
 #+attr_latex: :scale 0.75
 #+NAME:fig-etat_interdit
-[[file:../../Sources_images_logiques/images/etat_interdit.svg]]
+[[file:../Images_svg/etat_interdit.svg]]
 
 ** Solution possible
 
@@ -644,18 +660,18 @@ Ce qui nous donne l'implémentation de la figure [[fig-exemp_seq101_JK]].
 #+CAPTION:  Diagramme d'état qui assure le retour en fonctionnement normal
 #+attr_latex: :scale 0.75
 #+NAME:fig-etat_interdit_revient
-[[file:../../Sources_images_logiques/images/etat_interdit_revient.svg]]
+[[file:../Images_svg/etat_interdit_revient.svg]]
 
 ** Exemple avec états /one-hot/
 
-- Dans l'exemple suivant, on explore l'assignation d'états /one-hot/ dans laquelle il n'y a qu'un seul bit 1 par code binaire.
+- Dans l'exemple suivant, on explore l'assignation d'états /one-hot/ dans laquelle il n'y a qu'un bit 1 par code binaire.
 
 - Considérons le diagramme d'état suivant (figure [[fig-diag_one-hot]]).
 
 #+CAPTION:  Diagramme d'état pour assignation /one-hot/
 #+attr_latex: :scale 0.5
 #+NAME:fig-diag_one-hot
-[[file:../../Sources_images_logiques/images/exemple_one-hot.svg]]
+[[file:../Images_svg/exemple_one-hot.svg]]
 
 ** Tableau d'assignation d'état /one-hot/
 
@@ -721,13 +737,14 @@ $$
 
 - Le décodeur de prochain état est simplifié, car les bits d'état offrent une indication directe de l'état dans lequel la machine se trouve.
 
-- Le fonctionnement de la machine entraîne peu de transitions, ce qui résulte en une consommation d'énergie réduite, et moins de risque de /glitches/.
+- Le fonctionnement de la machine entraîne peu de transitions, ce qui se traduit par une consommation d'énergie réduite et moins de risque d'aléas (/glitches/).
 
 - La vitesse de commutation ne dépend pas du nombre d'états.
 
-- Ajouter ou retrancher un état peu se faire sans avoir à tout refaire la conception.
+- Il est possible d'ajouter ou retrancher un état sans avoir
+à refaire entièrement la conception.
 
-- L'assignation /one-hot/ est particulièrement intéressante lorsqu'on est moins limité par le nombre de bascules que par le nombre d'éléments combinatoires.
+- L'assignation /one-hot/ est particulièrement intéressante lorsqu'il y a moins de contraintes sur le nombre de bascules que sur le nombre d'éléments combinatoires.
 
 ** Inconvénients
 
@@ -735,6 +752,6 @@ $$
 
 - Par exemple, pour 30 états, il faudra 30 bascules alors qu'avec un encodage binaire, il n'en faudrait que cinq.
 
-- Il faut aussi considérer qu'il y a un grand nombre d'états interdits, et prendre les précautions qui s'imposent pour éviter les problèmes de fonctionnement coincé.
+- Il faut aussi considérer qu'il y a un grand nombre d'états interdits et prendre les précautions qui s'imposent pour éviter les problèmes de fonctionnement coincé.
 
 

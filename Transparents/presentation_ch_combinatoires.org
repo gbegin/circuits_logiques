@@ -1,12 +1,12 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Circuits combinatoires typiques
 
 ** Objectifs
-- Pouvoir analyser un circuit combinatoire à partir de son schéma
-- Pouvoir concevoir un circuit combinatoire à partir d'une spécification
+- Analyser un circuit combinatoire à partir de son schéma
+- Concevoir un circuit combinatoire à partir d'une spécification
 - Connaître différentes approches de réalisation
-- Être familier avec les principaux circuits combinatoires courants et
+- Se familiariser avec les principaux circuits combinatoires courants et
   leurs fonctions: additionneur, décodeur, multiplexeur, encodeur,
   comparateur
 - Comprendre le fonctionnement d'une chaîne d'addition binaire et les
@@ -37,7 +37,7 @@
 
 #+CAPTION:Circuit combinatoire
 #+NAME:fig-circuit_comb
-[[file:../../Sources_images_logiques/images/circuit_comb.png]]
+[[file:../Images_png/circuit_comb.png]]
 
 ** Circuit combinatoire
 
@@ -45,21 +45,21 @@
 
 - Pour chaque combinaison, le circuit peut donner une sortie 0 ou 1.
 
-- On peut donc préciser la fonction réalisée par le circuit par un tableau de vérité comportant \(2^n\) lignes.
+- On peut donc préciser la fonction réalisée par le circuit au moyen d'un tableau de vérité comportant \(2^n\) lignes.
 
 - Comme nous avons \(m\) sorties différentes, il y aura \(m\) colonnes dans le tableau de vérité pour les fonctions de sortie.
 
-- Traditionnellement, on présente les entrées en ordre croissant de combinaison binaires.
+- Traditionnellement, on présente les entrées en ordre croissant de combinaisons binaires.
 
 ** Analyse d'un circuit logique combinatoire
 
-- Si on est placé devant le schéma d'un circuit logique dont on ne connaît pas la fonction, on doit en faire l'analyse.
+- Si on se trouve devant le schéma d'un circuit logique dont on ne connaît pas la fonction, on doit en faire l'analyse.
 
 - La première étape consiste à vérifier qu'il s'agit bien d'un circuit combinatoire.
 
 - Si le schéma ne comporte pas de cellules de mémoire ou de boucles de rétroaction, on peut conclure que le circuit est combinatoire.
 
-- Une boucle de rétroaction consiste en un chemin dans le circuit dans lequel une valeur d'entrée d'une porte provient, directement ou indirectement (par l'intermédiaire d'autres portes), de la sortie de la même porte.
+- Une boucle de rétroaction consiste en un chemin du circuit par lequel une valeur d'entrée d'une porte provient, directement ou indirectement (par l'intermédiaire d'autres portes), de la sortie de la même porte.
 
 - La présence de rétroaction est une caractéristique des circuits logiques séquentiels, que nous étudierons plus loin.
 
@@ -72,7 +72,7 @@
 Pour déterminer l'expression logique, on procède ainsi:
 1) Étiqueter toutes les sorties des portes qui sont alimentées par les
    variables d'entrée du système. Les noms de variables seront
-   arbitraire, mais devraient être choisis de façon à faciliter
+   arbitraires, mais devraient être choisis de façon à faciliter
    l'interprétation par la suite. Déterminer les fonctions logiques
    pour ces variables.
 2) Étiqueter les sorties des portes qui sont alimentées par les
@@ -90,13 +90,13 @@ Pour déterminer l'expression logique, on procède ainsi:
 
 ** Exemple d'analyse d'un circuit logique combinatoire
 
-Considérons le circuit combinatoire à analyser illustré à la figure
+Analysons le circuit combinatoire illustré à la figure
 suivante.
 
 #+CAPTION: Circuit combinatoire à analyser
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_analyser
-[[file:../../Sources_images_logiques/images/circuit_logique_inconnu.svg]]
+[[file:../Images_svg/circuit_logique_inconnu.svg]]
 
 # I1 = ¬A ∧ B ∧ C
 # I2 = ¬A ∧ ¬D
@@ -105,7 +105,7 @@ suivante.
 ** Exemple d'analyse d'un circuit logique combinatoire ... 2
 
 1) Il n'est pas la peine d'étiqueter la sortie de la porte
-   inverseur. Comme variables intermédiaire, nous considérons \(I_1\)
+   inverseur. Comme variables intermédiaire, on considère \(I_1\)
    en sortie de la porte ET à trois entrées et \(I_2\) en sortie de la
    porte NOR. On trouve que \(I_1 = A^\prime \cdot B \cdot C\) et que
    \(I_2 = (A + D)^\prime = A^\prime \cdot D^\prime\).
@@ -152,7 +152,7 @@ Voici les étapes à suivre.
 
 1) À partir de l'expression du besoin ou des spécifications du
    système, déterminer combien d'entrées et de sorties sont
-   requises, et leur assigner des noms de variables. Le choix des noms
+   requises, puis leur assigner des noms de variables. Le choix des noms
    devrait faciliter leur interprétation en lien avec leur fonction.
 
 2) Formuler le tableau de vérité qui décrit les valeurs logiques que
@@ -166,12 +166,12 @@ Voici les étapes à suivre.
    en tenant éventuellement compte des partages possibles d'éléments
    intermédiaires.
 
-4) Tracer le circuit logique résultant, et le valider (à la main ou
+4) Tracer le circuit logique résultant et le valider (à la main ou
    mieux, par simulation).
 
 ** Conception d'un circuit combinatoire ... 3
    
-- L'étape 2 est cruciale, car ce qui sera implémenté (s'il n'y a pas d'erreurs) est exactement ce que le tableau de vérité spécifie.
+- L'étape 2 est cruciale, car ce qui sera implémenté (s'il n'y a pas d'erreurs) est exactement ce que le tableau de vérité stipule.
 
 - On doit donc s'assurer que le tableau est correctement rempli et représente véritablement les besoins identifiés.
 
@@ -181,9 +181,9 @@ Voici les étapes à suivre.
    
 N'importe quelle méthode de simplification peut être utilisée pour l'étape 3, mais il faut aussi prendre en compte 
 - le type de portes disponibles pour l'implémentation, 
-- les délais de propagations à travers les portes, 
+- les délais de propagation à travers les portes, 
 - le nombre d'interconnexions entre sorties et entrées de portes, 
-- et tout autre facteur pratique susceptible d'orienter les décisions finales.
+- et tout autre facteur pratique susceptible d'orienter les décisions.
 
 ** Alternatives d'implémentation
 
@@ -192,7 +192,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Diag-K d'une fonction combinatoire \(Y\) à réaliser
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk_altern
-[[file:../../Sources_images_logiques/images/kmap3altern.svg]] 
+[[file:../Images_svg/kmap3altern.svg]] 
 
 ** Implémentations via la fonction directe, en /somme de produits/
 
@@ -205,14 +205,14 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Implémentation de \(Y\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern
-[[file:../../Sources_images_logiques/images/circ_altern_1.svg]] 
+[[file:../Images_svg/circ_altern_1.svg]] 
 
 ** Implémentations via la fonction directe, en /somme de produits/ ... 2
 
 #+CAPTION: Implémentation (en NAND) de \(Y\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern2
-[[file:../../Sources_images_logiques/images/circ_altern_2.svg]] 
+[[file:../Images_svg/circ_altern_2.svg]] 
 
 
 ** Implémentation en /produit de sommes/
@@ -226,14 +226,14 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Implémentation de \(Y\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_ps1
-[[file:../../Sources_images_logiques/images/circ_altern_ps1.svg]] 
+[[file:../Images_svg/circ_altern_ps1.svg]] 
 
 ** Implémentation en /produit de sommes/ ... 3
 
 #+CAPTION: Implémentation (en NOR) de \(Y\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_alternps2
-[[file:../../Sources_images_logiques/images/circ_altern_ps2.svg]] 
+[[file:../Images_svg/circ_altern_ps2.svg]] 
 
 
 ** Implémentations via la fonction complémentaire
@@ -249,7 +249,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Implémentation via \(Y^\prime\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_sp1
-[[file:../../Sources_images_logiques/images/circ_altern_comp_sp1.svg]] 
+[[file:../Images_svg/circ_altern_comp_sp1.svg]] 
 
 ** Implémentation via la fonction complémentaire, en /somme de produits/ ... 2
 
@@ -258,7 +258,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Implémentation via \(Y^\prime\) en /somme de produits/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_sp2
-[[file:../../Sources_images_logiques/images/circ_altern_comp_sp2.svg]] 
+[[file:../Images_svg/circ_altern_comp_sp2.svg]] 
 
 ** Implémentation via la fonction complémentaire, en /produit de sommes/
 
@@ -269,14 +269,14 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Implémentation via \(Y^\prime\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_ps1
-[[file:../../Sources_images_logiques/images/circ_altern_comp_ps1.svg]] 
+[[file:../Images_svg/circ_altern_comp_ps1.svg]] 
 
 ** Implémentation via la fonction complémentaire, en /produit de sommes/ ... 2
 
 #+CAPTION: Implémentation via \(Y^\prime\) en /produit de sommes/
 #+attr_latex: :scale 0.75
 #+NAME:fig-circ_altern_comp_ps2
-[[file:../../Sources_images_logiques/images/circ_altern_comp_ps2.svg]] 
+[[file:../Images_svg/circ_altern_comp_ps2.svg]] 
 
 ** Circuits logiques combinatoires classiques
 
@@ -314,7 +314,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION:Schéma-bloc d'un additionneur complet
 #+attr_latex: :scale 0.75
 #+NAME:fig-additionneur
-[[file:../../Sources_images_logiques/images/additionneur.png]]
+[[file:../Images_png/additionneur.png]]
 
 ** Additionneur binaire ... 3
 
@@ -336,7 +336,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 
 - Un circuit logique qui effectue l'addition de deux bits est appelé un demi-additionneur.
 
-- Mais ce qu'il nous faut vraiment, c'est un *additionneur complet*, c'est-à-dire, un circuit de trois entrées qui fait l’addition de trois bits, puisqu'il faudra pouvoir tenir compte de la retenue du niveau précédent pour effectuer l'addition sur un niveau.
+- Mais ce qu'il nous faut vraiment, c'est un *additionneur complet*, c'est-à-dire un circuit de trois entrées qui fait l'addition de trois bits, puisqu'il faudra pouvoir tenir compte de la retenue du niveau précédent pour effectuer l'addition sur un niveau.
 
 - Il est possible d'implémenter l'additionneur complet avec deux demi-additionneurs.
 
@@ -358,7 +358,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Circuit demi-additionneur (en S de P)
 #+attr_latex: :scale 0.75
 #+NAME:fig-demi_add2
-[[file:../../Sources_images_logiques/images/demi_add2.svg]]
+[[file:../Images_svg/demi_add2.svg]]
 
 ** Demi-additionneur ... 4
 
@@ -366,17 +366,17 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Circuit demi-additionneur avec porte XOR
 #+attr_latex: :scale 0.75
 #+NAME:demi_add
-[[file:../../Sources_images_logiques/images/demi_add.svg]]
+[[file:../Images_svg/demi_add.svg]]
 
 ** Additionneur complet
 
-- Une addition binaire complète de deux arguments constitués de \(n\) bits procède du bit le moins significatif vers le bits le plus significatif, en additionnant à chaque étape trois bits: \(a_{i}\), \(b_{i}\) et \(r_{i-1}\) et en produisant une somme \(S_{i}\) et une retenue \(R_{i}\).
+- Une addition binaire complète de deux arguments constitués de \(n\) bits procède du bit le moins significatif vers le bit le plus significatif, en additionnant à chaque étape trois bits: \(a_{i}\), \(b_{i}\) et \(r_{i-1}\) et en produisant une somme \(S_{i}\) et une retenue \(R_{i}\).
 
 
 #+CAPTION: Diag-K pour \(S_i\), additionneur complet
 #+attr_latex: :scale 0.75
 #+NAME:fig-diak_si_fulladder
-[[file:../../Sources_images_logiques/images/kmapSi_fulladder.svg]]
+[[file:../Images_svg/kmapSi_fulladder.svg]]
 
 ** Additionneur complet ... 2
 
@@ -384,7 +384,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 #+CAPTION: Diag-K pour \(R_i\), additionneur complet
 #+attr_latex: :scale 0.75
 #+NAME:fig-diak_ri_fulladder
-[[file:../../Sources_images_logiques/images/kmap3fulladderR.svg]]
+[[file:../Images_svg/kmap3fulladderR.svg]]
 
 ** Additionneur complet ... 3
 
@@ -400,7 +400,7 @@ $$ R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1} $$
 #+CAPTION: Circuit additionneur complet pour \(S_i\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fulladder_s
-[[file:../../Sources_images_logiques/images/fulladderS.svg]]
+[[file:../Images_svg/fulladderS.svg]]
 
 ** Additionneur complet ... 5
 
@@ -408,11 +408,11 @@ $$ R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1} $$
 #+CAPTION: Circuit additionneur complet pour \(R_i\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fulladder_r
-[[file:../../Sources_images_logiques/images/fulladderR.svg]]
+[[file:../Images_svg/fulladderR.svg]]
 
 ** Additionneur complet ... 6
 
-Comme on le disait précédemment, il est possible de combiner deux
+Comme nous le disions précédemment, il est possible de combiner deux
 demi-additionneurs pour réaliser un additionneur complet, comme on
 peut le voir ici.
 
@@ -420,13 +420,15 @@ peut le voir ici.
 #+CAPTION: Circuit additionneur complet comportant deux demi-additionneurs et une porte OU
 #+attr_latex: :scale 0.75
 #+NAME:fig-fulladderxor
-[[file:../../Sources_images_logiques/images/fulladderxor.svg]]
+[[file:../Images_svg/fulladderxor.svg]]
 
 ** Additionneur binaire pour \(n\) bits
 
-- Un additionneur binaire est un circuit logique qui permet d'évaluer la somme arithmétique de deux nombres binaire de \(n\) bits.
+- Un additionneur binaire est un circuit logique qui permet d'évaluer la somme arithmétique de deux nombres binaires de \(n\) bits.
 
-- Il peut être conçu en combinant des additionneurs complets en cascade, en reliant la retenue de sortie provenant de la position 0 (la moins significative) à l'entrée de retenue de la position 1, ..., la retenue de sortie provenant de la position \(i-1\) à l'entrée de retenue de la position \(i\), etc. (figure [[fig-chaine_add]]).
+- Il peut être conçu en combinant des additionneurs complets en cascade, en reliant la retenue de sortie provenant de la position 0 (la moins significative) à l'entrée de retenue de la position 1, la retenue de
+sortie provenant de la position 1 à l'entrée de retenue de la position
+2,..., la retenue de sortie provenant de la position \(i-1\) à l'entrée de retenue de la position \(i\), etc. (figure [[fig-chaine_add]]).
 
 - Pour en faire un circuit général pouvant également se combiner en chaîne, on prévoit une entrée pour une retenue au niveau 0, \(r_0\) et une sortie pour une retenue du dernier niveau \(n-1\), \(R_{n-1}\).
 
@@ -455,15 +457,16 @@ R_n-1 <---+           |<---... <---+           +<--...  <---+           +<------
 
 #+CAPTION: Chaîne d'addition
 #+NAME:fig-chaine_add
-[[file:../../Sources_images_logiques/images/additionneur_cascade.png]]
+[[file:../Images_png/additionneur_cascade.png]]
 
 ** Chaîne d'addition ... 2
 
-- Cette réalisation en forme de chaîne, en réutilisant de façon systématique un bloc élémentaire, est avantageuse d'un point de vue complexité et flexibilité.
+- Cette réalisation en forme de chaîne, en réutilisant de façon systématique un bloc élémentaire, est avantageuse du point de vue de
+la complexité et de la flexibilité.
 
-- Imaginons par exemple le défi de concevoir un additionneur binaire pour des nombres de quatre bits par la méthode classique.
+- Imaginons par exemple le défi de concevoir un additionneur binaire pour des nombres de quatre bits avec la méthode classique.
 
-- Comme il faudrait considérer 9 entrées, le tableau de vérité comporterait \(2^9= 512\) lignes!
+- Comme il faudrait considérer neuf entrées, le tableau de vérité comporterait \(2^9= 512\) lignes!
 
 ** Propagation de retenue
 
@@ -483,7 +486,7 @@ R_n-1 <---+           |<---... <---+           +<--...  <---+           +<------
 
 - En effet, pour pouvoir calculer \(R_{n-1}\), bien que les valeurs de \(a_{n-1}\) et \(b_{n-1}\) soient déjà disponibles, il faut attendre que la valeur de \(r_{n-1} = R_{n-2}\) soit stabilisée avant que le calcul puisse s'effectuer avec les bonnes valeurs.
 
-- Il en est de même avec la bloc précédent, et ainsi, en remontant la chaîne vers \(r_0\), on trouve le chemin de propagation de retenue comme chemin le plus long.
+- Il en est de même avec le bloc précédent et ainsi, en remontant la chaîne vers \(r_0\), on trouve le chemin de propagation de retenue comme chemin le plus long.
 
 ** Propagation de retenue ... 3
 
@@ -500,17 +503,17 @@ R_n-1 <---+           |<---... <---+           +<--...  <---+           +<------
 
 #+CAPTION: Circuit additionneur complet montrant les signaux intermédiaires \(P_i\) et \(G_i\)
 #+NAME:fig-fulladderxorPG
-[[file:../../Sources_images_logiques/images/fulladderxorPG.svg]]
+[[file:../Images_svg/fulladderxorPG.svg]]
 
 ** Anticipation de retenue
 
 - Les valeurs calculées par le circuit complet en chaîne ne seront valides et ne devront être prises en compte que lorsque le délai maximal se sera écoulé.
 
-- Entre temps, les valeurs binaires présentes aux différentes sorties assumeront typiquement des valeurs changeantes jusqu'à stabilisation finale.
+- Entre-temps, les valeurs binaires présentes aux différentes sorties assumeront typiquement des valeurs changeantes jusqu'à la stabilisation finale.
 
 - Le délai de propagation de retenue est un facteur qui limite la vitesse à laquelle on pourra calculer la somme de deux nombres.
 
-- Et comme l'addition est une opération courante, souvent utilisée, parfois à répétition, pour réaliser d'autres opérations arithmétiques, cette limitation est problématique.
+- Et comme l'addition est une opération souvent utilisée, parfois à répétition, pour réaliser d'autres opérations arithmétiques, cette limitation est problématique.
 
 ** Anticipation de retenue ... 2
 
@@ -548,21 +551,21 @@ etc.
 
 - Contrairement à l'approche de propagation de retenue, toutes les retenues sont obtenues après un même délai équivalent à une profondeur de deux portes.
 
-- En calculant d'abord les différentes valeurs de \(P_i\) et \(G_i\) pour chaque niveau et en utilisant ces résultats intermédiaires pour, d'une part alimenter le circuit d'anticipateur de retenue et d'autre part, effectuer \(S_i = P_i \operatorname{Xor} r_i\), on obtient un additionneur parallèle plus rapide que la configuration en cascade.
+- En calculant d'abord les différentes valeurs de \(P_i\) et \(G_i\) pour chaque niveau et en utilisant ces résultats intermédiaires pour, d'une part, alimenter le circuit d'anticipateur de retenue et, d'autre part, effectuer \(S_i = P_i \operatorname{Xor} r_i\), on obtient un additionneur parallèle plus rapide que la configuration en cascade.
 
 ** Anticipation de retenue ... 6
 
 #+CAPTION: Circuit d'anticipateur de retenue pour \(n= 4\)
 #+attr_latex: :scale 0.55
 #+NAME:fig-lookahead1
-[[file:../../Sources_images_logiques/images/lookahead1.svg]]
+[[file:../Images_svg/lookahead1.svg]]
 
 
 ** Soustraction
 
-- Pour effectuer une soustraction \(A - B\), il faut effectuer \(A + (-B)\), c’est-à-dire additionner le complément à deux de \(B\) à \(A\).
+- Pour effectuer une soustraction \(A - B\), il faut effectuer \(A + (-B)\), c'est-à-dire additionner le complément à deux de \(B\) à \(A\).
 
-- On détermine le complément à deux en obtenant d'abord le complément à un en complémentant chaque bit, et en additionnant ensuite 1 à cette valeur par le biais de l'entrée de retenue de l'additionneur.
+- On détermine le complément à deux en obtenant d'abord le complément à un en complémentant chaque bit et en additionnant ensuite 1 à cette valeur par le biais de l'entrée de retenue de l'additionneur.
 
 ** Soustraction ... 2
 
@@ -572,21 +575,21 @@ etc.
 
 - La complémentation de \(B\) se fait au moyen de portes XOR qui calculent \(O \operatorname{Xor} b_i\) et dont la sortie est acheminée à l'entrée \(B\) de l'additionneur.
 
-- Lorsque que \(O=1\), leur sortie vaut \(b_i^\prime\).
+- Lorsque \(O=1\), leur sortie vaut \(b_i^\prime\).
 
 ** Soustraction ... 2
 
 #+CAPTION: Circuit additionneur/ soustracteur 4 bits
 #+NAME:fig-add_sous
-[[file:../../Sources_images_logiques/images/add_sous.svg]]
+[[file:../Images_svg/add_sous.svg]]
 
 ** Débordements
 
-- Un additionneur ou un soustracteur sont conçus en fonction d'une taille de nombres \(n\).
+- Un additionneur ou un soustracteur est conçu en fonction d'une taille de nombres \(n\).
 
 - Lorsque le résultat de l'opération dépasse la limite pouvant être représentée, on doit détecter cette condition et la signaler par un signal binaire.
 
-- Le cas de l'addition de nombre non signés est le plus simple.
+- Le cas de l'addition de nombres non signés est le plus simple.
 
 - Il suffit de surveiller la retenue du niveau le plus significatif.
 
@@ -625,7 +628,7 @@ etc.
 
 ** Débordements: deux négatifs
 
-- Refaisons le même exercice avec deux nombres négatifs: on additionne (-50)10 = (1100 1110)2 avec (-100)10 = (1001 1100)2, qui créera un débordement aussi.
+- Refaisons le même exercice avec deux nombres négatifs: on additionne (-50)10 = (1100 1110)2 avec (-100)10 = (1001 1100)2, qui créera aussi un débordement.
 
 #+CAPTION: Addition de (-50)10 + (-100)10 = (1100 1110)2 + (1001 1100)2
 #+NAME:tab-add_mm
@@ -638,7 +641,7 @@ etc.
 
 ** Débordements: règle générale
 
-- On peut dans les deux cas détecter le débordement en observant que la retenue du dernier niveau et la retenue de l'avant dernier niveau sont différentes.
+- On peut dans les deux cas détecter le débordement en observant que la retenue du dernier niveau et la retenue de l'avant-dernier niveau sont différentes.
 
 - On peut vérifier facilement que les autres cas sans débordement donnent des retenues égales.
 
@@ -650,12 +653,12 @@ etc.
 
 #+CAPTION:  Circuit additionneur/soustracteur 4 bits avec débordement
 #+NAME:fig-add_sous_deb
-[[file:../../Sources_images_logiques/images/add_sous_deb.svg]]
+[[file:../Images_svg/add_sous_deb.svg]]
 
 
 ** Multiplexeur
 
-- Un multiplexeur est un circuit combinatoire qui sélectionne le signal qui provient d'une de ses entrées, et fait que sa sortie soit égale à l'entrée sélectionnée.
+- Un multiplexeur est un circuit combinatoire qui sélectionne le signal qui provient d'une de ses entrées, et fait que sa sortie est égale à l'entrée sélectionnée.
 
 - Les signaux de sélection fonctionnent typiquement selon un encodage binaire, ce qui suppose un nombre d'entrées de la forme \(2^n\).
 
@@ -668,14 +671,14 @@ etc.
 #+CAPTION:  Circuit du multiplexeur deux-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux2b
-[[file:../../Sources_images_logiques/images/mux2b.svg]]
+[[file:../Images_svg/mux2b.svg]]
 
 ** Multiplexeur deux-vers-un: symbole
 
 #+CAPTION:  Symbole du multiplexeur deux-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux2bsymb
-[[file:../../Sources_images_logiques/images/mux2symb.svg]]
+[[file:../Images_svg/mux2symb.svg]]
 
 ** Multiplexeur quatre-vers-un
 
@@ -690,7 +693,7 @@ etc.
 #+CAPTION:  Circuit du multiplexeur quatre-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux4
-[[file:../../Sources_images_logiques/images/mux4.svg]]
+[[file:../Images_svg/mux4.svg]]
 
 ** Multiplexeur quatre-vers-un ... 3
 
@@ -698,7 +701,7 @@ etc.
 #+CAPTION:  Symbole du multiplexeur quatre-vers-un
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux4symb
-[[file:../../Sources_images_logiques/images/mux4symb.svg]]
+[[file:../Images_svg/mux4symb.svg]]
 
 ** Multiplexeur quatre-vers-un ... 4
 
@@ -730,7 +733,7 @@ etc.
 #+CAPTION:  Circuit du décodeur trois-vers-huit
 #+attr_latex: :scale 0.55
 #+NAME:fig-decod3_8
-[[file:../../Sources_images_logiques/images/decod3_8.svg]]
+[[file:../Images_svg/decod3_8.svg]]
 
 ** Décodeur ... 3
 
@@ -753,20 +756,20 @@ etc.
 
 - Une autre fonction utile est un signal de contrôle \(E\) qui n'active une sortie que lorsqu'il est activé.
 
-- Le décodeur deux-vers-quatre dont le circuit est présenté ci-dessous présente ces deux caractéristiques.
+- Le décodeur deux-vers-quatre, dont le circuit est présenté ci-dessous, comporte ces deux caractéristiques.
 
 - Comme on peut voir dans le tableau de vérité, tant que le signal de contrôle est inactif ( \(E = 1\) puisque ce signal est également actif bas), les sorties sont inactives (au niveau 1) quelles que soient les entrées \(x\) et \(y\).
 
 - Lorsque \(E = 0\), une seule sortie passe à 0, selon le code binaire présent aux entrées \(x\) et \(y\).
 
-- Notez que tel que conçu et étiqueté, les entrées \(x\) et \(y\) sont actives hautes.
+- Notez que ce décodeur a été conçu et étiqueté en fonction d'entrées \(x\) et \(y\) qui sont actives haut.
 
 ** Décodeur avec sortie active basse et signal de contrôle ... 2
 
 #+CAPTION:  Décodeur à sortie active basse 
 #+attr_latex: :scale 0.75
 #+NAME:fig-decode2_4_enable
-[[file:../../Sources_images_logiques/images/decode2_4_enable.svg]]
+[[file:../Images_svg/decode2_4_enable.svg]]
 
 ** Décodeur avec sortie active basse et signal de contrôle ... 3
 
@@ -792,17 +795,9 @@ etc.
 
 ** Implémentation d'une fonction arbitraire
 
-Voici par exemple une fonction réalisée à partir d'un décodeur 3-vers-8.
-
-#+CAPTION:  Fonction arbitraire réalisée au moyen d'un décodeur
-#+attr_latex: :scale 0.75
-#+NAME:fig-fonct_arbit_decod
-[[file:../../Sources_images_logiques/images/fonct_arbit_decod.svg]]
-
-
-** Implémentation d'une fonction arbitraire ... 2
-
-- L'entrée \(I\) correspond à un vecteur de trois bits.
+Voici par exemple une fonction réalisée à partir d'un décodeur trois-vers-huit.
+- L'entrée \(I\) correspond à un vecteur de trois bits. Le
+tableau de vérité correspondant est donné.
 
 - On peut voir que les minterms choisis permettent d'implémenter
 
@@ -844,7 +839,7 @@ $$ Y = \sum(0,2,5,6)$$
 #+CAPTION:  Encodeur 3 bits 
 #+attr_latex: :scale 0.75
 #+NAME:fig-encode1
-[[file:../../Sources_images_logiques/images/encode1.svg]]
+[[file:../Images_svg/encode1.svg]]
 
 ** Encodeur ... 3
 
@@ -873,7 +868,7 @@ $$ Y = \sum(0,2,5,6)$$
 
 - Une encodeur à priorité met en oeuvre une priorité entre les entrées.
 
-- Si plus d'une entrée sont 1 en même temps, la sortie sera celle qui correspond à l'entrée active qui a la plus grande priorité.
+- S'il y a plus d'une entrée 1 en même temps, la sortie sera celle qui correspond à l'entrée active qui a la plus grande priorité.
 
 - Voici le tableau de vérité pour un encodeur 2 bits à priorité, dans lequel on a ajouté une sortie \(V\) qui indique la validité des sorties.
 
@@ -898,14 +893,14 @@ $$ Y = \sum(0,2,5,6)$$
 #+CAPTION: Diag-K pour \(x\) de l'encodeur à priorité
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk_4foncencode_pri_x
-[[file:../../Sources_images_logiques/images/kmap4foncencode_pri_x.svg]]
+[[file:../Images_svg/kmap4foncencode_pri_x.svg]]
 
 ** Encodeur à priorité ... 4
 
 #+CAPTION:  Diag-K pour \(y\) de l'encodeur à priorité
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk_4foncencode_pri_y
-[[file:../../Sources_images_logiques/images/kmap4foncencode_pri_y.svg]]
+[[file:../Images_svg/kmap4foncencode_pri_y.svg]]
 
 ** Encodeur à priorité: expressions
 
@@ -922,7 +917,7 @@ $$ V = D_0 + D_1 + D_2 + D_3 $$
 #+CAPTION:  Encodeur 2 bits à priorité, en P de S
 #+attr_latex: :scale 0.75
 #+NAME:fig-encode_pri
-[[file:../../Sources_images_logiques/images/encode_pri.svg]]
+[[file:../Images_svg/encode_pri.svg]]
 
 ** Encodeur à priorité: autre réalisation
 
@@ -934,15 +929,15 @@ entrées.
 #+CAPTION:  Encodeur 2 bits à priorité avec ré-utilisation d'un des termes
 #+attr_latex: :scale 0.75
 #+NAME:fig-encode_pri2
-[[file:../../Sources_images_logiques/images/encode_pri2.svg]]
+[[file:../Images_svg/encode_pri2.svg]]
 
 ** Comparateur de magnitude
 
 - Comparer la magnitude de deux nombres binaires est une opération qui peut se systématiser, comme on l'a fait pour l'addition.
 
-- Considérons deux nombres binaires non-signés, \(A\) et \(B\) de même taille \(n\), avec leurs bits respectifs \(a_i\) et \(b_i\).
+- Considérons deux nombres binaires non signés, \(A\) et \(B\) de même taille \(n\), avec leurs bits respectifs \(a_i\) et \(b_i\).
 
-- On veut que notre comparateur active une de trois sorties, selon le cas: \(A < B\), \(A = B\) ou \(A > B\).
+- On veut que notre comparateur active une des trois sorties, selon le cas: \(A < B\), \(A = B\) ou \(A > B\).
 
 ** Comparateur de magnitude ... 2
 
@@ -966,7 +961,7 @@ $$ b_3 b_2 b_1 b_0 $$
 #+CAPTION:  Comparateur de magnitude
 #+attr_latex: :scale 0.75
 #+NAME:fig-comparateur
-[[file:../../Sources_images_logiques/images/comparateur.svg]]
+[[file:../Images_svg/comparateur.svg]]
 
 ** Comparateur de magnitude: \(n\) bits
 
@@ -980,7 +975,7 @@ $$ b_3 b_2 b_1 b_0 $$
 
 ** Comparateur de magnitude: \(n\) bits
 
-- Les signaux intermédiaires \(x_i = a_i b_i + a_i^\prime b_i^\prime\) qui indiquent si deux bits d'une position sont égaux seront mis à profit pour alimenter un réseau de conditions en forme somme de produits qui mettront en application les règles énoncées.
+- Les signaux intermédiaires \(x_i = a_i b_i + a_i^\prime b_i^\prime\) qui indiquent si deux bits d'une position sont égaux seront mis à profit pour alimenter un réseau de conditions en forme /somme de produits/ qui mettront en application les règles énoncées.
 
 - Les signaux de sortie binaires sont \((A = B), (A < B), (A > B)\).
 
@@ -994,20 +989,20 @@ $$ (A < B) = a_3^\prime b_3 + x_3  a_2^\prime b_2  +  x_3 x_2  a_1^\prime b_1 + 
 
 $$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime +  x_3 x_2 x_1  a_0 b_0^\prime $$
 
-- On obtient ainsi un comparateur pour des nombres de 4 bits, tel qu'illustré.
+- On obtient ainsi un comparateur pour des nombres de quatre bits, tel qu'illustré.
 
 ** Comparateur de magnitude: 4 bits ... 2
 
 #+CAPTION:  Comparateur de magnitude 4 bits
 #+attr_latex: :scale 0.45
 #+NAME:fig-comparateur_4b
-[[file:../../Sources_images_logiques/images/comparateur_4b.svg]]
+[[file:../Images_svg/comparateur_4b.svg]]
 
 ** Démultiplexeur
 
 - Un démultiplexeur achemine la valeur logique de son entrée à une sortie (parmi \(2^n\) sorties) sélectionnée par un code binaire de sélection.
 
-- Le démultiplexeur de la figure suivante comporte trois bits de sélection, et permet donc d'acheminer la valeur de l'entrée \(I\) vers une des huit sorties \(O_i, i = 0, \ldots, 7\).
+- Le démultiplexeur de la figure suivante comporte trois bits de sélection et permet donc d'acheminer la valeur de l'entrée \(I\) vers une des huit sorties \(O_i, i = 0, \ldots, 7\).
 
 - On peut aussi interpréter ce circuit comme un décodeur trois-vers-huit avec une entrée signal de contrôle (/enable/) \(I\).
 
@@ -1016,22 +1011,22 @@ $$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime + 
 #+CAPTION:  Démultiplexeur un-vers-huit
 #+attr_latex: :scale 0.3
 #+NAME:fig-demux8
-[[file:../../Sources_images_logiques/images/demux8.svg]]
+[[file:../Images_svg/demux8.svg]]
 
 ** Encodeurs divers
 
 - Il est possible de concevoir des encodeurs pour des fonctions spécialisées, comme des encodeurs pour commander des affichages.
 
-- La démarche de conception s'apparente largement à celles que nous avons vu dans les exemples précédents.
+- La démarche de conception s'apparente largement à celles que nous avons vues dans les exemples précédents.
 
 
 ** Portes à trois états et tampon de bus
 
-- Les portes à trois états ajoutent un troisième état de fonctionnement aux sorties: en plus des niveaux logiques bas et haut conventionnels, un troisième état appelé *haute-impédance* fait en sorte que la sortie se comporte comme si elle n'était plus connectée au circuit.
+- Les portes à trois états ajoutent un troisième état de fonctionnement aux sorties: en plus des niveaux logiques bas et haut conventionnels, un troisième état appelé *haute impédance* fait en sorte que la sortie se comporte comme si elle n'était plus connectée au circuit.
 
-- La sortie n'agit pas sur le reste du circuit, les autres portes dont les entrées sont alimentés par la porte en haute-impédance ne sont aucunement affectées par celle-ci.
+- La sortie n'agit pas sur le reste du circuit, les autres portes dont les entrées sont alimentées par la porte en haute impédance ne sont aucunement affectées par celle-ci.
 
-- Pour activer cet état de sortie haute-impédance, une entrée de contrôle est ajoutée.
+- Pour activer cet état de sortie haute impédance, une entrée de contrôle est ajoutée.
 
 ** Portes à trois états et tampon de bus ... 2
 
@@ -1042,17 +1037,17 @@ la sortie est égale à l'entrée.
 #+CAPTION:  Porte tampon à trois états
 #+attr_latex: :scale 0.75
 #+NAME:fig-buf_3s
-[[file:../../Sources_images_logiques/images/buf_3s.svg]]
+[[file:../Images_svg/buf_3s.svg]]
 
 ** Portes à trois états et tampon de bus ... 3
 
 - En plaçant des tampons à trois états à chaque sortie d'un décodeur, on peut réaliser un multiplexeur \(n\)-vers-un en reliant les sorties des tampons à une sortie unique.
 
-- Ainsi, lorsque qu'une entrée est sélectionnée au moyen des entrées de sélection, c'est sa valeur qui se retrouve à la sortie du dispositif.
+- Ainsi, lorsqu'une entrée est sélectionnée au moyen des entrées de sélection, c'est sa valeur qui se retrouve à la sortie du dispositif.
 
-- La valeur Z représente l'état haute-impédance.
+- La valeur Z représente l'état haute impédance.
 
-- Lorsque l'entrée de contrôle \(E = 0\), la sortie est en haute-impédance.
+- Lorsque l'entrée de contrôle \(E = 0\), la sortie est en haute impédance.
 
 ** Portes à trois états et tampon de bus ... 4
 
@@ -1072,7 +1067,7 @@ la sortie est égale à l'entrée.
 #+CAPTION:  Multiplexeur quatre-vers-un trois états
 #+attr_latex: :scale 0.75
 #+NAME:fig-mux_4_1_3s
-[[file:../../Sources_images_logiques/images/mux_4_1_3s.svg]]
+[[file:../Images_svg/mux_4_1_3s.svg]]
 
 
 ** Émetteur-récepteur de bus
@@ -1081,15 +1076,15 @@ la sortie est égale à l'entrée.
 
 - Ce dispositif, illustré à la figure suivante, permet d'établir une connexion bidirectionnelle entre =I/O= et =O/I=.
 
-- Lorsque l'entrée de contrôle \(E = 0\), c'est le tampon du haut qui est actif, et =O/I= détermine la valeur de =I/O=.
+- Lorsque l'entrée de contrôle \(E = 0\), c'est le tampon du haut de la figure qui est actif, et =O/I= détermine la valeur de =I/O=.
 
 - Lorsque \(E = 1\), c'est le tampon du bas qui est actif, et =I/O= détermine la valeur de =O/I=.
 
 ** Émetteur-récepteur de bus ... 2
 
-#+CAPTION:  Emetteur-récepteur de bus
+#+CAPTION:  Émetteur-récepteur de bus
 #+attr_latex: :scale 0.75
 #+NAME:fig-emetteur_bus
-[[file:../../Sources_images_logiques/images/bus_trans.svg]]
+[[file:../Images_svg/bus_trans.svg]]
 
 

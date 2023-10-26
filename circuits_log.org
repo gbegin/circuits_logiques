@@ -1456,7 +1456,7 @@ plus d'entrées.
 Une fonction binaire peut être décrite par une expression algébrique
 booléenne. Selon les valeurs des variables, la valeur de l'expression
 booléenne détermine la valeur de la fonction. Par exemple, \(F_1\) est
-une fonction de trois entrées \(a\) \(b\) et \(c\) définie par
+une fonction de trois entrées \(a\), \(b\) et \(c\) définie par
 l'expression
 
 $$ F_1 = a + b \cdot c^\prime $$
@@ -2292,7 +2292,7 @@ minimale.
     cas facultatifs.
 
  2. Lors de la sélection des i.p. pour obtenir une couverture
-    minimale, on ne doit pas ne pas essayer de couvrir les X.
+    minimale, on ne doit pas essayer de couvrir les X.
 
 *** Minimisation avec plusieurs fonctions
 
@@ -4353,13 +4353,13 @@ ce qu'elle a compris correspond bien à ce qui était demandé.
 
 La première question à poser est: /Que doit faire le système?/
 Suivront d'autres questions, amenant à définir davantage de détails:
-/Doit-il y avoir des entrées? Si oui, combien? Doit-il y avoir des
-entrées? Combien de sorties sont nécessaires?/ Le comportement du
-système pourra être essentiellement caractérisé en répondant à la
-question: /Quelle doit être la séquence des sorties, pour une certaine
-séquence d'entrées?/  Mais comme les séquences d'entrées peuvent être
-en nombre infini, il faudra identifier des patrons qui permettront de
-résumer le comportement du système.
+/Doit-il y avoir des entrées? Si oui, combien? Combien de sorties sont
+nécessaires?/ Le comportement du système pourra être essentiellement
+caractérisé en répondant à la question: /Quelle doit être la séquence
+des sorties, pour une certaine séquence d'entrées?/ Mais comme les
+séquences d'entrées peuvent être en nombre infini, il faudra
+identifier des patrons qui permettront de résumer le comportement du
+système.
 
 ** Diagramme d'état
 
@@ -5788,7 +5788,7 @@ des dizaines.
 En combinant un *dispositif logique programmable* (en anglais,
 /Programmable Logic Device/ (PLD)) avec un certain nombre de
 bascules, il est possible de proposer un circuit programmable
-séquentiel. La configuration générale est illustré sur la
+séquentiel. La configuration générale est illustrée sur la
 figure [[fig-circuit_seq_prog]].
 
 
@@ -5907,7 +5907,7 @@ informations de configuration.
 La configuration et la programmation d'un circuit programmable FPGA se
 fait au moyen d'outils de synthèse spécialisés, souvent en fonction
 d'une spécification au moyen d'un langage descriptif de matériel (en
-anglais, /Hardware Description Language/, (HDL)).
+anglais, /Hardware Description Language/ (HDL)).
 
 * Langages descriptifs et de modélisation
 
@@ -5941,7 +5941,7 @@ correspond aux besoins de l'application avant même de solliciter une
 seule porte logique physique.
 
 Un élément clé de cette démarche est la possibilité de décrire
-précisément le ou les circuit qui seront implémentés au moyen d'un
+précisément le ou les circuits qui seront implémentés au moyen d'un
 langage approprié. Un tel *langage descriptif de matériel* (en anglais
 /Hardware Description Language/ (HDL)), qui s'apparente à un langage
 de programmation, permet de décrire de façon textuelle les différents
@@ -6432,7 +6432,7 @@ begin
 -- énoncés /null/
 -- appels de procedure
 -- énoncés /wait/
-end process [etiquette_processus];
+end process [étiquette_processus];
 #+end_src
 
 Voici un exemple d'un modèle avec bloc processus d'une bascule D
@@ -7382,7 +7382,7 @@ Microchip:
 [[https://www.aldec.com/en/products/fpga_simulation/active_hdl_student][Free Active-HDL Student Edition]]
 
 - Fonctionne sous Windows
-- Licence gratuite pour la communauté étudiante doit indiquer son université)
+- Licence gratuite pour la communauté étudiante (on doit indiquer son université)
 - L'inscription donne accès à une page de téléchargement
 
 *** Vivado (Xilinx)

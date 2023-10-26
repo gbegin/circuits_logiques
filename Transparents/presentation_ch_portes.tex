@@ -1,4 +1,4 @@
-% Created 2022-11-16 mer 14:30
+% Created 2023-10-26 jeu 09:51
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,8 @@
 \usepackage{minted}
 \usepackage[, french]{babel}
 \usepackage{svg}
-\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\logo{\includegraphics[width=.1\textwidth]{../by-sa.png}}
+\AtBeginEnvironment{minted}{\renewcommand{\fcolorbox}[4][]{#4}}
 \usetheme{metropolis}
 \usecolortheme{}
 \usefonttheme{}
@@ -30,27 +31,27 @@
  pdftitle={Circuits logiques combinatoires et séquentiels},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdfcreator={Emacs 28.1 (Org mode 9.6.6)}, 
  pdflang={French}}
 \begin{document}
 
 \maketitle
 
 \section{Portes logiques}
-\label{sec:orgf5f6efe}
+\label{sec:orgec4e083}
 
-\begin{frame}[label={sec:org5c44c79}]{Objectifs}
+\begin{frame}[label={sec:orga00e654}]{Objectifs}
 \begin{itemize}
-\item Être familier avec les symboles usuels des portes logiques
-\item Être familier avec les conventions et règles de dessin de schémas
+\item Se familiariser avec les symboles usuels des portes logiques
+\item Se familiariser avec les conventions et règles de dessin de schémas
 logiques
 \item Faire la différence entre niveau de signal et valeur logique
-\item Pouvoir expliquer les différences entre le fonctionnement idéalisé
+\item Expliquer les différences entre le fonctionnement idéalisé
 et la réalité physique des portes logiques
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org4f2890e}]{Niveaux logiques}
+\begin{frame}[label={sec:org98896f4}]{Niveaux logiques}
 \begin{itemize}
 \item Une porte logique est un dispositif électronique qui implémente une fonction logique en agissant sur des signaux électriques selon une convention préétablie.
 
@@ -61,17 +62,17 @@ et la réalité physique des portes logiques
 
 \begin{center}
 \begin{tabular}{ll}
-Gamme de tensions & Niveau\\
+Gamme de tensions & Niveau\\[0pt]
 \hline
-de 0 à  \(V_{DD}/3\) & Niveau bas\\
-de \(2V_{DD}/3\) à  \(V_{DD}\) & Niveau haut\\
+de 0 à  \(V_{DD}/3\) & Niveau bas\\[0pt]
+de \(2V_{DD}/3\) à  \(V_{DD}\) & Niveau haut\\[0pt]
 \end{tabular}
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org404f51b}]{Niveaux logiques \ldots{} 2}
+\begin{frame}[label={sec:org2af7373}]{Niveaux logiques \ldots{} 2}
 \begin{itemize}
-\item Les portes logiques sont manufacturées selon différents standards technologiques qu'on appelle familièrement des \alert{familles logiques}.
+\item Les portes logiques sont manufacturées selon différents standards technologiques qu'on appelle communément des \alert{familles logiques}.
 
 \item Au sein d'une même famille, les portes respectent les mêmes références de niveaux pour pouvoir fonctionner ensemble adéquatement.
 
@@ -79,22 +80,22 @@ de \(2V_{DD}/3\) à  \(V_{DD}\) & Niveau haut\\
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org431564a}]{Logique négative ou positive}
+\begin{frame}[label={sec:org693a84d}]{Logique négative ou positive}
 \begin{itemize}
 \item On associe ensuite une valeur binaire à chacun des niveaux selon une certaine convention, par exemple:
 \end{itemize}
 \begin{center}
 \begin{tabular}{lr}
-Niveau & Valeur logique\\
+Niveau & Valeur logique\\[0pt]
 \hline
-Niveau bas & 0\\
-Niveau haut & 1\\
+Niveau bas & 0\\[0pt]
+Niveau haut & 1\\[0pt]
 \end{tabular}
 \end{center}
 qui correspond à une logique positive. La convention inverse nous donne la logique négative.
 \end{frame}
 
-\begin{frame}[label={sec:orgc8e627b}]{Logique négative ou positive \ldots{} 2}
+\begin{frame}[label={sec:org58133bb}]{Logique négative ou positive \ldots{} 2}
 Certains signaux seront considérés comme actifs lorsque leur niveau logique sera 0.
 
 On parlera alors de signaux \alert{actifs bas}.
@@ -102,7 +103,7 @@ On parlera alors de signaux \alert{actifs bas}.
 La convention implicite est généralement que les signaux sont \alert{actifs haut}.
 \end{frame}
 
-\begin{frame}[label={sec:orga41af4b}]{Symboles}
+\begin{frame}[label={sec:org968ae7e}]{Symboles}
 \begin{itemize}
 \item On a défini des symboles pour représenter graphiquement les portes logiques courantes.
 
@@ -110,65 +111,65 @@ La convention implicite est généralement que les signaux sont \alert{actifs ha
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb7e3e0f}]{Porte ET}
+\begin{frame}[label={sec:org064f4d8}]{Porte ET}
 À deux entrées \(S =  A \cdot B\)
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/and_logique}
-\caption{\label{fig:orgb438901}Porte ET à deux entrées}
+\includesvg[scale=0.75]{../Images_svg/and_logique}
+\caption{\label{fig:orgf8b8792}Porte ET à deux entrées}
 \end{figure}
 
 \begin{itemize}
-\item Les portes qui réalisent des fonctions qui sont associative et commutatives peuvent aussi se définir avec plus de deux entrées.
+\item Les portes qui réalisent des fonctions qui sont associatives et commutatives peuvent aussi se définir avec plus de deux entrées.
 
 \item C'est le cas avec les fonctions ET et OU.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org03acbab}]{Porte ET}
+\begin{frame}[label={sec:org5f81a41}]{Porte ET}
 À trois entrées \(S =  A \cdot B \cdot C\)
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/and3_logique}
-\caption{\label{fig:org93af38e}Porte ET à trois entrées}
+\includesvg[scale=0.75]{../Images_svg/and3_logique}
+\caption{\label{fig:org7f42344}Porte ET à trois entrées}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgbdd3d16}]{Porte OU}
+\begin{frame}[label={sec:org149cbff}]{Porte OU}
 À deux entrées \(S =  A + B\)
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/or_logique}
-\caption{\label{fig:org6446c41}Porte OU à deux entrées}
+\includesvg[scale=0.75]{../Images_svg/or_logique}
+\caption{\label{fig:org5b7917f}Porte OU à deux entrées}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org13d7c41}]{Porte inverseur}
+\begin{frame}[label={sec:org3509f3c}]{Porte inverseur}
 \begin{itemize}
 \item L'opération NON qui consiste à complémenter une valeur binaire s'effectue avec une porte appelée \alert{inverseur}.
 
-\item Il n'y a toujours qu'une seule entrée. \(B = A^\prime\)
+\item Il n'y a toujours qu'une entrée. \(B = A^\prime\)
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/not_logique}
-\caption{\label{fig:orge9be5d8}Porte inverseur}
+\includesvg[scale=0.75]{../Images_svg/not_logique}
+\caption{\label{fig:org489ba29}Porte inverseur}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:org1b4fa49}]{Porte NON-OU (NOR)}
+\begin{frame}[label={sec:org7f1d1b8}]{Porte NON-OU (NOR)}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/nor_logique}
-\caption{\label{fig:orgd9e1b85}Porte NOR à deux entrées}
+\includesvg[scale=0.75]{../Images_svg/nor_logique}
+\caption{\label{fig:orgf7fd24d}Porte NOR à deux entrées}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org99b0174}]{Porte NON-ET (NAND) et NON\textsubscript{OU} (NOR)}
+\begin{frame}[label={sec:org32a02cf}]{Porte NON-ET (NAND) et NON\textsubscript{OU} (NOR)}
 Les fonctions NAND et NOR ne sont pas associatives. Par exemple,
 
 $$
@@ -177,85 +178,89 @@ $$
 
 \begin{itemize}
 \item On peut néanmoins définir des versions à plusieurs entrées de ces fonctions en ajustant la priorité d'évaluation.
-
-\item Pour une porte NOR à trois entrées, on fera \((A + B + C)^\prime\).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org96d8802}]{Porte NON-ET (NAND)}
+\begin{frame}[label={sec:org638783d}]{Porte NON-ET (NAND) et NON-OU (NOR)}
+\begin{itemize}
+\item Pour une porte NAND à trois entrées, on fera \(S = (A \cdot B \cdot C)^\prime\).
+\end{itemize}
+
+Pour une porte NOR à trois entrées, on fera \((A + B + C)^\prime\).
+
+
+
 \begin{itemize}
 \item Pour une porte NAND à trois entrées, on fera \(S = (A \cdot B \cdot C)^\prime\).
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/nand3_logique}
-\caption{\label{fig:org01270d3}Porte NAND à trois entrées}
+\includesvg[scale=0.75]{../Images_svg/nand3_logique}
+\caption{\label{fig:org73916ae}Porte NAND à trois entrées}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org6b5ddc5}]{Entrées inversées}
+\begin{frame}[label={sec:orge39c8d5}]{Entrées inversées}
 \begin{itemize}
 \item On utilise souvent l'élément symbolique qui est placé à la sortie de l'inverseur (un petit cercle) pour indiquer l'inversion d'une entrée ou d'une sortie d'une porte.
 
 \item C'est le cas à la sortie des portes NAND et NOR comme on vient de le voir.
 
-\item Un autre exemple est la porte NAND de la figure \ref{fig:org646fbce}, où une des entrées est également inversée.
+\item Un autre exemple est la porte NAND de la figure \ref{fig:org8edaf9f}, où une des entrées est également inversée.
 
 \item La porte évalue donc \(S = (A^\prime \cdot B \cdot C)^\prime\)
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/nand3_logique_invin1}
-\caption{\label{fig:org646fbce}Porte NAND à trois entrées dont une inversée}
+\includesvg[scale=0.75]{../Images_svg/nand3_logique_invin1}
+\caption{\label{fig:org8edaf9f}Porte NAND à trois entrées dont une inversée}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:orgb318dc0}]{NAND et NOR, représentations équivalentes}
+\begin{frame}[label={sec:orgfa1fb1e}]{NAND et NOR, représentations équivalentes}
 \begin{itemize}
 \item En vertu du théorème de DeMorgan, on sait que \((x + y)^{\prime} = x^{\prime} y^{\prime}\) et que \((xy)^{\prime} = x^{\prime} + y^{\prime}\).
 
 \item On peut donc représenter les portes NAND et NOR de deux façons équivalentes.
 \end{itemize}
-\end{frame}
 
-\begin{frame}[label={sec:org1dba17a}]{NOR, représentations équivalentes}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/NORequiv}
-\caption{\label{fig:orga43d2ca}Deux représentations équivalentes pour une porte NOR}
+\includesvg[scale=0.75]{../Images_svg/NANDequiv}
+\caption{\label{fig:orgbe0f568}Deux représentations équivalentes pour une porte NAND}
 \end{figure}
-\end{frame}
-\begin{frame}[label={sec:org2b00bf9}]{NAND, représentations équivalentes}
+
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/NANDequiv}
-\caption{\label{fig:org9062996}Deux représentations équivalentes pour une porte NAND}
+\includesvg[scale=0.75]{../Images_svg/NORequiv}
+\caption{\label{fig:orga7fa8b3}Deux représentations équivalentes pour une porte NOR}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org23713b6}]{Porte OU-exclusif (XOR)}
+
+\begin{frame}[label={sec:orgd315d45}]{Porte OU-exclusif (XOR)}
 \begin{itemize}
 \item La porte XOR à deux entrées donne une sortie 1 seulement lorsque ses deux entrées sont différentes.
 
 \item Il est possible de définir des portes XOR à plus de deux entrées, mais il y a différentes interprétations de ce qu'une telle porte devrait avoir comme comportement.
 
-\item De plus, comme la réalisation pratique de cette fonction n'est pas aussi simple que pour les autres fonctions, on se retrouve plus souvent qu'autrement à devoir mettre des portes à deux entrées en cascade pour augmenter le nombre d'entrées, ce qui rend moins intéressantes les portes XOR avec entrées nombreuses.
+\item De plus, comme la réalisation pratique de cette fonction n'est pas aussi simple que pour les autres fonctions, on se retrouve la plupart du temps à devoir mettre des portes à deux entrées en cascade pour augmenter le nombre d'entrées, ce qui rend moins intéressantes les portes XOR avec entrées nombreuses.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge2c6c07}]{Porte OU-exclusif (XOR) \ldots{} 2}
+\begin{frame}[label={sec:orga7e3cd6}]{Porte OU-exclusif (XOR) \ldots{} 2}
 $$ S= A \cdot B^\prime + A^\prime \cdot B $$  
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/exor_logique}
-\caption{\label{fig:org5d8ae77}Porte XOR à deux entrées}
+\includesvg[scale=0.75]{../Images_svg/exor_logique}
+\caption{\label{fig:org2c56235}Porte XOR à deux entrées}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org372f8f8}]{Porte NON-OU-exclusif ou Équivalence (XNOR)}
+\begin{frame}[label={sec:org9235ca3}]{Porte NON-OU-exclusif ou Équivalence (XNOR)}
 \begin{itemize}
 \item La porte \alert{Équivalence} produit une sortie 1 lorsque ses entrées ont la même valeur (et sont donc équivalentes).
 
@@ -264,24 +269,24 @@ $$ S= A \cdot B^\prime + A^\prime \cdot B $$
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/xnor_logique}
-\caption{\label{fig:org9429fd5}Porte XNOR}
+\includesvg[scale=0.75]{../Images_svg/xnor_logique}
+\caption{\label{fig:org423c81c}Porte XNOR}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org5845d32}]{Universalité des NAND et NOR}
+\begin{frame}[label={sec:org1d3c46e}]{Universalité des NAND et NOR}
 En faisant appel uniquement à des portes de type NAND ou NOR, il est possible de réaliser n'importe quelle fonction logique, puisqu'il est possible de réaliser les trois opérateurs de base.
 
 \begin{enumerate}
 \item Pour réaliser un inverseur, on utilise une porte NAND à une seule entrée (ou dont toutes les entrées sont reliées ensemble).
 \item Pour réaliser une porte ET, on fait suivre une porte NAND d'un inverseur.
-\item Pour réaliser une porte OU, on précède chaque entrée d'une porte NAND d'un inverseur.
+\item Pour réaliser une porte OU, on place un inverseur devant chaque entrée d'une porte NAND.
 \end{enumerate}
 
-On verra plus loin qu'il est aussi possible de réaliser avantageusement des fonctions quelconques avec des portes NAND en exploitant la forme \emph{somme de produits}.
+Nous verrons plus loin qu'il est aussi possible de réaliser avantageusement des fonctions quelconques avec des portes NAND en exploitant la forme \emph{somme de produits}.
 \end{frame}
 
-\begin{frame}[label={sec:org22860c2}]{Limites physiques}
+\begin{frame}[label={sec:orgff7186a}]{Limites physiques}
 \begin{itemize}
 \item Les portes logiques qu'on utilisera en pratique sont des dispositifs électroniques dont le fonctionnement correspond, dans les grandes lignes, aux comportements idéalisés des modèles abstraits de l'algèbre de Boole.
 
@@ -291,21 +296,21 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org0a4b43a}]{\emph{Fan-out}}
+\begin{frame}[label={sec:orgb2fcacf}]{Sortance (\emph{Fan-out})}
 \begin{itemize}
-\item Le \emph{fan-out} d'une porte logique mesure sa capacité à commander d'autres portes reliées à sa sortie.
+\item La sortance (\emph{fan-out}) d'une porte logique mesure sa capacité à commander d'autres portes reliées à sa sortie.
 
 \item Puisque les portes sont des dispositifs électroniques qui doivent faire circuler un certain courant électrique pour concrétiser les niveaux de tensions qui définissent leurs valeurs d'entrée et de sortie, il y a une limite pratique à la capacité d'une porte de fournir le courant nécessaire pour faire réagir la sortie des portes qu'elle devrait commander.
 
-\item Le \emph{fan-out} mesure cette limite, en nombre de portes à commander.
+\item La sortance mesure cette limite, en nombre de portes à commander.
 
-\item Si on connecte plus d'entrées à une sortie que sa valeur de \emph{fan-out}, cette sortie ne pourra pas atteindre le niveau de tension adéquat, et les opérations logiques seront faussées.
+\item Si on connecte plus d'entrées à une sortie que sa valeur de sortance, cette sortie ne pourra pas atteindre le niveau de tension adéquat, et les opérations logiques seront faussées.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org0a92855}]{Modèles de délai}
+\begin{frame}[label={sec:orgc075112}]{Modèles de délai}
 \begin{itemize}
-\item Dans la mesure où on respecte ses contraintes d'utilisation, notamment de \emph{fan-out}, une porte logique se comporte globalement de la façon attendue, étant donné sa fonction et les conventions de niveaux de signal établies.
+\item Dans la mesure où on respecte ses contraintes d'utilisation, notamment de sortance, une porte logique se comporte globalement de la façon attendue, étant donné sa fonction et les conventions de niveaux de signal établies.
 
 \item Par exemple, le niveau signal à la sortie d'un inverseur correspondra au niveau de signal attendu pour le complément de la valeur logique à son entrée.
 
@@ -313,9 +318,9 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org938933c}]{Modèles de délai \ldots{} 2}
+\begin{frame}[label={sec:org0ca5e26}]{Modèles de délai \ldots{} 2}
 \begin{itemize}
-\item Une de ces «imperfections» dont on doit impérativement tenir compte est le \alert{délai de propagation} qui se manifeste comme un retard entre le moment où le signal à l'entrée de la porte assume (se stabilise à) son niveau de signal, et le moment où la sortie de la porte atteint son niveau de signal attendu.
+\item Une de ces «imperfections» dont on doit impérativement tenir compte est le \alert{délai de propagation} qui se manifeste comme un retard entre le moment où le signal à l'entrée de la porte assume (se stabilise à) son niveau de signal et le moment où la sortie de la porte atteint son niveau de signal attendu.
 
 \item C'est en quelque sorte le délai entre une action à l'entrée et son effet sur la sortie.
 
@@ -327,45 +332,48 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgbaae48d}]{Modèles de délai \ldots{} 3}
+\begin{frame}[label={sec:orgcb645c0}]{Modèles de délai \ldots{} 3}
 \begin{itemize}
-\item Le délai de propagation peut dépendre de plusieurs facteurs: la famille logique, le type de porte, le sens de la transition, le \emph{fan-out} effectif, les caractéristiques d'interconnexions, etc.
+\item Le délai de propagation peut dépendre de plusieurs facteurs: la famille logique, le type de porte, le sens de la transition, la
+\end{itemize}
+sortance effective, les caractéristiques d'interconnexions, etc.
 
+\begin{itemize}
 \item Pour faciliter l'analyse, on fait appel à des modèles de délais plus ou moins sophistiqués.
 
 \item Un modèle très simple consiste à supposer un délai de propagation moyen, constant pour toutes les portes d'une famille donnée.
 
 \item Un modèle un peu plus subtil pourrait prendre en compte des délais de propagation moyens différents par types de portes.
 
-\item Le délai de propagation moyen est une caractéristique clé qui différencies les différentes familles logiques.
+\item Le délai de propagation moyen est une caractéristique clé qui différencie les différentes familles logiques.
 
-\item Les délais sont typiquement de l'ordre de nanosecondes, permettant des vitesse de commutation dans les dizaines, centaines, voire, des milliers de MHz.
+\item Les délais sont typiquement de l'ordre de nanosecondes, permettant des vitesses de commutation dans les dizaines, centaines, voire des milliers de MHz.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org7fc5ade}]{Modèles de délai \ldots{} 4}
+\begin{frame}[label={sec:org55a55a3}]{Modèles de délai \ldots{} 4}
 \begin{itemize}
 \item Lorsqu'un signal doit se propager à travers plusieurs portes, les délais de propagation s'accumulent, limitant encore davantage la vitesse de commutation de l'ensemble du circuit.
 
-\item La vitesse qui pourra être atteinte pour l'ensemble d'un circuit sera typiquement déterminée par le plus lent chemin en terme de temps de propagation.
+\item La vitesse qui pourra être atteinte pour l'ensemble d'un circuit sera typiquement déterminée par le plus lent chemin (c'est-à-dire celui qui cumule le plus long temps de propagation).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org937b686}]{Modèles simples}
+\begin{frame}[label={sec:org14ff7fb}]{Modèles simples}
 \begin{itemize}
-\item Considérons pour illustrer une porte ET à deux entrées \(S = A B\).
+\item À titre d'exemple, considérons une porte ET à deux entrées \(S = A B\).
 
 \item Le modèle le plus simple suppose une porte idéale, sans aucun délai: le chronogramme suivant montre la sortie qui commute immédiatement lorsque les conditions d'entrée changent.
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
-\includesvg[width=.9\linewidth]{../../Sources_images_logiques/images/chronopasdelais}
-\caption{\label{fig:orge27bd8e}Porte ET sans délai}
+\includesvg[width=.9\linewidth]{../Images_svg/chronopasdelais}
+\caption{\label{fig:orge79a907}Porte ET sans délai}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orga6a8538}]{Modèle avec délai en sortie}
+\begin{frame}[label={sec:org26e29b4}]{Modèle avec délai en sortie}
 \begin{itemize}
 \item Le modèle avec délai en sortie consiste à considérer un délai fixe, qui affecte la sortie de la porte: la commutation prend effet en sortie après un délai \(t_p\).
 \end{itemize}
@@ -373,34 +381,34 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 \begin{figure}[htbp]
 \centering
-\includesvg[width=.9\linewidth]{../../Sources_images_logiques/images/chrononodelaisortie}
-\caption{\label{fig:org974de7a}Porte ET avec délai en sortie}
+\includesvg[width=.9\linewidth]{../Images_svg/chrononodelaisortie}
+\caption{\label{fig:org23533ad}Porte ET avec délai en sortie}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org721ed1b}]{Modèle avec délai en entrée}
+\begin{frame}[label={sec:org2e0e8bc}]{Modèle avec délai en entrée}
 \begin{itemize}
 \item Le modèle avec délai en entrée est plus nuancé, car il permet de spécifier un délai différent selon l'entrée qui entraîne le changement à la sortie.
 \end{itemize}
 
 \begin{figure}[htbp]
 \centering
-\includesvg[width=.9\linewidth]{../../Sources_images_logiques/images/chrononodelaientree}
-\caption{\label{fig:org7346948}Porte ET avec délai aux entrées}
+\includesvg[width=.9\linewidth]{../Images_svg/chrononodelaientree}
+\caption{\label{fig:orgfcbb184}Porte ET avec délai aux entrées}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org5dc1648}]{Modèle combiné}
+\begin{frame}[label={sec:org631259d}]{Modèle combiné}
 \begin{itemize}
-\item Le modèle combiné consiste à considérer des délais différents par entrée, et en plus, un délai global en sortie.
+\item Le modèle combiné consiste à considérer des délais différents par entrée et, en plus, un délai global en sortie.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org117aedc}]{Condition de course et aléas}
+\begin{frame}[label={sec:orgbdc0db0}]{Condition de course et aléas}
 \begin{itemize}
 \item Un autre effet néfaste potentiel des délais à considérer est ce qu'on appelle une \alert{condition de course}.
 
-\item Considérons le circuit de la figure \ref{fig:orge27bd8e}.
+\item Considérons le circuit de la figure \ref{fig:org29df200}.
 
 \item La sortie de la porte est \(s = a \cdot a^\prime\) qui devrait normalement donner systématiquement 0.
 
@@ -411,28 +419,28 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/course}
-\caption{\label{fig:orgaf2aa4d}Cas à risque de condition de course}
+\includesvg[scale=0.75]{../Images_svg/course}
+\caption{\label{fig:org29df200}Cas à risque de condition de course}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org337fdb8}]{Condition de course et aléas \ldots{} 2}
+\begin{frame}[label={sec:org0e7e9b3}]{Condition de course et aléas \ldots{} 2}
 \begin{itemize}
-\item En pratique, on pourrait observer un chronogramme qui s'apparente à celui de la figure suivante (figure \ref{fig:orgef6e60e}), où on voit que les deux signaux à l'entrée de la porte ET sont simultanément égaux à 1 pendant une courte période.
+\item En pratique, on pourrait observer un chronogramme qui s'apparente à celui de la figure suivante (figure \ref{fig:orgbf26aa3}), où on voit que les deux signaux à l'entrée de la porte ET sont simultanément égaux à 1 pendant une courte période.
 \end{itemize}
 
 
 \begin{figure}[htbp]
 \centering
-\includesvg[width=.9\linewidth]{../../Sources_images_logiques/images/chronocourse}
-\caption{\label{fig:orgef6e60e}Chronogramme montrant une condition de course}
+\includesvg[width=.9\linewidth]{../Images_svg/chronocourse}
+\caption{\label{fig:orgbf26aa3}Chronogramme montrant une condition de course}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:orgdcad15f}]{Condition de course et aléas \ldots{} 3}
+\begin{frame}[label={sec:org054fbe0}]{Condition de course et aléas \ldots{} 3}
 \begin{itemize}
 \item Une courte impulsion 1 sera donc générée sur le signal \(s\) en sortie de la porte ET, après le délai de propagation \(t_{p2}\) de celle-ci.
 
-\item Cette impulsion, qui ne correspond à rien selon la logique du circuit est appelé un \alert{aléa} (ou en anglais, \emph{glitch}).
+\item Cette impulsion, qui ne correspond à rien selon la logique du circuit est appelée un \alert{aléa} (ou en anglais, \emph{glitch}).
 
 \item Ces aléas peuvent être la source de problèmes et de dysfonctionnements qui sont parfois difficiles à diagnostiquer, et il faut vraiment s'en méfier.
 
@@ -440,7 +448,7 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org3f949b5}]{Porte tampon}
+\begin{frame}[label={sec:orgc16118c}]{Porte tampon}
 \begin{itemize}
 \item La valeur binaire à la sortie d'une porte tampon est la même qu'à l'entrée.
 
@@ -450,7 +458,7 @@ On verra plus loin qu'il est aussi possible de réaliser avantageusement des fon
 
 \item Une façon pratique de réaliser une porte tampon est de placer deux inverseurs l'un à la suite de l'autre.
 
-\item L'utilisation de portes tampon est un des moyens de s'assurer de respecter les conditions de \emph{fan-out}.
+\item L'utilisation de portes tampons est un des moyens de s'assurer de respecter les conditions de sortance.
 \end{itemize}
 \end{frame}
 \end{document}

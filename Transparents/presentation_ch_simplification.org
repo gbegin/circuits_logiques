@@ -1,29 +1,29 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Simplification logique
 
 ** Objectifs
-- Pouvoir formuler une expression logique en forme canonique /Produit
+- Formuler une expression logique en forme canonique /Produit
   de sommes/ ou /Somme de produits/, et convertir entre les deux formes
-- Pouvoir simplifier une expression au moyen d'un diagramme de
+- Simplifier une expression au moyen d'un diagramme de
   Karnaugh
-- Pouvoir simplifier une expression par la méthode Quine-McCluskey
-- Être familier avec les approches d'implémentation des fonctions
+- Simplifier une expression par la méthode Quine-McCluskey
+- Se familiariser avec les approches d'implémentation des fonctions
   simplifiées
 
 ** Expressions équivalentes 
 
-- Un des aspects ennuyeux avec les expressions logiques est que la correspondance entre expression et fonction logique n'est pas biunivoque: plusieurs expressions différentes peuvent correspondre à une seule et même fonction.
+- Un des aspects ennuyeux des expressions logiques est que la correspondance entre expression et fonction logique n'est pas biunivoque: plusieurs expressions différentes peuvent correspondre à une seule et même fonction.
 
 - De plus, certaines des expressions équivalentes peuvent être plus complexes que d'autres.
 
-- Lorsque vient le temps d'implémenter avec des portes une fonction logique, il est la plupart du temps plus efficace d'implémenter selon une expression plus simple, voir minimale.
+- Lorsque vient le temps d'implémenter avec des portes une fonction logique, il est la plupart du temps plus efficace d'implémenter selon une expression plus simple, voire minimale.
 
 - On doit donc considérer des approches systématiques et efficaces pour simplifier les expressions logiques.
 
 ** Expressions équivalentes ... 2
 
-- Quand une expression Booléenne est implémentée avec des portes logiques, chaque terme nécessite une porte et chaque variable au sein d'un terme correspond à une entrée de la porte.
+- Quand une expression booléenne est implémentée avec des portes logiques, chaque terme nécessite une porte et chaque variable au sein d'un terme correspond à une entrée de la porte.
 
 - On appelle *littéral* une variable qui apparaît dans un terme, sous forme complémentée ou non.
 
@@ -35,11 +35,11 @@
 
 *** Minterms et maxterms
 
-- Dans une expression, une variable \(x\) peut apparaître telle qu'elle \(x\) ou complémentée \(x^\prime\).
+- Dans une expression, une variable \(x\) peut apparaître telle quelle \(x\) ou complémentée \(x^\prime\).
 
-- Si on considère les combinaisons possibles de deux variables via un opérateur ET, on a alors quatres possibilités: \(x^\prime y^\prime, x^\prime y, x y^\prime,x y\).
+- Si on considère les combinaisons possibles de deux variables via un opérateur ET, on a alors quatre possibilités: \(x^\prime y^\prime, x^\prime y, x y^\prime,x y\).
 
-- Chacun de ces quatres termes s'appelle un *minterm*.
+- Chacun de ces quatre termes s'appelle un *minterm*.
 
 - De façon équivalente (duale, en vérité), \(n\) variables reliées par une fonction OU peuvent donner lieu à \(2^n\) termes distincts, appelés *maxterms*.
 
@@ -51,7 +51,7 @@
 
 - Le numéro d'étiquette d'un minterm est construit de la façon suivante.
 
-- Une variable complémentée amène un bit d'étiquette 0, une variable telle qu'elle amène un bit d'étiquette 1.
+- Une variable complémentée amène un bit d'étiquette 0, une variable telle quelle amène un bit d'étiquette 1.
 
 - En ordonnant les bits selon l'ordre alphabétique des variables, on obtient un vecteur de bits qui donnera le numéro à assigner au minterm.
 
@@ -59,14 +59,14 @@
 
 - Par exemple, le minterm \(x y^\prime z\) donnera l'étiquette 101, donc le numéro de minterm (en équivalent décimal) 5.
 
-- La règle pour les maxterms est duale: une étiquette 0 pour une variable telle qu'elle, et une étiquette 1 pour une variable complémentée.
+- La règle pour les maxterms est duale: une étiquette 0 pour une variable telle quelle, et une étiquette 1 pour une variable complémentée.
 
 - Chaque maxterm est le complément du minterm correspondant (de même numéro), et /vice versa/.
 
 ** Formes canoniques ... 4
 
 
-- Dans le tableau [[tab-minmaxterms]], on montre les symboles de la forme \(m_j\) pour les mintems et \(M_j\) pour les maxterms, avec \(j\) qui est l'équivalent décimal de la combinaison de bits correspondante.
+- Dans le tableau [[tab-minmaxterms]], on montre les symboles de la forme \(m_j\) pour les minterms et \(M_j\) pour les maxterms, avec \(j\) qui est l'équivalent décimal de la combinaison de bits correspondante.
 
 #+CAPTION: Minterms et maxterms pour trois variables
 #+NAME:tab-minmaxterms
@@ -104,7 +104,7 @@
 
 - on peut donc écrire
 
-$$ F_1 = x y^\prime
+$$ F_1 =  x^\prime y
 z^\prime + x y^\prime z^\prime + x y^\prime z + x y z^\prime + x y z =
 m_2 + m_4 + m_5 + m_6 + m_7 $$
 
@@ -172,7 +172,7 @@ x^\prime y^\prime z + x^\prime y z $$
 
 - Si on veut convertir en forme canonique /produit de sommes/ l'expression pour une fonction qui ne serait pas sous cette forme, on commence par faire l'expansion de l'expression en forme /produit de sommes/.
 
-- On peut avantageusement faire appel à la distributivité de \(+\) sur \(\cdot\) pour ce faire.
+- Pour ce faire, on peut avantageusement faire appel à la distributivité de \(+\) sur \(\cdot\).
 
 - Ensuite, on vérifie chaque terme pour voir si toutes les variables en font partie.
 
@@ -214,7 +214,7 @@ x^\prime y^\prime z + x^\prime y z $$
 
 ** Objectifs de minimisation
 
-Étant donné une fonction logique de $n$ variables $z(x_1, x_2, \ldots, x_n)$, on veut déterminer une expression pour cette fonction sous la forme /Somme de Produits/ (S de P) ou /Produit de Sommes/ (P de S) qui
+Étant donné une fonction logique de $n$ variables $z(x_1, x_2, \ldots, x_n)$, on veut déterminer une expression pour cette fonction sous la forme /somme de produits/ (S de P) ou /produit de sommes/ (P de S) qui
 
  1. comporte un nombre minimum de termes produits (pour la forme S de P)
     ou de termes sommes (pour la forme P de S);
@@ -228,7 +228,7 @@ x^\prime y^\prime z + x^\prime y z $$
 
 - Un diagramme de Karnaugh (diag-K) est constitué d'un regroupement de cellules carrées, chaque cellule correspondant à un minterm possible.
 
-- Les cellules sont organisées de façon à ce que lorsqu'on passe d'une cellule à une cellule adjacente (horizontalement ou verticalement), un seul bit du minterm change, ce qui revient à dire qu'une seule variable passe de telle qu'elle à complémentée.
+- Les cellules sont organisées de façon à ce que lorsqu'on passe d'une cellule à une cellule adjacente (horizontalement ou verticalement), un seul bit du minterm change, ce qui revient à dire qu'une seule variable passe de telle quelle à complémentée.
 
 - Cela fait en sorte que si la fonction est 1 pour deux minterms adjacents, la somme des deux minterms pourra être simplifiée en un seul terme dans lequel la variable correspondant au bit qui change est absente.
 
@@ -238,21 +238,21 @@ x^\prime y^\prime z + x^\prime y z $$
 
 \(m_5 + m_7 = xy^\prime z + xyz = xz(y^\prime + y) = xz\). 
 
-- Ici les deux minterms adjacents diffèrent par la variable \(y\), qui sera donc supprimée du terme produit résultant.
+- Ici, les deux minterms adjacents diffèrent par la variable \(y\), qui sera donc supprimée du terme produit résultant.
 
 ** Diagrammes de Karnaugh: deux variables
 
 #+CAPTION: Diag-K à deux variables
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk2
-[[file:../../Sources_images_logiques/images/kmap2.svg]]
+[[file:../Images_svg/kmap2.svg]]
 
 ** Diagrammes de Karnaugh: trois variables
 
 #+CAPTION: Diag-K à trois variables, avec minterms
 #+attr_latex: :scale 0.75
 #+NAME:fig-diagk3_min
-[[file:../../Sources_images_logiques/images/kmap3minterms.svg]]
+[[file:../Images_svg/kmap3minterms.svg]]
 
 ** Diagrammes de Karnaugh: trois variables ... 2
 
@@ -267,13 +267,13 @@ x^\prime y^\prime z + x^\prime y z $$
 #+CAPTION: Diag-K avec adjacence horizontale
 #+attr_latex: :scale 0.75
 #+NAME::fig-diagk3-repli
-[[file:../../Sources_images_logiques/images/kmap3_repli.svg]]
+[[file:../Images_svg/kmap3_repli.svg]]
 
 ** Diagrammes de Karnaugh: quatre variables et plus
 
 - Sur un diag-K à quatre variables, l'adjacence repliée est autant horizontale que verticale.
 
-- Pour plus de quatre variables, il devient difficile d'utiliser cette méthode: les diagrammes sont de grande taille et surtout, les règles d'adjacence ne sont plus aussi facilement observables.
+- Pour plus de quatre variables, il devient difficile d'utiliser cette méthode: les diagrammes sont de grande taille et, surtout, les règles d'adjacence ne sont plus aussi facilement observables.
 
 - Les risques d'erreurs sont plus grands.
 
@@ -282,7 +282,7 @@ x^\prime y^\prime z + x^\prime y z $$
 #+CAPTION: Diag-K à quatre variables
 #+attr_latex: :scale 0.75
 #+NAME:fig-diag4
-[[file:../../Sources_images_logiques/images/kmap4.svg]]
+[[file:../Images_svg/kmap4.svg]]
 
 ** Procédure de simplification
 
@@ -290,7 +290,7 @@ Pour utiliser un diag-K pour minimiser une fonction logique:
 
 1) Les minterms de la fonction à minimiser sont identifiés en insérant
    un 1 dans la cellule correspondant à chaque minterm.
-2) On cherche dans le diagramme pour trouver des regroupement de deux
+2) On cherche dans le diagramme pour trouver des regroupements de deux
    cellules adjacentes qui sont marquées d'un 1.
 3) Chaque groupe de deux cellules 1 adjacentes est marqué comme
    groupe. Un même minterm peut être incorporé à plus d'un groupe.
@@ -317,7 +317,7 @@ Considérons par exemple la fonction \(F(A,B,C) = \sum (0, 4, 6, 7)\).
 
 #+NAME:diag_etape1
 #+attr_latex: :scale 0.75
-[[file:../../Sources_images_logiques/images/kmap3fonct.svg]]
+[[file:../Images_svg/kmap3fonct.svg]]
 
 ** Exemple de simplification ... 2
 
@@ -326,7 +326,7 @@ Considérons par exemple la fonction \(F(A,B,C) = \sum (0, 4, 6, 7)\).
 #+CAPTION: Diagramme après les regroupements
 #+attr_latex: :scale 0.75
 #+NAME::diag_etape2
-[[file:../../Sources_images_logiques/images/kmap3fonctsimp.svg]]
+[[file:../Images_svg/kmap3fonctsimp.svg]]
 
 ** Exemple de simplification ... 3
 
@@ -357,7 +357,7 @@ Considérons par exemple la fonction \(F(A,B,C) = \sum (0, 4, 6, 7)\).
 #+CAPTION: Diag-K avec cas facultatifs
 #+attr_latex: :scale 0.75
 #+NAME:fig-cas_fac
-[[file:../../Sources_images_logiques/images/kmap4fonct.svg]]
+[[file:../Images_svg/kmap4fonct.svg]]
 
 
 ** Impliquants
@@ -365,12 +365,12 @@ Considérons par exemple la fonction \(F(A,B,C) = \sum (0, 4, 6, 7)\).
 Le choix des regroupements à utiliser doit toujours viser à s'assurer que:
 1) Tous les minterms de la fonction sont couverts par les regroupements choisis.
 2) Le nombre de termes retenus pour l'expression est minimal.
-3) Il n'y a pas de termes redondants, c'est-à-dire, qui couvrent
+3) Il n'y a pas de termes redondants, c'est-à-dire qui couvrent
    uniquement des minterms déjà couverts.
 
 ** Impliquants ... 2
 
-- Il y a parfois des plus d'une expression qui rencontre ces critères.
+- Il y a parfois plus d'une expression qui satisfait ces critères.
 
 - Il est possible de systématiser le choix des termes en prenant en compte le caractère essentiel des termes.
 
@@ -400,7 +400,7 @@ impliquants de $z_1$.
 #+CAPTION: Diag-K pour l'exemple des impliquants
 #+attr_latex: :scale 0.75
 #+NAME::diag_exemple
-[[file:../../Sources_images_logiques/images/kmap3fonctimp.svg]]
+[[file:../Images_svg/kmap3fonctimp.svg]]
 
 ** Impliquant premier
 
@@ -408,7 +408,7 @@ impliquants de $z_1$.
 
 - Ici, $a b$ est un impliquant premier de $z_1$ car ni $a$ ni $b$ ne sont des impliquants de $z_1$.
 
-- Mais $a b^{\prime} c$ n'est pas un impliquant premier de $z_1$ car $a c$ est un impliquant de $z_1$.  
+- Mais $a b^{\prime} c$ n'est pas un impliquant premier de $z_1$, car $a c$ est un impliquant de $z_1$.  
 
 - Sur un diagramme de Karnaugh, un impliquant premier (i.p.) est un groupe qui n'est contenu dans aucun autre groupe plus grand.
 
@@ -421,11 +421,11 @@ Une *couverture minimale* est une couverture avec:
 1. le nombre minimal d'impliquants premiers,
 
 2. le moins de littéraux parmi les couvertures avec nombre minimum
-   d'implicants.
+   d'impliquants.
 
 ** Impliquant premier essentiel
 
-- Un i.p. est *essentiel* si et seulement si il couvre un minterm de la fonction qui ne peut être couvert par un autre i.p. de la fonction.  Une couverture de la fonction *doit* contenir tous les impliquants premiers essentiels (i.p.e.).
+- Un i.p. est *essentiel* si et seulement s'il couvre un minterm de la fonction qui ne peut être couvert par un autre i.p. de la fonction.  Une couverture de la fonction *doit* contenir tous les impliquants premiers essentiels (i.p.e.).
 
 - Un *impliquant premier absolument inessentiel* est un i.p. qui couvre des minterms qui sont tous couverts par les i.p.e. de la fonction.
 
@@ -450,7 +450,7 @@ Lorsque le problème est de taille réduite, on peut faire une recherche exhaust
     cas facultatifs.
 
  2. Lors de la sélection des i.p. pour obtenir une couverture
-    minimale, on ne doit pas ne pas essayer de couvrir les X.
+    minimale, on ne doit pas essayer de couvrir les X.
 
 ** Minimisation avec plusieurs fonctions
 
@@ -477,7 +477,7 @@ a^{\prime} b^{\prime} c^{\prime} d$$
 #+CAPTION: Fonction \(z_1\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fonctz1
-[[file:../../Sources_images_logiques/images/kmap4z1.svg]]
+[[file:../Images_svg/kmap4z1.svg]]
 
 ** Exemple de minimisation avec plusieurs fonctions ... 2
 
@@ -485,7 +485,7 @@ a^{\prime} b^{\prime} c^{\prime} d$$
 #+CAPTION:  Fonction \(z_2\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-fonctz2
-[[file:../../Sources_images_logiques/images/kmap4z2.svg]]
+[[file:../Images_svg/kmap4z2.svg]]
 
 ** Exemple de minimisation avec plusieurs fonctions ... 3
 
@@ -539,9 +539,9 @@ la fonction \(z\) qui
 
 - Le tableau de couverture réduit permet de se concentrer sur la sélection des i.p. dont la sélection n'est pas évidente /a priori/.
 
-- Considérons pour illustrer la discussion le tableau de couverture réduit suivant.
+- Pour illustrer la discussion, considérons le tableau de couverture réduit suivant.
 
-- \(m_c\) est sans doute couvert pas un i.p.e. qui n'est pas montré ici.
+- \(m_c\) est sans doute couvert par un i.p.e. qui n'est pas montré ici.
 
 ** Tableau de couverture réduit ... 2
 
@@ -559,7 +559,7 @@ la fonction \(z\) qui
 
 ** Dominance de lignes
 
-- Une ligne \(P_i\) domine une ligne \(P_j\) (noté \(P_i \supseteq P_j\)) si la ligne \(P_i\) contient un \checkmark dans toutes les colonnes où la ligne \(P_j\) contient un \checkmark.
+- Une ligne \(P_i\) domine une ligne \(P_j\) (ce qui est noté \(P_i \supseteq P_j\)) si la ligne \(P_i\) contient un \checkmark dans toutes les colonnes où la ligne \(P_j\) contient un \checkmark.
 
 - Ici, on a \(P_B \supseteq P_D\) mais \(P_B\) ne domine pas \(P_A\).
 
@@ -577,11 +577,11 @@ la fonction \(z\) qui
 
 ** Dominance de colonnes
 
-- Une colonne \(m_i\) domine une colonne \(m_j\) (noté \(m_i \supseteq m_j\)) si la colonne \(m_i\) contient un \checkmark dans toutes les lignes où la colonne \(m_j\) contient un \checkmark.
+- Une colonne \(m_i\) domine une colonne \(m_j\) (ce qui est noté \(m_i \supseteq m_j\)) si la colonne \(m_i\) contient un \checkmark dans toutes les lignes où la colonne \(m_j\) contient un \checkmark.
 
 - Ici, la colonne \(m_h \supseteq m_g\) mais \(m_b\) ne domine pas \(m_a\).
 
-- Une colonne *dominant* une autre peut être éliminée du tableau de couverture, car le fait que la solution finale couvre la colonne dominée assure que la colonne dominante sera couverte aussi.
+- Une colonne *dominant* une autre colonne peut être éliminée du tableau de couverture, car le fait que la solution finale couvre la colonne dominée assure que la colonne dominante sera couverte aussi.
 
 - Donc ici, la colonne \(m_h\) peut être éliminée.
 
@@ -591,7 +591,7 @@ la fonction \(z\) qui
 
 - Les circuits logiques simplifiés en forme /produit de sommes/ ou /somme de produits/ sont souvent mis en oeuvre au moyen de portes NAND ou NOR plutôt qu'avec des portes ET et OU.
 
-- La raison est qu'il est plus simple en pratique de réaliser ces portes.
+- La raison en est qu'il est plus simple en pratique de réaliser ces portes.
 
 ** Implémentation à deux niveaux
 
@@ -602,7 +602,7 @@ la fonction \(z\) qui
 #+CAPTION: /Somme de produits/ pour \(F = AB + CD\)
 #+attr_latex: :scale 0.75
 #+NAME:fig-prod_sommes
-[[file:../../Sources_images_logiques/images/somme_produits.svg]] 
+[[file:../Images_svg/somme_produits.svg]] 
 
 ** Implémentation à deux niveaux ... 2
 
@@ -613,7 +613,7 @@ la fonction \(z\) qui
 #+CAPTION: /Somme de produits/ NAND
 #+attr_latex: :scale 0.75
 #+NAME:fig-prod_sommes_nand
-[[file:../../Sources_images_logiques/images/somme_produitsNAND2.svg]] 
+[[file:../Images_svg/somme_produitsNAND2.svg]] 
 
 ** Implémentation à deux niveaux ... 3
 
@@ -624,5 +624,5 @@ la fonction \(z\) qui
 #+CAPTION:/Somme de produits/ NAND plus évidente
 #+attr_latex: :scale 0.75
 #+NAME:fig-prod_sommes_nand_evident
-[[file:../../Sources_images_logiques/images/somme_produitsNAND.svg]]
+[[file:../Images_svg/somme_produitsNAND.svg]]
 

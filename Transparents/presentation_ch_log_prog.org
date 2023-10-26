@@ -1,19 +1,19 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Logique programmable
 ** Objectifs
-- Être familier avec les différents types de composants logiques programmables
-- Pouvoir identifier les avantages et limitations des différents types
+- Se familiariser avec les différents types de composants logiques programmables
+- Reconnaître les avantages et limitations des différents types
 - Comprendre le fonctionnement d'une matrice logique programmable
 - Comprendre le fonctionnement d'un composant logique à matrice programmable
 - Comprendre le fonctionnement d'un circuit séquentiel programmable
-- Être familier avec le concept de bloc logique programmable
+- Se familiariser avec le concept de bloc logique programmable
 - Comprendre l'organisation d'une cellule logique programmable et
   apprécier sa flexibilité
 
 ** Dispositifs programmables
   
-- On a vu qu'une mémoire ROM est un dispositif logique programmable qui, grâce à la matrice d'interconnexion entre son décodeur (qui génère tous les minterms) et les portes OU de sortie, permet de réaliser des fonctions logiques arbitraires.
+- Nous avons vu qu'une mémoire ROM est un dispositif logique programmable qui, grâce à la matrice d'interconnexion entre son décodeur (qui génère tous les minterms) et les portes OU de sortie, permet de réaliser des fonctions logiques arbitraires.
 
 - D'autres composants utilisent à divers degrés cette approche pour offrir des possibilités de configuration flexibles.
 
@@ -25,7 +25,7 @@
 
 ** Matrice logique programmable (PLA)
 
-- Une *matrice logique programmable* (en anglais, /Programmable Logic Array/, (PLA)) est un dispositif spécifiquement conçu pour la réalisation de fonctions combinatoires arbitraires.
+- Une *matrice logique programmable* (en anglais, /Programmable Logic Array/ (PLA)) est un dispositif spécifiquement conçu pour la réalisation de fonctions combinatoires arbitraires.
 
 - Elle fonctionne selon une approche qui s'apparente à l'utilisation d'une mémoire morte pour réaliser une fonction logique arbitraire.
 
@@ -36,7 +36,7 @@
 #+CAPTION: Matrice logique programmable
 #+attr_latex: :scale 0.55
 #+NAME:fig-pla
-[[file:../../Sources_images_logiques/images/pla.svg]]
+[[file:../Images_svg/pla.svg]]
 
 ** Matrice logique programmable (PLA) ... 2
 
@@ -48,13 +48,13 @@
 
 - La programmation des portes XOR de sortie permet de choisir la fonction directe ou son complément.
 
-- Les PLAs offerts sur le marché proposent des configurations avec des plus grands nombres d'entrées, de termes et de sorties, typiquement des dizaines.
+- Les PLAs offertes sur le marché proposent des configurations avec de plus grands nombres d'entrées, de termes et de sorties, typiquement des dizaines.
 
 ** Logique à matrice programmable (PAL)
 
 - Les dispositifs à *logique à matrice programmable* (an anglais, /Programmable Array Logic/ (PAL)) sont une autre variante sur ce thème, avec une matrice OU fixe et une matrice ET configurable.
 
-- Ils sont moins flexibles que les PLAs.
+- Ils sont moins flexibles que les PLA.
 
 - La figure [[fig-pal]] montre un dispositif de logique à matrice programmable à quatre variables d'entrée, permettant de réaliser trois fonctions pouvant comporter jusqu'à trois minterms.
 
@@ -63,23 +63,23 @@
 #+CAPTION: Logique à matrice programmable
 #+attr_latex: :scale 0.375
 #+NAME:fig-pal
-[[file:../../Sources_images_logiques/images/pal.svg]]
+[[file:../Images_svg/pal.svg]]
 
 ** Logique à matrice programmable (PAL) ... 2
 
 - Les sorties (directes et complémentée pour la première fonction) peuvent être acheminées aux entrées des autres fonctions.
 
-- Encore ici, le nombre de termes produits est limité, et on doit simplifier les fonctions avant l'implémentation.
+- Encore ici, le nombre de termes produits est limité et on doit simplifier les fonctions avant l'implémentation.
 
 - Cependant, puisqu'il n'y a pas de matrice OU, il n'est pas possible de partager un terme produit entre deux fonctions.
 
-- Les PALs offerts sur le marché proposent des configurations avec des plus grands nombres d'entrées d'entrées, de termes et de sorties, typiquement des dizaines.
+- Les PAL offerts sur le marché proposent des configurations avec de plus grands nombres d'entrées, de termes et de sorties, typiquement des dizaines.
 
 ** Logique programmable séquentielle
 
-- En combinant un dispositif logique programmable (en anglais, /Programmable Logic Device/, (PLD)) avec un certain nombre de bascules, il est possible de proposer un circuit programmable séquentiel.
+- En combinant un *dispositif logique programmable* (en anglais, /Programmable Logic Device/ (PLD)) avec un certain nombre de bascules, il est possible de proposer un circuit programmable séquentiel.
 
-- La configuration générale est telle qu'illustré sur la figure [[fig-circuit_seq_prog]].
+- La configuration générale est illustrée sur la figure [[fig-circuit_seq_prog]].
 
 #+begin_src ditaa :file Sources_images_logiques/images/circuit_seq_prog.png :results silent :exports none
              +------------------+     
@@ -102,7 +102,7 @@
 #+CAPTION: Modèle de circuit séquentiel programmable
 #+attr_latex: :scale 0.55
 #+NAME:fig-circuit_seq_prog
-[[file:../../Sources_images_logiques/images/circuit_seq_prog.png]] 
+[[file:../Images_png/circuit_seq_prog.png]] 
 
 ** Dispositifs programmables complexes
 
@@ -145,11 +145,11 @@
 #+CAPTION: Modèle de circuit séquentiel programmable complexe
 #+attr_latex: :scale 0.375
 #+NAME:fig-CPLD
-[[file:../../Sources_images_logiques/images/CPLD.png]]
+[[file:../Images_png/CPLD.png]]
 
 ** Circuits intégrés programmables
 
-- La version la plus sophistiquée des circuits logiques programmables est sans contredit le circuit intégré programmable (en anglais, /Field Programmable gate array/, (FPGA)).
+- La version la plus sophistiquée des circuits logiques programmables est sans contredit le *circuit intégré programmable* (en anglais, /Field Programmable gate array/ (FPGA)).
 
 - Un FPGA est constitué d'une matrice de blocs polyvalents appelés *blocs logiques programmables* qui permettent, selon leur configuration, de réaliser n'importe quelle fonction logique.
 
@@ -167,13 +167,13 @@ La figure [[fig-cell_logique]] montre une version simplifiée d'une cellule logi
 #+CAPTION:  Cellule logique
 #+attr_latex: :scale 0.75
 #+NAME:fig-cell_logique
-[[file:../../Sources_images_logiques/images/cell_logique.svg]]
+[[file:../Images_svg/cell_logique.svg]]
 
 ** Éléments
 
-- Le tableau de correspondance (LUT) à quatre entrées \(a, b, c, d\) est fractionné en deux LUT de trois entrées, combinés par un multiplexeur contrôlé par l'entrée \(d\).
+- Le tableau de correspondance (LUT) à quatre entrées \(a, b, c, d\) est fractionné en deux LUT à trois entrées, combinés par un multiplexeur contrôlé par l'entrée \(d\).
 
-- Pour des opérations arithmétiques, les sorties des LUTs à trois entrées sont additionnées avec une retenue externe \(R_i\).
+- Pour des opérations arithmétiques, les sorties des LUT à trois entrées sont additionnées avec une retenue externe \(R_i\).
 
 - Le multiplexeur du centre, commandé par le signal de sélection \(S_1\), sélectionne le résultat d'addition ou la fonction réalisée par la LUT à 4 entrées.
 
@@ -201,5 +201,5 @@ En plus de la matrice de blocs logiques, un circuit intégré programmable compo
 
 - Le circuit FPGA peut donc être reconfiguré et adapté à différentes fonctions, simplement en écrivant de nouvelles données dans la mémoire externe qui contient ses informations de configuration.
 
-- La configuration et la programmation d'un circuit programmable FPGA se fait au moyen d'outils de synthèse spécialisés, souvent en fonction d'une spécification au moyen d'un langage descriptif de matériel (en anglais, /Hardware Description Language/, (HDL)).
+- La configuration et la programmation d'un circuit programmable FPGA se fait au moyen d'outils de synthèse spécialisés, souvent en fonction d'une spécification au moyen d'un langage descriptif de matériel (en anglais, /Hardware Description Language/ (HDL)).
 

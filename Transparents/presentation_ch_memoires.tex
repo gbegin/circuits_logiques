@@ -1,4 +1,4 @@
-% Created 2022-11-16 mer 14:31
+% Created 2023-10-26 jeu 09:52
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,8 @@
 \usepackage{minted}
 \usepackage[, french]{babel}
 \usepackage{svg}
-\logo{\includegraphics[width=.1\textwidth]{../../by-sa.png}}
+\logo{\includegraphics[width=.1\textwidth]{../by-sa.png}}
+\AtBeginEnvironment{minted}{\renewcommand{\fcolorbox}[4][]{#4}}
 \usetheme{metropolis}
 \usecolortheme{}
 \usefonttheme{}
@@ -30,30 +31,30 @@
  pdftitle={Circuits logiques combinatoires et séquentiels},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.1 (Org mode 9.5.4)}, 
+ pdfcreator={Emacs 28.1 (Org mode 9.6.6)}, 
  pdflang={French}}
 \begin{document}
 
 \maketitle
 
 \section{Mémoires}
-\label{sec:org4eadd9a}
-\begin{frame}[label={sec:orgbf66310}]{Objectifs}
+\label{sec:org997ba6e}
+\begin{frame}[label={sec:orgc88465a}]{Objectifs}
 \begin{itemize}
-\item Pouvoir distinguer entre mémoire volatile et non-volatile
-\item Pouvoir distinguer entre mémoire volatile statique et dynamique
+\item Faire la distinction entre mémoire volatile et non-volatile
+\item Faire la distinction entre mémoire volatile statique et dynamique
 \item Connaître l'organisation typique d'une mémoire et le fonctionnement
 de l'adressage
 \item Comprendre le fonctionnement d'un bus de données
-\item Pouvoir interpréter les cycles d'écriture et de lecture
-\item Pouvoir implémenter une fonction combinatoire arbitraire à l'aide d'une
+\item Interpréter les cycles d'écriture et de lecture
+\item Implémenter une fonction combinatoire arbitraire à l'aide d'une
 mémoire ROM
-\item Pouvoir utiliser un tableau de correspondance
-\item Être familier avec les différents types de mémoires non-volatiles
+\item Utiliser un tableau de correspondance
+\item Se familiariser avec les différents types de mémoires non-volatiles
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orga0b55d3}]{Mémoires}
+\begin{frame}[label={sec:org81e9f23}]{Mémoires}
 \begin{itemize}
 \item Une mémoire est utilisée pour stocker des valeurs binaires à plus ou moins long terme.
 
@@ -63,28 +64,31 @@ mémoire ROM
 
 \item Constituée d'un grand nombre de cellules permettant chacune de stocker un bit, la mémoire est dotée de mécanismes permettant d'accéder aux cellules pour en faire la lecture ou l'écriture.
 
-\item On distingue les mémoires non-volatiles (en anglais, \emph{Read Only Memories}, (ROM)) et les mémoires volatiles (en anglais, \emph{Random Access Memories}, (RAM)).
+\item On distingue les mémoires non volatiles (en anglais, \emph{Read Only Memories} (ROM)) et les mémoires volatiles (en anglais, \emph{Random Access Memories} (RAM)).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org5efd6d3}]{Mémoires non-volatiles}
+\begin{frame}[label={sec:org2eb195d}]{Mémoires non-volatiles}
 \begin{itemize}
-\item Dans une mémoire ROM, les données sont stockées une fois pour toute.
+\item Dans une mémoire ROM, les données sont stockées une fois pour toutes.
 
 \item Elles y demeurent même après que la mémoire ait été mise hors tension.
 
 \item Dans le cycle de vie des données, il y a donc \alert{une} écriture initiale, mais autant de lectures qu'on le souhaite.
 
-\item Il ne peut pas y avoir de récriture.
+\item Il ne peut pas y avoir de réécriture.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgbfe93e7}]{Mémoire ROM}
+\begin{frame}[label={sec:orgd7fc187}]{Mémoire ROM}
 \begin{itemize}
-\item Une mémoire ROM est considérée comme un dispositif \alert{programmable}, dans le sens que le processus d'écriture initial demande une action particulière, une procédure spécifique au niveau matériel.
+\item Une mémoire ROM est considérée comme un dispositif \alert{programmable}, dans le sens où le processus d'écriture initial demande une action particulière, une procédure spécifique sur le plan matériel.
+\end{itemize}
 
-\item On verra plus loin d'autres dispositifs logiques programmables.
+Nous verrons
+plus loin d'autres dispositifs logiques programmables.
 
+\begin{itemize}
 \item La programmation d'une ROM se fait en agissant sur des connexions dites \alert{fusibles}.
 
 \item Initialement, le fusible est comme un fil qui permet au signal de passer.
@@ -93,17 +97,17 @@ mémoire ROM
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge061c44}]{Mémoires volatiles}
+\begin{frame}[label={sec:orgdc9afb8}]{Mémoires volatiles}
 \begin{itemize}
 \item Une mémoire RAM stocke l'information de façon temporaire.
 
-\item En principe, le contenu est conservé tant que la mémoire est maintenue sous tension. Mais la réalité est un peu plus complexe, comme on le verra plus loin.
+\item En principe, le contenu est conservé tant que la mémoire est maintenue sous tension. Mais la réalité est un peu plus complexe, comme nous le verrons plus loin.
 
-\item L'opération d'\alert{écriture} permet de stocker des valeurs, et la \alert{lecture} permet d'extraire l'information de la mémoire.
+\item L'opération d'\alert{écriture} permet de stocker des valeurs et la \alert{lecture} permet d'extraire l'information de la mémoire.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org3f14c14}]{RAM statique}
+\begin{frame}[label={sec:orgc550980}]{RAM statique}
 \begin{itemize}
 \item Une mémoire RAM \alert{statique} consiste en un ensemble de loquets qui permettent de conserver des données binaires.
 
@@ -111,7 +115,7 @@ mémoire ROM
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgc4d8567}]{RAM dynamique}
+\begin{frame}[label={sec:org533ae42}]{RAM dynamique}
 \begin{itemize}
 \item Les mémoires RAM \alert{dynamiques} stockent l'information sous la forme d'une charge capacitive au sein des transistors du circuit intégré.
 
@@ -123,7 +127,7 @@ mémoire ROM
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org25161f3}]{Adressage}
+\begin{frame}[label={sec:org58a99a8}]{Adressage}
 \begin{itemize}
 \item Les cellules des mémoires sont organisées en petits groupes appelés \alert{mots}, de façon à ce que l'on puisse accéder à chaque groupe indépendamment.
 
@@ -133,108 +137,108 @@ mémoire ROM
 
 \item Le temps d'accès aux données est le même, quel que soit l'endroit dans la mémoire où un mot en particulier est stocké.
 
-\item Les mots sont généralement constitués d'un nombre de bits multiple de huit: 8, 16 ou 32 bits sont des tailles de mots courantes.
+\item Les mots sont généralement constitués d'un nombre de bits multiple de huit: 8, 16 ou 32 bits sont des tailles de mot courantes.
 
 \item Un groupe de huit bits est appelé \alert{octet}.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgab3ce34}]{Décodeur d'adresses}
+\begin{frame}[label={sec:org90d9f5a}]{Décodeur d'adresses}
 \begin{itemize}
-\item L'adressage se fait au moyen d'un \alert{décodeur d'adresses}, qui est simplement un décodeur binaire tel que vu précédemment.
+\item L'adressage se fait au moyen d'un \alert{décodeur d'adresses}, qui est simplement un décodeur binaire tel que nous l'avons vu précédemment.
 
 \item Le nombre de bits d'adresse détermine la capacité (en nombre de mots) de la mémoire: pour \(k\) adresses, on aura \(2^k\) mots distincts.
 
-\item Les tailles de mémoire sont souvent exprimées au moyen de multiplicateurs: K (kilo) correspondant à \(2^{10}\), M (mega) correspondant à \(2^{20}\) ou G (giga) correspondant à \(2^{30}\).
+\item Les tailles de mémoire sont souvent exprimées au moyen de multiplicateurs: K (kilo) correspondant à \(2^{10}\), M (méga) correspondant à \(2^{20}\) ou G (giga) correspondant à \(2^{30}\).
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[label={sec:orgcf752f1}]{Schéma d'une mémoire}
+\begin{frame}[label={sec:orgf13cf40}]{Schéma d'une mémoire}
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.65]{../../Sources_images_logiques/images/memoire.png}
-\caption{\label{fig:org5cec4d4}Schéma d'une mémoire}
+\includegraphics[scale=0.65]{../Images_png/memoire.png}
+\caption{\label{fig:orge7207a3}Schéma d'une mémoire}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgf54d2b2}]{Lecture et écriture}
+\begin{frame}[label={sec:orgcca07ed}]{Lecture et écriture}
 \begin{itemize}
 \item L'opération choisie, écriture ou lecture, est commandée par une ou des entrées à cet effet.
 
-\item L'accès à un espace-mémoire (un mot) se fait selon une séquence bien précise.
+\item L'accès à un espace mémoire (un mot) se fait selon une séquence bien précise.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgef1239b},fragile]{Écriture}
+\begin{frame}[label={sec:org433b834},fragile]{Écriture}
  Pour une écriture:
 
 \begin{enumerate}
-\item Les bits d'adresse du mot sont appliqués aux lignes d'adresses.
+\item Les bits d'adresse du mot sont appliqués aux lignes d'adresse.
 \item Les données à écrire sont appliquées aux lignes d'entrée.
 \item On active l'entrée de commande \texttt{Écriture}.
 
-\item Les données de l'entrée sont alors stockées dans la case-mémoire adressée.
+\item Les données de l'entrée sont alors stockées dans la case mémoire adressée.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org849783e},fragile]{Lecture}
+\begin{frame}[label={sec:orgf99f026},fragile]{Lecture}
  Pour une lecture:
 
 \begin{enumerate}
-\item Les bits d'adresse du mot sont appliqués aux lignes d'adresses.
+\item Les bits d'adresse du mot sont appliqués aux lignes d'adresse.
 \item On active l'entrée de commande \texttt{Lecture}.
 \end{enumerate}
 
-Les données présentes dans la case-mémoire adressée sont ensuite
+Les données présentes dans la case mémoire adressée sont ensuite
 disponibles à la sortie de la mémoire.
 \end{frame}
 
-\begin{frame}[label={sec:orgce8c927},fragile]{Signal de contrôle combiné}
+\begin{frame}[label={sec:org9d4129d},fragile]{Signal de contrôle combiné}
  \begin{itemize}
-\item Les mémoires disponibles sur le marché optent souvent pour une combinaison des signaux de contrôle, avec un seul signal qui détermine le sens de l'action, comme on peut le voir dans le tableau \ref{tab:org4372254}.
+\item Les mémoires offertes sur le marché optent souvent pour une combinaison des signaux de contrôle, avec un seul signal qui détermine le sens de l'action, comme le montre le tableau \ref{tab:org453a6f0}.
 
 \item Le signal \texttt{Enable}, parfois appelé \texttt{Chip select}, permet d'activer une mémoire dans un ensemble où plusieurs mémoires sont utilisées.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org6176e00},fragile]{Signaux de contrôle d'une mémoire}
+\begin{frame}[label={sec:org9a01f99},fragile]{Signaux de contrôle d'une mémoire}
  \begin{table}[htbp]
-\caption{\label{tab:org4372254}Signaux de contrôle d'une mémoire}
+\caption{\label{tab:org453a6f0}Signaux de contrôle d'une mémoire}
 \centering
 \begin{tabular}{rrl}
-\texttt{Enable} & \texttt{Lecture/écriture} & Action\\
+\texttt{Enable} & \texttt{Lecture/écriture} & Action\\[0pt]
 \hline
-0 & X & Aucune\\
-1 & 0 & Écriture\\
-1 & 1 & Lecture\\
+0 & X & Aucune\\[0pt]
+1 & 0 & Écriture\\[0pt]
+1 & 1 & Lecture\\[0pt]
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:org67d5ff1},fragile]{Bus de données}
+\begin{frame}[label={sec:orgbdfd94a},fragile]{Bus de données}
  \begin{itemize}
-\item Pour acheminer les données lues ou à écrire dans la mémoire, on utilise des tampons émetteur-récepteurs de bus, organisés en vecteur, pour créer un \alert{bus de données} qui permet un aller-retour des données, selon le sens de l'action.
+\item Pour acheminer les données lues ou à écrire dans la mémoire, on utilise des tampons émetteurs-récepteurs de bus organisés en vecteur, pour créer un \alert{bus de données} qui permet un aller-retour des données, selon le sens de l'action.
 
 \item Cela permet de diminuer de moitié le nombre de connexions nécessaires pour l'échange des données.
 
-\item Un signal dérivé des signaux \texttt{Lecture/écriture} et \texttt{Chip select (CS)} est typiquement utilisé pour commander l'entrée de contrôle (voir figure \ref{fig:org232c257}).
+\item Un signal dérivé des signaux \texttt{Lecture/écriture} et \texttt{Chip select (CS)} est typiquement utilisé pour commander l'entrée de contrôle (voir figure \ref{fig:org2201e67}).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgeaf2029}]{Bus de données, 8 bits}
+\begin{frame}[label={sec:org51a5cc7}]{Bus de données, 8 bits}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/bus_trans8}
-\caption{\label{fig:org232c257}Bus de données, 8 bits}
+\includesvg[scale=0.75]{../Images_svg/bus_trans8}
+\caption{\label{fig:org2201e67}Bus de données, 8 bits}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgd8faa9b},fragile]{Chronogrammes}
+\begin{frame}[label={sec:orgbe21a6a},fragile]{Chronogrammes}
  \begin{itemize}
-\item La figure \ref{fig:orgd051d75} présente un chronogramme qui décrit l'opération d'écriture dans une mémoire RAM.
+\item La figure \ref{fig:org2e887a9} présente un chronogramme qui décrit l'opération d'écriture dans une mémoire RAM.
 
-\item Les valeurs d'adresses sont d'abord présentée aux entrées d'adressage.
+\item Les valeurs d'adresse sont d'abord présentées aux entrées d'adressage.
 
 \item Le signal \texttt{L/not E} est amené au niveau bas, en même temps que le signal \texttt{CS} est activé (au niveau bas).
 
@@ -244,17 +248,17 @@ disponibles à la sortie de la mémoire.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org5cce603}]{Mémoire RAM, chronogramme pour l'écriture}
+\begin{frame}[label={sec:orgd722c31}]{Mémoire RAM, chronogramme pour l'écriture}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/chron_ram_ecriture}
-\caption{\label{fig:orgd051d75}Mémoire RAM, chronogramme pour l'écriture}
+\includesvg[scale=0.75]{../Images_svg/chron_ram_ecriture}
+\caption{\label{fig:org2e887a9}Mémoire RAM, chronogramme pour l'écriture}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgf6a0748},fragile]{Mémoire RAM, chronogramme pour la lecture}
+\begin{frame}[label={sec:orgb8b394d},fragile]{Mémoire RAM, chronogramme pour la lecture}
  \begin{itemize}
-\item La figure \ref{fig:org0a2be70} présente un chronogramme qui décrit l'opération de lecture d'une mémoire RAM.
+\item La figure \ref{fig:org4b78495} présente un chronogramme qui décrit l'opération de lecture d'une mémoire RAM.
 
 \item Les valeurs d'adresses sont d'abord présentée aux entrées d'adressage.
 
@@ -264,34 +268,34 @@ disponibles à la sortie de la mémoire.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgd3a757e}]{Mémoire RAM, chronogramme pour la lecture}
+\begin{frame}[label={sec:org01f7206}]{Mémoire RAM, chronogramme pour la lecture}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/chron_ram_lecture}
-\caption{\label{fig:org0a2be70}Mémoire RAM, chronogramme pour la lecture}
+\includesvg[scale=0.75]{../Images_svg/chron_ram_lecture}
+\caption{\label{fig:org4b78495}Mémoire RAM, chronogramme pour la lecture}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgc39f6c4}]{Cellule de base}
+\begin{frame}[label={sec:org974c470}]{Cellule de base}
 \begin{itemize}
-\item La cellule de base d'une mémoire RAM qui permet de stocker un bit est illustrée à la figure \ref{fig:orgf3540f4}.
+\item La cellule de base d'une mémoire RAM qui permet de stocker un bit est illustrée à la figure \ref{fig:org11f9f57}.
 
 \item Elle est construite autour d'un loquet SR et de portes logiques pour le contrôle.
 
-\item Une mémoire complète de \(m\) mots de taille \(n\) bits sera constituée d'une matrice de format \(m \times n\) de telles cellules, avec un décodeur d'adresses pour sélectionner quel mot sera affecté par l'opération choisie.
+\item Une mémoire complète de \(m\) mots de taille \(n\) bits sera constituée d'une matrice de format \(m \times n\) de telles cellules, avec un décodeur d'adresse pour sélectionner quel mot sera affecté par l'opération choisie.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org28e8cc4}]{Cellule mémoire RAM}
+\begin{frame}[label={sec:orgc56e30d}]{Cellule mémoire RAM}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/cell_ram}
-\caption{\label{fig:orgf3540f4}Cellule mémoire RAM}
+\includesvg[scale=0.75]{../Images_svg/cell_ram}
+\caption{\label{fig:org11f9f57}Cellule mémoire RAM}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}[label={sec:org8962976},fragile]{Mémoires mortes}
+\begin{frame}[label={sec:orga37052b},fragile]{Mémoires mortes}
  \begin{itemize}
 \item Dans son mode d'utilisation normal, une mémoire morte peut seulement être lue.
 
@@ -299,22 +303,26 @@ disponibles à la sortie de la mémoire.
 
 \item Il y aura donc des entrées pour les adresses et un signal de contrôle de type \texttt{CS}.
 
-\item La figure \ref{fig:orgf30d6b0} montre l'essentiel d'une mémoire ROM de 16 mots de 4 bits.
-
-\item Cette relativement petite mémoire comporte ainsi 64 intersections programmables, permettant de définir la valeur des 16 mots de mémoire de 8 bits chacun.
+\item La figure \ref{fig:org75ec378} montre l'essentiel d'une mémoire ROM de 16 mots de 4 bits.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org74664a6}]{Modèle d'une mémoire ROM}
+
+\begin{frame}[label={sec:org07f294c}]{Modèle d'une mémoire ROM}
 \begin{figure}[htbp]
 \centering
-\includesvg[scale=0.75]{../../Sources_images_logiques/images/proto_rom1_prog}
-\caption{\label{fig:orgf30d6b0}Modèle d'une mémoire ROM}
+\includesvg[scale=0.75]{../Images_svg/proto_rom1_prog}
+\caption{\label{fig:org75ec378}Modèle d'une mémoire ROM}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}[label={sec:org15dbc96}]{Mémoires mortes \ldots{} 2}
+\begin{frame}[label={sec:org9af970d}]{Mémoires mortes \ldots{} 2}
+\begin{itemize}
+\item Cette mémoire relativement petite comporte ainsi 64 intersections
+\end{itemize}
+programmables, permettant de définir la valeur des 16 mots de mémoire de 8 bits chacun.
+
 \begin{itemize}
 \item Un décodeur d'adresse permet de sélectionner quel mot sera lu, et la sortie est disponible sur les lignes \(A_3, \ldots, A_0\).
 
@@ -328,29 +336,29 @@ disponibles à la sortie de la mémoire.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org8081606}]{Implémentation de fonctions combinatoires}
+\begin{frame}[label={sec:orgc90cd1a}]{Implémentation de fonctions combinatoires}
 \begin{itemize}
 \item Comme on l'a vu précédemment, un décodeur permet de générer les \(2^k\) minterms possibles avec ses \(k\) entrées.
 
 \item Regrouper avec une porte OU les minterms d'une fonction permet d'implémenter cette fonction.
 
-\item Une mémoire ROM permet de faire exactement cela sans avoir rien à ajouter, car elle est munie d'un décodeur d'entrées et la porte OU de sortie fait déjà partie de la ROM.
+\item Une mémoire ROM permet de faire exactement cela sans avoir rien à ajouter, car elle est munie d'un décodeur d'entrée et la porte OU de sortie fait déjà partie de la ROM.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org19e57ee}]{Implémentation de fonctions combinatoires \ldots{} 2}
+\begin{frame}[label={sec:org943d23b}]{Implémentation de fonctions combinatoires \ldots{} 2}
 \begin{itemize}
 \item On peut donc interpréter le fonctionnement d'une mémoire ROM de \(k\) bits d'adresse et avec des mots de taille \(m\) comme un dispositif qui permet, pour les entrées qui sont ses adresses, de mettre en oeuvre \(m\) fonctions combinatoires différentes (une par bit de mot) de \(k\) entrées.
 
-\item Par exemple, la sortie \(A_2\) de la mémoire de la figure \ref{fig:orgf30d6b0} implémente la fonction $$ A_2 = \sum (0,1,4,8) $$ exprimée en somme de minterms.
+\item Par exemple, la sortie \(A_2\) de la mémoire de la figure \ref{fig:org75ec378} implémente la fonction $$ A_2 = \sum (0,1,4,8) $$ exprimée en somme de minterms.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org64d5c7b}]{Tableau de correspondance}
+\begin{frame}[label={sec:org379c43d}]{Tableau de correspondance}
 \begin{itemize}
 \item Cette approche qui consiste à réaliser une fonction logique combinatoire au moyen d'une mémoire qui spécifie, pour chaque combinaison d'entrée possible, une valeur de sortie, est largement utilisée dans les composants programmables.
 
-\item On parle alors de tableau de correspondance (en anglais, \emph{LookUp Table}, (LUT)).
+\item On parle alors de tableau de correspondance (en anglais, \emph{LookUp Table} (LUT)).
 
 \item Il s'agit ni plus ni moins que de stocker en mémoire le tableau de vérité de la fonction à réaliser.
 
@@ -358,49 +366,49 @@ disponibles à la sortie de la mémoire.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgbd12acf}]{Catégories de mémoires ROM}
+\begin{frame}[label={sec:orge893e35}]{Catégories de mémoires ROM}
 \begin{itemize}
 \item On distingue quatre grandes approches technologiques pour réaliser des mémoires mortes.
 
-\item Leurs usages typiques sont surtout déterminés par la façon de les configurer (on dit couramment \emph{programmer}, même s'il s'agit d'un intervention au niveau du matériel).
+\item Leurs usages typiques sont surtout déterminés par la façon de les configurer (on dit couramment \emph{programmer}, même s'il s'agit d'une intervention sur le plan matériel).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org1bb626f}]{Programmation par masque}
+\begin{frame}[label={sec:org981d566}]{Programmation par masque}
 \begin{itemize}
 \item Dans la \alert{programmation par masque}, la mémoire est programmée lors de la fabrication de la puce.
 
-\item Le fabricant se base sur un tableau de vérité fourni par le client pour établir des connexions qui seront implémentées (ou pas) dans le procédé de fabrication via des masques qui empêchent la déposition de matériau conducteur sur les couches du circuit intégré.
+\item Le fabricant se base sur un tableau de vérité fourni par le client pour établir des connexions qui seront implémentées (ou pas) dans le procédé de fabrication via des masques qui empêchent le dépôt de matériau conducteur sur les couches du circuit intégré.
 
 \item Cette approche convient à la production de masse à grand volume.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org29982ae}]{Programmation sur mesure}
+\begin{frame}[label={sec:org18c390f}]{Programmation sur mesure}
 \begin{itemize}
 \item Dans la \alert{programmation sur mesure}, on utilise un type de mémoire qui comporte initialement des connexions entre toutes les sorties du décodeur et toutes les entrées des portes OU de sortie (la mémoire en configuration initiale comporte des 1 partout).
 
 \item La programmation, qui peut se faire chez le développeur au moyen d'un dispositif de programmation (ou programmeur) spécialement conçu à cette fin, consiste à supprimer les connexions qui ne sont pas nécessaires en envoyant des impulsions à forte tension pour faire fondre les fusibles de connexions spécifiques.
 
-\item Un fusible fondu (pas de connexion) correspondant à un bit 0 dans la mémoire.
+\item Un fusible fondu (pas de connexion) correspond à un bit 0 dans la mémoire.
 
-\item Cette programmation est bien entendu irréversible: impossible de reconnecter une fois que le fusible est fondu.
+\item Cette programmation est bien entendu irréversible: impossible de rétablir la connexion une fois que le fusible est fondu.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb48e8eb}]{PROM}
+\begin{frame}[label={sec:orgb3abdaf}]{PROM}
 \begin{itemize}
-\item Avec un \alert{PROM} (pour \emph{Programmable ROM}), il est possible d'effacer la configuration dans son ensemble en soumettant la puce à une lumière ultraviolet pendant un certain temps.
+\item Avec une \alert{PROM} (pour \emph{Programmable ROM}), il est possible d'effacer la configuration dans son ensemble en soumettant la puce à une lumière ultraviolette pendant un certain temps.
 
-\item Ce bombardement énergétique permet de décharger les grilles flottantes des dispositifs qui implémente les connexions.
+\item Ce bombardement énergétique permet de décharger les grilles flottantes des dispositifs qui implémentent les connexions.
 
-\item La mémoire PROM peut être reconfigurée de nouveau.
+\item La mémoire PROM peut être configurée de nouveau.
 
 \item Avec la \alert{programmation électrique}, il est possible de reconfigurer l'ensemble d'une mémoire dite EEPROM (\emph{Electrically Erasable PROM}) en la soumettant à un signal électrique d'effacement.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgdcf80ba}]{Programmation \emph{flash}}
+\begin{frame}[label={sec:orgeb8ebff}]{Programmation \emph{flash}}
 \begin{itemize}
 \item Les ROM à \alert{programmation \emph{flash}} sont semblables aux EEPROM, mais la reconfiguration peut se faire adresse par adresse.
 

@@ -1,13 +1,13 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Circuits séquentiels
 
 ** Objectifs
-- Pouvoir identifier un circuit logique séquentiel
-- Savoir distinguer entre les circuits séquentiels synchrones et asynchrones
-- Être familier avec les principaux types de loquets, pouvoir en
+- Identifier un circuit logique séquentiel
+- Faire la distinction entre les circuits séquentiels synchrones et asynchrones
+- Se familiariser avec les principaux types de loquets, en
   expliquer le fonctionnement
-- Être familier avec les principaux types de bascules, pouvoir en
+- Se familiariser avec les principaux types de bascules,  en
   expliquer le fonctionnement
 
 ** Modèle d'un circuit séquentiel
@@ -16,7 +16,7 @@
 
 - Le modèle général d'un circuit séquentiel est illustré sur la figure [[fig-circ_seq]].
 
-#+begin_src ditaa :file Sources_images_logiques/images/circuit_seq.png :results silent :exports none
+#+begin_src ditaa :file ../Images_png/circuit_seq.png :results silent :exports none
              +------------------+     
              |                  | 
  Entrées --->+     Circuit      +------> Sorties     
@@ -33,7 +33,7 @@
 
 #+CAPTION: Modèle de circuit séquentiel
 #+NAME:fig-circ_seq
-[[file:../../Sources_images_logiques/images/circuit_seq.png]]
+[[file:../Images_png/circuit_seq.png]]
 
 ** Modèle d'un circuit séquentiel ... 2
 
@@ -51,7 +51,7 @@
 
 - Intuitivement, on peut penser que le nombre d'états distincts sera fonction du nombre de valeurs binaires qui seront mémorisées.
 
-- Le comportement d'un système séquentiel est donc caractérisé par une séquence temporelle d'entrées, de sorties et de valeurs interne d'état.
+- Le comportement d'un système séquentiel est donc caractérisé par une séquence temporelle d'entrées, de sorties et de valeurs internes d'état.
 
 ** Circuits séquentiel synchrones ou asynchrones
 
@@ -63,7 +63,7 @@
 
 ** Circuits séquentiel synchrones
 
-- Un circuit séquentiel synchrone fait appel à un signal spécial appelé *horloge* qui rythme les changement d'état et de sorties afin qu'il se produisent à des instants discrets.
+- Un circuit séquentiel synchrone fait appel à un signal spécial appelé *horloge* qui rythme les changements d'état et de sorties afin qu'ils se produisent à des instants discrets.
 
 - Les éléments de mémoire qui stockent les valeurs binaires sont appelés *bascules* (/flip-flops/ en anglais).
 
@@ -75,7 +75,7 @@
 
 - La figure suivante présente le modèle général d'un circuit séquentiel synchrone.
 
-#+begin_src ditaa :file Sources_images_logiques/images/circuit_seq_sync.png  :results silent :exports none
+#+begin_src ditaa :file ../Images_png/circuit_seq_sync.png  :results silent :exports none
              +------------------+     
              |                  | 
  Entrées --->+     Circuit      +------> Sorties     
@@ -94,15 +94,15 @@
 
 #+CAPTION: Modèle de circuit séquentiel synchrone
 #+NAME:fig-circ_seq_sync
-[[file:../../Sources_images_logiques/images/circuit_seq_sync.png]]
+[[file:../Images_png/circuit_seq_sync.png]]
 
 ** Signal d'horloge
 
-- Le signal d'horloge est typiquement une onde carrée, telle qu'illustré sur la figure suivante.
+- Le signal d'horloge est typiquement une onde carrée, comme illustré sur la figure suivante.
 
 #+CAPTION:  Signal d'horloge
 #+NAME:fig-horloge
-[[file:../../Sources_images_logiques/images/horloge.svg]]
+[[file:../Images_svg/horloge.svg]]
 
 ** Éléments de mémoire
 
@@ -142,14 +142,14 @@
 #+CAPTION:Schéma du loquet SR avec portes NOR
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRlatch
-[[file:../../Sources_images_logiques/images/SRlatch.svg]]
+[[file:../Images_svg/SRlatch.svg]]
 
 ** Loquet SR ... 3
 
 #+CAPTION:Schéma du loquet SR NOR mettant la boucle en évidence
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRlatch_bouc
-[[file:../../Sources_images_logiques/images/SRlatch_bouc.svg]]
+[[file:../Images_svg/SRlatch_bouc.svg]]
 
 ** Loquet SR ... 4
 
@@ -163,7 +163,7 @@
 
 ** Loquet SR ... 5
 
-- Dans une application normale, on voudra éviter la cas d'entrée \(S=1, R=1\).
+- Dans une application normale, on voudra éviter le cas d'entrée \(S=1, R=1\).
 
 - En fonctionnement normal, à moins de vouloir changer l'état, on garde les deux entrées à \(S=0, R=0\) et l'état du loquet se maintient.
 
@@ -171,7 +171,7 @@
 
 ** Loquet SR ... 6
 
-- On doit s'assurer de ramener l'entrée \(S\) à 0 avant d'effectuer d'autres changements aux entrées, pour éviter le cas interdit \(S=1, R=1\).
+- On doit s'assurer de ramener l'entrée \(S\) à 0 avant d'apporter d'autres changements aux entrées, pour éviter le cas interdit \(S=1, R=1\).
 
 - De même, en appliquant le niveau 1 pendant un certain temps à \(R\) seulement, le loquet se désactive, peu importe l'état dans lequel il se trouvait auparavant.
 
@@ -194,7 +194,7 @@
 #+CAPTION:Loquet SR en portes NAND
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRlatch_nand
-[[file:../../Sources_images_logiques/images/SRlatch_nand.svg]]
+[[file:../Images_svg/SRlatch_nand.svg]]
 
 ** Loquet SR avec portes NAND ... 2
 
@@ -223,7 +223,7 @@
 #+CAPTION:  Loquet SR NAND avec signal de contrôle
 #+attr_latex: :scale 0.75
 #+NAME:fig-SRnand_en
-[[file:../../Sources_images_logiques/images/SRlatch_nand_en.svg]]
+[[file:../Images_svg/SRlatch_nand_en.svg]]
 
 ** Loquet avec signal de contrôle
 
@@ -253,7 +253,7 @@
 
 - Une option pour éliminer la condition qui fait apparaître un état indéterminé est de s'assurer de toujours commander \(S\) et \(R\) avec des signaux complémentaires.
 
-- C'est ainsi qu'on arrive au loquet D, illustré sur la figure [[fig-Dlatch]], qui ne comporte qu'une entrée de données \(D\) et une entrée de contrôle \(E\).
+- C'est ainsi qu'on arrive au loquet D, illustré sur la figure [[fig-Dlatch]], qui ne comporte qu'une entrée de donnée \(D\) et une entrée de contrôle \(E\).
 
 - La valeur de \(D\) est reflétée à \(Q\) lorsque \(E=1\) et se maintient après que \(E\) passe à 0 (tableau [[tab-Dlatch]]).
 
@@ -262,13 +262,13 @@
 #+CAPTION:  Schéma du loquet D
 #+attr_latex: :scale 0.75
 #+NAME:fig-Dlatch
-[[file:../../Sources_images_logiques/images/Dlatch.svg]]
+[[file:../Images_svg/Dlatch.svg]]
 
 ** Loquet D: tableau de fonctionnement
 
 #+CAPTION:Loquet D: tableau de fonctionnement
 #+NAME:tab-Dlatch
-| \(E\) | \(D\) |   | prochain \(Q\) |
+| \(E\) | \(D\) |   | Prochain \(Q\) |
 |-------+-------+---+----------------|
 |     0 |     X |   | inchangé       |
 |     1 |     0 |   | \(Q = 0\)      |
@@ -281,19 +281,19 @@
 #+CAPTION:Symbole du loquet D
 #+attr_latex: :scale 0.75
 #+NAME:fig-schema_latchD
-[[file:../../Sources_images_logiques/images/schema_latchD.svg]]
+[[file:../Images_svg/schema_latchD.svg]]
 
 ** Application: rebonds d'interrupteurs
 
 - Lorsqu'on utilise un interrupteur pour commuter un signal entre les niveaux qui correspondent aux valeurs logiques 0 et 1, le contact ne se fait pas de façon franche sans hésitations, et le signal observé rebondit plusieurs fois avant de se stabiliser à sa valeur, comme on peut le voir sur la partie de gauche de la figure [[fig-debounce]].
 
-- Ces rapides aller-retours entre les niveaux peuvent bien souvent déclencher un circuit logique et le mettre dans un état imprévisible.
+- Ces rapides allers-retours entre les niveaux peuvent bien souvent déclencher un circuit logique et le mettre dans un état imprévisible.
 
 ** Contacts et rebonds
 
 #+CAPTION:Contacts et rebonds
 #+NAME:fig-debounce
-[[file:../../Sources_images_logiques/images/debounce.svg]]
+[[file:../Images_svg/debounce.svg]]
 
 ** Application: loquet contre rebonds d'interrupteurs
 
@@ -305,11 +305,11 @@
 
 - On obtient donc une transition franche sur \(Q\).
 
-** Bascules (Flip Flops)
+** Bascules (Flip-flops)
 
 - Les loquets peuvent remplir le rôle de mémoriser des valeurs binaires, mais le fait que les changements d'état soient activés par un *niveau* pose des difficultés.
 
-- En effet, si les valeurs à l'entrée changent pendant que le signal de contrôle est actif, la valeur qui sera mémorisée par la rétroaction sera la dernière qui aura eu le temps de s'y établir, qui ne sera pas nécessairement la valeur que le concepteur voulait.
+- En effet, si les valeurs à l'entrée changent pendant que le signal de contrôle est actif, la valeur qui sera mémorisée par la rétroaction sera la dernière qui aura eu le temps de s'y établir, qui ne sera pas nécessairement la valeur souhaitée.
 
 - Si la sortie du loquet est acheminée, directement ou à travers un circuit combinatoire, vers ses entrées ou les entrées d'autres loquets (activés par le même signal de contrôle) dans une boucle du circuit séquentiel, il se peut que les délais de propagation et de prise en compte des entrées fassent que la sortie globale du circuit séquentiel soit imprévisible.
 
@@ -330,13 +330,13 @@
 
 #+CAPTION:  Signaux d'horloge avec fronts de déclenchement
 #+NAME:fig-horlogeP
-[[file:../../Sources_images_logiques/images/horlogeP.svg]]
+[[file:../Images_svg/horlogeP.svg]]
 
 ** Bascule D
 
 Le secret pour isoler la valeur mémorisée par l'élément de mémoire des changements qui pourraient survenir sur les entrées consiste à utiliser un mécanisme semblable à celui d'un sas.
 
-Selon Larousse, la définition d'un sas est
+Selon le /Larousse/, la définition d'un sas est
 
 #+BEGIN_QUOTE
 Enceinte ou passage clos, muni de deux portes ou systèmes de fermeture
@@ -347,9 +347,9 @@ isolés l'un de l'autre.
 
 ** Bascule D ... 2
 
-- Dans notre contexte, nous utiliserons deux loquets en série, avec la sortie du premier, appelé *maître* reliée à l'entrée du deuxième, appelé *esclave*.
+- Dans notre contexte, nous utiliserons deux loquets en série, avec la sortie du premier, appelé *maître*, reliée à l'entrée du second, appelé *esclave*.
 
-- Le loquet maître sera activé par le signal d'horloge alors que le loquet esclave sera activé par le complément du signal d'horloge.
+- Le loquet maître sera activé par le signal d'horloge, alors que le loquet esclave sera activé par le complément du signal d'horloge.
 
 - De cette façon, un seul des loquets sera actif à la fois, comme dans un sas.
 
@@ -360,7 +360,7 @@ isolés l'un de l'autre.
 #+CAPTION:  Bascule D maître-esclave
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_mast_slave_sanst
-[[file:../../Sources_images_logiques/images/D_mast_slave_sanst.svg]]
+[[file:../Images_svg/D_mast_slave_sanst.svg]]
 
 ** Bascule D maître-esclave: fonctionnement
 
@@ -368,7 +368,7 @@ isolés l'un de l'autre.
 
 - Puis, lorsque le signal d'horloge sera au niveau bas, ce premier loquet sera désactivé, sa sortie sera maintenue, et le deuxième loquet sera activé.
 
-- Comme l'entrée du loquet esclave est alimentée par le loquet maître dont la sortie est maintenue, c'est la valeur mémorisée par le maître qui sera mémorisée dans l'esclave, et qui apparaîtra donc en sortie de l'ensemble.
+- Comme l'entrée du loquet esclave est alimentée par le loquet maître dont la sortie est maintenue, c'est la valeur mémorisée par le maître qui sera mémorisée dans l'esclave et qui apparaîtra donc en sortie de l'ensemble.
 
 ** Bascule D maître-esclave: fonctionnement ... 2
 
@@ -388,7 +388,7 @@ En résumé:
 
 ** Autres configurations
 
-- D'autres configuations permettent de réaliser ce comportement de sas.
+- D'autres configurations permettent de réaliser ce comportement de sas.
 
 - Par exemple, le circuit de la figure [[fig-D_front_montant]] utilise trois éléments en loquet SR NAND: les deux premiers sont activés par le signal de donnée \(D\) et l'horloge, et le dernier mémorise et fournit le signal de sortie \(Q\).
 
@@ -399,32 +399,32 @@ En résumé:
 #+CAPTION:Bascule D à déclenchement sur front montant
 #+attr_latex: :scale 0.75
 #+NAME:fig-D_front_montant
-[[file:../../Sources_images_logiques/images/D_front_montant.svg]]
+[[file:../Images_svg/D_front_montant.svg]]
 
 ** Bascule D à déclenchement sur front montant ... 2
 
-- Pour bien comprendre son comportement, la série de figures suivantes permet d'en suivre le fonctionnement.
+- Pour bien comprendre le comportement du circuit, la série de figures suivantes permet d'en suivre le fonctionnement.
 
-- Sur les figures, les valeurs binaires sont indiqués par des couleurs: un signal en vert sombre dénote la valeur 0 et un signal en vert clair représente la valeur 1.
+- Sur les figures, les valeurs binaires sont indiquées par des couleurs: un signal en vert sombre dénote la valeur 0 et un signal en vert clair représente la valeur 1.
 
-- Comme on peut voir sur la figure [[fig-D_c0_d0]], lorsque \(clk = 0\), les entrées intermédiaires \(S\) et \(R\) sont maintenues au niveau 1, quelle que soit la valeur de l'entrée \(D\), ce qui assure de maintenir la valeur de sortie en \(Q\).
+- Comme on peut le voir sur la figure [[fig-D_c0_d0]], lorsque \(clk = 0\), les entrées intermédiaires \(S\) et \(R\) sont maintenues au niveau 1, quelle que soit la valeur de l'entrée \(D\), ce qui assure de maintenir la valeur de sortie en \(Q\).
 
 ** Bascule au repos
 
 #+CAPTION:  Bascule au repos  \(clk = 0, D=0\)
 #+attr_latex: :scale 0.5
 #+NAME:fig-D_c0_d0
-[[file:../../Sources_images_logiques/images/D_c0_d0.svg]]
+[[file:../Images_svg/D_c0_d0.svg]]
 
 ** Bascule en maintien
 
 Même lorsque l'entrée de donnée \(D\) change, la valeur de sortie est
-maintenue, comme on voit sur la figure [[fig-D_c0_d1]].
+maintenue, comme on le voit sur la figure [[fig-D_c0_d1]].
 
 #+CAPTION:  Bascule au repos  \(clk = 0, D \rightarrow 1\)
 #+attr_latex: :scale 0.5
 #+NAME:fig-D_c0_d1
-[[file:../../Sources_images_logiques/images/D_c0_d1.svg]]
+[[file:../Images_svg/D_c0_d1.svg]]
 
 ** Bascule: opération reset
 
@@ -435,7 +435,7 @@ devient 0, ce qui met \(Q\) à 0 (opération /reset/) (figure
 #+CAPTION:  Bascule  /reset/ \(clk \rightarrow 1, D=0\)
 #+attr_latex: :scale 0.5
 #+NAME:fig-D_c1_d0
-[[file:../../Sources_images_logiques/images/D_c1_d0.svg]]
+[[file:../Images_svg/D_c1_d0.svg]]
 
 ** Bascule: entrée de donnée qui change
 
@@ -448,7 +448,7 @@ NAND du bas.
 #+CAPTION:  Bascule   \(clk = 1, D \rightarrow 1\)
 #+attr_latex: :scale 0.5
 #+NAME:fig-D_c1_dchange
-[[file:../../Sources_images_logiques/images/D_c1_dchange.svg]]
+[[file:../Images_svg/D_c1_dchange.svg]]
 
 ** Bascule: entrée de donnée qui change ... 2
 
@@ -465,7 +465,7 @@ un changement d'état de \(S\) lorsque l'horloge passera à 1.
 #+CAPTION:  Bascule   \(clk =0, D = 1\)
 #+attr_latex: :scale 0.5
 #+NAME:fig-D_c0_d1_avant
-[[file:../../Sources_images_logiques/images/D_c0_d1_avant.svg]]
+[[file:../Images_svg/D_c0_d1_avant.svg]]
 
 ** Bascule opération /set/
 
@@ -476,7 +476,7 @@ que \(S\) est devenu 1, ce qui a amené \(Q\) à 1 (opération /set/)
 #+CAPTION:  Bascule  /set/ \(clk \rightarrow 1, D=1\)
 #+attr_latex: :scale 0.5
 #+NAME:fig-D_c1_d1
-[[file:../../Sources_images_logiques/images/D_c1_d1.svg]]
+[[file:../Images_svg/D_c1_d1.svg]]
 
 ** Chronogramme
 
@@ -486,7 +486,7 @@ l'état 0.
 
 #+CAPTION:  Chronogramme pour une bascule D
 #+NAME:fig-chron_D
-[[file:../../Sources_images_logiques/images/chron_D.svg]]
+[[file:../Images_svg/chron_D.svg]]
 
 ** Délais et réponse temporelle
 
@@ -500,13 +500,13 @@ l'état 0.
 
 #+CAPTION:  Chronogramme avec temps et délais
 #+NAME:fig-D_setup
-[[file:../../Sources_images_logiques/images/D_setup.svg]]
+[[file:../Images_svg/D_setup.svg]]
 
 ** Délais et réponse temporelle ... 2
 
 - Pour assurer un fonctionnement adéquat de la bascule, on doit respecter un temps de *mise en place* (/setup/) minimum pendant lequel la valeur à l'entrée de donnée D doit être maintenue *avant* la transition de déclenchement.
 
-- On montre aussi sur la figure le délai $t_{hold}$ entre le moment de déclenchement, et un prochain changement de valeur à l'entrée de donnée D.
+- On montre aussi sur la figure le délai $t_{hold}$ entre le moment de déclenchement et un prochain changement de valeur à l'entrée de donnée D.
 
 - Pour un fonctionnement adéquat, on doit également respecter un temps de *maintien* (/hold/) minimum pendant lequel la valeur à l'entrée de donnée D doit être maintenue *après* la transition de déclenchement de l'horloge.
 
@@ -520,7 +520,7 @@ l'état 0.
 
 #+CAPTION:  Symboles de bascules
 #+NAME:fig-schema_bascules
-[[file:../../Sources_images_logiques/images/schema_bascules.svg]]
+[[file:../Images_svg/schema_bascules.svg]]
 
 ** Autres bascules
 
@@ -537,7 +537,7 @@ basculer son état de sortie (/toggle/).
 #+CAPTION:  Bascule JK
 #+attr_latex: :scale 0.75
 #+NAME:fig-bascule_JK
-[[file:../../Sources_images_logiques/images/bascule_JK.svg]]
+[[file:../Images_svg/bascule_JK.svg]]
 
 ** Bascule JK: Chronogramme
 
@@ -547,7 +547,7 @@ enfin trois /toggles/ de suite.
 
 #+CAPTION:Chronogramme de la bascule JK
 #+NAME:fig-chron_JK
-[[file:../../Sources_images_logiques/images/chron_JK.svg]]
+[[file:../Images_svg/chron_JK.svg]]
 
 ** Bascule T
 
@@ -558,7 +558,7 @@ bascule D ou d'une bascule JK (figure [[fig-basculeT]]).
 #+CAPTION:  Bascule T
 #+attr_latex: :scale 0.75
 #+NAME:fig-basculeT
-[[file:../../Sources_images_logiques/images/basculeT.svg]]
+[[file:../Images_svg/basculeT.svg]]
 
 ** Tableaux caractéristiques
 
@@ -615,7 +615,7 @@ $$ Q(t+1) = T \operatorname{Xor} Q = T Q^\prime + T^\prime Q $$
 
 - Ces entrées sont typiquement utilisées pour faire un /reset/ ou un /set/ de la bascule, par exemple pour une remise à zéro initiale d'un circuit séquentiel.
 
-- Une configuration typique est illustrée par la bascule de la figure [[fig-D_front_montant_setasyn]] qui comporte une entrée =Reset'= qui permet de forcer l'état en agissant sur une porte NAND de chacune des paires de portes.
+- Une configuration typique est illustrée par la bascule de la figure [[fig-D_front_montant_setasyn]] qui comporte une entrée =Reset'=, laquelle permet de forcer l'état en agissant sur une porte NAND de chacune des paires de portes.
 
 - Cette entrée est active au niveau bas, c'est pourquoi il y a une indication de complément dans son symbole.
 
@@ -624,5 +624,5 @@ $$ Q(t+1) = T \operatorname{Xor} Q = T Q^\prime + T^\prime Q $$
 #+CAPTION:  Bascule D avec reset asynchrone
 #+attr_latex: :scale 0.65
 #+NAME:fig-D_front_montant_setasyn
-[[file:../../Sources_images_logiques/images/D_front_montant_setasyn.svg]]
+[[file:../Images_svg/D_front_montant_setasyn.svg]]
 

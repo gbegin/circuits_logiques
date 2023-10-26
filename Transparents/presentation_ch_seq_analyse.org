@@ -1,27 +1,27 @@
-#+SETUPFILE: ../setup_slides
+#+SETUPFILE: ./setup_slides
 
 * Analyse de circuits logiques séquentiels synchrones
 ** Objectifs
-- Pouvoir analyser en détail le comportement d'un circuit séquentiel
+- Analyser en détail le comportement d'un circuit séquentiel
   synchrone à partir de son schéma, selon différents types de bascules
-  employées
-- Pouvoir établir les équations de transition qui commandent les bascules
-- Être familier avec la notion de tableau d'excitation
-- Pouvoir tracer un diagramme d'état
-- Pouvoir interpréter le comportement du système à partir de son
+  employés
+- Établir les équations de transition qui commandent les bascules
+- Se familiariser avec la notion de tableau d'excitation
+- Tracer un diagramme d'état
+- Interpréter le comportement du système à partir de son
   diagramme d'état
-- Savoir distinguer entre les deux modèles de circuit séquentiels
-  (Moore et Mealy)
+- Faire la distinction entre les deux modèles de circuits séquentiels
+  (Mealy et Moore)
 
 ** Démarche d'analyse
 
-- Analyser un circuit logique séquentiel a pour but de déterminer le comportement qu'aura le circuit selon les séquences d'entrées qui lui seront appliquées et l'état dans lequel il se trouve initialement.
+- Analyser un circuit logique séquentiel a pour but de déterminer le comportement qu'aura le circuit selon les séquences d'entrée qui lui seront appliquées et l'état dans lequel il se trouve initialement.
 
-- On voudra aussi connaître quelles séquences de sorties seront produites.
+- On voudra aussi connaître quelles séquences de sortie seront produites.
 
 - Dans la mesure où un circuit comporte une ou des bascules (peu importe le type) et un signal d'horloge, on peut considérer qu'il s'agit d'un circuit séquentiel synchrone.
 
-- Le type de bascule sera pris en compte pour l'analyse, qui consistera à déterminer, pour un état présent donné, quel seront les prochains états possibles selon les valeurs d'entrée.
+- Le type de bascule sera pris en compte pour l'analyse, qui consistera à déterminer, pour un état présent donné, quels seront les prochains états possibles selon les valeurs d'entrée.
 
 ** Étapes
 
@@ -45,22 +45,18 @@ Les grandes lignes de la démarche sont les suivantes.
 
 2. [@2]Expressions logiques du décodeur de prochain état: établies pour
    chaque entrée des bascules, en fonction des entrées externes et des
-   variables d'état.
+   variables d'état
 
 3. Expressions logiques des sorties externes, établies en fonction des
-   entrées externes et des variables d'état.
+   entrées externes et des variables d'état
 
-** Tableau d'excitation, diagramme d'état et interprétation
+4. [@4]Construction du tableau d'excitation
 
-4. [@4]Construction du tableau d'excitation.
+5. [@5]Diagramme d'état
 
-5. [@5]Diagramme d'état.
+6. Interprétation du comportement du circuit séquentiel
 
-6. Interprétation du comportement du circuit séquentiel.
-
-** Équations de transition
-
-- Au centre de ce processus se trouve l'analyse des circuits combinatoires qui déterminent ce que seront les entrées des bascules.
+Au centre de ce processus se trouve l'analyse des circuits combinatoires qui déterminent ce que seront les entrées des bascules.
 
 - Nous chercherons à établir les *équations de transition* qui précisent ce que sera le prochain état en fonction des entrées et de l'état présent.
 
@@ -73,16 +69,16 @@ figure [[fig-exemple_seq1]].
 #+CAPTION:  Circuit séquentiel synchrone à analyser
 #+attr_latex: :scale 0.55
 #+NAME:fig-exemple_seq1
-[[file:../../Sources_images_logiques/images/exemple_seq1.svg]]
+[[file:../Images_svg/exemple_seq1.svg]]
 
  
 ** Identification des éléments fonctionnels
 
-1. Il y a une seule entrée externe \(I\).
-2. Il y a deux éléments de mémoire, étiquetés \(Z_0^n\) et  \(Z_1^n\). 
-3. On a un décodeur de prochain état pour deux bascules D.
-4. Il y a deux sorties externes: \(S\) et \(U\).
-5. Il y a un décodeur de sortie. 
+1. Il y a une seule entrée externe \(I\)
+2. Il y a deux éléments de mémoire, étiquetés \(Z_0^n\) et  \(Z_1^n\) 
+3. On a un décodeur de prochain état pour deux bascules D
+4. Il y a deux sorties externes: \(S\) et \(U\)
+5. Il y a un décodeur de sortie 
 
 ** Expressions logiques pour le décodeur de prochain état 
 
@@ -99,8 +95,8 @@ figure [[fig-exemple_seq1]].
 ** Tableau d'excitation
 
 Chaque ligne du tableau d'excitation [[tab-excit_exemp]] montre, à gauche,
-un état présent (identifiable par les valeurs de bascules) et une
-combinaison de valeurs d'entrées, et à droite, le prochain état et les
+un état présent (identifiable par les valeurs des bascules) et une
+combinaison de valeurs d'entrée, et à droite, le prochain état et les
 valeurs de sortie produites.
 
 ** Tableau d'excitation ... 2
@@ -126,7 +122,7 @@ valeurs de sortie produites.
 
 - On peut utiliser des étiquettes à l'intérieur des cercles pour nommer les états.
 
-- On peut aussi y indiquer les numéros d'états (soit en vecteurs de bits, soit avec des nombres binaires comme ici sur la figure).
+- On peut aussi y indiquer les numéros d'état (soit en vecteurs de bits, soit avec des nombres binaires comme ici sur la figure).
 
 ** Diagramme d'état ... 2
 
@@ -149,7 +145,7 @@ valeurs de sortie produites.
 #+CAPTION:  Diagramme d'état
 #+attr_latex: :scale 0.55
 #+NAME:fig-exemple_seq1_fsm
-[[file:../../Sources_images_logiques/images/exemple_seq1_fsm.svg]]
+[[file:../Images_svg/exemple_seq1_fsm.svg]]
 
 ** Interprétation du comportement du circuit séquentiel.
 
@@ -171,14 +167,14 @@ valeurs de sortie produites.
 
 - La figure [[fig-exemple_seq1_run]] montre une trace des formes d'onde observées en fonctionnement pour le système.
 
-- Dans cet exemple, le système boucle d'abord sur l'état /a/ (valeur 0 sur la trace) puis, passe à l'état /b/ (valeur 1) et ensuite l'état /d/ (valeur 3), boucle sur l'état /d/ et passe ensuite à l'état /c/ (valeur 2) pour finalement revenir à l'état /a/.
+- Dans cet exemple, le système boucle d'abord sur l'état /a/ (valeur 0 sur la trace), puis passe à l'état /b/ (valeur 1) et ensuite à l'état /d/ (valeur 3), boucle sur l'état /d/ et passe ensuite à l'état /c/ (valeur 2) pour finalement revenir à l'état /a/.
 
 ** Exemple de fonctionnement
 
 #+CAPTION:  Exemple de fonctionnement
 #+attr_latex: :scale 0.55
 #+NAME:fig-exemple_seq1_run
- [[file:../../Sources_images_logiques/images/exemple_seq1_run.svg]]
+ [[file:../Images_svg/exemple_seq1_run.svg]]
 
 ** Analyse pour des bascules JK
 
@@ -195,11 +191,11 @@ Considérons le circuit séquentiel de la figure [[fig-seq_JK]].
 #+CAPTION:  Exemple de circuit séquentiel avec des bascules JK
 #+attr_latex: :scale 0.75
 #+NAME:fig-seq_JK
-[[file:../../Sources_images_logiques/images/seq_JK.svg]]
+[[file:../Images_svg/seq_JK.svg]]
 
 ** Exemple avec bascules JK ... 2
 
-À partir des expression des entrées \(J\) et \(K\) suivantes:
+À partir des expressions des entrées \(J\) et \(K\) suivantes:
 
 $$ J_0 = (q_1^{n})^\prime $$
 
@@ -230,13 +226,13 @@ on peut remplir le tableau d'excitation (tableau [[tab-seq_JK]]).
 #+CAPTION:  Diagramme d'état du circuit séquentiel avec bascules JK
 #+attr_latex: :scale 0.55
 #+NAME:fig-seq_JKb_FSM
-[[file:../../Sources_images_logiques/images/seq_JKb_FSM.svg]]
+[[file:../Images_svg/seq_JKb_FSM.svg]]
 
 ** Modèles de machines séquentielles
 
-- On appelle les modèles abstraits de systèmes séquentiels des *machines à état fini* (en anglais, /Finite State Machines/, (FSM)).
+- On appelle les modèles abstraits de systèmes séquentiels des *automates finis* ou des *machines à état fini* (en anglais, /Finite State Machines/ (FSM)).
 
-- On distingue deux modèles de circuit séquentiels, selon la façon dont les sortie sont obtenues.
+- On distingue deux modèles de circuits séquentiels, selon la façon dont les sorties sont obtenues.
 
 - Dans le modèle de Mealy, les sorties dépendent à la fois des entrées et des variables d'état présent (figure [[fig-mealy]]).
 
@@ -263,7 +259,7 @@ on peut remplir le tableau d'excitation (tableau [[tab-seq_JK]]).
 
 #+CAPTION: Machine de Mealy
 #+NAME:fig-mealy
-[[file:../../Sources_images_logiques/images/mealy.png]]
+[[file:../Images_png/mealy.png]]
 
 #+begin_src ditaa :file Sources_images_logiques/images/moore.png :results silent :exports none
              +-----------------+                            +----------------+
@@ -284,5 +280,5 @@ on peut remplir le tableau d'excitation (tableau [[tab-seq_JK]]).
 
 #+CAPTION: Machine de Moore
 #+NAME:fig-moore
-[[file:../../Sources_images_logiques/images/moore.png]]
+[[file:../Images_png/moore.png]]
 
