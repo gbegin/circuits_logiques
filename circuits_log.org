@@ -1,9 +1,13 @@
 #+OPTIONS: toc:nil
 #+OPTIONS: f
-#+OPTIONS: num: 4
+#+OPTIONS: num: 5
 #+LANGUAGE: fr
 #+EXCLUDE_TAGS: r
 
+#+OPTIONS: broken-links:mark
+
+#+LATEX_CLASS: book
+#+LATEX_CLASS_OPTIONS: [letter, oneside]
 #+LATEX_HEADER: \usepackage[a-1b]{pdfx}
 #+LATEX_HEADER: \usepackage[]{babel}
 #+LATEX_HEADER: \frenchbsetup{og=«,fg=»}
@@ -13,9 +17,9 @@
 
 #+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \usepackage{titlesec}
-#+LATEX_HEADER: \newcommand{\sectionbreak}{\clearpage}
 #+LATEX_HEADER: \addto\captionsfrench{\renewcommand{\listfigurename}{Liste des figures}}
 #+LATEX_HEADER: \renewcommand\listoflistingscaption{Liste des listages}
+#+LATEX_HEADER: \renewcommand{\listingscaption}{Listage}% Listing -> Listage (avec minted)
 
 #+LATEX_HEADER: \usepackage{fancyhdr}
 #+LATEX_HEADER: \pagestyle{fancy}
@@ -24,8 +28,68 @@
 #+LATEX_HEADER: \fancyhead[R]{\rightmark}
 #+LATEX_HEADER: \fancyfoot[L]{\includegraphics[width=1cm]{by-sa.png}}
 #+LATEX_HEADER: \fancyfoot[C]{\thepage}
+#+LATEX_HEADER: \AtBeginEnvironment{minted}{\renewcommand{\fcolorbox}[4][]{#4}}
 
 #+OPTIONS: d:nil
+#+OPTIONS: title:nil
+
+#+BEGIN_EXPORT latex
+
+%----------------------------------------------------------------------------------------
+%	Page titre
+%----------------------------------------------------------------------------------------
+
+\titlepage 
+	{\includegraphics[width=0.45\paperwidth]{image_final/final/couverture_sans-text.png}} % Insertion de l'image 
+	{ % titre, auteur
+		\centering\sffamily % Police 
+		{\Huge\bfseries Circuits logiques combinatoires et séquentiels\par} % Book title
+		\vspace{16pt} % Espace vertical
+%		{\LARGE \par} % sous-titre
+		\vspace{24pt} 
+		{\huge\bfseries Guy Bégin\par} % Auteur
+	}
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty} % élimination des en-têtes et pied de pages
+
+~\vfill % place le tout en bas de page
+
+\noindent Copyright \copyright\ 2023 Guy Bégin\\ % Copyright 
+
+%\noindent \textsc{éditeur}\\ % éditeur
+
+\noindent 
+Le contenu de ce manuel électronique est
+disponible en vertu des conditions de la
+\href{https://creativecommons.org/licenses/by-sa/4.0/deed.fr}{Licence
+Creative Commons Attribution - Partage dans les mêmes conditions 4.0
+International}.
+
+Vous êtes autorisé à : 
+
+\begin{description}
+\item[{Partager}] – Copier, distribuer et communiquer le matériel par tous
+moyens et sous tous formats.
+\item[{Adapter}] – Remixer, transformer et créer à partir du matériel pour
+toute utilisation, y compris commerciale.
+\end{description}
+
+Selon les conditions suivantes :
+
+\begin{description}
+\item[{Paternité}] – Vous devez citer le nom de l'auteur original.
+\item[{Mêmes conditions}] – Si vous remixez, transformez, ou créez à
+partir du matériel composant l'Oeuvre originale, vous devez diffuser
+l'Oeuvre modifiée avec la même licence.
+\end{description}
+
+\noindent \textit{Octobre 2023} %  date
+
+#+END_EXPORT
 :meta_donnees:
 | Métadonnée                  | Valeur                                                                           |
 |-----------------------------+----------------------------------------------------------------------------------|
@@ -37,7 +101,7 @@
 | dc.date.accessioned         |                                                                                  |
 | dc.subject.classification   | Technologie et ingénierie                                                        |
 | dc.rights                   | Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0) |
-| dc.rights.uri               | https://creativecommons.org/licenses/by-sa/4.0/                                  |
+| dc.rights.uri               | https://creativecommons.org/licenses/by-sa/4.0/deed.fr                           |
 | dc.publisher                |                                                                                  |
 | dcterms.medium              | Texte/HTML                                                                       |
 | dc.language                 | fra                                                                              |
@@ -60,40 +124,40 @@
 | dc.audience                 |                                                                                  |
 | dcterms.TableOfContent      |                                                                                  |
 
-| *Type de métadonnées*                                 | *Métadonnées*                                   |
-|-------------------------------------------------------+-------------------------------------------------|
-| Auteur(s)                                             | Bégin, Guy                                      |
-| Affiliation (université, département)                 | Université du Québec à Montréal.                |
-|                                                       | Département d'informatique                      |
-| Contributeur                                          |                                                 |
-| Titre (tel qu'apparait sur la REL)                    | Circuits logiques combinatoires et séquentiels  |
-| Date de création (année, mois, jour si disponible)    | 2022-11                                         |
-| Date de publication (année, mois, jour si disponible) |                                                 |
-| Éditeur                                               | Université du Québec à Montréal                 |
-| Résumé                                                | [fn:1]                                          |
-| URL de la ressource primaire lorsque si dérivée       | https://github.com/gbegin/circuits_logiques     |
-| Discipline (voir annexe 1)                            | Technologie et ingénierie                       |
-| Niveau scolaire de la ressource (voir annexe 5)       | Université premier cycle                        |
-|                                                       | Formation technique                             |
-| Type de matériel pédagogique (voir annexe 3)          | Manuel                                          |
-| Méthode d'enseignement (voir annexe 4)                | Autre                                           |
-| Type de ressource                                     | Objet d'apprentissage                           |
-| Note                                                  | Ressources éducatives libres                    |
-|                                                       | Open Educational Resources                      |
-| Sujet (mots-clés qui décrivent la REL)                | Circuits logiques                               |
-|                                                       | Circuits combinatoires                          |
-|                                                       | Circuits séquentiels                            |
-|                                                       | Électronique numérique                          |
-|                                                       | Machine à état                                  |
-|                                                       | Automate fini                                   |
-|                                                       | Portes logiques                                 |
-|                                                       | Algèbre de Boole                                |
-|                                                       | VHDL                                            |
-|                                                       | Logique programmable                            |
-| Langue                                                | Français (Canada), Français (France)            |
-| Format (voir annexe 2)                                | Texte/HTML                                      |
-| Licence                                               | https://creativecommons.org/licenses/by-sa/4.0/ |
-| Autre                                                 |                                                 |
+| *Type de métadonnées*                                 | *Métadonnées*                                          |
+|-------------------------------------------------------+--------------------------------------------------------|
+| Auteur(s)                                             | Bégin, Guy                                             |
+| Affiliation (université, département)                 | Université du Québec à Montréal.                       |
+|                                                       | Département d'informatique                             |
+| Contributeur                                          |                                                        |
+| Titre (tel qu'apparait sur la REL)                    | Circuits logiques combinatoires et séquentiels         |
+| Date de création (année, mois, jour si disponible)    | 2022-11                                                |
+| Date de publication (année, mois, jour si disponible) |                                                        |
+| Éditeur                                               | Université du Québec à Montréal                        |
+| Résumé                                                | [fn:1]                                                 |
+| URL de la ressource primaire lorsque si dérivée       | https://github.com/gbegin/circuits_logiques            |
+| Discipline (voir annexe 1)                            | Technologie et ingénierie                              |
+| Niveau scolaire de la ressource (voir annexe 5)       | Université premier cycle                               |
+|                                                       | Formation technique                                    |
+| Type de matériel pédagogique (voir annexe 3)          | Manuel                                                 |
+| Méthode d'enseignement (voir annexe 4)                | Autre                                                  |
+| Type de ressource                                     | Objet d'apprentissage                                  |
+| Note                                                  | Ressources éducatives libres                           |
+|                                                       | Open Educational Resources                             |
+| Sujet (mots-clés qui décrivent la REL)                | Circuits logiques                                      |
+|                                                       | Circuits combinatoires                                 |
+|                                                       | Circuits séquentiels                                   |
+|                                                       | Électronique numérique                                 |
+|                                                       | Machine à état                                         |
+|                                                       | Automate fini                                          |
+|                                                       | Portes logiques                                        |
+|                                                       | Algèbre de Boole                                       |
+|                                                       | VHDL                                                   |
+|                                                       | Logique programmable                                   |
+| Langue                                                | Français (Canada), Français (France)                   |
+| Format (voir annexe 2)                                | Texte/HTML                                             |
+| Licence                                               | https://creativecommons.org/licenses/by-sa/4.0/deed.fr |
+| Autre                                                 |                                                        |
 
 [fn:1] 
 Ce manuel, une Ressource Éducative Libre (REL), est une introduction
@@ -147,7 +211,7 @@ permettront de mettre en pratique les notions abordées.
 #+TITLE: Circuits logiques combinatoires et séquentiels
 #+AUTHOR: Guy Bégin
 
-* Avant-propos
+** Avant-propos
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
@@ -180,31 +244,15 @@ l'Université du Québec à Montréal. Ses recherches l'ont toujours amené
 logiques, mais également en télécommunications numériques, son champ
 de recherche privilégié.
 
-** Remerciements
+*** Remerciements
 
-Ce manuel a été réalisé avec le soutien de ...
+L'auteur souhaite remercier particulièrement Yves Munn (chargé de
+projets technopédagogiques), Boris Nonveiller (bibliothécaire), Rachel
+Rouleau (révision linguistique) et Émile Gauvin (étudiant au
+baccalauréat en systèmes informatiques et électroniques). Ce manuel a
+été réalisé avec le soutien de la [[https://fabriquerel.org/][fabriqueREL]].
 
-Les logiciels libres suivants ont été utilisés à différentes étapes,
-pour la rédaction et la préparation des modèles, des images et pour la
-simulation:
-
-- Rédaction et production
-  - [[https://www.gnu.org/software/emacs/][Emacs]]
-  - [[https://www.latex-project.org/][LaTeX]]
-  - [[https://git-scm.com][Git]]
-  - [[https://pandoc.org/][Pandoc]]
-- Schémas
-  - [[https://graphviz.org/][Graphviz]]
-  - [[https://inkscape.org][Inkscape]]
-  - [[https://wavedrom.com/][Wavedrom]]
-  - [[https://schemdraw.readthedocs.io/en/latest/][Schemdraw]]
-  - [[https://ditaa.sourceforge.net/][Ditaa]]
-- Simulation logique
-  - [[https://github.com/hneemann/Digital][Simulateur Digital]]
-- Coloration syntaxique
-  - [[https://pygments.org/docs/quickstart/][Pygments]]
-
-** Licence
+*** Licence
 
 # licence
 #+begin_center
@@ -214,9 +262,9 @@ simulation:
 #+end_center
 
 
-Sauf indications contraires, le contenu de ce manuel électronique est
+Le contenu de ce manuel électronique est
 disponible en vertu des conditions de la
-[[https://creativecommons.org/licenses/by/4.0/deed.fr][Licence
+[[https://creativecommons.org/licenses/by-sa/4.0/deed.fr][Licence
 Creative Commons Attribution - Partage dans les mêmes conditions 4.0
 International]].
 
@@ -244,8 +292,37 @@ combinatoires et séquentiels. Université du Québec à Montréal. Licence CC B
 [[https://uqam.ca/][file:Logo_UQAM.svg]] 
 #+end_center
 
+*** Ressources
 
-* Préface
+Les logiciels libres suivants ont été utilisés à différentes étapes,
+pour la rédaction et la préparation des modèles, des images et pour la
+simulation:
+
+- Rédaction et production
+  - [[https://www.gnu.org/software/emacs/][Emacs]]
+  - [[https://www.latex-project.org/][LaTeX]]
+  - [[https://git-scm.com][Git]]
+  - [[https://pandoc.org/][Pandoc]]
+- Schémas
+  - [[https://graphviz.org/][Graphviz]]
+  - [[https://inkscape.org][Inkscape]]
+  - [[https://wavedrom.com/][Wavedrom]]
+  - [[https://schemdraw.readthedocs.io/en/latest/][Schemdraw]]
+  - [[https://ditaa.sourceforge.net/][Ditaa]]
+- Simulation logique
+  - [[https://github.com/hneemann/Digital][Simulateur Digital]]
+- Coloration syntaxique
+  - [[https://pygments.org/docs/quickstart/][Pygments]]
+
+Dans le but de faciliter l'adaptation, la réutilisation, la révision
+et le remixage de cette ressource éducative libre, les documents
+sources utilisés pour produire ce manuel sont accessibles via le dépôt
+Github [[https://github.com/gbegin/circuits_logiques/]]. Le dépôt comporte
+également des transparents pouvant être utilisés comme supports
+d'enseignement.
+
+
+** Préface
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
@@ -301,11 +378,11 @@ permettront de mettre en pratique les notions abordées.
 #+TOC: tables
 #+TOC: listings
 
+* Circuits logiques combinatoires
+** Systèmes de numération
 
-* Systèmes de numération
 
-
-** Objectifs
+*** Objectifs
 
 - Comprendre le fonctionnement du système de numération binaire
 - Pouvoir effectuer des conversions entre nombres en représentation
@@ -315,7 +392,7 @@ permettront de mettre en pratique les notions abordées.
 - Se familiariser avec quelques codes courants
 - Pouvoir effectuer des opérations arithmétiques sur des nombres binaires
 
-** Systèmes numériques
+*** Systèmes numériques
 
 Les systèmes numériques sont omniprésents dans notre monde
 technologique. La grande force des systèmes numériques est leur
@@ -334,7 +411,7 @@ chapitre suivant, nous étudierons les principes fondamentaux de la
 logique binaire. C'est sur ces deux bases que nous pourrons établir
 notre exploration des circuits logiques.
 
-** Nombres binaires
+*** Nombres binaires
  
 Les nombres binaires sont essentiellement construits de la même façon
 que les nombres décimaux qui nous sont plus familiers. La
@@ -378,7 +455,7 @@ Nous avons ici le *bit le plus significatif* à gauche et le *bit le
 moins significatif* à droite. Chaque chiffre vaut deux fois plus que le
 chiffre immédiatement placé à sa droite.
 
-** Conversion binaire <-> décimal
+*** Conversion binaire <-> décimal
 
 Convertir un nombre entier binaire en nombre décimal se fait
 naturellement, en s'appuyant sur les valeurs associées à la notation
@@ -404,7 +481,7 @@ dans le tableau [[tab-conversion_d_b]].
 
 On obtient ainsi 100101.
 
-** Notation
+*** Notation
 
 Puisque les notations de nombres binaires, octaux, hexadécimaux ou
 décimaux font appel à des chiffres qui sont tous tirés du même
@@ -417,7 +494,7 @@ souvent explicitement la base; par exemple, (11)2 pour le nombre
 trois en binaire qui pourra être distingué de (11)10, le nombre onze
 en décimal.
 
-** Représentations compactes de nombres binaires
+*** Représentations compactes de nombres binaires
 
 En comparant un nombre décimal et sa représentation binaire, comme par
 exemple ici 37 et 100101, on voit bien que la représentation binaire
@@ -426,7 +503,7 @@ compactes mais qui conservent un lien direct avec la représentation
 binaire: la représentation *octale* et la représentation
 *hexadécimale*.
 
-*** Représentation octale
+**** Représentation octale
     
 La représentation octale consiste à utiliser la base 8, avec les
 chiffres \(0, 1, \ldots, 7\). On voit la correspondance entre les
@@ -463,7 +540,7 @@ Par exemple, pour (1010011110001)2, on aura le découpage du tableau
 
 On obtient le nombre octal (12361)8.
 
-*** Représentation hexadécimale
+****  Représentation hexadécimale
 
 La représentation hexadécimale consiste à utiliser la base 16, avec
 les chiffres \(0, 1, \ldots, 9\), auxquels on ajoute les lettres A, B,
@@ -514,14 +591,14 @@ Par exemple, pour (1010011110001)2, on aura le découpage du tableau
 
 On obtient le nombre hexadécimal (14F1)16.
 
-*** Conversion en sens inverse
+**** Conversion en sens inverse
 
 La conversion de octal (respectivement, hexadécimal) à binaire se fait
 simplement en remplaçant chaque chiffre octal (resp., hexadécimal) par
 le groupe de trois (resp., quatre) bits correspondant, en partant du
 moins significatif.
 
-** Nombres binaires fractionnaires
+*** Nombres binaires fractionnaires
 
 Il est aussi possible de représenter des nombres fractionnaires en
 base 2. En gardant à l'esprit que la position d'un bit détermine sa
@@ -543,7 +620,7 @@ valeur \(1 \times 4 + 0 \times 2 + 1 \times 1 + 1 \times 1/2 + 1
 | Valeur déc. |       4 |       2 |       1 |        1/2 |        1/4 |
 | Bit         |       1 |       0 |       1 |          1 |          1 |
 
-** Opérations arithmétiques binaires
+*** Opérations arithmétiques binaires
 
 Il est possible de transposer les opérations arithmétiques habituelles
 pour effectuer différentes opérations arithmétiques: addition,
@@ -553,7 +630,7 @@ lorsque nous aurons établi les formes d'encodages binaires qui seront
 utilisés pour les nombres, notamment la représentation des nombres
 signés.
 
-*** Multiplication et division par deux
+**** Multiplication et division par deux
 
 Pour multiplier un nombre binaire non signé par deux, il suffit de
 décaler tous ses bits d'une position vers la gauche. Si le nombre est
@@ -570,11 +647,11 @@ bits d'une position vers la droite. Une division fractionnaire
 produira possiblement un nombre fractionnaire, comme dans l'exemple
 suivant.
 
-**** Division fractionnaire
+*****  Division fractionnaire
 
 $$ (10011)2 \div 2 = (1001,1)2 $$
 
-**** Division entière
+***** Division entière
 
 Pour une division entière (sans fraction), on éliminera le bit qui
 aurait été placé après la virgule.
@@ -584,9 +661,9 @@ $$ (10011)2 \div 2 = (1001)2 $$
 Il est évident de généraliser ces opérations pour les multiplications
 ou divisions par des puissances de 2: par 4, 8, 16, etc.
 
-*** COMMENT Addition de nombre binaires
+**** COMMENT Addition de nombre binaires
 
-** Compléments de nombres
+*** Compléments de nombres
 
 Les compléments de nombres jouent un rôle dans la simplification de
 certaines opérations mathématiques et logiques. Dans un système de
@@ -597,7 +674,7 @@ nombres binaires (base 2), nous aurons le complément à deux et le
 complément à un.  Pour évaluer les compléments d'un nombre, on doit
 tenir compte du nombre de chiffres que comporte ce nombre.
 
-*** Complément à neuf et complément à un
+**** Complément à neuf et complément à un
 
 Soit un nombre entier \(N\) en base \(b\) constitué de \(n\) chiffres. Le
 complément à \(b-1\) de \(N\) est \((b^n-1)-N\).
@@ -621,7 +698,7 @@ $$ 01100 $$
 
 Remarquons ici un zéro non significatif comme premier bit à gauche.
 
-*** Complément à dix et complément à deux
+**** Complément à dix et complément à deux
 
 Le complément à \(b\) de l'entier \(N\) s'évalue comme
 \((b^n)-N\). Cela correspond à ajouter 1 au complément à \(b-1\).
@@ -661,7 +738,7 @@ Pour une évaluation par un circuit, on commencera par déterminer le
 complément à un par inversion et on lui additionnera 1 pour obtenir le
 complément à deux.
 
-** Nombres signés et codage
+*** Nombres signés et codage
 
 Représenter des nombres \(\geq 0\) en binaire est donc relativement
 naturel. Dans l'optique où on voudra stocker ces nombres dans une
@@ -798,8 +875,8 @@ valeurs positives et les codes dans les boîtes en hexagones, en vert,
 à des valeurs négatives. Si on assigne autant de valeurs positives que
 de valeurs négatives, un seul code binaire ne sera pas utilisable, le
 code 1000, dans la boîte en losange. Tout mouvement selon le sens des
-flèches (horaire) sur l'illustration correspond à une soustraction;
-tout mouvement en sens inverse correspond à une addition. Les nombres
+flèches (horaire) sur l'illustration correspond à une addition;
+tout mouvement en sens inverse correspond à une soustraction. Les nombres
 binaires seront ainsi symétriques par rapport à notre zéro.
 
 Nous obtenons ainsi l'assignation du tableau [[tab-code_pos_neg7]].
@@ -846,9 +923,9 @@ Il existe d'autres conventions pour la représentation de nombres
 signés, comme la représentation signe+magnitude, mais la
 représentation en complément à deux est de loin la plus utilisée.
 
-** Opérations arithmétiques binaires
+*** Opérations arithmétiques binaires
 
-*** Addition de nombres non signés
+**** Addition de nombres non signés
    
 En transposant les opérations classiques pour effectuer à la main des
 additions ou des soustractions, il est possible d'effectuer des
@@ -891,7 +968,7 @@ S'il y a une retenue non nulle à la suite de l'addition à la position
 la plus significative, il y a un *débordement*, car le résultat est trop
 grand pour être représenté avec le nombre de bits initial.
 
-*** Addition de nombres signés
+**** Addition de nombres signés
 
 L'addition de nombres signés codés avec la représentation en complément
 à deux est nettement avantageuse. Il suffit d'additionner les deux
@@ -930,7 +1007,7 @@ préoccuper des débordements qui peuvent survenir parce que la capacité
 de représentation est limitée par la taille (en nombre de bits) des
 codes binaires utilisés.
 
-*** Soustraction de nombres signés
+**** Soustraction de nombres signés
 
 La soustraction s'effectue en faisant \(A - B = A + (-B)\), comme suit:
 
@@ -941,7 +1018,7 @@ La soustraction s'effectue en faisant \(A - B = A + (-B)\), comme suit:
 
 Le résultat s'interprétera comme un nombre signé en complément à deux. 
 
-*** Extension de signe
+**** Extension de signe
 
 Dans la représentation des nombres signés en complément à deux, le bit
 de signe (bit le plus à gauche) est une indication directe du signe
@@ -1000,7 +1077,7 @@ que la réduction de taille n'est pas possible: la nouvelle taille est
 insuffisante pour représenter les nombres correctement.
 
     
-** Codes binaires
+*** Codes binaires
 
 Il n'y a pas que des nombres que l'on voudra représenter en
 binaire. Il est maintenant le temps de définir ce qu'on appelle un
@@ -1030,7 +1107,7 @@ liées aux éléments à représenter ou à la configuration du code
 lui-même. C'est ce qu'on a fait, par exemple, pour définir la
 convention d'encodage des entiers par complément à deux.
  
-*** Code Gray
+**** Code Gray
 
 Lorsqu'on utilise un code binaire pour représenter des valeurs
 associées à des phénomènes physiques, il peut être opportun d'utiliser
@@ -1072,7 +1149,7 @@ entiers binaires, on aurait observé pour ce cas une transition entre
 |      1000 |     15 |
 
 
-*** Codes alphanumériques et autres
+**** Codes alphanumériques et autres
 
 Vous rencontrerez sans doute plusieurs autres encodages courants,
 par exemple pour encoder des caractères (code ASCII, codes UTF)
@@ -1086,10 +1163,10 @@ la transmission des données encodées. Ces codes sont construits en
 fonction de règles d'encodage, qui, lorsqu'elles ne sont pas
 respectées, permettent de constater la présence d'erreurs.
   
-* Logique binaire, fonctions logiques et algèbre de Boole
+** Logique binaire, fonctions logiques et algèbre de Boole
 
 
-** Objectifs
+*** Objectifs
 - Situer les opérations de la logique binaire dans leur contexte algébrique
 - Se familiariser avec les postulats de l'algèbre de Boole, et les
   principaux théorèmes
@@ -1098,7 +1175,7 @@ respectées, permettent de constater la présence d'erreurs.
 - Exprimer une fonction logique en /somme de produits/, ou en
   /produit de sommes/, et convertir d'une forme à l'autre
 
-** Logique binaire
+*** Logique binaire
 
 La logique binaire associe une valeur de vérité à des variables, selon
 une convention préétablie. Ces valeurs de vérité sont binaires, à
@@ -1111,7 +1188,7 @@ peut utiliser un encodage binaire, par exemple:
 | Faux             |   |              0 |
 
 
-*** Variable binaire
+**** Variable binaire
 
 Une variable binaire, dénotée par une lettre, permet de désigner une
 valeur binaire pouvant assumer une des deux valeurs possible, 0
@@ -1124,7 +1201,7 @@ binaire qui représente la proposition «le soleil est visible». Alors,
 \(S=0\) peut s'interpréter comme «le soleil est visible est faux» ou
 «le soleil n'est pas visible».
 
-*** Opérations logiques
+**** Opérations logiques
 
 Trois opérations logiques de base permettent d'agir sur des variables
 binaires, de les combiner et de formuler des expressions logiques à
@@ -1147,7 +1224,7 @@ partir d'elles.
    appelée complément, car complémenter une valeur binaire revient à
    faire basculer sa valeur.
    
-*** Expression logique
+**** Expression logique
 
 Une expression logique combine des variables logiques et des
 opérations et peut donc assumer une valeur binaire logique. Cette
@@ -1157,7 +1234,7 @@ que \(z\) assume la valeur de l'expression \(x \cdot y\). À partir des
 valeurs logiques des variables (entrées) \(x\) et \(y\), on peut donc
 déterminer la valeur logique de la sortie \(z\).
 
-*** Tableaux de vérité
+**** Tableaux de vérité
 
 On peut décrire la valeur logique d'une variable de sortie en
 fonction des valeurs possibles des variables d'entrée au moyen
@@ -1193,14 +1270,14 @@ Opération complément:
 |   0 |   |            1 |
 |   1 |   |            0 |
 
-** Formalisme mathématique
+*** Formalisme mathématique
 
 Un formalisme mathématique, élaboré bien avant l'avènement des
 circuits électroniques numériques, permet de formuler, analyser et
 simplifier les expressions de la logique binaire. Il s'agit de
 l'algèbre de Boole. 
 
-*** Définitions
+**** Définitions
 
 Une algèbre est un système mathématique, défini pour un ensemble
 d'éléments auxquels sont associés un ensemble d'opérateurs et qui
@@ -1229,7 +1306,7 @@ Selon le choix des postulats, on arrive à définir différents types de
 systèmes algébriques. Par exemple, les nombres réels qui nous sont
 familiers constituent un système algébrique d'un type appelé *corps*.
 
-** Algèbre de Boole
+*** Algèbre de Boole
 
 Une algèbre de Boole est un type de système algébrique défini sur un
 ensemble $B$, muni de deux opérateurs dénotés \(+\) et \(\cdot\), et qui
@@ -1287,7 +1364,7 @@ Observons des différences entre une algèbre de Boole et le corps des réels:
 5. L'ensemble d'éléments est différent. Nous utiliserons pour notre
    part l'ensemble \(B: \{0, 1 \}\) pour notre algèbre de Boole.
 
-** Algèbre de Boole à deux valeurs
+*** Algèbre de Boole à deux valeurs
  
 L'ensemble de définition: \(B : \{0, 1 \}\).
 
@@ -1317,7 +1394,7 @@ Règle de complémentation
 |     1 |   |              0 |
 
 
-** Vérification des postulats
+*** Vérification des postulats
 
 1. La fermeture est évidente (en regardant les tableaux des opérations).
 
@@ -1345,8 +1422,8 @@ Règle de complémentation
 
 6. Le postulat 6 est vérifié car il y a deux éléments distincts: 0 et 1.
 
-* Théorèmes et propriétés
-** Objectifs
+** Théorèmes et propriétés
+*** Objectifs
 - Bien saisir les relations de dualité entre les opérations
 - Connaître les principaux théorèmes de l'algèbre de Boole et
   les appliquer correctement
@@ -1355,7 +1432,7 @@ Règle de complémentation
 - Connaître les autres fonctions logiques importantes
 - Construire un tableau de vérité
 
-** Dualité
+*** Dualité
 
 Les postulats ont été formulés en paires, identifiés par \spades et
 \hearts. En interchangeant les opérateurs et les éléments identité, on
@@ -1369,7 +1446,7 @@ identité sont en fait les deux seuls éléments, 0 et 1. On obtient donc
 le dual d'une expression en changeant les 0 pour des 1, les 1 pour des
 0 et les ET pour des OU, les OU pour des ET.
 
-** Théorèmes de base
+*** Théorèmes de base
 
 Le tableau [[tab-theoremes]] résume les postulats et théorèmes de base de
 notre algèbre. On présente en parallèle chaque version et sa version
@@ -1390,7 +1467,7 @@ duale.
 | Théorème 5 | \((x + y)^{\prime} = x^{\prime} y^{\prime}\) | \((xy)^{\prime} = x^{\prime} + y^{\prime}\) |
 | Théorème 6 | \(x + xy = x\)                               | \(x(x+y) = x\)                              |
 
-*** Autres fonctions logiques
+**** Autres fonctions logiques
 
 Nous avons vu que les opérateurs logiques ET, OU et NON, qu'on peut
 aussi appeler fonctions logiques, sont à la base même de la définition
@@ -1399,7 +1476,7 @@ fonctions logiques qui vont s'avérer utiles pour la formulation, la
 conception et la réalisation de systèmes logiques. Voici quelques-unes
 des plus souvent utilisées.
 
-**** Fonction NON-ET (NAND)
+***** Fonction NON-ET
 
 La fonction NON-ET, souvent désignée NAND, est obtenue en
 complémentant la sortie d'une fonction ET: \((x \cdot y)^\prime\).
@@ -1413,7 +1490,7 @@ complémentant la sortie d'une fonction ET: \((x \cdot y)^\prime\).
 |   1 |   0 |   |                      1 |
 |   1 |   1 |   |                      0 |
     
-**** Fonction NON-OU (NOR)
+***** Fonction NON-OU (NOR)
 
 La fonction NON-OU, souvent désignée NOR, est obtenue en complémentant
 la sortie d'une fonction OU: \((x + y)^\prime\).
@@ -1427,7 +1504,7 @@ la sortie d'une fonction OU: \((x + y)^\prime\).
 |   1 |   0 |   |                  0 |
 |   1 |   1 |   |                  0 |
     
-**** Fonction OU-exclusif (XOR)
+***** Fonction OU-exclusif (XOR)
 
 La fonction OU-exclusif, souvent désignée XOR, est obtenue en évaluant
 \(x \cdot y^\prime + x^\prime \cdot y\). La sortie est 1 seulement si
@@ -1443,7 +1520,7 @@ joue un rôle important dans la formulation d'un additionneur.
 |   1 |   0 |   |                                         1 |
 |   1 |   1 |   |                                         0 |
 
-*** Fonctions de plusieurs entrées
+**** Fonctions de plusieurs entrées
 
 La plupart des fonctions logiques simples peuvent naturellement se
 formuler en fonction de plus de deux entrées. Par exemple, $a \cdot b
@@ -1451,7 +1528,7 @@ formuler en fonction de plus de deux entrées. Par exemple, $a \cdot b
 facilement imaginer des fonctions ET ou des fonctions OU avec encore
 plus d'entrées.
 
-*** Expressions et fonctions binaires
+**** Expressions et fonctions binaires
 
 Une fonction binaire peut être décrite par une expression algébrique
 booléenne. Selon les valeurs des variables, la valeur de l'expression
@@ -1484,7 +1561,7 @@ possibles, comme dans le tableau [[tab-fonct_3v]].
 En général, pour une fonction à \(n\) entrées, le tableau de vérité
 comportera \(2^n\) lignes.
 
-** Théorèmes de DeMorgan
+*** Théorèmes de DeMorgan
 
 Le complément d'une fonction \(F\), \(F^\prime\), s'obtient en
 remplaçant tous les 0 par des 1 et tous les 1 par des 0 dans les
@@ -1495,9 +1572,9 @@ On peut aussi effectuer ce changement en appliquant les théorèmes de
 DeMorgan (Théorème 5 \spades et \hearts du tableau [[tab-theoremes]]) qui
 peuvent se généraliser à plus de deux variables.
 
-* Portes logiques
+** Portes logiques
 
-** Objectifs
+*** Objectifs
 - Se familiariser avec les symboles usuels des portes logiques
 - Se familiariser avec les conventions et règles de dessin de schémas
   logiques
@@ -1505,7 +1582,7 @@ peuvent se généraliser à plus de deux variables.
 - Expliquer les différences entre le fonctionnement idéalisé
   et la réalité physique des portes logiques
 
-** Niveaux logiques
+*** Niveaux logiques
    
 Une porte logique est un dispositif électronique qui implémente une
 fonction logique en agissant sur des signaux électriques selon une
@@ -1527,7 +1604,7 @@ niveaux pour pouvoir fonctionner ensemble adéquatement. Une porte peut
 comporter une ou plusieurs entrées et agit généralement sur une seule
 sortie.
 
-** Logique négative ou positive
+*** Logique négative ou positive
 
 On associe ensuite une valeur binaire à chacun des niveaux selon une
 certaine convention, par exemple:
@@ -1543,7 +1620,7 @@ logique sera 0. On parlera alors de signaux *actifs bas*. La
 convention implicite est généralement que les signaux sont *actifs
 haut*.
 
-** Symboles
+*** Symboles
 
 On a défini des symboles pour représenter graphiquement les portes
 logiques courantes. Dans un schéma logique, les portes sont
@@ -1551,7 +1628,7 @@ interconnectées au moyen de symboles de conducteurs
 (fils) qui permettent d'acheminer les valeurs logiques d'une porte à
 l'autre.
 
-*** Porte ET
+**** Porte ET
 
 À deux entrées \(S =  A \cdot B\)
 
@@ -1571,7 +1648,7 @@ le cas avec les fonctions ET et OU.
 #+NAME:fig-et2
 [[file:Sources_images_logiques/images/and3_logique.svg]]
 
-*** Porte OU
+**** Porte OU
 
 À deux entrées \(S =  A + B\)
 
@@ -1580,7 +1657,7 @@ le cas avec les fonctions ET et OU.
 #+NAME:fig-ou2
 [[file:Sources_images_logiques/images/or_logique.svg]]
    
-*** Porte inverseur
+**** Porte inverseur
 
 L'opération NON qui consiste à complémenter une valeur binaire
 s'effectue avec une porte appelée *inverseur*.  Il n'y a toujours
@@ -1591,14 +1668,14 @@ qu'une entrée. \(B = A^\prime\)
 #+NAME:fig-inverseur
 [[file:Sources_images_logiques/images/not_logique.svg]] 
 
-*** Porte NON-OU (NOR)
+**** Porte NON-OU (NOR)
 
 #+CAPTION: Porte NOR à deux entrées
 #+attr_latex: :scale 0.75
 #+NAME:fig-nor2
 [[file:Sources_images_logiques/images/nor_logique.svg]]
 
-*** Porte NON-ET (NAND) et NON-OU (NOR)
+**** Porte NON-ET (NAND) et NON-OU (NOR)
     
 Les fonctions NAND et NOR ne sont pas associatives. Par exemple,
 
@@ -1617,7 +1694,7 @@ Pour une porte NOR à trois entrées, on fera \((A + B + C)^\prime\).
 #+NAME:fig-nand3
 [[file:Sources_images_logiques/images/nand3_logique.svg]]
     
-*** Entrées inversées
+**** Entrées inversées
 
 On utilise souvent l'élément symbolique qui est placé à la sortie de
 l'inverseur (un petit cercle) pour indiquer l'inversion d'une entrée
@@ -1631,7 +1708,7 @@ inversée. La porte évalue donc \(S =  (A^\prime \cdot B  \cdot C)^\prime\)
 #+NAME:fig-nand3_inv
 [[file:Sources_images_logiques/images/nand3_logique_invin1.svg]] 
 
-*** NAND et NOR, représentations équivalentes
+**** NAND et NOR, représentations équivalentes
 
 En vertu du théorème de DeMorgan, on sait que $(x + y)^{\prime} =
 x^{\prime} y^{\prime}$ et que $(xy)^{\prime} = x^{\prime} +
@@ -1648,7 +1725,7 @@ façons équivalentes.
 #+NAME:fig-nor_equiv
 [[file:Sources_images_logiques/images/NORequiv.svg]]
 
-*** Porte OU-exclusif (XOR)
+**** Porte OU-exclusif (XOR)
 
 La porte XOR à deux entrées donne une sortie 1 seulement lorsque ses
 deux entrées sont différentes. Il est possible de définir des portes
@@ -1667,7 +1744,7 @@ $$ S= A \cdot B^\prime + A^\prime \cdot B $$
 #+NAME:fig-xor
 [[file:Sources_images_logiques/images/exor_logique.svg]]
 
-*** Porte NON-OU-exclusif ou Équivalence (XNOR)
+**** Porte NON-OU-exclusif ou Équivalence (XNOR)
 
 La porte *Équivalence* produit une sortie 1 lorsque ses entrées ont la
 même valeur (et sont donc équivalentes). Comme pour les portes XOR,
@@ -1679,7 +1756,7 @@ différentes façons.
 #+NAME:fig-xnor
 [[file:Sources_images_logiques/images/xnor_logique.svg]]
 
-** Universalité des NAND et NOR
+*** Universalité des NAND et NOR
 
 En faisant appel uniquement à des portes de type NAND ou NOR, il est
 possible de réaliser n'importe quelle fonction logique, puisqu'il est
@@ -1692,11 +1769,11 @@ possible de réaliser les trois opérateurs de base.
 3) Pour réaliser une porte OU, on place un inverseur devant chaque
    entrée d'une porte NAND.
 
-Nous verrrons plus loin qu'il est aussi possible de réaliser
+Nous verrons plus loin qu'il est aussi possible de réaliser
 avantageusement des fonctions quelconques avec des portes NAND en
 exploitant la forme /somme de produits/.
 
-** Limites physiques
+*** Limites physiques
 
 Les portes logiques qu'on utilisera en pratique sont des dispositifs
 électroniques dont le fonctionnement correspond, dans les grandes
@@ -1707,7 +1784,7 @@ parfaite. En raffinant nos modèles pour y incorporer des
 caractéristiques, limites ou contraintes appropriées, il sera possible
 de mieux tenir compte de la réalité physique.
 
-*** Sortance (/Fan-out/)
+**** Sortance (/Fan-out/)
 
 La sortance (/fan-out/) d'une porte logique mesure sa capacité à commander
 d'autres portes reliées à sa sortie. Puisque les portes sont des
@@ -1721,7 +1798,7 @@ connecte plus d'entrées à une sortie que sa valeur de sortance, cette
 sortie ne pourra pas atteindre le niveau de tension adéquat, et les
 opérations logiques seront faussées.
 
-*** Modèles de délai
+**** Modèles de délai
 
 Dans la mesure où on respecte ses contraintes d'utilisation, notamment
 de sortance, une porte logique se comporte globalement de la façon
@@ -1764,7 +1841,7 @@ vitesse de commutation de l'ensemble du circuit. La vitesse qui pourra
 par le plus lent chemin (c'est-à-dire celui qui cumule le plus long
 temps de propagation).
 
-**** Modèles simples
+***** Modèles simples
 
 À titre d'exemple, considérons une porte ET à deux entrées \(S = A B\). 
 Le modèle le plus simple suppose une porte idéale, sans aucun délai:
@@ -1775,7 +1852,7 @@ lorsque les conditions d'entrée changent.
 #+NAME:fig-course
 [[file:Sources_images_logiques/images/chronopasdelais.svg]]
 
-***** Modèle avec délai en sortie
+****** Modèle avec délai en sortie
 
 Le modèle avec délai en sortie consiste à considérer un délai fixe,
 qui affecte la sortie de la porte: la commutation prend effet en
@@ -1786,7 +1863,7 @@ sortie après un délai \(t_p\).
 #+NAME:fig-course
 [[file:Sources_images_logiques/images/chrononodelaisortie.svg]]
 
-***** Modèle avec délai en entrée
+****** Modèle avec délai en entrée
 
 Le modèle avec délai en entrée est plus nuancé, car il permet de
 spécifier un délai différent selon l'entrée qui entraîne le changement
@@ -1796,12 +1873,12 @@ spécifier un délai différent selon l'entrée qui entraîne le changement
 #+NAME:fig-course
 [[file:Sources_images_logiques/images/chrononodelaientree.svg]]
 
-***** Modèle combiné
+****** Modèle combiné
 
 Le modèle combiné consiste à considérer des délais différents par
 entrée et, en plus, un délai global en sortie.
 
-**** Condition de course et aléas
+***** Condition de course et aléas
 
 Un autre effet néfaste potentiel des délais à considérer est ce qu'on
 appelle une *condition de course*. Considérons le circuit de la figure
@@ -1836,7 +1913,7 @@ méfier. Une telle impulsion, quasi imperceptible, pourrait par exemple
 déclencher le basculement de la valeur d'une cellule mémoire plus loin
 dans le circuit.
 
-*** Porte tampon
+**** Porte tampon
 
 La valeur binaire à la sortie d'une porte tampon est la même qu'à
 l'entrée. La porte n'agit pas sur la valeur logique mais permet de
@@ -1849,14 +1926,14 @@ portes tampons est un des moyens de s'assurer de respecter les
 conditions de sortance.
 
 
-*** COMMENT Résistances de tirage «Pull-up»
+**** COMMENT Résistances de tirage «Pull-up»
 
-*** COMMENT Manipulations algébriques
+**** COMMENT Manipulations algébriques
 
-* Simplification logique
+** Simplification logique
 
 
-** Objectifs
+*** Objectifs
 - Formuler une expression logique en forme canonique /Produit
   de sommes/ ou /Somme de produits/, et convertir entre les deux formes
 - Simplifier une expression au moyen d'un diagramme de
@@ -1866,7 +1943,7 @@ conditions de sortance.
   simplifiées
 
 
-** Expressions équivalentes 
+*** Expressions équivalentes 
 
 Un des aspects ennuyeux des expressions logiques est que la
 correspondance entre expression et fonction logique n'est pas
@@ -1887,9 +1964,9 @@ xy^\prime z\) compte huit littéraux. Si on réduit le nombre de
 termes, le nombre de littéraux, ou les deux, on obtiendra une
 expression qui sera plus simple à implémenter avec des portes.
 
-** Formes canoniques
+*** Formes canoniques
 
-*** Minterms et maxterms
+**** Minterms et maxterms
 
 Dans une expression, une variable \(x\) peut apparaître telle quelle
 \(x\) ou complémentée \(x^\prime\). Si on considère les combinaisons
@@ -1993,7 +2070,7 @@ Pour simplifier la notation, on peut écrire de façon plus compacte
 où on ne met cette fois que les numéros des maxterms participant au
 produit.
 
-*** Somme de produits
+**** Somme de produits
 
 Pour \(n\) variables binaires, on a \(2^n\) minterms différents
 possibles. Les minterms qui participent à la somme dans l'expression
@@ -2015,7 +2092,7 @@ fonction puisque \(x + x^\prime = 1\).
 Évidemment, on peut toujours trouver la formulation en forme canonique
 en se basant sur le tableau de vérité.
 
-*** Produit de sommes
+**** Produit de sommes
 
 Si on veut convertir en forme canonique /produit de sommes/
 l'expression pour une fonction qui ne serait pas sous cette forme, on
@@ -2028,7 +2105,7 @@ du type \(x \cdot x^\prime\) dans laquelle \(x\) est une variable
 manquante. Ce OU ne change pas la valeur de la fonction puisque \(x
 \cdot x^\prime = 0\).
 
-*** Conversion entre formes canoniques
+**** Conversion entre formes canoniques
 
 Prenons notre exemple précédent \(F_1 = \sum (2, 4, 5, 6, 7)\). On
 sait que \(F_1^\prime = \sum (0,1,3)\). Si on prend le complément de
@@ -2040,7 +2117,7 @@ En effet, de minterm à maxterm, on a \(m_j^\prime = M_j\). Le maxterm
 d'indice \(j\) est le complément du minterm de même indice \(j\), et
 /vice versa/.
 
-*** Formes standard
+**** Formes standard
 
 Les expressions canoniques en /somme de produits/ et en /produit de
 sommes/ ne sont généralement pas simples, car toutes les variables
@@ -2063,7 +2140,7 @@ de sommes/ qui aboutira à une implémentation à deux niveaux avec une
 porte OU par terme et une porte ET pour le produit final.
 
 
-** Objectifs de minimisation
+*** Objectifs de minimisation
 
 Étant donné une fonction logique de $n$ variables $z(x_1, x_2, \ldots,
 x_n)$, on veut déterminer une expression pour cette fonction sous la
@@ -2075,7 +2152,7 @@ forme /somme de produits/ (S de P) ou /produit de sommes/ (P de S) qui
  2. est telle qu'aucune expression pour $z$ comportant le même nombre
     de termes n'utilise moins de littéraux.
 
-** Diagrammes de Karnaugh
+*** Diagrammes de Karnaugh
 
 Une méthode visuelle permet de simplifier l'expression logique d'une
 fonction en systématisant une procédure faisant appel à un diagramme
@@ -2132,7 +2209,7 @@ d'erreurs sont plus grands.
 #+NAME:fig-diag4
 [[file:Sources_images_logiques/images/kmap4.svg]]
 
-*** Procédure de simplification
+**** Procédure de simplification
 
 Pour utiliser un diag-K pour minimiser une fonction logique, 
 
@@ -2173,7 +2250,7 @@ en bleu correspond à \(A B\) et celui en vert correspond à \(A
 C^\prime\). L'expression finale en /somme de produits/ est donc \(F =
 B^\prime C^\prime + A B + A C^\prime\).
 
-*** Cas facultatifs 
+**** Cas facultatifs 
 
 Certaines fonctions sont incomplètement définies, dans le sens où
 certaines combinaisons d'entrées ne se produiront jamais ou seront
@@ -2197,7 +2274,7 @@ un 0. La fonction résultante est donc \(A C^\prime D^\prime + BD + AB
 [[file:Sources_images_logiques/images/kmap4fonct.svg]]
 
 
-*** Impliquants
+**** Impliquants
 
 Le choix des regroupements à utiliser doit toujours viser à s'assurer que:
 1) Tous les minterms de la fonction sont couverts par les regroupements choisis.
@@ -2235,7 +2312,7 @@ impliquants de $z_1$.
 #+NAME::diag_exemple
 [[file:Sources_images_logiques/images/kmap3fonctimp.svg]]
 
-*** Impliquant premier
+**** Impliquant premier
 
 Un impliquant $p$ de la fonction $z$ est *premier* si n'importe quel
 terme produit obtenu de $p$ en supprimant un littéral n'est pas un
@@ -2247,7 +2324,7 @@ impliquant premier de $z_1$, car $a c$ est un impliquant de $z_1$.
 Sur un diagramme de Karnaugh, un impliquant premier (i.p.) est un
 groupe qui n'est contenu dans aucun autre groupe plus grand.
 
-*** Couverture d'une fonction
+**** Couverture d'une fonction
 
 Un sous-ensemble d'i.p. qui contient tous les minterms d'une fonction
 *couvre* la fonction.
@@ -2259,7 +2336,7 @@ Une *couverture minimale* est une couverture avec
 2. le moins de littéraux parmi les couvertures avec nombre minimum
    d'impliquants.
 
-*** Impliquant premier essentiel
+**** Impliquant premier essentiel
 
 Un i.p. est *essentiel* si et seulement s'il couvre un minterm de la
 fonction qui ne peut être couvert par un autre i.p. de la fonction.
@@ -2269,7 +2346,7 @@ premiers essentiels (i.p.e.).
 Un *impliquant premier absolument inessentiel* est un i.p. qui couvre
 des minterms qui sont tous couverts par les i.p.e. de la fonction.
 
-*** Sélection des impliquants
+**** Sélection des impliquants
 
 Règles de sélection des impliquants
 
@@ -2285,7 +2362,7 @@ Lorsque le problème est de taille réduite, on peut faire une recherche
 exhaustive de toutes les solutions possibles pour choisir la solution
 minimale.
 
-*** Minimisation avec cas facultatifs
+**** Minimisation avec cas facultatifs
 
  1. Lorsqu'on détermine les i.p., on doit considérer les X comme des
     1, de façon à pouvoir utiliser les i.p. rendus possibles par les
@@ -2294,7 +2371,7 @@ minimale.
  2. Lors de la sélection des i.p. pour obtenir une couverture
     minimale, on ne doit pas essayer de couvrir les X.
 
-*** Minimisation avec plusieurs fonctions
+**** Minimisation avec plusieurs fonctions
 
 Si deux fonctions $z_i$ et$z_j$ ont des expressions minimales qui
 comportent un terme commun, une seule porte suffira pour générer ce
@@ -2332,7 +2409,7 @@ qui ne nous coûtera que le dernier terme produit et une somme de
 quatre termes.
 
 
-** Tableau de couverture Quine-McCluskey
+*** Tableau de couverture Quine-McCluskey
 
 La méthode de Quine-McCluskey systématise la sélection des impliquants
 en se basant sur des relations qui s'expriment en fonction d'un
@@ -2366,7 +2443,7 @@ i.p.e. On obtient ainsi un tableau de couverture *réduit*.
 *Il ne faut cependant pas oublier de mettre les i.p.e. dans la solution
 finale.*
 
-*** Tableau de couverture réduit
+**** Tableau de couverture réduit
 
 Le tableau de couverture réduit permet de se concentrer sur la
 sélection des i.p. dont la sélection n'est pas évidente /a
@@ -2385,7 +2462,7 @@ i.p.e. qui n'est pas montré ici.
 | \(P_E\) | \checkmark | \checkmark |         | \checkmark | \checkmark | \checkmark | \checkmark | \checkmark |
 
 
-*** Dominance de lignes
+**** Dominance de lignes
 
 Une ligne \(P_i\) domine une ligne \(P_j\) (ce qui est noté \(P_i \supseteq
 P_j\)) si la ligne \(P_i\) contient un \checkmark dans toutes les colonnes où
@@ -2401,7 +2478,7 @@ Une ligne *dominée* par une autre peut être éliminée du tableau de
 couverture à condition que son nombre de littéraux soit supérieur ou
 égal à celui de la ligne dominante.
 
-*** Dominance de colonnes
+**** Dominance de colonnes
 
 Une colonne \(m_i\) domine une colonne \(m_j\) (ce qui est noté \(m_i \supseteq
 m_j\)) si la colonne \(m_i\) contient un \checkmark dans toutes les lignes où
@@ -2416,14 +2493,14 @@ la colonne \(m_h\) peut être éliminée.
 En cas d'égalité, comme on a ici pour \(m_e = m_g\), on peut librement
 choisir quelle colonne éliminer.
 
-** Implémentation des fonctions simplifiées
+*** Implémentation des fonctions simplifiées
 
 Les circuits logiques simplifiés en forme /produit de sommes/ ou
 /somme de produits/ sont souvent mis en oeuvre au moyen de portes NAND
 ou NOR plutôt qu'avec des portes ET et OU. La raison en est qu'il est
 plus simple en pratique de réaliser ces portes.
 
-*** Implémentation à deux niveaux 
+**** Implémentation à deux niveaux 
 
 Une fonction en forme /somme de produits/ s'implémente évidemment avec
 des portes ET pour les produits et une porte OU pour la somme
@@ -2455,8 +2532,8 @@ l'entrée de la porte de sortie.
 #+NAME:fig-prod_sommes_nand_evident
 [[file:Sources_images_logiques/images/somme_produitsNAND.svg]]
 
-* Circuits combinatoires typiques
-** Objectifs
+** Circuits combinatoires typiques
+*** Objectifs
 - Analyser un circuit combinatoire à partir de son schéma
 - Concevoir un circuit combinatoire à partir d'une spécification
 - Connaître différentes approches de réalisation
@@ -2466,7 +2543,7 @@ l'entrée de la porte de sortie.
 - Comprendre le fonctionnement d'une chaîne d'addition binaire et les
   mécanismes de propagation et d'anticipation de retenue
 
-** Circuit combinatoire 
+*** Circuit combinatoire 
 
 Un circuit logique combinatoire est une combinaison de portes logiques
 dont la sortie à un instant donné ne dépend que des valeurs des
@@ -2502,7 +2579,7 @@ colonnes dans le tableau de vérité pour les fonctions de
 sortie. Traditionnellement, on présente les entrées en ordre croissant
 de combinaisons binaires.
 
-** Analyse d'un circuit logique combinatoire
+*** Analyse d'un circuit logique combinatoire
 
 Si on se trouve devant le schéma d'un circuit logique dont on ne
 connaît pas la fonction, on doit en faire l'analyse. La première étape
@@ -2534,7 +2611,7 @@ Pour déterminer l'expression logique, on procède ainsi:
    déterminer l'expression logique pour les sorties du système en
    fonction des entrées du système.
 
-*** Exemple
+**** Exemple
 
 Analysons le circuit combinatoire illustré à la figure
 suivante.
@@ -2585,7 +2662,7 @@ suivante.
 |     1 |     1 |     1 |     1 |   |       0 |       0 |       0 |
 
 
-** Conception d'un circuit combinatoire
+*** Conception d'un circuit combinatoire
 
 Concevoir un circuit logique commence avec la formulation de la ou des
 fonctions du système et se termine avec une implémentation en portes
@@ -2624,7 +2701,7 @@ travers les portes, le nombre d'interconnexions entre sorties et
 entrées de portes, et tout autre facteur pratique susceptible
 d'orienter les décisions.
 
-** Alternatives d'implémentation
+*** Alternatives d'implémentation
 
 Considérons la fonction logique \(Y\) correspondant au diag-K de la
 figure suivante.
@@ -2634,9 +2711,9 @@ figure suivante.
 #+NAME:fig-diagk_altern
 [[file:Sources_images_logiques/images/kmap3altern.svg]] 
 
-*** Implémentations via la fonction directe
+**** Implémentations via la fonction directe
 
-**** Implémentation en /somme de produits/
+***** Implémentation en /somme de produits/
 
 En /somme de produits/, on a \(Y = bc + a^\prime b + a b^\prime
 c^\prime\) pour la fonction et \(Y^\prime = a^\prime b^\prime +
@@ -2655,7 +2732,7 @@ possibles pour la fonction directe sont illustrées ci-dessous.
 [[file:Sources_images_logiques/images/circ_altern_2.svg]] 
 
 
-**** Implémentation en /produit de sommes/
+***** Implémentation en /produit de sommes/
 
 En /produit de sommes/, on a \(Y =(a + b ) (b + c^\prime ) (a^\prime +
 ba^\prime + c)\) pour la fonction et \(Y^\prime = (b^\prime +c^\prime
@@ -2674,14 +2751,14 @@ possibles pour la fonction directe sont illustrées ci-dessous.
 [[file:Sources_images_logiques/images/circ_altern_ps2.svg]] 
 
 
-*** Implémentations via la fonction complémentaire
+**** Implémentations via la fonction complémentaire
 
 On peut aussi implémenter la fonction à partir de la fonction
 complémentaire \(Y^\prime\), en se basant sur le complément \(Y^\prime
 = (b^\prime +c^\prime )(a+b^\prime )(a^\prime +b+c)\) et en inversant
 la sortie. Voici les implémentations que l'on obtient alors.
 
-**** Implémentation en /somme de produits/
+***** Implémentation en /somme de produits/
 
 En /somme de produits/, on a utilisé une porte NOR en sortie pour
 obtenir finalement \(Y\).
@@ -2698,7 +2775,7 @@ Une autre forme fait appel à des portes NAND au premier niveau.
 #+NAME:fig-circ_altern_comp_sp2
 [[file:Sources_images_logiques/images/circ_altern_comp_sp2.svg]] 
 
-**** Implémentation en /produit de sommes/
+***** Implémentation en /produit de sommes/
 
 En /produit de sommes/, en se basant sur le complément \(Y^\prime =
 (b^\prime +c^\prime )(a+b^\prime )(a^\prime +b+c)\). On a encore ici
@@ -2716,7 +2793,7 @@ deux variantes selon le type de portes utilisées.
 [[file:Sources_images_logiques/images/circ_altern_comp_ps2.svg]] 
 
 
-** Circuits logiques combinatoires classiques
+*** Circuits logiques combinatoires classiques
 
 Nous allons maintenant nous intéresser à un certain nombre de
 fonctions typiques que l'on rencontre fréquemment en circuits
@@ -2724,7 +2801,7 @@ logiques. Ce sera aussi l'occasion de mettre en pratique les approches
 de conception que nous avons vues.
 
  
-** Additionneur binaire
+*** Additionneur binaire
 
 Une des opérations binaires les plus utilisées est l'addition (et la
 soustraction). Nous avons présenté à la section [[Addition de nombres
@@ -2769,7 +2846,7 @@ pour l'entrée et un symbole majuscule, \(R_{i}\), pour la sortie.
 |         1 |         1 |           1 |   |         1 |         1 |
 
 
-*** Demi-additionneur
+**** Demi-additionneur
 
 Un circuit logique qui effectue l'addition de deux bits est appelé un
 demi-additionneur. Mais ce qu'il nous faut vraiment, c'est un
@@ -2804,7 +2881,7 @@ demi-additionneur, \(S_{i} = a_i b_i^\prime + a_i^\prime b_i = a_i
 #+NAME:demi_add
 [[file:Sources_images_logiques/images/demi_add.svg]]
 
-*** Additionneur complet
+**** Additionneur complet
 
 Une addition binaire complète de deux arguments constitués de \(n\)
 bits procède du bit le moins significatif vers le bit le plus
@@ -2855,7 +2932,7 @@ peut le voir ici.
 #+NAME:fig-fulladderxor
 [[file:Sources_images_logiques/images/fulladderxor.svg]]
 
-*** Additionneur binaire pour \(n\) bits
+**** Additionneur binaire pour \(n\) bits
 
 Un additionneur binaire est un circuit logique qui permet d'évaluer la
 somme arithmétique de deux nombres binaires de \(n\) bits. Il peut
@@ -2903,7 +2980,7 @@ concevoir un additionneur binaire pour des nombres de quatre bits avec
 la méthode classique. Comme il faudrait considérer neuf entrées, le
 tableau de vérité comporterait \(2^9= 512\) lignes!
 
-*** Propagation de retenue
+**** Propagation de retenue
 
 L'approche en cascade ne comporte pas que des avantages. Lorsqu'on
 effectue l'addition de deux nombres, les bits d'entrée des deux
@@ -2941,7 +3018,7 @@ retenue totale de \(2n\) portes.
 #+NAME:fig-fulladderxorPG
 [[file:Sources_images_logiques/images/fulladderxorPG.svg]]
 
-*** Anticipation de retenue
+**** Anticipation de retenue
 
 Les valeurs calculées par le circuit complet en chaîne ne seront
 valides et ne devront être prises en compte que lorsque le délai
@@ -2998,7 +3075,7 @@ plus rapide que la configuration en cascade.
 [[file:Sources_images_logiques/images/lookahead1.svg]]
 
 
-*** Soustraction
+**** Soustraction
 
 Pour effectuer une soustraction \(A - B\), il faut effectuer \(A +
 (-B)\), c'est-à-dire additionner le complément à deux de \(B\) à
@@ -3018,7 +3095,7 @@ calculent \(O \operatorname{Xor} b_i\) et dont la sortie est acheminée
 #+NAME:fig-add_sous
 [[file:Sources_images_logiques/images/add_sous.svg]]
 
-*** Débordements
+**** Débordements
 
 Un additionneur ou un soustracteur est conçu en fonction d'une
 taille de nombres \(n\). Lorsque le résultat de l'opération dépasse la
@@ -3084,7 +3161,7 @@ générer le signal \(D\) qui indique un débordement.
 [[file:Sources_images_logiques/images/add_sous_deb.svg]]
 
 
-** Multiplexeur
+*** Multiplexeur
 
 Un multiplexeur est un circuit combinatoire qui sélectionne le signal
 qui provient d'une de ses entrées, et fait que sa sortie est égale à
@@ -3093,7 +3170,7 @@ typiquement selon un encodage binaire, ce qui suppose un nombre
 d'entrées de la forme \(2^n\). On désigne le multiplexeur par le
 nombre de signaux d'entrées à sélectionner.
 
-*** Multiplexeur deux-vers-un
+**** Multiplexeur deux-vers-un
 
 Le multiplexeur le plus simple utilise un seul signal de sélection
 \(S\) qui permet de choisir une de deux entrées \(I_0\) ou \(I_1\)
@@ -3109,7 +3186,7 @@ pour agir sur la sortie \(Y\).
 #+NAME:fig-mux2bsymb
 [[file:Sources_images_logiques/images/mux2symb.svg]]
 
-*** Multiplexeur quatre-vers-un
+**** Multiplexeur quatre-vers-un
 
 Un multiplexeur quatre-vers-un permet de choisir une de quatre entrées
 en utilisant deux signaux de sélection. Pour simplifier la
@@ -3139,7 +3216,7 @@ aurait un vecteur de \(n\) signaux de sélection.
 
 
 
-** Décodeur
+*** Décodeur
 
 Un décodeur est un circuit combinatoire qui sert à interpréter des
 données encodées, le plus souvent en binaire. Il prend un groupe
@@ -3171,7 +3248,7 @@ chaque sortie possible et un minterm d'entrée.
 |     1 |     1 |     0 |   |       0 |       0 |       0 |       0 |       0 |       0 |       1 |       0 |
 |     1 |     1 |     1 |   |       0 |       0 |       0 |       0 |       0 |       0 |       0 |       1 |
 
-*** Décodeur avec sortie active basse et signal de contrôle
+**** Décodeur avec sortie active basse et signal de contrôle
 
 On peut aussi concevoir des décodeurs basés sur des portes NAND et
 dont la sortie sélectionnée est active au niveau bas. Une autre
@@ -3179,7 +3256,7 @@ fonction utile est un signal de contrôle \(E\) qui n'active une sortie
 que lorsqu'il est activé.
 
 Le décodeur deux-vers-quatre, dont le circuit est présenté ci-dessous,
-présente ces deux caractéristiques. Comme on peut voir dans le tableau
+comporte ces deux caractéristiques. Comme on peut voir dans le tableau
 de vérité, tant que le signal de contrôle est inactif ( \(E = 1\)
 puisque ce signal est également actif bas), les sorties sont inactives
 (au niveau 1) quelles que soient les entrées \(x\) et \(y\). Lorsque
@@ -3207,7 +3284,7 @@ aux entrées \(x\) et \(y\). Notez que ce décodeur a été conçu et
 |     1 |     1 |     1 |   |       1 |       1 |       1 |       1 |
 
 
-*** Implémentation de fonctions arbitraires au moyen d'un décodeur
+**** Implémentation de fonctions arbitraires au moyen d'un décodeur
 
 Puisqu'un décodeur active sélectivement les \(2^n\) minterms possibles
 à partir de ses \(n\) entrées, il est possible d'implémenter, en /somme
@@ -3249,7 +3326,7 @@ avantageux d'implémenter le complément de la fonction, qui nécessitera
 moins de \(2^n/2\) minterms, et d'inverser ensuite la sortie pour
 obtenir la fonction.
 
-** Encodeur
+*** Encodeur
 
 Un encodeur effectue le travail inverse du décodeur: lorsqu'une de ses
 \(2^n\) (ou moins) entrées est activée, il donne le code binaire
@@ -3282,7 +3359,7 @@ rien de valide: comment donner un sens à une telle combinaison au
 moyen d'un vecteur de \(n\) bits? Les sorties produites alors seront
 des vecteurs binaires sans signification.
 
-*** Encodeur à priorité
+**** Encodeur à priorité
 
 Un encodeur à priorité met en oeuvre une priorité entre les
 entrées. S'il y a plus d'une entrée 1 en même temps, la sortie sera
@@ -3339,7 +3416,7 @@ entrées.
 [[file:Sources_images_logiques/images/encode_pri2.svg]]
 
 
-** Comparateur de magnitude
+*** Comparateur de magnitude
 
 Comparer la magnitude de deux nombres binaires est une opération qui
 peut se systématiser, comme on l'a fait pour l'addition. Considérons
@@ -3396,7 +3473,7 @@ On obtient ainsi un comparateur pour des nombres de quatre bits, tel qu'illustr�
 #+NAME:fig-comparateur_4b
 [[file:Sources_images_logiques/images/comparateur_4b.svg]]
 
-** Démultiplexeur
+*** Démultiplexeur
 
 Un démultiplexeur achemine la valeur logique de son entrée à une
 sortie (parmi \(2^n\) sorties) sélectionnée par un code binaire de
@@ -3411,7 +3488,7 @@ entrée signal de contrôle (/enable/) \(I\).
 #+NAME:fig-demux8
 [[file:Sources_images_logiques/images/demux8.svg]]
 
-** Encodeurs divers
+*** Encodeurs divers
 
 Il est possible de concevoir des encodeurs pour des fonctions
 spécialisées, comme des encodeurs pour commander des affichages. La
@@ -3419,7 +3496,7 @@ démarche de conception s'apparente largement à celles que nous avons
 vues dans les exemples précédents.
 
 
-** Portes à trois états et tampon de bus
+*** Portes à trois états et tampon de bus
 
 Les portes à trois états ajoutent un troisième état de fonctionnement
 aux sorties: en plus des niveaux logiques bas et haut conventionnels,
@@ -3478,14 +3555,15 @@ du bas qui est actif, et =I/O= détermine la valeur de =O/I=.
 [[file:Sources_images_logiques/images/bus_trans.svg]]
 
 
-** COMMENT Porte de transmission
-** COMMENT Convertisseurs
-*** COMMENT Analogique à numérique
-*** COMMENT Numérique à analogique
+*** COMMENT Porte de transmission
+*** COMMENT Convertisseurs
+**** COMMENT Analogique à numérique
+**** COMMENT Numérique à analogique
 
-* Circuits séquentiels
+* Circuits logiques séquentiels
+** Circuits séquentiels
 
-** Objectifs
+*** Objectifs
 - Identifier un circuit logique séquentiel
 - Faire la distinction entre les circuits séquentiels synchrones et asynchrones
 - Se familiariser avec les principaux types de loquets, en expliquer
@@ -3493,7 +3571,7 @@ du bas qui est actif, et =I/O= détermine la valeur de =O/I=.
 - Se familiariser avec les principaux types de bascules, en expliquer
   le fonctionnement
 
-** Modèle d'un circuit séquentiel
+*** Modèle d'un circuit séquentiel
 
 Les circuits logiques séquentiels sont ceux qui comportent de la
 mémoire. Le modèle général d'un circuit séquentiel est illustré sur la
@@ -3583,7 +3661,7 @@ sur la figure [[fig-horloge]].
 #+NAME:fig-horloge
 [[file:Sources_images_logiques/images/horloge.svg]]
 
-** Éléments de mémoire
+*** Éléments de mémoire
 
 Un élément de mémoire peut maintenir son état binaire indéfiniment (à
 condition, évidemment, qu'il soit alimenté). Son état est observable
@@ -3600,9 +3678,9 @@ entrée spéciale d'horloge qui sert à déclencher les changements d'état
 à des instants précis. Les loquets sont des ingrédients de base dans
 la conception des bascules. Nous les étudierons en premier.
 
-** Loquets
+*** Loquets
 
-*** Loquet SR
+**** Loquet SR
 
 Le loquet SR est formé de deux portes NOR interconnectées et comporte
 deux entrées: \(S\) pour =Set=, qui permet de mémoriser une valeur 1,
@@ -3708,8 +3786,7 @@ ingrédient de base pour la conception de bascules.
 |     1 |     1 |     0 |   | \(Q = 1\)      |
 |     1 |     1 |     1 |   | indéterminé    |
 
-*** Loquet D
-
+**** Loquet D
 Une option pour éliminer la condition qui fait apparaître un état
 indéterminé est de s'assurer de toujours commander \(S\) et \(R\)
 avec des signaux complémentaires. C'est ainsi qu'on arrive au loquet
@@ -3738,7 +3815,7 @@ Le symbole graphique d'un loquet D est illustré à la figure [[fig-schema_latch
 #+NAME:fig-schema_latchD
 [[file:Sources_images_logiques/images/schema_latchD.svg]]
 
-** Application: rebonds d'interrupteurs
+*** Application: rebonds d'interrupteurs
 
 Lorsqu'on utilise un interrupteur pour commuter un signal entre les
 niveaux qui correspondent aux valeurs logiques 0 et 1, le contact ne
@@ -3757,7 +3834,7 @@ la valeur \(Q\) est maintenue. On obtient donc une transition franche sur
 #+NAME:fig-debounce
 [[file:Sources_images_logiques/images/debounce.svg]]
 
-** Bascules (Flip-flops)
+*** Bascules (Flip-flops)
 
 Les loquets peuvent remplir le rôle de mémoriser des valeurs binaires,
 mais le fait que les changements d'état soient activés par un *niveau*
@@ -3792,7 +3869,7 @@ sur la figure [[fig-horlogeP]].
 #+NAME:fig-horlogeP
 [[file:Sources_images_logiques/images/horlogeP.svg]]
 
-*** Bascule D
+**** Bascule D
 
 Le secret pour isoler la valeur mémorisée par l'élément de mémoire des
 changements qui pourraient survenir sur les entrées consiste à
@@ -3925,7 +4002,7 @@ l'état 0.
 #+NAME:fig-chron_D
 [[file:Sources_images_logiques/images/chron_D.svg]]
 
-*** Délais et réponse temporelle
+**** Délais et réponse temporelle
 
 Comme dans tout circuit logique, les changements de valeurs logiques
 dans les différentes portes qui constituent une bascule ne sont pas
@@ -3964,13 +4041,13 @@ petit cercle d'inversion à l'entrée d'horloge.
 #+NAME:fig-schema_bascules
 [[file:Sources_images_logiques/images/schema_bascules.svg]]
 
-*** Autres bascules
+**** Autres bascules
 
 Il y a essentiellement trois opérations possibles pour une bascule:
 mettre sa sortie à 1 (/set/), mettre sa sortie à 0 (/reset/) ou faire
 basculer son état de sortie (/toggle/).
 
-*** Bascule JK
+**** Bascule JK
 
 Une bascule JK comporte deux entrées, ce qui permet de lui faire
 exécuter les trois opérations. Activer seulement l'entrée \(J\) fait
@@ -3991,7 +4068,7 @@ enfin trois /toggles/ de suite.
 #+NAME:fig-chron_JK
 [[file:Sources_images_logiques/images/chron_JK.svg]]
 
-*** Bascule T
+**** Bascule T
 
 La bascule T (T pour /toggle/) change d'état à chaque déclenchement
 lorsque l'entrée \(T\) est activée. On peut la réaliser à partir d'une
@@ -4002,7 +4079,7 @@ bascule D ou d'une bascule JK (figure [[fig-basculeT]]).
 #+NAME:fig-basculeT
 [[file:Sources_images_logiques/images/basculeT.svg]]
 
-*** Tableaux caractéristiques
+**** Tableaux caractéristiques
 
 On résume le fonctionnement des différentes bascules au moyen de
 tableaux qui décrivent, selon les conditions d'entrée et l'état
@@ -4032,7 +4109,7 @@ représente l'état présent et \(Q(t+1)\) l'état suivant.
 |     0 |   | \(Q(t)\)        | pas de changement |
 |     1 |   | \(Q^\prime(t)\) | basculement       |
 
-*** Équations caractéristiques
+**** Équations caractéristiques
 
 On peut de même formuler des équations qui décrivent le comportement
 des bascules. Pour une bascule D, on a
@@ -4047,7 +4124,7 @@ Pour une bascule T, on a
 
 $$ Q(t+1) = T \operatorname{Xor} Q = T Q^\prime + T^\prime Q $$
 
-*** Entrées asynchrones
+**** Entrées asynchrones
 
 Certaines bascules sont aussi munies d'entrées asynchrones, dont
 l'effet n'est pas soumis à l'horloge. Ces entrées sont typiquement
@@ -4064,10 +4141,10 @@ pourquoi il y a une indication de complément dans son symbole.
 #+NAME:fig-D_front_montant_setasyn
 [[file:Sources_images_logiques/images/D_front_montant_setasyn.svg]]
 
-*** COMMENT Multivibrateurs
+**** COMMENT Multivibrateurs
 
-* Analyse de circuits logiques séquentiels synchrones
-** Objectifs
+** Analyse de circuits logiques séquentiels synchrones
+*** Objectifs
 - Analyser en détail le comportement d'un circuit séquentiel
   synchrone à partir de son schéma, selon différents types de bascules
   employés
@@ -4079,7 +4156,7 @@ pourquoi il y a une indication de complément dans son symbole.
 - Faire la distinction entre les deux modèles de circuits séquentiels
   (Mealy et Moore)
 
-** Démarche d'analyse
+*** Démarche d'analyse
 
 Analyser un circuit logique séquentiel a pour but de déterminer le
 comportement qu'aura le circuit selon les séquences d'entrée qui lui
@@ -4121,7 +4198,7 @@ bascules. Nous chercherons à établir les *équations de transition* qui
 précisent ce que sera le prochain état en fonction des entrées et de
 l'état présent.
 
-** Exemple d'analyse
+*** Exemple d'analyse
 
 Nous allons appliquer la démarche à un exemple qui nous permettra de
 mieux expliquer chacune des étapes. Considérons le circuit de la
@@ -4209,7 +4286,7 @@ finalement revenir à l'état /a/.
 #+NAME:fig-exemple_seq1_run
 [[file:Sources_images_logiques/images/exemple_seq1_run.svg]]
 
-** Analyse pour des bascules JK
+*** Analyse pour des bascules JK
 
 Pour analyser un circuit séquentiel utilisant des bascules JK, on
 détermine d'abord les expressions \(J_A\) et \(K_A\), \(J_B\) et
@@ -4219,7 +4296,7 @@ au tableau caractéristique pour ce type de bascule (tableau
 de sortie pour chacune des bascules. L'exemple suivant illustre la
 procédure.
 
-*** Exemple avec bascules JK
+**** Exemple avec bascules JK
 Considérons le circuit séquentiel de la figure [[fig-seq_JK]].
 
 #+CAPTION:  Exemple de circuit séquentiel avec des bascules JK
@@ -4256,7 +4333,7 @@ on peut remplir le tableau d'excitation (tableau [[tab-seq_JK]]).
 #+NAME:fig-seq_JKb_FSM
 [[file:Sources_images_logiques/images/seq_JKb_FSM.svg]]
 
-** Modèles de machines séquentielles
+*** Modèles de machines séquentielles
 
 On appelle les modèles abstraits de systèmes séquentiels des
 *automates finis* ou des *machines à état fini* (en anglais, /Finite
@@ -4307,8 +4384,8 @@ les sorties ne dépendent que des variables d'état présent (figure
 #+NAME:fig-moore
 [[file:Sources_images_logiques/images/moore.png]]
 
-* Conception de circuits logiques séquentiels
-** Objectifs
+** Conception de circuits logiques séquentiels
+*** Objectifs
 - Concevoir un circuit logique séquentiel synchrone à partir
   d'une spécification fonctionnelle
 - Construire un diagramme d'état en fonction d'un besoin
@@ -4317,7 +4394,7 @@ les sorties ne dépendent que des variables d'état présent (figure
 - Assigner des codes binaires aux états et choisir une approche
 - Concevoir un décodeur de prochain état et un décodeur de sortie
 
-** Conception d'un circuit séquentiel synchrone
+*** Conception d'un circuit séquentiel synchrone
 
 Concevoir un circuit logique séquentiel permet de répondre à un besoin
 pratique qui ne peut pas être satisfait par un circuit combinatoire.
@@ -4337,7 +4414,7 @@ combinatoires utilisés. Réduire le nombre de bascules utilisées ne se
 traduit pas toujours par un système plus simple, car les décodeurs
 d'état et de sortie peuvent alors s'en trouver plus complexes.
 
-** Spécification fonctionnelle
+*** Spécification fonctionnelle
 
 Comme dans tout problème de conception, la formulation en mots de la
 spécification du système est cruciale. Appliquer parfaitement une
@@ -4361,7 +4438,7 @@ séquences d'entrées peuvent être en nombre infini, il faudra
 identifier des patrons qui permettront de résumer le comportement du
 système.
 
-** Diagramme d'état
+*** Diagramme d'état
 
 Un diagramme d'état préliminaire est un bon point de départ pour
 définir et étudier le comportement du système. On identifiera les
@@ -4381,7 +4458,7 @@ Un tableau d'état comporte une ligne par état présent et combinaison
 d'entrées. Selon les combinaisons d'entrées possibles, on donne le
 prochain état et les valeurs de sortie.
 
-** Réduction du nombre d'états
+*** Réduction du nombre d'états
 
 Deux états sont équivalents si, pour chaque combinaison d'entrées, ils
 produisent la même sortie et amènent le système dans le même état ou
@@ -4454,7 +4531,7 @@ possible. Nous sommes passés de six états à quatre.
 Il faut bien s'assurer que le tableau d'état simplifié produit les
 séquences de sortie désirées selon les séquences d'entrée appliquées.
 
-*** Tableau d'implication
+**** Tableau d'implication
 
 La méthode du tableau d'implication facilite l'identification des
 états redondants à éliminer. Considérons le tableau d'état suivant,
@@ -4580,7 +4657,7 @@ case [c;b] dans la case [b;c].
 | f            | f            |   | b            |     1 |
 
 
-** Codage des états
+*** Codage des états
 
 Une fois que le nombre d'états a été réduit, il faut assigner des
 codes binaires aux états. Si on doit coder \(m\) états, il faudra
@@ -4607,7 +4684,7 @@ un exemple possible d'assignation pour chacune de ces approches.
 | c    |      10 |   11 |      0100 |
 | e    |      11 |   10 |      1000 |
 
-** Décodeur d'état
+*** Décodeur d'état
 
 Après avoir décidé d'une assignation, on refait le tableau d'état
 simplifié en remplaçant les étiquettes d'états symboliques par les
@@ -4617,7 +4694,7 @@ décodeur de prochain état. Le type de bascules à utiliser déterminera
 les sorties nécessaires pour le décodeur d'état, en se basant sur les
 tableaux caractéristiques de la section [[Tableaux caractéristiques]].
 
-** Décodeur de sortie
+*** Décodeur de sortie
 
 Une fois que le codage d'état est établi, la conception du décodeur de
 sortie est directe. Un tableau de vérité avec comme entrées les
@@ -4625,7 +4702,7 @@ valeurs binaires d'états et comme sorties les valeurs de sorties
 externes permet de déterminer les fonctions combinatoires à
 implémenter.
 
-** Procédure de conception
+*** Procédure de conception
 
 La conception d'un circuit séquentiel suit une procédure bien
 définie. Étant donnée la complexité de cette tâche, on limite la
@@ -4645,7 +4722,7 @@ sortie est directe. Voici les étapes à suivre:
    état et le décodeur de sortie
 7) Tracer le schéma logique du circuit
 
-** Exemple de conception
+*** Exemple de conception
 
 On doit concevoir un circuit séquentiel qui détecte la séquence
 binaire 101 lorsqu'elle apparaît dans sa séquence d'entrée. Une fois
@@ -4653,9 +4730,9 @@ la séquence identifiée, le système produira une sortie 1 et demeurera
 dans le même état en continuant de produire une sortie 1, jusqu'à une
 remise à zéro.
 
-*** Bascules D
+**** Bascules D
 
-**** Diagramme d'état
+***** Diagramme d'état
 
 Selon le diagramme d'état de la figure [[fig-seq_101_sanscode]], le
 système démarre dans l'état /a/ et demeure dans cet état tant que
@@ -4678,11 +4755,11 @@ produite lorsqu'on est dans l'état /d/; on a \(S=0\) dans les autres
 [[file:Sources_images_logiques/images/seq_101_sanscode.svg]]
 
 
-**** Réduction d'états 
+***** Réduction d'états
 
 Il n'y a pas de réduction d'états possible ici.
 
-**** Assigner des codes binaires aux états
+***** Assigner des codes binaires aux états
 
 Pour quatre états, il nous faudra deux bascules.  Le tableau
    [[tab-exemp_seq101]] présente l'assignation d'états choisie.
@@ -4697,7 +4774,7 @@ Pour quatre états, il nous faudra deux bascules.  Le tableau
 | d    |   11 |
 
 
-**** Remplir le tableau de transition
+***** Remplir le tableau de transition
 
 Le tableau [[tab-exemp_trans_seq101]] donne les transitions d'états. 
 
@@ -4715,11 +4792,11 @@ Le tableau [[tab-exemp_trans_seq101]] donne les transitions d'états.
 |         1 |         1 |     1 |   |             1 |             1 |     1 |
 
 
-**** Sélectionner un type de bascules à utiliser
+***** Sélectionner un type de bascules à utiliser
 
 On choisit des bascules D. 
 
-**** Déterminer les expressions simplifiées 
+***** Déterminer les expressions simplifiées 
 
 Les diagrammes de Karnaugh correspondants sont donnés pour
 \(Z_0^{n+1}\) (figure [[fig-diag-k_z0]]), \(Z_1^{n+1}\) (figure
@@ -4766,7 +4843,7 @@ L'expression pour le décodeur de sortie est:
 
 $$ S = Z_0^{n} \cdot Z_1^{n} $$
 
-**** Tracer le schéma logique du circuit
+***** Tracer le schéma logique du circuit
 
 Le circuit obtenu est représenté sur la figure
 [[fig-exemp_seq_101_circ]]. On montre sur la figure
@@ -4795,7 +4872,7 @@ séquence 100.
 #+NAME:fig-exemp_seq_101_trace2
 [[file:Sources_images_logiques/images/exemp_seq101_trace2.svg]]
 
-*** Autres types de bascules
+**** Autres types de bascules
 
 Les fonctions du décodeur de prochain état se formulent naturellement
 en fonction de bascules D.  Pour faire l'implémentation avec des
@@ -4859,7 +4936,7 @@ Ce qui nous donne l'implémentation de la figure [[fig-exemp_seq101_JK]].
 #+NAME:fig-exemp_seq101_JK
 [[file:Sources_images_logiques/images/exemp_seq101_JK.svg]]
 
-** États interdits
+*** États interdits
 
 Lorsque le nombre d'états nécessaires pour le fonctionnement de
 l'automate fini est strictement inférieur au nombre total d'états
@@ -4898,7 +4975,7 @@ vers l'état /c/.
 #+NAME:fig-etat_interdit_revient
 [[file:Sources_images_logiques/images/etat_interdit_revient.svg]]
 
-** Exemple avec états /one-hot/
+*** Exemple avec états /one-hot/
 
 Dans l'exemple suivant, on explore l'assignation d'états /one-hot/
 dans laquelle il n'y a qu'un bit 1 par code binaire.
@@ -4979,8 +5056,8 @@ considérer qu'il y a un grand nombre d'états interdits et prendre les
 précautions qui s'imposent pour éviter les problèmes de fonctionnement
 coincé.
 
-* Circuit séquentiels: registres et compteurs
-** Objectifs
+** Circuit séquentiels: registres et compteurs
+*** Objectifs
 - Se familiariser avec les principaux circuits séquentiels classiques:
   registres, registres à décalage, compteurs
 - Savoir comment sont implémentées les différentes opérations:
@@ -4989,7 +5066,7 @@ coincé.
   synchronisation
 - Faire la distinction entre compteur synchrone et compteur asynchrone
 
-** Registres
+*** Registres
 
 Un registre est un groupe de bascules activées par un même signal
 d'horloge. Chaque bascule permet de stocker un bit en
@@ -5007,7 +5084,7 @@ représente les entrées et sorties comme des vecteurs de quatre bits.
 #+NAME:fig-regist_4
 [[file:Sources_images_logiques/images/regist_4.svg]]
 
-*** Chargement parallèle
+**** Chargement parallèle
 
 Si on veut concevoir un registre parallèle polyvalent, on doit le
 munir de la possibilité de le charger à partir des entrées ou de
@@ -5039,7 +5116,7 @@ du registre chargeable.
 #+NAME:fig-reg_4_paral
 [[file:Sources_images_logiques/images/reg_4_paral.svg]]
 
-*** Registres à décalage
+**** Registres à décalage
 
 Un registre à décalage consiste en une chaîne de bascules, la sortie
 de l'une reliée à l'entrée de la suivante. La figure [[fig-shift4]] montre
@@ -5083,7 +5160,7 @@ très utiles dans le contexte d'interfaces de communication. On peut
 également s'en servir pour faire des multiplications ou divisions par
 deux, comme on l'a vu à la section [[Multiplication et division par deux]].
 
-** Compteurs
+*** Compteurs
 
 Un registre dont la séquence d'états est systématique est appelé un
 *compteur*. Le comptage peut être contrôlé par une entrée spécifique
@@ -5096,7 +5173,7 @@ correspond directement aux bits d'état. On distingue les compteurs
 compteur, il y a toujours un retour vers l'état initial, car la
 séquence d'états est un cycle.
 
-*** Compteur asynchrone
+**** Compteur asynchrone
 
 Dans un compteur binaire asynchrone, la sortie d'une bascule de poids
 moins significatif est acheminée à l'entrée d'horloge de la bascule
@@ -5133,7 +5210,7 @@ compteur passe de 0111 à 1000, la sortie peut passer par des états
 intermédiaires parasites: 0111 $\rightarrow$ 0110 $\rightarrow$ 1100
 $\rightarrow$ 1000.
 
-*** Compteur synchrone
+**** Compteur synchrone
 
 Dans un compteur synchrone, toutes les bascules sont commandées par un
 même signal d'horloge et les changements d'état sont
@@ -5224,7 +5301,7 @@ valent tous 0.
 Cette fois-ci, les conditions se baseront sur les sorties
 complémentées des bascules précédentes.
 
-*** Compteur bidirectionnel
+**** Compteur bidirectionnel
 
 En combinant les deux conditions au moyen d'un multiplexeur
 deux-vers-un, il est facile de concevoir un compteur haut/bas, comme
@@ -5235,7 +5312,7 @@ illustré sur la figure [[fig-compt_updown]].
 #+NAME:fig-compt_updown
 [[file:Sources_images_logiques/images/compt_updown.svg]]
 
-*** Compteur en anneau
+**** Compteur en anneau
 
 Un compteur en anneau est un registre à décalage connecté en boucle où
 une seule bascule est active à la fois. Il y a donc dans la sortie un
@@ -5254,7 +5331,7 @@ dans le cycle, pendant une période d'horloge.
 #+NAME:fig-ring4
 [[file:Sources_images_logiques/images/ring4.svg]]
 
-*** Compteur Johnson
+**** Compteur Johnson
 
 Un compteur Johnson permet de doubler le nombre d'états distincts par
 rapport au compteur en anneau en injectant le complément du dernier
@@ -5312,7 +5389,7 @@ rapport aux autres, comme le sont des fonctions \(\sin(), \cos(),
 #+NAME:fig-johnson2_quad
 [[file:Sources_images_logiques/images/johnson2_quad.svg]] 
 
-*** Diviseur de fréquence
+**** Diviseur de fréquence
 
 Un compteur peut être utilisé pour diviser la fréquence d'un signal
 périodique. Par exemple, la sortie d'un compteur à un bit change
@@ -5324,7 +5401,7 @@ On peut aussi utiliser un compteur Johnson, qui permettra alors, selon
 le nombre d'étages du compteur, des divisions de fréquence par des
 diviseurs, comme trois ou cinq, qui ne sont pas des puissances de deux.
 
-*** Compteur à chargement parallèle
+**** Compteur à chargement parallèle
 
 Un compteur à chargement parallèle est illustré à la figure
 [[fig-comptchargement]]. En activant l'entrée =Compte=, le comptage
@@ -5356,7 +5433,7 @@ passe de 0 à 5, puis un chargement parallèle de la valeur 12.
 #+NAME:fig-compt_chargement_trace_charge
 [[file:Sources_images_logiques/images/compt_chargement_trace_charge.svg]]
 
-*** Compteur modulo
+**** Compteur modulo
 
 On peut réaliser aisément un compteur modulo dont le cycle est plus
 court que le maximum possible, en utilisant un compteur avec
@@ -5377,8 +5454,8 @@ On pourrait aussi réaliser un compteur qui compte par exemple de 4 à
 15, en utilisant cette fois la sortie =ov= pour activer le chargement
 d'une valeur initiale 4.
 
-* Mémoires
-** Objectifs
+** Mémoires
+*** Objectifs
 - Faire la distinction entre mémoire volatile et non-volatile
 - Faire la distinction entre mémoire volatile statique et dynamique
 - Connaître l'organisation typique d'une mémoire et le fonctionnement
@@ -5390,7 +5467,7 @@ d'une valeur initiale 4.
 - Utiliser un tableau de correspondance
 - Se familiariser avec les différents types de mémoires non-volatiles
 
-** Mémoires
+*** Mémoires
 
 Une mémoire est utilisée pour stocker des valeurs binaires à plus ou
 moins long terme. Généralement, l'information stockée dans la mémoire
@@ -5405,7 +5482,7 @@ On distingue les mémoires non volatiles (en anglais, /Read Only
 Memories/ (ROM)) et les mémoires volatiles (en anglais, /Random Access
 Memories/ (RAM)).
 
-*** Mémoires non-volatiles
+**** Mémoires non-volatiles
 
 Dans une mémoire ROM, les données sont stockées une fois pour
 toutes. Elles y demeurent même après que la mémoire ait été mise hors
@@ -5422,7 +5499,7 @@ connexions dites *fusibles*. Initialement, le fusible est comme un fil
 qui permet au signal de passer. En le programmant, le fusible devient
 un circuit ouvert qui ne laisse plus passer le signal.
 
-*** Mémoires volatiles
+**** Mémoires volatiles
 
 Une mémoire RAM stocke l'information de façon temporaire. En principe,
 le contenu est conservé tant que la mémoire est maintenue sous
@@ -5450,7 +5527,7 @@ car une cellule de mémoire comporte beaucoup moins d'éléments
 temps d'accès aux mémoires statiques sont nettement meilleurs et on
 n'a pas à se préoccuper de rafraîchissement.
 
-** Adressage
+*** Adressage
 
 Les cellules des mémoires sont organisées en petits groupes appelés
 *mots*, de façon à ce que l'on puisse accéder à chaque groupe
@@ -5498,7 +5575,7 @@ correspondant à \(2^{20}\) ou G (giga) correspondant à \(2^{30}\).
 #+NAME:fig-memoire
 [[file:Sources_images_logiques/images/memoire.png]]
 
-*** Lecture et écriture
+**** Lecture et écriture
 
 L'opération choisie, écriture ou lecture, est commandée par une ou des
 entrées à cet effet. L'accès à un espace mémoire (un mot) se fait
@@ -5533,7 +5610,7 @@ mémoires sont utilisées.
 |        1 |                  0 | Écriture |
 |        1 |                  1 | Lecture  |
 
-*** Bus de données
+**** Bus de données
 
 Pour acheminer les données lues ou à écrire dans la mémoire, on
 utilise des tampons émetteurs-récepteurs de bus (voir section [[Portes à
@@ -5549,7 +5626,7 @@ commander l'entrée de contrôle (voir figure [[fig-bus_trans8]]).
 #+NAME:fig-bus_trans8
 [[file:Sources_images_logiques/images/bus_trans8.svg]]
 
-*** Chronogrammes
+**** Chronogrammes
 
 La figure [[fig-chron_ram_ecriture]] présente un chronogramme qui décrit
 l'opération d'écriture dans une mémoire RAM. Les valeurs d'adresse
@@ -5591,7 +5668,7 @@ pour sélectionner quel mot sera affecté par l'opération choisie.
 [[file:Sources_images_logiques/images/cell_ram.svg]]
 
 
-** Mémoires mortes
+*** Mémoires mortes
 
 Dans son mode d'utilisation normal, une mémoire morte peut seulement
 être lue. Il n'est donc pas nécessaire de préciser l'opération qui
@@ -5624,7 +5701,7 @@ Cette mémoire relativement petite comporte ainsi 64 intersections
 programmables, permettant de définir la valeur des 16 mots de mémoire
 de 8 bits chacun.
 
-*** Implémentation de fonctions combinatoires
+**** Implémentation de fonctions combinatoires
 
 Comme on l'a vu dans la section [[Décodeur]], un décodeur permet de
 générer les \(2^k\) minterms possibles avec ses \(k\)
@@ -5642,7 +5719,7 @@ Par exemple, la sortie \(A_2\) de la mémoire de la figure
 [[fig-proto_rom1_prog]] implémente la fonction $$ A_2 = \sum (0,1,4,8) $$
 exprimée en somme de minterms.
 
-*** Tableau de correspondance
+**** Tableau de correspondance
 
 Cette approche qui consiste à réaliser une fonction logique
 combinatoire au moyen d'une mémoire qui spécifie, pour chaque
@@ -5655,7 +5732,7 @@ plutôt des mémoires RAM pour les tableaux de correspondance, afin que
 la configuration des fonctions puisse être changée selon
 l'application.
 
-*** Catégories de mémoires ROM
+**** Catégories de mémoires ROM
 
 On distingue quatre grandes approches technologiques pour réaliser des
 mémoires mortes. Leurs usages typiques sont surtout déterminés par la
@@ -5666,7 +5743,7 @@ Dans la *programmation par masque*, la mémoire est programmée lors de
 la fabrication de la puce. Le fabricant se base sur un tableau de
 vérité fourni par le client pour établir des connexions qui seront
 implémentées (ou pas) dans le procédé de fabrication via des masques
-qui empêchent la dépôt de matériau conducteur sur les couches du
+qui empêchent le dépôt de matériau conducteur sur les couches du
 circuit intégré.  Cette approche convient à la production de masse à
 grand volume.
 
@@ -5702,8 +5779,8 @@ et la mémoire sur disque. Les mémoires /flash/ tendent d'ailleurs de
 plus en plus à remplacer ce dernier type dans les systèmes portables:
 téléphones, ordinateurs portables, etc.
 
-* Logique programmable
-** Objectifs
+** Logique programmable
+*** Objectifs
 - Se familiariser avec les différents types de composants logiques
   programmables
 - Reconnaître les avantages et limitations des différents types
@@ -5714,7 +5791,7 @@ téléphones, ordinateurs portables, etc.
 - Comprendre l'organisation d'une cellule logique programmable et
   apprécier sa flexibilité
 
-** Dispositifs programmables
+*** Dispositifs programmables
   
 Nous avons vu qu'une mémoire ROM est un dispositif logique
 programmable qui, grâce à la matrice d'interconnexion entre son
@@ -5729,7 +5806,7 @@ variantes plus ou moins équivalentes dans chacune des gammes de
 produits. Nous allons nous limiter à présenter brièvement les grandes
 familles typiques, en ordre de complexité croissante.
 
-*** Matrice logique programmable (PLA)
+**** Matrice logique programmable (PLA)
 
 Une *matrice logique programmable* (en anglais, /Programmable Logic
 Array/ (PLA)) est un dispositif spécifiquement conçu pour la
@@ -5757,7 +5834,7 @@ des dizaines.
 #+NAME:fig-pla
 [[file:Sources_images_logiques/images/pla.svg]]
 
-*** Logique à matrice programmable (PAL)
+**** Logique à matrice programmable (PAL)
 
 Les dispositifs à *logique à matrice programmable* (an anglais,
 /Programmable Array Logic/ (PAL)) sont une autre variante sur ce
@@ -5783,7 +5860,7 @@ des dizaines.
 #+NAME:fig-pal
 [[file:Sources_images_logiques/images/pal.svg]]
 
-*** Logique programmable séquentielle
+**** Logique programmable séquentielle
 
 En combinant un *dispositif logique programmable* (en anglais,
 /Programmable Logic Device/ (PLD)) avec un certain nombre de
@@ -5853,7 +5930,7 @@ ce genre de dispositif complexe est présentée à la figure [[fig-CPLD]].
 #+NAME:fig-CPLD
 [[file:Sources_images_logiques/images/CPLD.png]]
 
-** Circuits intégrés programmables
+*** Circuits intégrés programmables
 
 La version la plus sophistiquée des circuits logiques programmables
 est sans contredit le *circuit intégré programmable* (en anglais, /Field
@@ -5909,9 +5986,10 @@ fait au moyen d'outils de synthèse spécialisés, souvent en fonction
 d'une spécification au moyen d'un langage descriptif de matériel (en
 anglais, /Hardware Description Language/ (HDL)).
 
-* Langages descriptifs et de modélisation
+* Langages descriptifs de matériel
+** Langages descriptifs et de modélisation
 
-** Objectifs
+*** Objectifs
 - Expliquer la différence entre un langage descriptif de matériel et
   un langage de programmation
 - Expliquer les mécanismes d'assignation de signaux et la notion de concurrence
@@ -5928,7 +6006,7 @@ anglais, /Hardware Description Language/ (HDL)).
 - Élaborer une description complète en VHDL pour un système simple
 
 
-** Modélisation et simulation
+*** Modélisation et simulation
 
 Lorsque vient le temps de concevoir, simuler, tester et élaborer des
 systèmes numériques complexes, les approches manuelles que nous avons
@@ -5960,7 +6038,7 @@ On peut voir un modèle HDL comme la description des relations entre
 les entrées et les sorties du système. Entrées et sorties sont
 modélisées comme des *signaux*.
 
-** Langage VHDL
+*** Langage VHDL
 
  Parmi les nombreux HDL en usage, quelques-uns ont été
  standardisés. Les plus répandus sont /Verilog/ et VHDL. C'est ce
@@ -5975,7 +6053,7 @@ modélisées comme des *signaux*.
  composants.  Le design dans son ensemble est structuré de façon
  hiérarchique.
 
-** Entité
+*** Entité
 
  Une *entité* définit le nom d'un modèle et spécifie ses interfaces,
  c'est-à-dire les entrées et les sorties qui permettent au modèle
@@ -5991,7 +6069,7 @@ modélisées comme des *signaux*.
 #+CAPTION:Déclaration d'entité
  #+BEGIN_SRC vhdl
  entity Nom_Entite is 
- [generic /generic_declarations/);]
+ [generic generic_declarations);]
 
  port (noms_signaux: mode type;
 
@@ -6004,51 +6082,51 @@ modélisées comme des *signaux*.
  end [Nom_Entite];
  #+END_SRC
 
- La déclaration commence avec le mot réservé *entity*, suivi du nom et
- du mot réservé *is*. Viennent ensuite les déclarations de ports avec le
- mot réservé *port*. La déclaration se termine avec le mot réservé
- *end* et optionnellement, le nom de l'entité.
+ La déclaration commence avec le mot réservé =entity=, suivi du nom et
+ du mot réservé =is=. Viennent ensuite les déclarations de ports avec le
+ mot réservé =port=. La déclaration se termine avec le mot réservé
+ =end= et optionnellement, le nom de l'entité.
 
- - /Nom_Entite/ est un nom arbitraire choisi par le concepteur ou la
+ - =Nom_Entite= est un nom arbitraire choisi par le concepteur ou la
    conceptrice.
 
- - /noms_signaux/ donne une liste d'un ou de plusieurs identifiants
+ - =noms_signaux= donne une liste d'un ou de plusieurs identifiants
    séparés par des virgules qui définissent les signaux externes
    d'interface.
 
  - *mode*: est un des mots réservés suivants, qui définissent la
    direction des signaux:
 
-    - *in*: le signal est une entrée
+    - =in=: le signal est une entrée
 
-    - *out*: le signal est une sortie de l'entité, qui peut être lue
+    - =out=: le signal est une sortie de l'entité, qui peut être lue
       par les autres entités qui y sont raccordées
 
-    - *buffer*: le signal est une sortie qui peut être lue de
+    - =buffer=: le signal est une sortie qui peut être lue de
       l'intérieur de l'architecture de l'entité
      
-    - *inout*: le signal peut être une entrée ou une sortie
+    - =inout=: le signal peut être une entrée ou une sortie
 
- - /type/: est un type de signal prédéfini ou défini par le concepteur
-   ou la conceptrice. Par exemple, bit, bit_vector, Boolean,
-   character, std_logic, ou std_ulogic.
+ - =type=: est un type de signal prédéfini ou défini par le concepteur
+   ou la conceptrice. Par exemple, =bit, bit_vector, Boolean,
+   character, std_logic, ou std_ulogic=.
 
-    - /bit/: une valeur binaire  0 ou 1
+    - =bit=: une valeur binaire  0 ou 1
 
-    - /bit_vector/: un vecteur de bits
+    - =bit_vector=: un vecteur de bits
 
-    - /std_logic, std_ulogic, std_logic_vector, std_ulogic_vector/: des
+    - =std_logic, std_ulogic, std_logic_vector, std_ulogic_vector=: des
       valeurs binaires plus nuancées (voir librairies)
 
-    - /boolean/: deux valeurs possibles: TRUE ou FALSE
+    - =boolean=: deux valeurs possibles: TRUE ou FALSE
 
-    - /integer/: des valeurs entières
+    - =integer=: des valeurs entières
 
-    - /real/: des valeurs réelles
+    - =real=: des valeurs réelles
 
-    - /character/: des caractères
+    - =character=: des caractères
 
-    - /time/: des valeurs de temps
+    - =time=: des valeurs de temps
  
  - *generic:* les déclarations génériques sont optionnelles et
    spécifient des constantes locales utilisées pour préciser par
@@ -6081,7 +6159,7 @@ Le listage qui suit montre un exemple simple de déclaration d'entité.
  end ALU;
  #+END_SRC
 
-** Architecture
+*** Architecture
 
  Une *architecture* est une réalisation (ou implémentation) de
  l'intérieur de la boîte noire. Jumelée à une entité, elle décrit
@@ -6125,10 +6203,10 @@ Le listage qui suit montre un exemple simple de déclaration d'entité.
  #+END_SRC
 
  Les énoncés qui peuvent se trouver dans le corps de l'architecture
- (entre le /begin/ et le /end/ peuvent être des instanciations de
+ (entre le =begin= et le =end= peuvent être des instanciations de
  composants, des assignations de signaux ou des énoncés de processus.
 
-** Signaux et assignation
+*** Signaux et assignation
 
  Un signal représente en quelque sorte un «fil». Une assignation comme
 
@@ -6141,7 +6219,7 @@ Le listage qui suit montre un exemple simple de déclaration d'entité.
 
  signifie que les deux signaux A et B auront la même valeur logique.
 
-** Notes sur la syntaxe
+*** Notes sur la syntaxe
 
 Des expressions aussi complexes que désiré peuvent être écrites, en
 utilisant des parenthèses pour spécifier les priorités d'évaluation
@@ -6218,7 +6296,7 @@ De façon générale, VHDL est insensible aux MAJUSCULES ou minuscules
 et ignore les espaces supplémentaires et sauts de lignes. On doit
 déclarer le type de tous les objets: signaux, constantes ou variables.
 
-** Concurrence
+*** Concurrence
 
 Dans un corps d'architecture, les assignations sont
 *concurrentes*. Par exemple, dans ce qui suit, les deux énoncés sont
@@ -6253,7 +6331,7 @@ importance. Nous verrons plus loin qu'il est aussi possible de définir
 des blocs dans lesquels l'exécution est séquentielle comme en
 programmation.
 
-** Vecteurs de bits
+*** Vecteurs de bits
 
 Il est possible de grouper des signaux pour en faire des vecteurs, qui
 sont des groupes ordonnés de bits: un mot, un bus, etc. De cette
@@ -6261,7 +6339,7 @@ façon, les spécifications sont plus compactes et faciles à
 interpréter.
 
 La convention la plus naturelle ordonne les indices de bits 
-: A(msb) $\longleftrightarrow$ A(lsb),
+A(msb) $\longleftrightarrow$ A(lsb),
 mais l'ordre inverse est également possible. Il vaut mieux établir une
 convention et s'y tenir pour éviter les erreurs d'interprétation.
 
@@ -6276,7 +6354,7 @@ A(7 downto 3) -- 5 bits du milieu de A
 A(0 to 7) -- A comporte 8 bits, énumérés de façon croissante
  #+END_SRC
 
-L'opérateur de concaténation & permet de combiner des groupes de bits.
+L'opérateur de concaténation =&= permet de combiner des groupes de bits.
 
 #+CAPTION:Concaténation
  #+BEGIN_SRC vhdl
@@ -6320,7 +6398,7 @@ on pourrait écrire un calcul de somme plus compact.
  Cout <= C(7);
  #+END_SRC
 
-** Modèle complet
+*** Modèle complet
 
 Considérons la bascule JK maître-esclave de la figure [[fig-bascule_JK]]
 ci-dessous, construite au moyen de portes simples.  Un modèle
@@ -6370,11 +6448,11 @@ VHDL complet pour cette bascule JK maître-esclave est donné ensuite.
  end Complet;
  #+end_src
 
-** Modèle comportemental
+*** Modèle comportemental
 
 Un modèle comportemental d'une entité est un ensemble d'énoncés qui
 sont exécutés séquentiellement. Ces énoncés peuvent se trouver dans
-des blocs PROCESS, FUNCTION ou PROCEDURE. Un tel bloc est concurrent
+des blocs =process, function= ou =procedure=. Un tel bloc est concurrent
 avec les autres énoncés du modèle général. Il est possible d'utiliser
 des variables à l'intérieur des processus. Un énoncé d'assignation
 spécifique aux variables permet d'assigner (sans délai) une valeur à
@@ -6383,16 +6461,16 @@ de la programmation traditionnelle. Les variables sont locales aux
 processus. Dans un bloc processus, il est possible d'avoir des
 boucles, des branchements conditionnels, etc. Dans le corps de
 l'entité, un bloc processus apparaît comme une grosse porte logique
-arbitrairement définie par le concepteur du bloc.
+arbitrairement définie lors de la conception du bloc.
 
-** Modèle flux de données
+*** Modèle flux de données
 
 Dans un modèle flux de données, c'est le mouvement des données qui est
 exprimé par un ensemble d'énoncés concurrents. On peut faire appel à
 des opérateurs logiques AND, OR, NOT, etc., pour décrire les relations
 entre les signaux.
 
-** Modèle structural
+*** Modèle structural
 
 Un modèle structural décrit des ensembles de composants
 interconnectés. Un énoncé d'instanciation d'un composant (qui revient
@@ -6403,17 +6481,17 @@ Une telle description structurale se contente de préciser quels
 composants seront reliés à quels autres composants, sans référence au
 comportement desdits composants.
 
-Les énoncés qui suivent le *begin* spécifient l'instanciation de
+Les énoncés qui suivent le =begin= spécifient l'instanciation de
 composants et les interconnexions. Un énoncé d'instanciation de
 composant crée un nouveau niveau hiérarchique. Chaque ligne commence
 avec un /nom d'instance/, suivi d'un deux-points (':'), d'un nom de
-composant et du mot réservé *port map*.  Ce *port map* spécifie les
+composant et du mot réservé *=port map=*.  Ce =port map= spécifie les
 interconnexions du composant. Rappelons que l'ordre de ces
 énoncés est sans conséquences.
 
-** Bloc processus
+*** Bloc processus
 
-Un énoncé /process/ permet de définir un processus. Le format est le
+Un énoncé =process= permet de définir un processus. Le format est le
 suivant.
 
 #+CAPTION:Bloc processus
@@ -6424,14 +6502,14 @@ begin
 --   liste d'énoncés séquentiels tels que:
 -- assignations de signaux 
 -- assignations de variables
--- énoncés /case/
--- énoncés /exit/
--- énoncés /if/ 
--- énoncés /loop/ 
--- énoncés /next/
--- énoncés /null/
+-- énoncés case
+-- énoncés exit
+-- énoncés if 
+-- énoncés loop 
+-- énoncés next
+-- énoncés null
 -- appels de procedure
--- énoncés /wait/
+-- énoncés wait
 end process [étiquette_processus];
 #+end_src
 
@@ -6467,7 +6545,7 @@ concurrent.  Mais tout ce qui se déroule à l'intérieur du processus
 est exécuté de façon séquentielle. Comme tout énoncé concurrent, le
 processus lit et écrit des signaux sur ses ports d'interface. Dans
 l'exemple précédent, la sortie Q reçoit des valeurs par assignation au
-sein du processus. L'expression CLK'*event* *and* CLK = '1' teste une
+sein du processus. L'expression =CLK'*event* *and* CLK = '1'= teste une
 condition de front montant sur l'interface d'entrée CLK.
 
 Il ne peut pas y avoir de déclarations de signaux dans un processus;
@@ -6478,12 +6556,12 @@ l'exécution du processus. N'importe quel changement sur un des signaux
 de la liste provoque l'exécution immédiate du processus.
 
 S'il n'y a pas de liste de sensibilité, il faudra inclure un énoncé
-/wait/ pour s'assurer que le processus se termine. Il n'est pas permis
-d'avoir à la fois une liste de sensibilité et un énoncé /wait/ pour un
+=wait= pour s'assurer que le processus se termine. Il n'est pas permis
+d'avoir à la fois une liste de sensibilité et un énoncé =wait= pour un
 même processus. Les variables et constantes utilisées dans le
 processus sont définies dans la portion =déclarations_processus=. 
 
-Les énoncés entre *begin* et *end* sont exécutés séquentiellement. Les
+Les énoncés entre *=begin=* et *=end=* sont exécutés séquentiellement. Les
 assignations de variables, dénotées :=, sont exécutées immédiatement. 
 
 Un énoncé concurrent est comme un processus d'une seule ligne, dont la
@@ -6504,7 +6582,7 @@ modéliser une porte OU entre les entrées a et b.
 #+end_src
 
 La sensibilité d'un tel processus (ici obtenue au moyen de l'énoncé
-/wait/ on a, b;) doit comporter tous les signaux utilisés pour que
+=wait on a, b;)= doit comporter tous les signaux utilisés pour que
 l'exécution se fasse dès qu'une des entrées change de valeur.
 
 Les assignations de signaux dans un processus ne prennent effet qu'une
@@ -6518,15 +6596,15 @@ valeur précédente du signal *avant* qu'il soit affecté par
 l'assignation. Il est donc possible de créer de la rétroaction au sein
 d'un même processus.
 
-** Modélisation du délai
+*** Modélisation du délai
 
 Deux formes de délai peuvent être modélisés en VHDL. Le délai inertiel
 et le délai de transport.
 
-*** Délai inertiel
+**** Délai inertiel
 
 Le délai inertiel est la forme de délai par défaut. Le mot réservé
-/after/ suppose par défaut un délai inertiel. Avec du délai inertiel,
+=after= suppose par défaut un délai inertiel. Avec du délai inertiel,
 deux changements consécutifs du signal d'entrée qui sont plus
 rapprochés temporellement que la valeur de délai ne seront pas
 reflétés sur le signal de sortie. On modélise alors une inertie du
@@ -6542,7 +6620,7 @@ assignation comme la suivante:
 Si le signal a passe de '0' à '1' à 10 ns et de '1' à '0' à 20 ns, la
 sortie ne changera pas du tout et restera tout le temps à '0'.
 
-*** Délai de transport
+**** Délai de transport
 
 Le délai de transport applique un retard dans le signal de sortie. Par
 exemple, avec la spécification suivante:
@@ -6556,21 +6634,21 @@ sortie passera de '0' à '1' à 30 ns et de '1' à '0' à 40 ns,
 reproduisant en sortie la même forme d'onde qu'en entrée, mais
 retardée de 20 ns.
 
-** Librairies
+*** Librairies
 
 Des librairies de types peuvent être définies pour préciser des types
 d'objets qui pourront ensuite être utilisés de façon standard. Par
-exemple, la librairie IEEE std_logic_1164 définit le type logique
-/std_logic/ qui apporte plus de nuances que le simple type binaire,
+exemple, la librairie IEEE =std_logic_1164= définit le type logique
+=std_logic= qui apporte plus de nuances que le simple type binaire,
 qui lui ne comporte que deux valeurs numériques '0' et '1'.
 
 Le tableau suivant donne la liste des valeurs possibles avec
-/std_logic/. Comme on peut le voir, les signaux pourront ainsi assumer
+=std_logic=. Comme on peut le voir, les signaux pourront ainsi assumer
 des valeurs comme Z (haute impédance pour les signaux trois-états), X
 (pour valeur inconnue), - pour valeur facultative, etc. Il y a même
 des nuances pour la solidité des valeurs logiques.
 
-#+CAPTION:Valeurs pour /std_logic/ 
+#+CAPTION:Valeurs pour =std_logic= 
 #+NAME:tab-octal
  | Symbole | Interprétation                           |
  |---------+------------------------------------------|
@@ -6584,7 +6662,7 @@ des nuances pour la solidité des valeurs logiques.
  | 'U'     | Non initialisé                           |
  | 'X'     | Inconnu, conflit entre sources multiples |
 
- Une clause /use/ permet de spécifier les librairies à utiliser au
+ Une clause =use= permet de spécifier les librairies à utiliser au
  début du fichier de spécification. Par exemple, le fichier VHDL
  pourrait commencer avec les déclarations du listage suivant:
 
@@ -6598,7 +6676,7 @@ des nuances pour la solidité des valeurs logiques.
 Nous avons déjà vu un exemple de l'utilisation de librairies dans le modèle
 de la bascule JK maître-esclave.
 
-** Encapsulation
+*** Encapsulation
 
  Il est possible de grouper des énoncés et de les réutiliser
  au besoin, dans d'autres modèles. Ceci nous permet de «cacher» la
@@ -6712,7 +6790,7 @@ comment on peut utiliser le composant loquet pour modéliser un loquet D.
  #+END_SRC
 
 
-** Description de design en VHDL
+*** Description de design en VHDL
 
 La description complète du système à simuler est placée dans un
 fichier avec extension .vhdl qui est ensuite compilé et simulé.  On
@@ -6722,7 +6800,7 @@ Un design en VHDL est un ensemble d'entités de conception. L'entité de
 plus haut niveau invoque les autres entités comme composants. Le design
 dans son ensemble est appelé «hiérarchie de design».
 
-*** Multiplicateur huit bits
+**** Multiplicateur huit bits
 
 Voici l'exemple d'un multiplicateur huit bits construit à partir de
 plusieurs autres composants.  Les listages qui suivent donnent le
@@ -6842,7 +6920,7 @@ entity D_FF(edge);
 #+END_SRC
 
 
-** Banc d'essai
+*** Banc d'essai
 
 Pour simuler un circuit avec un HDL, on doit lui appliquer des signaux
 aux entrées afin que le simulateur puisse générer les sorties
@@ -6885,7 +6963,7 @@ d'essai:
 L'entité ne comporte pas de ports, puisque le banc d'essai ne comporte
 pas d'entrées ou de sorties externes.
 
-** Instanciation
+*** Instanciation
 
 Il faut ensuite instancier le modèle à tester. L'instanciation peut se
 faire comme composant ou directement. À moins de vouloir définir un
@@ -6920,7 +6998,7 @@ and_gate_instance: component and_gate
 #+end_src
 
 Chaque instanciation doit avoir son propre nom. Ici, c'est
-/and_gate_instance/. Les noms de signaux à gauche sont les noms des
+=and_gate_instance=. Les noms de signaux à gauche sont les noms des
 ports du composant. Les noms à droite sont les signaux qui sont reliés
 aux ports. Ces signaux doivent être déclarés avant utilisation et
 avoir le bon type.
@@ -6941,11 +7019,11 @@ Dans ce cas, il faut également préciser la librairie et l'architecture
 pour le modèle à tester. Ici, la librairie est «work» et
 l'architecture est «ltr».
 
-** Écoulement du temps
+*** Écoulement du temps
 
 Pour tester le modèle, on doit typiquement produire des signaux qui
 varient en fonction du temps. Pour ce faire, il est possible
-d'utiliser les énoncés /after/ et /wait/. Il existe un type prédéfini
+d'utiliser les énoncés =after= et =wait=. Il existe un type prédéfini
 VHDL pour le temps, qui utilise les unités suivantes:
 
 #+CAPTION:Unités de temps
@@ -6972,15 +7050,15 @@ time_ex <= 1.2 ns; -- 1200 picoseconds
 time_ex <= 1.2 sec; -- 1200 milliseconds
 #+end_src
 
-**** Énoncé /after/
+***** Énoncé =after=
 
-L'énoncé /after/ ajoute un aspect temporel à une assignation. La
+L'énoncé =after= ajoute un aspect temporel à une assignation. La
 partie de l'énoncé qui précède la virgule est une assignation qui
 fonctionne comme toute assignation normale. La deuxième partie de
 l'énoncé spécifie une nouvelle valeur pour le signal, qui prendra effet
 au temps (futur) indiqué.
 
-#+CAPTION:Énoncé after
+#+CAPTION:Énoncé =after=
 #+begin_src vhdl
 <signal> <= <valeur_initiale>, <valeur_finale> after <temps>;
 #+end_src
@@ -7000,13 +7078,13 @@ d'horloge. La période obtenue sera le double du délai, soit ici 20 ns.
 clock <= not clock after 10 ns;
 #+end_src
 
-**** L'énoncé /wait/
+***** L'énoncé =wait=
 
-L'énoncé /wait/ suspend l'exécution dans un bloc processus pendant un
+L'énoncé =wait= suspend l'exécution dans un bloc processus pendant un
 certain temps. Rappelons que le processus ne peut pas avoir de liste
-de sensibilité. Trois types d'usage de /wait/ sont possibles:
+de sensibilité. Trois types d'usage de =wait= sont possibles:
 
-#+CAPTION:Énoncé wait
+#+CAPTION:Énoncé =wait=
 #+begin_src vhdl
 wait for <time>; 
 
@@ -7020,8 +7098,8 @@ indiquée.
 
 Dans le deuxième cas, l'exécution est stoppée jusqu'à ce que la
 condition soit remplie. Il est possible de fonder les conditions sur
-des macros pour les fronts montants /rising_edge/ ou descendants
-/falling_edge/. La portion /for/ est optionnelle. Elle permet de
+des macros pour les fronts montants =rising_edge= ou descendants
+=falling_edge=. La portion =for= est optionnelle. Elle permet de
 prévoir un temps d'attente maximal. L'attente s'arrêtera donc si la
 condition est remplie ou après l'écoulement du temps spécifié.
 
@@ -7035,12 +7113,12 @@ wait on sig_a, sig_b;
 #+end_src
 
 
-** Exemples de banc d'essai
+*** Exemples de banc d'essai
 
 Testons un circuit séquentiel simple comportant deux entrées A et
 B qui passent par une porte ET et une bascule avec sortie Q.
 
-*** Création d'une entité vide pour le banc d'essai
+**** Création d'une entité vide pour le banc d'essai
 
 L'extrait de code suivant montre le point de départ de notre banc
 d'essai.
@@ -7057,11 +7135,11 @@ architecture test of exemple_tb is
 end architecture exemple_tb;
 #+end_src
 
-*** Instanciation du modèle à tester
+**** Instanciation du modèle à tester
 
 Nous faisons une instanciation directe. L'extrait de code suivant
-montre comment la spécifier, en supposant que les signaux in_a, in_b
-et out_q ont été déclarés précédemment:
+montre comment la spécifier, en supposant que les signaux =in_a, in_b=
+et =out_q= ont été déclarés précédemment:
 
 #+CAPTION:Instanciation du modèle
 #+begin_src vhdl
@@ -7076,7 +7154,7 @@ et out_q ont été déclarés précédemment:
 
 #+end_src
 
-*** Génération de l'horloge et du signal de mise à zéro
+**** Génération de l'horloge et du signal de mise à zéro
 
 Il faut ensuite générer les signaux d'horloge et de mise à zéro, en
 spécifiant les éléments temporels. Les deux signaux seront définis de
@@ -7091,7 +7169,7 @@ fréquence de 50 MHz. L'extrait de code suivant montre les détails:
   reset <= '1', '0' after 50 ns;
 #+end_src
 
-*** Stimulus
+**** Stimulus
 
 Le dernier élément à spécifier est le stimulus, c'est-à-dire les
 signaux qui seront appliqués aux entrées de notre modèle à
@@ -7123,11 +7201,11 @@ combinaisons possibles de nos deux entrées.
 end architecture exemple_tb;
 #+end_src
 
-*** Exemples complets
+**** Exemples complets
 
-Dans le premier exemple, nous faisons appel ici au mot réservé /alias/
+Dans le premier exemple, nous faisons appel ici au mot réservé =alias=
 qui permet de rendre le code plus facile à comprendre en nommant un
-sous-ensemble du type /array/ qui a été utilisé pour générer les
+sous-ensemble du type =array= qui a été utilisé pour générer les
 combinaisons d'entrées.
 
 #+CAPTION:Premier exemple complet de banc d'essai
@@ -7291,7 +7369,7 @@ end;
 #+end_src
 
 
-** Compilation et simulation
+*** Compilation et simulation
 
 Voici enfin les grandes étapes permettant de passer de la spécification d'un
 modèle à une simulation du comportement du circuit modélisé. 
@@ -7327,20 +7405,20 @@ modèle à une simulation du comportement du circuit modélisé.
    outil externe qui permet de visualiser les signaux obtenus (formes d'ondes,
    résultats interprétés).
    
-* Préparation et simulation des modèles VHDL
+** Préparation et simulation des modèles VHDL
 
-** Éditeurs
+*** Éditeurs
 
 N'importe quel éditeur de programmation peut être utilisé pour éditer
 les modèles VHDL. Certains simulateurs comportent un éditeur
 intégré. Il peut être avantageux d'utiliser un éditeur avec fonction
 de surlignage syntaxique pour le langage.
 
-** Simulateurs gratuits
+*** Simulateurs gratuits
 
 Voici quelques simulateurs gratuits. 
 
-*** Modelsim/Questa
+**** Modelsim/Questa
 
 Des versions de ce simulateur sont offertes par plusieurs fabricants
 de circuits intégrés programmables:
@@ -7377,7 +7455,7 @@ Microchip:
 - L'utilisation requiert une licence (gratuite) spécifique à un
   ordinateur donné
 
-*** Active-HDL (version étudiante)
+**** Active-HDL (version étudiante)
 
 [[https://www.aldec.com/en/products/fpga_simulation/active_hdl_student][Free Active-HDL Student Edition]]
 
@@ -7385,7 +7463,7 @@ Microchip:
 - Licence gratuite pour la communauté étudiante (on doit indiquer son université)
 - L'inscription donne accès à une page de téléchargement
 
-*** Vivado (Xilinx)
+**** Vivado (Xilinx)
 
 [[https://www.xilinx.com/support/download.html][Xilinx téléchargements]]
 
@@ -7395,7 +7473,7 @@ Microchip:
 - L'utilisation requiert une licence (gratuite) spécifique à un
   ordinateur donné
 
-*** GHDL/GTKWave
+**** GHDL/GTKWave
 
 [[http://ghdl.free.fr/]]
 
@@ -7412,7 +7490,7 @@ gratuits.
 - GHDL est utilisé pour la simulation
 - GTKWave est utilisé pour visualiser les résultats
 
-*** EDA Playground
+**** EDA Playground
 
 [[https://www.edaplayground.com/][EDA Playground]]
 
