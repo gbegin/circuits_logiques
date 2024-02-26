@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Sun Aug 27 13:46:02 EDT 2023 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="105.75mm"
+   height="70.05mm"
+   viewBox="147 85 705 467">
+<g stroke-linecap="square">
+<circle cx="360.0" cy="240.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="268.0761" cy="148.07611" r="10.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<path d="M 277.97562,157.9756 Q 292.82486,172.82486 307.6741,187.6741" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 289.2893,177.77461 L 309.08832,189.08832 L 297.7746,169.28932" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="360.0" y="225.0" fill="#000000" style="font-size:24px">0</text>
+<text text-anchor="middle" x="360.0" y="249.0" fill="#000000" style="font-size:24px">a</text>
+<circle cx="780.0" cy="240.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="780.0" y="225.0" fill="#000000" style="font-size:24px">1</text>
+<text text-anchor="middle" x="780.0" y="249.0" fill="#000000" style="font-size:24px">b</text>
+<circle cx="600.0" cy="480.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="600.0" y="465.0" fill="#000000" style="font-size:24px">2</text>
+<text text-anchor="middle" x="600.0" y="489.0" fill="#000000" style="font-size:24px">c</text>
+<path d="M 415.7335,191.31964 Q 570.7532,79.71046 722.7602,190.00395" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 703.04877,183.11475 L 724.37897,191.1785 L 710.0961,173.4021" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="570.0" y="108.18613" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">x=1</tspan></text>
+<text text-anchor="middle" x="570.0" y="132.18613" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">z=0</tspan></text>
+<path d="M 310.7704,295.24893 C 226.17795,390.1845 154.14186,222.59506 284.2702,233.59718" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 263.83582,237.8909 L 286.2631,233.76569 L 264.8468,225.93356" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="217.0" y="318.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">x=0</tspan></text>
+<text text-anchor="middle" x="217.0" y="342.0" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">z=0</tspan></text>
+<path d="M 706.3077,233.25917 Q 569.00415,224.87851 435.68402,233.07698" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 455.278,225.86072 L 433.6878,233.19974 L 456.0146,237.8381" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="570.0" y="202.02328" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">x=1</tspan></text>
+<text text-anchor="middle" x="570.0" y="226.02328" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">z=0</tspan></text>
+<path d="M 797.648,311.86478 Q 810.5711,451.22064 675.9298,476.73404" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 694.4631,467.11536 L 673.9648,477.10638 L 696.6972,478.90558" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="773.68" y="419.76" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">x=0</tspan></text>
+<text text-anchor="middle" x="773.68" y="443.76" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">z=0</tspan></text>
+<path d="M 528.3633,498.552 Q 292.34506,546.93756 340.9466,313.57288" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 342.74277,334.37607 L 341.35437,311.6149 L 330.99484,331.9294" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="363.5" y="473.5" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">x=1</tspan></text>
+<text text-anchor="middle" x="363.5" y="497.5" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">z=1</tspan></text>
+<path d="M 529.22363,458.39658 Q 431.29462,407.45703 382.1873,312.68924" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 396.71622,327.68625 L 381.26712,310.91348 L 386.06174,333.20724" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="443.50003" y="393.49997" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">x=0</tspan></text>
+<text text-anchor="middle" x="443.50003" y="417.49997" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">z=0</tspan></text>
+</g>
+</svg>

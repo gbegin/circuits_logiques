@@ -2,134 +2,188 @@
 
 # Avant-propos
 
+
+## Pourquoi ce manuel
+
 Ce manuel a été rédigé en fonction de deux objectifs distincts mais
 reliés. Le premier objectif était de produire un manuel de qualité, en
 français, sur un sujet fondamental en électronique numérique et d'en
-faire une *Ressource éducative libre (REL)*. Une recherche préalable
+faire une *Ressource éducative libre (REL)*.  Une recherche préalable
 nous avait en effet permis de constater qu'il existe peu de manuels
-récents de ce type sur le sujet. En offrant une telle ressource à la
-communauté, nous espérons contribuer à rendre plus accessible la
+récents de ce type sur le sujet.  En offrant une telle ressource à la
+communauté, nous souhaitons contribuer à rendre plus accessible la
 formation dans ce domaine technologique important.
 
-Le deuxième objectif était d'expérimenter avec une méthode de
-travail permettant d'élaborer de telles ressources éducatives en
-faisant appel à un ensemble d'outils libres et universellement accessibles. Le
-but était aussi de s'assurer de pouvoir obtenir un document ou un ensemble de
-documents sources susceptibles d'en faciliter la réutilisation, la
-révision et le remixage. Le manuel est donc appelé à devenir une
-preuve de concept pour le processus d'élaboration qui a été utilisé.
-
-La matière couverte dans ce manuel correspond d'assez près au contenu
-du cours [MIC1065 Circuits logiques](https://etudier.uqam.ca/cours?sigle=MIC1065), offert dans le cadre du
-[baccalauréat en systèmes informatiques et électroniques](https://etudier.uqam.ca/programme?code=6526) de
-l'[Université du Québec à Montréal](https://uqam.ca/). 
-
-L'auteur, Guy Bégin, est professeur au département d'informatique de
-l'Université du Québec à Montréal. Ses recherches l'ont toujours amené
-à s'intéresser aux 0 et aux 1 si souvent rencontrés en circuits
-logiques, mais également en télécommunications numériques, son champ
-de recherche privilégié.
+Le deuxième objectif était de mettre au point et d'expérimenter avec
+une méthode de travail conçue spécifiquement pour faciliter
+l'élaboration de telles ressources éducatives en faisant appel à un
+ensemble d'outils libres et universellement accessibles.  Un élément
+clé de ce processus est de s'assurer de pouvoir obtenir un
+document ou un ensemble de documents sources permettant de
+faciliter la réutilisation, la révision et le remixage. Le manuel a
+donc joué le rôle de matériel d'expérimentation et de preuve de
+concept pour le processus d'élaboration qui a été mis au point.
 
 
-## Remerciements
+## Pourquoi un manuel sous forme de ressource éducative libre
 
-L'auteur souhaite remercier particulièrement Yves Munn (chargé de
-projets technopédagogiques), Boris Nonveiller (bibliothécaire), Rachel
-Rouleau (révision linguistique) et Émile Gauvin (étudiant au
-baccalauréat en systèmes informatiques et électroniques). Ce manuel a
-été réalisé avec le soutien de la [fabriqueREL](https://fabriquerel.org/).
+En plus de rendre l'éducation plus accessible, une ressource éducative
+libre se prête particulièrement bien à l'expérimentation avec une
+variété d'approches pédagogiques qui permettront d'adapter et de 
+rapprocher le contenu de son destinataire ultime, l'apprenant. On
+peut donc en espérer **plus** (de succès dans l'apprentissage) pour
+**moins** (d'investissement pécuniaire).
 
+Pour être qualifiée de *libre*, une ressources éducative doit être
+conçue, réalisée et distribuée sous un régime de protection (licence)
+de façon à faciliter les cinq activités en **R**: Retenir (*retain*),
+Réutiliser (*reuse*), Réviser (*revise*), Remixer (*remix*),
+Redistribuer (*redistribute*).
 
-### Licence
+-   **Retenir::** faire, posséder, contrôler une copie de la ressource
+    (par ex., télécharger et conserver sa propre copie)
 
-<div class="org-center">
+-   **Réutiliser::** utiliser publiquement une copie (originale, révisée
+    ou remixée) de la ressource (par ex., sur un site web ou en classe)
 
-<div id="org92788ff" class="figure">
-<p><a href="https://creativecommons.org/licenses/by/4.0/deed.fr" width="300"><img src="by-sa.svg" alt="by-sa.svg" class="org-svg" width="300" /></a> 
-</p>
-</div>
-</div>
+-   **Réviser::** éditer, adapter, modifier une copie de la ressource
+    (par ex., la traduire dans une autre langue)
 
-Le contenu de ce manuel électronique est
-disponible en vertu des conditions de la
-[Licence
-Creative Commons Attribution - Partage dans les mêmes conditions 4.0
-International](https://creativecommons.org/licenses/by-sa/4.0/deed.fr).
+-   **Remixer::** combiner une copie originale ou révisée de la ressource
+    avec d'autres ressources existantes pour créer quelque chose de
+    nouveau (par ex., créer une oeuvre composite (*mashup*))
 
-Vous êtes autorisé à : 
+-   **Redistribuer::** partager des copies (originales, révisées ou
+    remixées) de la ressource avec d'autres (par ex., donner une copie à
+    un ami)
 
--   **Partager:** – Copier, distribuer et communiquer le matériel par tous
-    moyens et sous tous formats.
--   **Adapter:** – Remixer, transformer et créer à partir du matériel pour
-    toute utilisation, y compris commerciale.
-
-Selon les conditions suivantes :
-
--   **Paternité:** – Vous devez citer le nom de l'auteur original.
--   **Mêmes conditions:** – Si vous remixez, transformez, ou créez à
-    partir du matériel composant l'Oeuvre originale, vous devez diffuser
-    l'Oeuvre modifiée avec la même licence.
-
-Pour citer cet ouvrage: Bégin, G. (2022), Circuits logiques
-combinatoires et séquentiels. Université du Québec à Montréal. Licence CC BY-SA
-
-<div class="org-center">
-
-<div id="org8d402bc" class="figure">
-<p><a href="https://uqam.ca/" width="300"><img src="Logo_UQAM.svg" alt="Logo_UQAM.svg" class="org-svg" width="300" /></a> 
-</p>
-</div>
-</div>
+Si l'utilisation d'une licence libre confère le droit légal de
+réaliser l'une ou l'autre des activités en R, il importe de s'assurer
+que les formats utilisés pour distribuer le contenu de la ressource ne
+constituent pas en pratique un frein à l'exercice de ce droit.  Dans
+cet esprit, le manuel, et particulièrement les documents sources
+utilisés pour le créer, sont distribués sous une variété de formats
+ouverts qui devraient en faciliter l'adaptation, la réutilisation, la
+révision et le remixage.  Ces documents sources sont accessibles via
+le dépôt *Github* <https://github.com/gbegin/circuits_logiques/>. Le dépôt
+comporte également des transparents pouvant être utilisés comme
+supports d'enseignement.
 
 
-### Ressources
+## A qui est-il destiné
 
-Les logiciels libres suivants ont été utilisés à différentes étapes,
-pour la rédaction et la préparation des modèles, des images et pour la
-simulation:
+Ce manuel s'adresse tout particulièrement aux étudiants qui suivent un
+enseignement technique, ou un premier cycle universitaire, ainsi qu'à
+tous ceux qui s'intéressent à l'ingénierie électronique.  Le lecteur
+n'a besoin d'aucune connaissance préalable pour pouvoir en assimiler
+les concepts, mais une connaissance de la programmation permettra de
+pousser l'expérimentation par simulation.  Les notions couvertes par
+le manuel sont typiquement enseignées dans les programmes d'études en
+génie électrique, en génie informatique, voire, en informatique: en
+première année au niveau universitaire premier cycle, et de façon
+moins approfondie, dans les programmes de formation technique
+correspondants. Puisque ces notions sont relativement universelles,
+moyennant une modeste adaptation terminologique, le manuel pourra
+intéresser les étudiants de partout dans le monde francophone.
 
--   Rédaction et production
-    -   [Emacs](https://www.gnu.org/software/emacs/)
-    -   [LaTeX](https://www.latex-project.org/)
-    -   [Git](https://git-scm.com)
-    -   [Pandoc](https://pandoc.org/)
--   Schémas
-    -   [Graphviz](https://graphviz.org/)
-    -   [Inkscape](https://inkscape.org)
-    -   [Wavedrom](https://wavedrom.com/)
-    -   [Schemdraw](https://schemdraw.readthedocs.io/en/latest/)
-    -   [Ditaa](https://ditaa.sourceforge.net/)
--   Simulation logique
-    -   [Simulateur Digital](https://github.com/hneemann/Digital)
--   Coloration syntaxique
-    -   [Pygments](https://pygments.org/docs/quickstart/)
+Une recherche menée sur les principaux répertoires de REL pour une
+ressource comparable, libre d'accès et en français, n'a pas permis de
+trouver d'équivalent. Les manuels habituellement utilisés pour
+l'enseignement de cette matière, publiés le plus souvent en anglais,
+sont très coûteux.
 
-Dans le but de faciliter l'adaptation, la réutilisation, la révision
-et le remixage de cette ressource éducative libre, les documents
-sources utilisés pour produire ce manuel sont accessibles via le dépôt
-Github <https://github.com/gbegin/circuits_logiques/>. Le dépôt comporte
-également des transparents pouvant être utilisés comme supports
-d'enseignement.
+Pour être utile à tous les groupes d'utilisateurs visés, le manuel et
+les ressources associées doivent pouvoir être offerts sur une variété
+de supports qui permettent de maximiser la diffusion et faciliter
+l'inclusion d'activités complémentaires (auto-tests, fichiers de
+simulation, etc.), tout en maintenant la cohérence de l'ensemble.
 
 
-# Préface
+## Comment utiliser ce manuel
 
 Ce manuel est une introduction au domaine de la conception des
-circuits logiques, qui sont à la base de tous les systèmes numériques
-modernes. Il s'adresse tout particulièrement aux personnes qui suivent
-un enseignement technique, ou un premier cycle universitaire, ainsi
-qu'à tous celles qui s'intéressent à l'ingénierie électronique.
-Aucune connaissance préalable n'est requise pour pouvoir en assimiler
-les concepts, mais une connaissance de la programmation permettra de
-pousser l'expérimentation par simulation.
+circuits logiques, qui sont à la base de tous les systèmes
+électroniques numériques, des plus simples au plus complexes. Les
+objectifs du manuel reflètent une approche pédagogique inclusive,
+progressive et pratique de l'enseignement de l'ingénierie
+électronique. Le contenu, conçu pour s'adapter aussi bien aux
+environnements technologiquement avancés qu'aux méthodes
+d'enseignement plus traditionnelles, est aligné aux objectifs
+pédagogiques du cours d'introduction *MIC1065 Circuits logiques*
+<https://etudier.uqam.ca/cours?sigle=MIC1065> qui est enseigné à l'UQAM
+depuis plusieurs dizaines d'années. Il est possible de l'adapter à
+tout cours d'introduction de niveau comparable.
 
-Les chapitres 1 à 3 de cet ouvrage sont consacrés aux concepts de base
-de la logique binaire et des systèmes de numération. Ces notions sont
-présentées d'un point de vue relativement abstrait qui n'est pas
-étranger au fait que la logique binaire mise en oeuvre dans les
-circuits numériques modernes est fondée sur des principes
-mathématiques, voire philosophiques établis bien longtemps avant
-l'invention de l'électronique.
+L'analyse des objectifs pédagogiques a permis d'élaborer un découpage
+des matières progressif et accessible. Comme il s'agit d'une
+introduction sans préalables au domaine, la présentation du matériel
+commence avec les concepts fondamentaux mais relativement simples de
+la logique binaire, de l'algèbre de Boole et des tableaux de
+vérité. Ces notions peuvent être assimilées sans même référer aux
+dispositifs électroniques qui seront utilisés plus tard.
+
+Par la suite, on voit comment les opérations logiques peuvent être
+mises en oeuvre au moyen de dispositifs électroniques, en augmentant
+progressivement le niveau de complexité: d'abord avec des portes
+logiques simples, puis avec des dispositifs combinatoires plus
+complexes. 
+
+On aborde en deuxième partie les circuits logiques séquentiels dont le
+comportement doit être analysé en tenant compte de la notion d'état,
+qui introduit la complexité supplémentaire d'un fonctionnement qui
+varie avec le temps.
+
+En exposant en premier lieu les techniques d'analyse des systèmes
+logiques (combinatoires ou séquentiels), et en étudiant de nombreux
+types de circuits logiques classiques, il est possible de passer à des
+échelons éducationnels supérieurs en abordant dans un deuxième temps
+le défi de faire la conception des systèmes logiques en vue de
+répondre à des besoins exprimés par les utilisateurs.  On aborde ainsi
+les dimensions créatives qui sont au coeur du travail du concepteur de
+circuits logiques.
+
+En troisième partie, la modélisation formelle et la simulation des
+systèmes logiques ouvre finalement la porte à des options
+d'expérimentation qui permettront de consolider les notions abordées,
+et de s'intéresser aux techniques modernes permettant de faire la
+conception, la simulation, voire, la synthèse de systèmes logiques
+complexes en exploitant notamment l'encapsulation et le découpage
+hiérarchique.
+
+Dans tout le manuel, les objectifs d'apprentissage sont présentés
+clairement au début de chaque chapitre.  En fin de chapitre, des
+exercices et activités d'auto-évaluation offriront une rétroaction
+rapide aux apprenants. Dans l'optique de pouvoir s'adapter autant à
+des environnements technologiquement riches qu'à des usages plus
+traditionnels (avec manuel imprimé ou document pdf), des exercices
+(dont certains avec solutions) sont fournis à la fin du manuel pour
+faciliter l'auto-évaluation des apprentissages.  Un effort spécial est
+fait pour s'assurer de produire du matériel accessible, quel que soit
+le médium final.
+
+Le manuel propose également des options de logiciels libres d'accès
+pour pouvoir effectuer la spécification, la modélisation et la
+simulation de systèmes logiques, et ce à différents niveaux
+d'abstraction. Ces options permettent à pratiquement tous les
+lecteurs, quelles que soient leur ressources financières, de mettre en
+pratique les notions présentées dans le manuel. Comme les outils
+logiciels effectivement utilisés pour produire le manuel et le
+matériel qu'il comporte (schémas, exemples, modèles, simulations,
+etc.) sont libres d'accès, les apprenants pourront s'en inspirer et
+s'approprier ces logiciels qui deviendront dans leurs mains des outils
+d'auto-apprentissage qui leur permettront de pousser encore plus loin
+leurs apprentissages.
+
+
+## Organisation de la matière
+
+Les chapitres 1 à 3 sont consacrés aux concepts de base de la logique
+binaire et des systèmes de numération. Ces notions sont présentées
+d'un point de vue relativement abstrait qui n'est pas étranger au fait
+que la logique binaire mise en oeuvre dans les circuits numériques
+modernes est fondée sur des principes mathématiques, voire
+philosophiques établis bien longtemps avant l'avènement de
+l'électronique.
 
 Dans les trois chapitres suivants, on voit comment la logique peut
 s'incarner dans des dispositifs électroniques: d'abord avec des portes
@@ -160,249 +214,382 @@ Le manuel se conclut avec des séries d'exercices (chapitre 15) qui
 permettront de mettre en pratique les notions abordées.
 
 
+## Comment accéder au contenu
+
+Si vous lisez ceci via *Pressbooks*, vous avez déjà sous la main accès
+au contenu en direct, en cliquant sur les liens vers les différentes
+parties et chapitres du manuel. Faire la lecture en ligne vous permet
+d'accéder rapidement aux différentes sections et offre la possibilité
+de réaliser les exercices et activités d'auto-évaluation de fin de
+chapitre avec rétroaction immédiate.
+
+*Pressbooks* permet aussi de télécharger des versions ebook ou pdf du
+manuel, qui pourront être imprimées ou consultés sur une liseuse. La
+mise en page de ces versions est parfois moins bien adaptée aux
+formats de page, particulièrement dans le cas des illustrations, qui
+peuvent parfois être trop petites.  De plus, le contenu mathématique
+n'est pas toujours bien supporté par les liseuses électroniques.
+
+Le dépôt *Github* <https://github.com/gbegin/circuits_logiques/> permet
+également de télécharger une version pdf du manuel qui a été produite
+directement sans passer par *Pressbooks*, et dans laquelle la mise en
+page et le contenu mathématique sont mieux rendus. Cette version
+serait la plus avantageuse pour une impression sur papier du manuel.
+
+
+## À propos de l'auteur
+
+L'auteur, Guy Bégin, est professeur au département d'informatique de
+l'Université du Québec à Montréal. Ses recherches l'ont toujours amené
+à s'intéresser aux 0 et aux 1 si souvent rencontrés en circuits
+logiques, mais également en télécommunications numériques, son champ
+de recherche privilégié.
+
+Au cours de sa carrière de professeur à l'UQAM depuis plus de trente
+ans, il a enseigné une quinzaine de cours différents en électronique,
+informatique et télécommunications, à tous les cycles. Comme directeur
+de programme (pendant une dizaine d'années), il a participé à sept
+projets de création ou de modification majeure de programmes d'études
+à tous les cycles, dont cinq comme responsable principal. Il a ainsi
+été amené à élaborer un grand nombre de nouveaux cours, préparer une
+variété de matériel pédagogique (notes de cours, transparents,
+capsules vidéo, activités d'apprentissage sur Moodle, etc.). Il a de
+plus été un des premiers de son département à expérimenter
+l'enseignement à distance (cours comodal en 2008, encadrement
+aux cycles supérieurs à distance, 2011-2013).
+
+Comme directeur du seul programme de génie de l'histoire de l'UQAM
+(baccalauréat en génie microélectronique, de 2002 à 2016), il a été au
+centre du processus d'agrément du programme auprès du Bureau canadien
+d'agrément des programmes de génie, selon la formule des «qualités de
+l'ingénieur», une forme élaborée d'approche par compétences.
+
+
+## Remerciements
+
+L'auteur souhaite remercier particulièrement Yves Munn (chargé de
+projets technopédagogiques), Boris Nonveiller (bibliothécaire), Rachel
+Rouleau (révision linguistique) et Émile Gauvin (étudiant au
+baccalauréat en systèmes informatiques et électroniques). Ce manuel a
+été réalisé avec le soutien de la [fabriqueREL](https://fabriquerel.org/).
+
+Image en couverture par Émilie Tournevache et Alex Grenier (Service de
+l'audiovisuel-UQAM) avec l'outil IA Midjourney et mots clés : Réseaux
+Informatiques, Réseaux Sociaux, Connexions, Algorithmes.
+
+
+### Licence
+
+<div class="org-center">
+
+<div id="orge3cd9f3" class="figure">
+<p><a href="https://creativecommons.org/licenses/by/4.0/deed.fr" width="300"><img src="by-sa.svg" alt="by-sa.svg" class="org-svg" width="300" /></a> 
+</p>
+</div>
+</div>
+
+Le contenu de ce manuel électronique est disponible en vertu des
+conditions de la [Licence Creative Commons Attribution - Partage dans
+les mêmes conditions 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/deed.fr).
+
+Vous êtes autorisé à : 
+
+-   **Partager:** – Copier, distribuer et communiquer le matériel par tous
+    moyens et sous tous formats.
+-   **Adapter:** – Remixer, transformer et créer à partir du matériel pour
+    toute utilisation, y compris commerciale.
+
+Selon les conditions suivantes :
+
+-   **Paternité:** – Vous devez citer le nom de l'auteur original.
+-   **Mêmes conditions:** – Si vous remixez, transformez, ou créez à
+    partir du matériel composant l'Oeuvre originale, vous devez diffuser
+    l'Oeuvre modifiée avec la même licence.
+
+Pour citer cet ouvrage: Bégin, G. (2022), Circuits logiques
+combinatoires et séquentiels. Université du Québec à Montréal. Licence CC BY-SA
+
+<div class="org-center">
+
+<div id="org2ad2f94" class="figure">
+<p><a href="https://uqam.ca/" width="300"><img src="Logo_UQAM.svg" alt="Logo_UQAM.svg" class="org-svg" width="300" /></a> 
+</p>
+</div>
+</div>
+
+
+### Ressources
+
+Les logiciels libres suivants ont été utilisés à différentes étapes,
+pour la rédaction et la préparation des modèles, des images et pour la
+simulation:
+
+-   Rédaction et production
+    -   [Emacs](https://www.gnu.org/software/emacs/)
+    -   [LaTeX](https://www.latex-project.org/)
+    -   [Git](https://git-scm.com)
+    -   [Pandoc](https://pandoc.org/)
+-   Schémas
+    -   [Graphviz](https://graphviz.org/)
+    -   [Inkscape](https://inkscape.org)
+    -   [Wavedrom](https://wavedrom.com/)
+    -   [Schemdraw](https://schemdraw.readthedocs.io/en/latest/)
+    -   [Ditaa](https://ditaa.sourceforge.net/)
+-   Simulation logique
+    -   [Simulateur Digital](https://github.com/hneemann/Digital)
+-   Coloration syntaxique
+    -   [Pygments](https://pygments.org/docs/quickstart/)
+
+
 # Table des matières
 
--   [Avant-propos](#org0ff06b8)
-    -   [Remerciements](#orgdc0808c)
-        -   [Licence](#org9b5383a)
-        -   [Ressources](#org27557f3)
--   [Préface](#org4f98848)
-1.  [Systèmes de numération](#org09b0bc9)
-    1.  [Objectifs](#org3867377)
-    2.  [Systèmes numériques](#orgf3001f2)
-    3.  [Nombres binaires](#org9bdf4aa)
-    4.  [Conversion binaire <-> décimal](#org82d7a64)
-    5.  [Notation](#orgbccc8c8)
-    6.  [Représentations compactes de nombres binaires](#org6eaeff1)
-        1.  [Représentation octale](#orgea583d8)
-        2.  [Représentation hexadécimale](#org3691374)
-        3.  [Conversion en sens inverse](#orge3ab69b)
-    7.  [Nombres binaires fractionnaires](#org1069943)
-    8.  [Opérations arithmétiques binaires](#org1e02276)
-        1.  [Multiplication et division par deux](#orga05f8d4)
-    9.  [Compléments de nombres](#org3af7533)
-        1.  [Complément à neuf et complément à un](#orgc857176)
-        2.  [Complément à dix et complément à deux](#org0824f5a)
-    10. [Nombres signés et codage](#org642efc2)
-    11. [Opérations arithmétiques binaires](#org7a60cba)
-        1.  [Addition de nombres non signés](#org1961250)
-        2.  [Addition de nombres signés](#org9c24dbb)
-        3.  [Soustraction de nombres signés](#orga901503)
-        4.  [Extension de signe](#org50ceb31)
-    12. [Codes binaires](#org10888e6)
-        1.  [Code Gray](#org01c4c8e)
-        2.  [Codes alphanumériques et autres](#orgb9c587d)
-2.  [Logique binaire, fonctions logiques et algèbre de Boole](#orgc3ef947)
-    1.  [Objectifs](#org5cee4c2)
-    2.  [Logique binaire](#orgfc978c1)
-        1.  [Variable binaire](#orgae07497)
-        2.  [Opérations logiques](#org66848bf)
-        3.  [Expression logique](#orgd2eb62f)
-        4.  [Tableaux de vérité](#org6b0132a)
-    3.  [Formalisme mathématique](#org25ea003)
-        1.  [Définitions](#orge8f1034)
-    4.  [Algèbre de Boole](#org2b9fef4)
-    5.  [Algèbre de Boole à deux valeurs](#orgf3acbc0)
-    6.  [Vérification des postulats](#org6c5f5f5)
-3.  [Théorèmes et propriétés](#orga05310f)
-    1.  [Objectifs](#org7450e4b)
-    2.  [Dualité](#orge0df24c)
-    3.  [Théorèmes de base](#org8222cd4)
-        1.  [Autres fonctions logiques](#org5603e25)
-        2.  [Fonctions de plusieurs entrées](#org2bac5f8)
-        3.  [Expressions et fonctions binaires](#orgf95a58f)
-    4.  [Théorèmes de DeMorgan](#org092bc54)
-4.  [Portes logiques](#org2ca46a0)
-    1.  [Objectifs](#orgde34ea1)
-    2.  [Niveaux logiques](#org3bca4b3)
-    3.  [Logique négative ou positive](#org8fc6c66)
-    4.  [Symboles](#orga5c049a)
-        1.  [Porte ET](#org365d765)
-        2.  [Porte OU](#org7ef847a)
-        3.  [Porte inverseur](#org7152e4b)
-        4.  [Porte NON-OU (NOR)](#orgcfea063)
-        5.  [Porte NON-ET (NAND) et NON-OU (NOR)](#orgb20e62b)
-        6.  [Entrées inversées](#org47cc517)
-        7.  [NAND et NOR, représentations équivalentes](#orgc5b741d)
-        8.  [Porte OU-exclusif (XOR)](#orgd718f92)
-        9.  [Porte NON-OU-exclusif ou Équivalence (XNOR)](#orgb6cb189)
-    5.  [Universalité des NAND et NOR](#org8c44717)
-    6.  [Limites physiques](#org4332831)
-        1.  [Sortance (*Fan-out*)](#org75b4c0e)
-        2.  [Modèles de délai](#org7a8597e)
-        3.  [Porte tampon](#org2c225bc)
-5.  [Simplification logique](#org911ac8d)
-    1.  [Objectifs](#org4eaa479)
-    2.  [Expressions équivalentes](#org03cd020)
-    3.  [Formes canoniques](#org2abe653)
-        1.  [Minterms et maxterms](#org91abd6c)
-        2.  [Somme de produits](#orgfaf8199)
-        3.  [Produit de sommes](#org006cd41)
-        4.  [Conversion entre formes canoniques](#org174db38)
-        5.  [Formes standard](#org70a2730)
-    4.  [Objectifs de minimisation](#orgb6351f4)
-    5.  [Diagrammes de Karnaugh](#org105e197)
-        1.  [Procédure de simplification](#org2f09874)
-        2.  [Cas facultatifs](#org5e39c17)
-        3.  [Impliquants](#org70899b3)
-        4.  [Impliquant premier](#orgff98c05)
-        5.  [Couverture d'une fonction](#org7671a0d)
-        6.  [Impliquant premier essentiel](#org5b07657)
-        7.  [Sélection des impliquants](#org41f1de5)
-        8.  [Minimisation avec cas facultatifs](#org631fe75)
-        9.  [Minimisation avec plusieurs fonctions](#org45ba4ef)
-    6.  [Tableau de couverture Quine-McCluskey](#org4e048af)
-        1.  [Tableau de couverture réduit](#org7258242)
-        2.  [Dominance de lignes](#orgf7864aa)
-        3.  [Dominance de colonnes](#org8bf962d)
-    7.  [Implémentation des fonctions simplifiées](#org9aea29c)
-        1.  [Implémentation à deux niveaux](#org6f331b3)
-6.  [Circuits combinatoires typiques](#org4921267)
-    1.  [Objectifs](#org6b7c5be)
-    2.  [Circuit combinatoire](#org9a91c1a)
-    3.  [Analyse d'un circuit logique combinatoire](#org7494f27)
-        1.  [Exemple](#org15cd364)
-    4.  [Conception d'un circuit combinatoire](#orgb6488ad)
-    5.  [Alternatives d'implémentation](#orga6b06c4)
-        1.  [Implémentations via la fonction directe](#org7bf0362)
-        2.  [Implémentations via la fonction complémentaire](#org090725c)
-    6.  [Circuits logiques combinatoires classiques](#org74e27ad)
-    7.  [Additionneur binaire](#org0d6c4d8)
-        1.  [Demi-additionneur](#org937f87f)
-        2.  [Additionneur complet](#orgc5453c1)
-        3.  [Additionneur binaire pour $n$ bits](#orgc229c64)
-        4.  [Propagation de retenue](#org3256f23)
-        5.  [Anticipation de retenue](#orgc1ed758)
-        6.  [Soustraction](#orgf946d76)
-        7.  [Débordements](#orgae0a7a9)
-    8.  [Multiplexeur](#orgc27ced6)
-        1.  [Multiplexeur deux-vers-un](#org488b18c)
-        2.  [Multiplexeur quatre-vers-un](#org3155df2)
-    9.  [Décodeur](#orgf1cfdd4)
-        1.  [Décodeur avec sortie active basse et signal de contrôle](#org259b51a)
-        2.  [Implémentation de fonctions arbitraires au moyen d'un décodeur](#orgbe871d8)
-    10. [Encodeur](#org6381ffe)
-        1.  [Encodeur à priorité](#org39910cd)
-    11. [Comparateur de magnitude](#org5877cfc)
-    12. [Démultiplexeur](#org07a6991)
-    13. [Encodeurs divers](#org9ec7319)
-    14. [Portes à trois états et tampon de bus](#org47179c9)
-7.  [Circuits séquentiels](#orgaba172b)
-    1.  [Objectifs](#org1503d97)
-    2.  [Modèle d'un circuit séquentiel](#orge726e6a)
-    3.  [Éléments de mémoire](#org008dc5a)
-    4.  [Loquets](#org83fa0ea)
-        1.  [Loquet SR](#orgf160816)
-        2.  [Loquet D](#org05536ad)
-    5.  [Application: rebonds d'interrupteurs](#org47811cb)
-    6.  [Bascules (Flip-flops)](#org4decb31)
-        1.  [Bascule D](#org577cda4)
-        2.  [Délais et réponse temporelle](#org9ea1076)
-        3.  [Autres bascules](#org1c093d4)
-        4.  [Bascule JK](#orgbfda221)
-        5.  [Bascule T](#org43d3892)
-        6.  [Tableaux caractéristiques](#org5925d7e)
-        7.  [Équations caractéristiques](#orgaeaa135)
-        8.  [Entrées asynchrones](#org0d6d7e6)
-8.  [Analyse de circuits logiques séquentiels synchrones](#org36e9e5d)
-    1.  [Objectifs](#org72add8f)
-    2.  [Démarche d'analyse](#org971c458)
-    3.  [Exemple d'analyse](#orgac16afc)
-    4.  [Analyse pour des bascules JK](#orge3f71c3)
-        1.  [Exemple avec bascules JK](#org2a912e0)
-    5.  [Modèles de machines séquentielles](#org9f271f9)
-9.  [Conception de circuits logiques séquentiels](#orgf57832d)
-    1.  [Objectifs](#org00b626d)
-    2.  [Conception d'un circuit séquentiel synchrone](#org4f9fa4c)
-    3.  [Spécification fonctionnelle](#org5037725)
-    4.  [Diagramme d'état](#org052990e)
-    5.  [Tableau d'état](#orgeebcb22)
-    6.  [Réduction du nombre d'états](#org7a86499)
-        1.  [Tableau d'implication](#org1095183)
-    7.  [Codage des états](#orge595b19)
-    8.  [Décodeur d'état](#org54bb19f)
-    9.  [Décodeur de sortie](#orgca7025a)
-    10. [Procédure de conception](#org04eb751)
-    11. [Exemple de conception](#org71003c3)
-        1.  [Bascules D](#org37f5f0f)
-        2.  [Autres types de bascules](#org800be2a)
-    12. [États interdits](#org88418d0)
-    13. [Exemple avec états *one-hot*](#orgddf5439)
-10. [Circuit séquentiels: registres et compteurs](#orgd9af8f5)
-    1.  [Objectifs](#org8ca4b75)
-    2.  [Registres](#orgbdccebf)
-        1.  [Chargement parallèle](#org38c2e39)
-        2.  [Registres à décalage](#orgfb6c366)
-    3.  [Compteurs](#org4b1b024)
-        1.  [Compteur asynchrone](#orga0a9246)
-        2.  [Compteur synchrone](#org4377ef0)
-        3.  [Compteur bidirectionnel](#org24fd7ea)
-        4.  [Compteur en anneau](#org837d7be)
-        5.  [Compteur Johnson](#org52c1088)
-        6.  [Diviseur de fréquence](#org002eb4b)
-        7.  [Compteur à chargement parallèle](#orgc2e62cc)
-        8.  [Compteur modulo](#org3c5d2df)
-11. [Mémoires](#orgf54b202)
-    1.  [Objectifs](#org52d32c0)
-    2.  [Mémoires](#orgd66b304)
-        1.  [Mémoires non-volatiles](#org8c6cfb8)
-        2.  [Mémoires volatiles](#org18e6228)
-    3.  [Adressage](#org3238b1a)
-        1.  [Lecture et écriture](#org136e96e)
-        2.  [Bus de données](#orgbefbbcd)
-        3.  [Chronogrammes](#org2b40cb5)
-    4.  [Mémoires mortes](#org83e1c79)
-        1.  [Implémentation de fonctions combinatoires](#org5d71756)
-        2.  [Tableau de correspondance](#orgb673136)
-        3.  [Catégories de mémoires ROM](#orgae8dd91)
-12. [Logique programmable](#orgd025945)
-    1.  [Objectifs](#org362e0a5)
-    2.  [Dispositifs programmables](#orga61b0cf)
-        1.  [Matrice logique programmable (PLA)](#orgc47fba1)
-        2.  [Logique à matrice programmable (PAL)](#org4d7679f)
-        3.  [Logique programmable séquentielle](#org43cd37d)
-    3.  [Circuits intégrés programmables](#orgd568765)
-13. [Langages descriptifs et de modélisation](#org3b6d58b)
-    1.  [Objectifs](#orge253891)
-    2.  [Modélisation et simulation](#orgb4d3915)
-    3.  [Langage VHDL](#orgb0ab10d)
-    4.  [Entité](#orgf8131fb)
-    5.  [Architecture](#org66a8a94)
-    6.  [Signaux et assignation](#org52e23a9)
-    7.  [Notes sur la syntaxe](#orgf016796)
-    8.  [Concurrence](#org7710f69)
-    9.  [Vecteurs de bits](#orgc6ff832)
-    10. [Modèle complet](#org6c04773)
-    11. [Modèle comportemental](#orgf0132a7)
-    12. [Modèle flux de données](#org4f70d60)
-    13. [Modèle structural](#orgbe6c50f)
-    14. [Bloc processus](#orgb2fac41)
-    15. [Modélisation du délai](#orgeedcb0e)
-        1.  [Délai inertiel](#org1f6c05d)
-        2.  [Délai de transport](#orgbe4e815)
-    16. [Librairies](#org9436e31)
-    17. [Encapsulation](#orgfa1f207)
-    18. [Description de design en VHDL](#org8a4aa6e)
-        1.  [Multiplicateur huit bits](#orgbbe159c)
-    19. [Banc d'essai](#orgf77bdc6)
-    20. [Instanciation](#org7e00d21)
-    21. [Écoulement du temps](#org2bebf26)
-    22. [Exemples de banc d'essai](#org2f77250)
-        1.  [Création d'une entité vide pour le banc d'essai](#org41dbd8d)
-        2.  [Instanciation du modèle à tester](#org0d59319)
-        3.  [Génération de l'horloge et du signal de mise à zéro](#org7810abc)
-        4.  [Stimulus](#org06d7160)
-        5.  [Exemples complets](#orgf50923c)
-    23. [Compilation et simulation](#org1a730aa)
-14. [Préparation et simulation des modèles VHDL](#org7091919)
-    1.  [Éditeurs](#org0cd2a9b)
-    2.  [Simulateurs gratuits](#org0bcd3b8)
-        1.  [Modelsim/Questa](#org308473f)
-        2.  [Active-HDL (version étudiante)](#org32b7919)
-        3.  [Vivado (Xilinx)](#org4325e4d)
-        4.  [GHDL/GTKWave](#orgd6b02c1)
-        5.  [EDA Playground](#orgdb5a54a)
-15. [Exercices](#org26dbc29)
+-   [Avant-propos](#orgbac4f20)
+    -   [Pourquoi ce manuel](#org861be00)
+    -   [Pourquoi un manuel sous forme de ressource éducative libre](#org2392db3)
+    -   [A qui est-il destiné](#org859d369)
+    -   [Comment utiliser ce manuel](#org20f28de)
+    -   [Organisation de la matière](#org1256726)
+    -   [Comment accéder au contenu](#org6e3980a)
+    -   [À propos de l'auteur](#org5951afd)
+    -   [Remerciements](#org892c399)
+        -   [Licence](#orgb235792)
+        -   [Ressources](#orgdff1219)
+1.  [Systèmes de numération](#org48be2e9)
+    1.  [Objectifs](#org3e2425d)
+    2.  [Systèmes numériques](#org16bab48)
+    3.  [Nombres binaires](#org446543a)
+    4.  [Conversion binaire <-> décimal](#orgae7703c)
+    5.  [Notation](#org2516935)
+    6.  [Représentations compactes de nombres binaires](#orgf38c208)
+        1.  [Représentation octale](#org0c3f787)
+        2.  [Représentation hexadécimale](#orgf5f90d9)
+        3.  [Conversion en sens inverse](#org834d8b9)
+    7.  [Nombres binaires fractionnaires](#orgbeb9dde)
+    8.  [Opérations arithmétiques binaires](#org7cf6844)
+        1.  [Multiplication et division par deux](#org967ed3b)
+    9.  [Compléments de nombres](#orga9c23b5)
+        1.  [Complément à neuf et complément à un](#org5984563)
+        2.  [Complément à dix et complément à deux](#orgb286dd6)
+    10. [Nombres signés et codage](#org735d3c3)
+    11. [Opérations arithmétiques binaires](#orga6d2963)
+        1.  [Addition de nombres non signés](#org9b09ae7)
+        2.  [Addition de nombres signés](#org83bfd39)
+        3.  [Soustraction de nombres signés](#org8f3783a)
+        4.  [Extension de signe](#org47d8fda)
+    12. [Codes binaires](#orge50f7db)
+        1.  [Code Gray](#orgff42343)
+        2.  [Codes alphanumériques et autres](#orgaf04806)
+2.  [Logique binaire, fonctions logiques et algèbre de Boole](#org88a7dbe)
+    1.  [Objectifs](#org8a86c6b)
+    2.  [Logique binaire](#org117ce9f)
+        1.  [Variable binaire](#orgcbb4df0)
+        2.  [Opérations logiques](#org203ff20)
+        3.  [Expression logique](#org9d5f547)
+        4.  [Tableaux de vérité](#orgcc7a5d8)
+    3.  [Formalisme mathématique](#orgd76248e)
+        1.  [Définitions](#org34e9c01)
+    4.  [Algèbre de Boole](#org75acaca)
+    5.  [Algèbre de Boole à deux valeurs](#org8dd87c1)
+    6.  [Vérification des postulats](#org177ef5c)
+3.  [Théorèmes et propriétés](#org104a89d)
+    1.  [Objectifs](#org7057fb4)
+    2.  [Dualité](#orgcd20fb0)
+    3.  [Théorèmes de base](#org4493691)
+        1.  [Autres fonctions logiques](#orge84710b)
+        2.  [Fonctions de plusieurs entrées](#orge041878)
+        3.  [Expressions et fonctions binaires](#orgc1569cc)
+    4.  [Théorèmes de DeMorgan](#org60b0541)
+4.  [Portes logiques](#orgdd753e8)
+    1.  [Objectifs](#org7161fc3)
+    2.  [Niveaux logiques](#orgc6a9b8a)
+    3.  [Logique négative ou positive](#org69b710a)
+    4.  [Symboles](#orgd0735cd)
+        1.  [Porte ET](#org1ac5dde)
+        2.  [Porte OU](#orgcda2bef)
+        3.  [Porte inverseur](#org8ecb586)
+        4.  [Porte NON-OU (NOR)](#org53b748b)
+        5.  [Porte NON-ET (NAND) et NON-OU (NOR)](#org8edfc35)
+        6.  [Entrées inversées](#orgd9e825e)
+        7.  [NAND et NOR, représentations équivalentes](#orgce9d659)
+        8.  [Porte OU-exclusif (XOR)](#org8e4e3a5)
+        9.  [Porte NON-OU-exclusif ou Équivalence (XNOR)](#org1819a50)
+    5.  [Universalité des NAND et NOR](#orgf9beeae)
+    6.  [Limites physiques](#org216076a)
+        1.  [Sortance (*Fan-out*)](#orgb41041f)
+        2.  [Modèles de délai](#orgb323e36)
+        3.  [Porte tampon](#org9b0d931)
+5.  [Simplification logique](#org56889e0)
+    1.  [Objectifs](#org1d61654)
+    2.  [Expressions équivalentes](#orgbceb56d)
+    3.  [Formes canoniques](#org38c0a78)
+        1.  [Minterms et maxterms](#org7699606)
+        2.  [Somme de produits](#orgab85957)
+        3.  [Produit de sommes](#org614cf46)
+        4.  [Conversion entre formes canoniques](#orgac70dff)
+        5.  [Formes standard](#org01f9da8)
+    4.  [Objectifs de minimisation](#org4401e9f)
+    5.  [Diagrammes de Karnaugh](#org683a899)
+        1.  [Procédure de simplification](#org107630a)
+        2.  [Cas facultatifs](#orgade001a)
+        3.  [Impliquants](#org7a1da1f)
+        4.  [Impliquant premier](#orga696cb9)
+        5.  [Couverture d'une fonction](#org377a577)
+        6.  [Impliquant premier essentiel](#org68228eb)
+        7.  [Sélection des impliquants](#org745c299)
+        8.  [Minimisation avec cas facultatifs](#org6f9a70d)
+        9.  [Minimisation avec plusieurs fonctions](#org7a14ba1)
+    6.  [Tableau de couverture Quine-McCluskey](#org5612282)
+        1.  [Tableau de couverture réduit](#orgcd29b6e)
+        2.  [Dominance de lignes](#org434b60a)
+        3.  [Dominance de colonnes](#org79e46e8)
+    7.  [Implémentation des fonctions simplifiées](#org1656316)
+        1.  [Implémentation à deux niveaux](#org6e0211c)
+6.  [Circuits combinatoires typiques](#org385419e)
+    1.  [Objectifs](#orgca83f38)
+    2.  [Circuit combinatoire](#org6666f0f)
+    3.  [Analyse d'un circuit logique combinatoire](#org57b7f9d)
+        1.  [Exemple](#org12e9482)
+    4.  [Conception d'un circuit combinatoire](#org3dd6495)
+    5.  [Alternatives d'implémentation](#org249d29c)
+        1.  [Implémentations via la fonction directe](#org734efd9)
+        2.  [Implémentations via la fonction complémentaire](#orgedae1e9)
+    6.  [Circuits logiques combinatoires classiques](#org8ece29f)
+    7.  [Additionneur binaire](#org40e84a7)
+        1.  [Demi-additionneur](#org90bf5a7)
+        2.  [Additionneur complet](#orga02f1b2)
+        3.  [Additionneur binaire pour $n$ bits](#orgcdfee32)
+        4.  [Propagation de retenue](#orge2ee2ad)
+        5.  [Anticipation de retenue](#org2581262)
+        6.  [Soustraction](#org3880961)
+        7.  [Débordements](#orgd3a63ab)
+    8.  [Multiplexeur](#org66abac6)
+        1.  [Multiplexeur deux-vers-un](#orgee79153)
+        2.  [Multiplexeur quatre-vers-un](#org1c3559f)
+    9.  [Décodeur](#org670b9aa)
+        1.  [Décodeur avec sortie active basse et signal de contrôle](#orgfe29f7b)
+        2.  [Implémentation de fonctions arbitraires au moyen d'un décodeur](#org39cb8b9)
+    10. [Encodeur](#orgfbbc07e)
+        1.  [Encodeur à priorité](#org7f52d83)
+    11. [Comparateur de magnitude](#org11d4cf6)
+    12. [Démultiplexeur](#org3c1bed9)
+    13. [Encodeurs divers](#orgb0edb6f)
+    14. [Portes à trois états et tampon de bus](#orgc4dc669)
+7.  [Circuits séquentiels](#orgc347ed3)
+    1.  [Objectifs](#org1ed7ff4)
+    2.  [Modèle d'un circuit séquentiel](#orgf645d97)
+    3.  [Éléments de mémoire](#orgf266411)
+    4.  [Loquets](#orgacb8880)
+        1.  [Loquet SR](#orga877c92)
+        2.  [Loquet D](#orgc66bb03)
+    5.  [Application: rebonds d'interrupteurs](#org58ec00f)
+    6.  [Bascules (Flip-flops)](#org516f409)
+        1.  [Bascule D](#org2ba0436)
+        2.  [Délais et réponse temporelle](#orga66b0d3)
+        3.  [Autres bascules](#org06d6827)
+        4.  [Bascule JK](#org4fba088)
+        5.  [Bascule T](#org7c908ca)
+        6.  [Tableaux caractéristiques](#org67e27dc)
+        7.  [Équations caractéristiques](#orgc542c6a)
+        8.  [Entrées asynchrones](#org889e339)
+8.  [Analyse de circuits logiques séquentiels synchrones](#orga86d34b)
+    1.  [Objectifs](#org074b0ff)
+    2.  [Démarche d'analyse](#org9d9946f)
+    3.  [Exemple d'analyse](#org7edba29)
+    4.  [Analyse pour des bascules JK](#orgc221236)
+        1.  [Exemple avec bascules JK](#orgea4a767)
+    5.  [Modèles de machines séquentielles](#org482db52)
+9.  [Conception de circuits logiques séquentiels](#org1a51a8e)
+    1.  [Objectifs](#org3215515)
+    2.  [Conception d'un circuit séquentiel synchrone](#org8a9fb95)
+    3.  [Spécification fonctionnelle](#org5d551dc)
+    4.  [Diagramme d'état](#org7ba306e)
+    5.  [Tableau d'état](#org715628a)
+    6.  [Réduction du nombre d'états](#orgd016c32)
+        1.  [Tableau d'implication](#org76e9479)
+    7.  [Codage des états](#org6f07b3c)
+    8.  [Décodeur d'état](#org516e093)
+    9.  [Décodeur de sortie](#org38635b5)
+    10. [Procédure de conception](#org8c65143)
+    11. [Exemple de conception](#org35ab4d3)
+        1.  [Bascules D](#orgd7bf385)
+        2.  [Autres types de bascules](#org41d3fea)
+    12. [États interdits](#orgbb0579d)
+    13. [Exemple avec états *one-hot*](#org69bba57)
+10. [Circuit séquentiels: registres et compteurs](#org729192d)
+    1.  [Objectifs](#orgb3f6597)
+    2.  [Registres](#orgef32ab2)
+        1.  [Chargement parallèle](#orgba84cef)
+        2.  [Registres à décalage](#org0b7a29a)
+    3.  [Compteurs](#orgc2c9114)
+        1.  [Compteur asynchrone](#orga26bd0d)
+        2.  [Compteur synchrone](#orgc6c4cc2)
+        3.  [Compteur bidirectionnel](#org0317066)
+        4.  [Compteur en anneau](#org87996ca)
+        5.  [Compteur Johnson](#org98d9d85)
+        6.  [Diviseur de fréquence](#org553a157)
+        7.  [Compteur à chargement parallèle](#org9ea2a8a)
+        8.  [Compteur modulo](#orga58f1b0)
+11. [Mémoires](#org6e490ef)
+    1.  [Objectifs](#orga28cf86)
+    2.  [Mémoires](#org99b45e7)
+        1.  [Mémoires non-volatiles](#org927f356)
+        2.  [Mémoires volatiles](#org3428197)
+    3.  [Adressage](#orgbc072c8)
+        1.  [Lecture et écriture](#org5753987)
+        2.  [Bus de données](#org2725747)
+        3.  [Chronogrammes](#org3793b4d)
+    4.  [Mémoires mortes](#orgf953c3c)
+        1.  [Implémentation de fonctions combinatoires](#org539b817)
+        2.  [Tableau de correspondance](#org7bb7dcd)
+        3.  [Catégories de mémoires ROM](#org345c778)
+12. [Logique programmable](#orgf29cc8e)
+    1.  [Objectifs](#org9152a08)
+    2.  [Dispositifs programmables](#orgba06188)
+        1.  [Matrice logique programmable (PLA)](#orge639064)
+        2.  [Logique à matrice programmable (PAL)](#org353725a)
+        3.  [Logique programmable séquentielle](#org29b6e1f)
+    3.  [Circuits intégrés programmables](#org3ac0c54)
+13. [Langages descriptifs et de modélisation](#org83bd8c1)
+    1.  [Objectifs](#org8ff0d8a)
+    2.  [Modélisation et simulation](#orgfc8f979)
+    3.  [Langage VHDL](#org7f5a3de)
+    4.  [Entité](#org071957d)
+    5.  [Architecture](#org6ade6f6)
+    6.  [Signaux et assignation](#orgea4c76f)
+    7.  [Notes sur la syntaxe](#org12426d3)
+    8.  [Concurrence](#orge2353b3)
+    9.  [Vecteurs de bits](#org753ec89)
+    10. [Modèle complet](#orgbf6cb72)
+    11. [Modèle comportemental](#org335921d)
+    12. [Modèle flux de données](#orga19ef2c)
+    13. [Modèle structural](#orgb746b95)
+    14. [Bloc processus](#orgcb30590)
+    15. [Modélisation du délai](#orgc679af3)
+        1.  [Délai inertiel](#orgfe495c4)
+        2.  [Délai de transport](#org1c6e29b)
+    16. [Librairies](#orgfc266a2)
+    17. [Encapsulation](#orgb62d37c)
+    18. [Description de design en VHDL](#org61f3416)
+        1.  [Multiplicateur huit bits](#org91f4976)
+    19. [Banc d'essai](#orgf430b7c)
+    20. [Instanciation](#org01bf347)
+    21. [Écoulement du temps](#org7f9d15e)
+    22. [Exemples de banc d'essai](#org60ab0b2)
+        1.  [Création d'une entité vide pour le banc d'essai](#org2c91feb)
+        2.  [Instanciation du modèle à tester](#org163fd08)
+        3.  [Génération de l'horloge et du signal de mise à zéro](#org9246644)
+        4.  [Stimulus](#org4c10f86)
+        5.  [Exemples complets](#org9f41bca)
+    23. [Compilation et simulation](#orgf956ea6)
+14. [Préparation et simulation des modèles VHDL](#orgb19365b)
+    1.  [Éditeurs](#org1dba997)
+    2.  [Simulateurs gratuits](#org25dbf93)
+        1.  [Modelsim/Questa](#orgc2c7a5f)
+        2.  [Active-HDL (version étudiante)](#orgc77fc17)
+        3.  [Vivado (Xilinx)](#org0d26e57)
+        4.  [GHDL/GTKWave](#org92daa41)
+        5.  [EDA Playground](#org57aa757)
+15. [Exercices et solutions](#orga71614e)
 
 
 # Systèmes de numération
@@ -466,12 +653,12 @@ nombre binaire, en tenant compte du fait que la base vaut cette
 fois-ci 2. Par exemple, la valeur attribuée au nombre binaire
 $10101$ est 
 
-$$ 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1
-\times 2^0 = 16+4+1= 21 $$
+$$1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1
+\times 2^0 = 16+4+1= 21$$
 
-comme on peut voir dans le tableau [1](#org581ea45).
+comme on peut voir dans le tableau [1](#org53594fc).
 
-<table id="org581ea45" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org53594fc" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 1 :</span> Valeur binaire du nombre \(10101\)</caption>
 
 <colgroup>
@@ -546,9 +733,9 @@ restes obtenus. Le premier reste correspond au bit le moins
 significatif, et le dernier, au bit le plus significatif.
 
 Par exemple, les opérations pour convertir 37 en binaire sont résumées
-dans le tableau [2](#org772ab86).
+dans le tableau [2](#orga5af072).
 
-<table id="org772ab86" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga5af072" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 2 :</span> Étapes de conversion de 37 en binaire</caption>
 
 <colgroup>
@@ -651,9 +838,9 @@ binaire: la représentation **octale** et la représentation
 La représentation octale consiste à utiliser la base 8, avec les
 chiffres $0, 1, \ldots, 7$. On voit la correspondance entre les
 nombres en binaire et les chiffres de la représentation octale dans le
-tableau [72](#org236ae00).
+tableau [72](#org59d5115).
 
-<table id="orgf3c0f1e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org168fa66" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 3 :</span> Représentation octale</caption>
 
 <colgroup>
@@ -724,9 +911,9 @@ regrouper les bits par groupes de trois bits, en partant de la droite
 chiffre en base 8 correspondant.
 
 Par exemple, pour (1010011110001)2, on aura le découpage du tableau
-[4](#org1b5303f).
+[4](#org856830b).
 
-<table id="org1b5303f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org856830b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 4 :</span> Regroupement pour conversion en octal</caption>
 
 <colgroup>
@@ -783,9 +970,9 @@ On obtient le nombre octal (12361)8.
 La représentation hexadécimale consiste à utiliser la base 16, avec
 les chiffres $0, 1, \ldots, 9$, auxquels on ajoute les lettres A, B,
 C, D, E et F pour représenter les valeurs de dix à quinze
-respectivement<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. On voit la correspondance entre les nombres en binaire et les chiffres de la représentation hexadécimale dans le tableau [5](#orgc5187c4).
+respectivement<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. On voit la correspondance entre les nombres en binaire et les chiffres de la représentation hexadécimale dans le tableau [5](#org06b53a4).
 
-<table id="orgc5187c4" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org06b53a4" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 5 :</span> Représentation hexadécimale</caption>
 
 <colgroup>
@@ -904,9 +1091,9 @@ regrouper les bits par groupes de quatre bits, en partant de la droite
 chiffre en base 16 correspondant.
 
 Par exemple, pour (1010011110001)2, on aura le découpage du tableau
-[6](#orga58273b).
+[6](#org06d85ee).
 
-<table id="orga58273b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org06d85ee" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 6 :</span> Regroupement pour conversion en hexadécimal</caption>
 
 <colgroup>
@@ -970,12 +1157,12 @@ seront placés après la virgule qui sépare la partie entière de la
 partie fractionnaire. Les indices des positions à droite de la virgule
 seront négatifs.
 
-Le tableau [7](#orgcf4abd3) donne en exemple le détail de l'évaluation
+Le tableau [7](#orgd1a9bf4) donne en exemple le détail de l'évaluation
 de la valeur du nombre fractionnaire (101,11)2. On obtient comme
 valeur $1 \times 4 + 0 \times 2 + 1 \times 1 + 1 \times 1/2 + 1
 \times 1/4 = 5,75$.
 
-<table id="orgcf4abd3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgd1a9bf4" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 7 :</span> Évaluation de la valeur du nombre fractionnaire (101,11)2</caption>
 
 <colgroup>
@@ -1054,9 +1241,9 @@ entier, on devra insérer un zéro à la position zéro. Si le nombre est
 fractionnaire, le bit le plus significatif de la partie fractionnaire se
 retrouvera à la position zéro.
 
-$$ (10011)2 \times 2 = (100110)2 $$
+$$(10011)2 \times 2 = (100110)2$$
 
-$$ (100,11)2 \times 2 = (1001,1)2 $$
+$$(100,11)2 \times 2 = (1001,1)2$$
 
 Pour diviser un nombre binaire par deux, il suffit de décaler tous ses
 bits d'une position vers la droite. Une division fractionnaire
@@ -1065,14 +1252,14 @@ suivant.
 
 1.  Division fractionnaire
 
-    $$ (10011)2 \div 2 = (1001,1)2 $$
+    $$(10011)2 \div 2 = (1001,1)2$$
 
 2.  Division entière
 
     Pour une division entière (sans fraction), on éliminera le bit qui
     aurait été placé après la virgule.
     
-    $$ (10011)2 \div 2 = (1001)2 $$
+    $$(10011)2 \div 2 = (1001)2$$
     
     Il est évident de généraliser ces opérations pour les multiplications
     ou divisions par des puissances de 2: par 4, 8, 16, etc.
@@ -1108,9 +1295,9 @@ complément à un, sans effectuer de calculs, en inversant simplement
 chacun des bits de la représentation binaire du nombre à
 complémenter. Ainsi, avec notre exemple, on trouve:
 
-$$ 10011 $$
+$$10011$$
 
-$$ 01100 $$
+$$01100$$
 
 Remarquons ici un zéro non significatif comme premier bit à gauche.
 
@@ -1139,10 +1326,10 @@ L'évaluation directe à la main, sans calculs, du complément à deux est
     fois les bits subséquents.
 
 Par exemple, pour (10110)2, on aura la démarche détaillée dans le
-tableau [8](#org1807761). Les étapes sont numérotées selon la position
+tableau [8](#org3f199b5). Les étapes sont numérotées selon la position
 considérée, à partir de la droite.
 
-<table id="org1807761" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org3f199b5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 8 :</span> Étapes pour complément à deux</caption>
 
 <colgroup>
@@ -1250,9 +1437,9 @@ considère des nombres positifs **et** négatifs, on double en quelque
 sorte la quantité de valeurs à représenter. Par exemple, il y a 21
 nombres à représenter si on veut pouvoir utiliser les valeurs
 comprises entre $-10$ et $+10$, comme on peut le voir dans le
-tableau [9](#org1322a2b).
+tableau [9](#org8b2051b).
 
-<table id="org1322a2b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org8b2051b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 9 :</span> Nombre de valeurs à représenter entre \(-10\) et \(+10\)</caption>
 
 <colgroup>
@@ -1346,7 +1533,7 @@ valeurs négatives, et nous avons déjà utilisé un code pour le
 zéro. Quel code binaire devrait-on placer juste avant le zéro, pour
 représenter -1? Si on dispose l'ensemble des codes binaires entre 0000
 et 1111 selon un cycle, comme illustré sur la figure
-[106](#orgdd9b79d), alors le code approprié pour -1 sera 1111. Et le
+[128](#org4e18cbd), alors le code approprié pour -1 sera 1111. Et le
 code pour -2 sera 1110. Un avantage de cette disposition est que, en
 ajoutant 1 pour passer de -2 à -1, on parcourt le cycle dans le même
 sens qu'en ajoutant 1 pour passer de 1 à 2.
@@ -1363,9 +1550,9 @@ flèches (horaire) sur l'illustration correspond à une addition;
 tout mouvement en sens inverse correspond à une soustraction. Les nombres
 binaires seront ainsi symétriques par rapport à notre zéro.
 
-Nous obtenons ainsi l'assignation du tableau [10](#orga222972).
+Nous obtenons ainsi l'assignation du tableau [10](#org5e1d773).
 
-<table id="orga222972" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org5e1d773" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 10 :</span> Assignation de codes aux nombres de 4 bits</caption>
 
 <colgroup>
@@ -1519,9 +1706,9 @@ table d'addition suivante. À la position $i$, on a trois entrées à
 prendre en considération: $A_{i}$ et $B_{i}$, les bits des nombres
 à additionner, et $R_{i-1}$, la retenue provenant de la position
 $i-1$. En sortie, on a la somme $S_{i}$ et la retenue $R_{i}$.
-On obtient le tableau de vérité suivant ([11](#org399589e)).
+On obtient le tableau de vérité suivant ([11](#orga4e4ea1)).
 
-<table id="org399589e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga4e4ea1" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 11 :</span> Tableau de vérité pour l'additionneur binaire</caption>
 
 <colgroup>
@@ -1694,11 +1881,11 @@ opération spécifique pour préserver l'encodage en complément à deux.
 Considérons par exemple le nombre 5, représenté d'abord sur quatre
 bits et ensuite sur huit bits. On a pour 5 
 
-$$ 0101 $$
+$$0101$$
 
 ou encore 
 
-$$ 00000101 $$
+$$00000101$$
 
 Quand on compare ces deux représentations, on observe: 
 
@@ -1712,11 +1899,11 @@ Considérons maintenant un nombre négatif, le nombre -5, représenté
 d'abord sur quatre bits et ensuite sur huit bits. Le complément à deux
 de 5 = (0101)2 est
 
-$$ 1011 $$
+$$1011$$
 
 alors que le complément à deux de 5 = (00000101)2 est
 
-$$ 11111011 $$
+$$11111011$$
 
 Quand on compare ces deux représentations, on observe: 
 
@@ -1787,13 +1974,13 @@ erreur sur un bit n'introduit pas un gros changement dans
 l'interprétation de la valeur encodée. Un code Gray permet d'atteindre
 cet objectif.
 
-Avec le code Gray du tableau [12](#org3c45950), on peut voir par exemple que la
+Avec le code Gray du tableau [12](#orgd5e0356), on peut voir par exemple que la
 transition entre les codes pour 7 et 8 n'entraîne qu'un changement sur
 un bit, de 0110 à 1100. Avec un encodage classique basé sur les
 entiers binaires, on aurait observé pour ce cas une transition entre
 0111 et 1000, qui comporte quatre changements de valeurs de bits.
 
-<table id="org3c45950" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgd5e0356" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 12 :</span> Code Gray à quatre bits</caption>
 
 <colgroup>
@@ -2494,11 +2681,11 @@ le dual d'une expression en changeant les 0 pour des 1, les 1 pour des
 
 ## Théorèmes de base
 
-Le tableau [20](#org63be87f) résume les postulats et théorèmes de base de
+Le tableau [20](#org513571f) résume les postulats et théorèmes de base de
 notre algèbre. On présente en parallèle chaque version et sa version
 duale.
 
-<table id="org63be87f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org513571f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 13 :</span> Théorèmes de l'algèbre de Boole</caption>
 
 <colgroup>
@@ -2603,7 +2790,7 @@ des plus souvent utilisées.
     La fonction NON-ET, souvent désignée NAND, est obtenue en
     complémentant la sortie d'une fonction ET: $(x \cdot y)^\prime$.
     
-    <table id="orgaa4d036" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    <table id="org7e4ef46" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
     <caption class="t-above"><span class="table-number">Tableau 14 :</span> Tableau de vérité de la fonction NON-ET</caption>
     
     <colgroup>
@@ -2663,7 +2850,7 @@ des plus souvent utilisées.
     La fonction NON-OU, souvent désignée NOR, est obtenue en complémentant
     la sortie d'une fonction OU: $(x + y)^\prime$.
     
-    <table id="org688a466" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    <table id="orgeacc5d2" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
     <caption class="t-above"><span class="table-number">Tableau 15 :</span> Tableau de vérité de la fonction NON-OU</caption>
     
     <colgroup>
@@ -2725,7 +2912,7 @@ des plus souvent utilisées.
     une seule des entrées est 1. On verra plus loin que cette fonction
     joue un rôle important dans la formulation d'un additionneur.
     
-    <table id="orgdc5f32e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    <table id="orge4bb148" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
     <caption class="t-above"><span class="table-number">Tableau 16 :</span> Tableau de vérité de la fonction OU-exclusif</caption>
     
     <colgroup>
@@ -2798,16 +2985,16 @@ booléenne détermine la valeur de la fonction. Par exemple, $F_1$ est
 une fonction de trois entrées $a$, $b$ et $c$ définie par
 l'expression
 
-$$ F_1 = a + b \cdot c^\prime $$
+$$F_1 = a + b \cdot c^\prime$$
 
 La priorité des opération dans les expressions algébriques est (1)
 parenthèses, (2) NON, (3) ET, (4) OU.
 
 Il est possible de construire le tableau de vérité pour $F_1$ en
 évaluant la fonction pour les $2^3 = 8$ combinaisons d'entrées
-possibles, comme dans le tableau [24](#org141e6e6).
+possibles, comme dans le tableau [24](#orgdf569fe).
 
-<table id="org141e6e6" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgdf569fe" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 17 :</span> Fonction de trois variables</caption>
 
 <colgroup>
@@ -2917,7 +3104,7 @@ valeurs de la fonction. Par exemple, en complémentant ainsi les
 valeurs dans le tableau de vérité, on effectue ce changement.
 
 On peut aussi effectuer ce changement en appliquant les théorèmes de
-DeMorgan (Théorème 5 &spades; et &hearts; du tableau [20](#org63be87f)) qui
+DeMorgan (Théorème 5 &spades; et &hearts; du tableau [20](#org513571f)) qui
 peuvent se généraliser à plus de deux variables.
 
 
@@ -3092,7 +3279,7 @@ On utilise souvent l'élément symbolique qui est placé à la sortie de
 l'inverseur (un petit cercle) pour indiquer l'inversion d'une entrée
 ou d'une sortie d'une porte. C'est le cas à la sortie des portes NAND
 et NOR comme on vient de le voir. Un autre exemple est la porte NAND
-de la figure [274](#orgf167942), où une des entrées est également
+de la figure [296](#orge7a6849), où une des entrées est également
 inversée. La porte évalue donc $S =  (A^\prime \cdot B  \cdot C)^\prime$
 
 ![img](Sources_images_logiques/images/nand3_logique_invin1.svg "Porte NAND à trois entrées dont une inversée") 
@@ -3122,7 +3309,7 @@ mettre des portes à deux entrées en cascade pour augmenter le nombre
 d'entrées, ce qui rend moins intéressantes les portes XOR avec entrées
 nombreuses.
 
-$$ S= A \cdot B^\prime + A^\prime \cdot B $$  
+$$S= A \cdot B^\prime + A^\prime \cdot B$$
 
 ![img](Sources_images_logiques/images/exor_logique.svg "Porte XOR à deux entrées")
 
@@ -3259,7 +3446,7 @@ temps de propagation).
 
     Un autre effet néfaste potentiel des délais à considérer est ce qu'on
     appelle une **condition de course**. Considérons le circuit de la figure
-    [302](#orge0a472e).  La sortie de la porte est $s = a \cdot a^\prime$ qui
+    [324](#org17de9f7).  La sortie de la porte est $s = a \cdot a^\prime$ qui
     devrait normalement donner systématiquement 0. Mais le chemin menant
     de l'entrée $a$ à l'entrée du haut de la porte ET est plus court (en
     termes de délais) que le chemin qui mène à l'entrée du bas. En effet,
@@ -3269,7 +3456,7 @@ temps de propagation).
     ![img](Sources_images_logiques/images/course.svg "Cas à risque de condition de course")
     
     En pratique, on pourrait observer un chronogramme qui s'apparente à
-    celui de la figure suivante (figure [304](#org1004eb1)), où on voit
+    celui de la figure suivante (figure [326](#orge8d041c)), où on voit
     que les deux signaux à l'entrée de la porte ET sont simultanément
     égaux à 1 pendant une courte période. Une courte impulsion 1 sera donc
     générée sur le signal $s$ en sortie de la porte ET, après le délai
@@ -3367,11 +3554,11 @@ variable telle quelle, et une étiquette 1 pour une variable
 complémentée. Chaque maxterm est le complément du minterm
 correspondant (de même numéro), et *vice versa*.
 
-Dans le tableau [27](#org59a2ca5), on montre les symboles de la forme
+Dans le tableau [27](#orgf2934b6), on montre les symboles de la forme
 $m_j$ pour les minterms et $M_j$ pour les maxterms, avec $j$ qui
 est l'équivalent décimal de la combinaison de bits correspondante.
 
-<table id="org59a2ca5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgf2934b6" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 18 :</span> Minterms et maxterms pour trois variables</caption>
 
 <colgroup>
@@ -3493,7 +3680,7 @@ est l'équivalent décimal de la combinaison de bits correspondante.
 
 Pour la fonction $F_1$ dont le tableau de vérité est le suivant: 
 
-<table id="org701fb63" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org0760fff" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 19 :</span> Fonction de trois variables</caption>
 
 <colgroup>
@@ -3593,9 +3780,9 @@ Pour la fonction $F_1$ dont le tableau de vérité est le suivant:
 
 on peut donc écrire
 
-$$ F_1 = x^\prime y
+$$F_1 = x^\prime y
 z^\prime + x y^\prime z^\prime + x y^\prime z + x y z^\prime + x y z =
-m_2 + m_4 + m_5 + m_6 + m_7 $$
+m_2 + m_4 + m_5 + m_6 + m_7$$
 
 puisque ce sont les termes pour lesquels la fonction vaut 1. Cette
 forme d'expression est une forme canonique appelée *somme de
@@ -3614,8 +3801,8 @@ vaut 0 et en faisant un OU de ces termes, on obtient une expression en
 *somme de produits* pour le complément de la fonction. Ainsi, pour la
 fonction $F_1^\prime$, on a
 
-$$ F_1^\prime = m_0 + m_1 + m_3 = x^\prime y^\prime z^\prime +
-x^\prime y^\prime z + x^\prime y z $$
+$$F_1^\prime = m_0 + m_1 + m_3 = x^\prime y^\prime z^\prime +
+x^\prime y^\prime z + x^\prime y z$$
 
 Si on complémente $F_1^\prime$, on obtiendra naturellement
 $F_1$. En appliquant le théorème de DeMorgan à chaque terme, on
@@ -3848,7 +4035,7 @@ $p$ est aussi un minterm de $z$.*
 
 Exemple:
 
-$$z_1 = ab + bc + a b^{\prime} c$$ 
+$$z_1 = ab + bc + a b^{\prime} c$$
 
 $a b$, $b c$, $a b^{\prime} c$ sont des impliquants évidents de $z_1$.
 
@@ -3946,9 +4133,9 @@ $a^{\prime} b c^{\prime} d^{\prime}$ et $a^{\prime} b^{\prime}
 c^{\prime} d$ sont nécessaires pour $z_2$. Alors, pour $z_1$, on
 fera
 
-$$ z_1 =  a c + a^{\prime}  b c^{\prime} d^{\prime} +
+$$z_1 =  a c + a^{\prime}  b c^{\prime} d^{\prime} +
 a^{\prime} b^{\prime} c^{\prime} d +
-a^{\prime} b c^{\prime} d $$
+a^{\prime} b c^{\prime} d$$
 
 qui ne nous coûtera que le dernier terme produit et une somme de
 quatre termes.
@@ -3997,7 +4184,7 @@ priori*. Pour illustrer la discussion, considérons le tableau de
 couverture réduit suivant. $m_c$ est sans doute couvert par un
 i.p.e. qui n'est pas montré ici.
 
-<table id="orgad47aac" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgfbe835d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 20 :</span> Tableau réduit</caption>
 
 <colgroup>
@@ -4257,7 +4444,7 @@ suivante.
 4.  En simplifiant, on obtient finalement $F_1 = A^\prime \cdot B
        \cdot C \cdot D^\prime$.
 
-<table id="org586d7b5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga66778d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 21 :</span> Tableaux de vérité des fonctions intermédiaires et de la sortie</caption>
 
 <colgroup>
@@ -4598,7 +4785,7 @@ de conception que nous avons vues.
 ## Additionneur binaire
 
 Une des opérations binaires les plus utilisées est l'addition (et la
-soustraction). Nous avons présenté à la section [1.11.1](#org1961250) le tableau de vérité pour un additionneur binaire dont les
+soustraction). Nous avons présenté à la section [1.11.1](#org9b09ae7) le tableau de vérité pour un additionneur binaire dont les
 entrées sont $a_{i}$ et $b_{i}$, les bits des nombres à
 additionner, et aussi $r_{i-1}$, la retenue provenant de la position
 $i-1$. En sortie, on aura la somme $S_{i}$ et la retenue
@@ -4608,7 +4795,7 @@ pour l'entrée et un symbole majuscule, $R_{i}$, pour la sortie.
 
 ![img](Sources_images_logiques/images/additionneur.png "Schéma-bloc d'un additionneur complet")
 
-<table id="orge022a7f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org714a8ad" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 22 :</span> Tableau de vérité pour l'additionneur binaire</caption>
 
 <colgroup>
@@ -4728,7 +4915,7 @@ de la retenue du niveau précédent pour effectuer l'addition sur un
 niveau. Il est possible d'implémenter l'additionneur complet avec deux
 demi-additionneurs.
 
-<table id="org9d301dd" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org60fe1b8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 23 :</span> Tableau de vérité pour un demi-additionneur</caption>
 
 <colgroup>
@@ -4813,10 +5000,10 @@ retenue $R_{i}$.
 
 Les expressions simplifiées sont 
 
-$$ S_{i} = a_i^\prime b_i^\prime r_{i-1} + a_i^\prime b_i
-r_{i-1}^\prime + a_i b_i^\prime r_{i-1}^\prime + a_i b_i r_{i-1} $$
+$$S_{i} = a_i^\prime b_i^\prime r_{i-1} + a_i^\prime b_i
+r_{i-1}^\prime + a_i b_i^\prime r_{i-1}^\prime + a_i b_i r_{i-1}$$
 
-$$ R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1} $$
+$$R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1}$$
 
 ![img](Sources_images_logiques/images/fulladderS.svg "Circuit additionneur complet pour $S_i$")
 
@@ -4838,7 +5025,7 @@ reliant la retenue de sortie provenant de la position 0 (la moins
 significative) à l'entrée de retenue de la position 1, la retenue de
 sortie provenant de la position 1 à l'entrée de retenue de la position
 2, &#x2026;, la retenue de sortie provenant de la position $i-1$ à l'entrée
-de retenue de la position $i$, etc. (figure [493](#org4637d39)).
+de retenue de la position $i$, etc. (figure [515](#org43c78b2)).
 
 Pour en faire un circuit général pouvant également se combiner en
 chaîne, on prévoit une entrée pour une retenue au niveau 0, $r_0$ et
@@ -4915,8 +5102,8 @@ retenue, que nous allons explorer ici. On fait appel aux deux signaux
 $P_i = a_i \operatorname{Xor} b_i$ et $G_i = a_i b_i$, qui donnent
 respectivement pour la sortie et la retenue de sortie
 
-$$ S_i = P_i \operatorname{Xor} r_{i-1} $$
-$$ R_i = P_i r_{i-1} + G_i $$
+$$S_i = P_i \operatorname{Xor} r_{i-1}$$
+$$R_i = P_i r_{i-1} + G_i$$
 
 $G_i$ est le signal qui indique la **génération** de retenue,
 produisant une retenue lorsque $a_i$ et $b_i$ sont tous deux à 1,
@@ -4927,10 +5114,10 @@ détermine si la retenue du niveau précédent $r_{i-1}$ sera propagée
 
 En partant du niveau 0, voici les expressions pour les différentes retenues:
 
-$$ R_0 = r_0 = \operatorname{in}$$
-$$ R_1 = G_0 + P_0 R_0 $$
-$$ R_2 = G_1 + P_1 R_1 = G_1 + P_1 (G_0 + P_0 R_0) = G_1 + P_1 G_0 + P_1 P_0 R_0 $$
-$$ R_3 = G_2 + P_2 R_2 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 R_0 $$
+$$R_0 = r_0 = \operatorname{in}$$
+$$R_1 = G_0 + P_0 R_0$$
+$$R_2 = G_1 + P_1 R_1 = G_1 + P_1 (G_0 + P_0 R_0) = G_1 + P_1 G_0 + P_1 P_0 R_0$$
+$$R_3 = G_2 + P_2 R_2 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 R_0$$
 etc.
 
 Les expressions pour les retenues successives sont en forme *somme de
@@ -4996,7 +5183,7 @@ voit dans le tableau suivant les bits qui seront produits par
 l'addition, avec en évidence les retenues des deux derniers
 niveaux. Le bit de signe a été séparé des autres.
 
-<table id="org6a5c8b2" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga32ae88" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 24 :</span> Addition de (+50)10 + (+100)10 = (00110010)2 + (01100100)2</caption>
 
 <colgroup>
@@ -5048,7 +5235,7 @@ Refaisons le même exercice avec deux nombres négatifs: on additionne
 (-50)10 = (1100 1110)2 avec (-100)10 = (1001 1100)2, qui créera aussi un
 débordement.
 
-<table id="org7035dfb" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orge980d9f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 25 :</span> Addition de (-50)10 + (-100)10 = (1100 1110)2 + (1001 1100)2</caption>
 
 <colgroup>
@@ -5142,7 +5329,7 @@ aurait un vecteur de $n$ signaux de sélection.
 
 ![img](Sources_images_logiques/images/mux4symb.svg "Symbole du multiplexeur quatre-vers-un")
 
-<table id="org4cd9775" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org5345ecf" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 26 :</span> Tableau de vérité du multiplexeur quatre-vers-un</caption>
 
 <colgroup>
@@ -5213,7 +5400,7 @@ chaque sortie possible et un minterm d'entrée.
 
 ![img](Sources_images_logiques/images/decod3_8.svg "Circuit du décodeur trois-vers-huit")
 
-<table id="org651d0d5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org1425816" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 27 :</span> Tableau de vérité du décodeur trois-vers-huit</caption>
 
 <colgroup>
@@ -5407,7 +5594,7 @@ aux entrées $x$ et $y$. Notez que ce décodeur a été conçu et
 
 ![img](Sources_images_logiques/images/decode2_4_enable.svg "Décodeur à sortie active basse")
 
-<table id="org6289f91" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga5fb233" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 28 :</span> Tableau de vérité, décodeur 2 vers 4 avec sortie active basse</caption>
 
 <colgroup>
@@ -5553,11 +5740,11 @@ trois-vers-huit. L'entrée $I$ correspond à un vecteur de trois bits. Le
 tableau de vérité correspondant est donné. On peut voir que les
 minterms choisis permettent d'implémenter
 
-$$ Y = \sum(0,2,5,6)$$
+$$Y = \sum(0,2,5,6)$$
 
 ![img](Sources_images_logiques/images/fonct_arbit_decod.svg "Fonction arbitraire réalisée au moyen d'un décodeur")
 
-<table id="org744ee62" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org006e5fc" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 29 :</span> Tableau de vérité pour la fonction arbitraire</caption>
 
 <colgroup>
@@ -5672,7 +5859,7 @@ circuit ne nécessite pas vraiment d'entrée pour $D_0$.
 
 ![img](Sources_images_logiques/images/encode1.svg "Encodeur 3 bits")
 
-<table id="orgd63b607" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org067e85c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 30 :</span> Tableau de vérité pour l'encodeur 3 bits</caption>
 
 <colgroup>
@@ -5867,7 +6054,7 @@ et $y$ ne doivent pas être prises en compte.
 Lorsque des entrées sont activées, c'est celle qui a le plus grand
 indice qui est prioritaire.
 
-<table id="org4fdc552" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org2fc577c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 31 :</span> Tableau de vérité pour encodeur 2 bits à priorité</caption>
 
 <colgroup>
@@ -5968,11 +6155,11 @@ indice qui est prioritaire.
 
 En simplifiant, on trouve les expressions suivantes:
 
-$$ x = D_2 + D_3 $$
+$$x = D_2 + D_3$$
 
-$$ y = (D_1 D_2^\prime) + D_3 $$
+$$y = (D_1 D_2^\prime) + D_3$$
 
-$$ V = D_0 + D_1 + D_2 + D_3 $$
+$$V = D_0 + D_1 + D_2 + D_3$$
 
 ![img](Sources_images_logiques/images/encode_pri.svg "Encodeur 2 bits à priorité, en P de S")
 
@@ -5993,9 +6180,9 @@ avec leurs bits respectifs $a_i$ et $b_i$. Nous voulons que notre
 comparateur active une des trois sorties, selon le cas: $A < B$, $A
 = B$ ou $A > B$. Pour illustrer, nous considérerons $n = 4$.
 
-$$ a_3 a_2 a_1 a_0 $$
+$$a_3 a_2 a_1 a_0$$
 
-$$ b_3 b_2 b_1 b_0 $$
+$$b_3 b_2 b_1 b_0$$
 
 Nous aurons besoin d'une fonction qui permet de déterminer si deux
 bits sont égaux. Cette fonction correspond à la fonction **Équivalence**
@@ -6025,11 +6212,11 @@ la régularité des opérations simplifie la conception et, d'autre part,
 l'implémentation sera simplifiée du fait que certains des termes
 nécessaires peuvent être réutilisés.
 
-$$ (A = B) = x_3 x_2 x_1 x_0 $$ 
+$$(A = B) = x_3 x_2 x_1 x_0$$
 
-$$ (A < B) = a_3^\prime b_3 + x_3  a_2^\prime b_2  +  x_3 x_2  a_1^\prime b_1 +  x_3 x_2 x_1  a_0^\prime b_0 $$
+$$(A < B) = a_3^\prime b_3 + x_3  a_2^\prime b_2  +  x_3 x_2  a_1^\prime b_1 +  x_3 x_2 x_1  a_0^\prime b_0$$
 
-$$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime +  x_3 x_2 x_1  a_0 b_0^\prime $$
+$$(A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime +  x_3 x_2 x_1  a_0 b_0^\prime$$
 
 On obtient ainsi un comparateur pour des nombres de quatre bits, tel qu'illustré.
 
@@ -6068,7 +6255,7 @@ sont alimentées par la porte en haute impédance ne sont aucunement
 affectées par celle-ci. Pour activer cet état de sortie
 haute impédance, une entrée de contrôle est ajoutée.
 
-Le figure ci-dessous montre une porte tampon à trois états. Avec
+La figure ci-dessous montre une porte tampon à trois états. Avec
 `Contrôle` = 0, la sortie est en haute impédance; avec  `Contrôle` = 1,
 la sortie est égale à l'entrée.
 
@@ -6082,7 +6269,7 @@ retrouve à la sortie du dispositif. La valeur Z représente l'état
 haute impédance.  Lorsque l'entrée de contrôle $E = 0$, la sortie est
 en haute impédance.
 
-<table id="org1614755" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org77aa800" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 32 :</span> Tableau de vérité pour un  multiplexeur quatre-vers-un trois états</caption>
 
 <colgroup>
@@ -6197,7 +6384,7 @@ en haute impédance.
 
 La fonctionnalité trois-états permet aussi de concevoir un
 émetteur-récepteur de bus. Ce dispositif, illustré à la figure
-suivante ([572](#orgf3d7676)), permet d'établir une connexion
+suivante ([594](#orgace3bc3)), permet d'établir une connexion
 bidirectionnelle entre `I/O` et `O/I`. Lorsque l'entrée de contrôle
 $E = 0$, c'est le tampon du haut de la figure qui est actif, et
 `O/I` détermine la valeur de `I/O`. Lorsque $E = 1$, c'est le tampon
@@ -6223,7 +6410,7 @@ du bas qui est actif, et `I/O` détermine la valeur de `O/I`.
 
 Les circuits logiques séquentiels sont ceux qui comportent de la
 mémoire. Le modèle général d'un circuit séquentiel est illustré sur la
-figure [579](#org1a05bbe). On y voit qu'il y a une boucle de rétroaction,
+figure [601](#org76c3a44). On y voit qu'il y a une boucle de rétroaction,
 qui fait que les valeurs binaires stockées dans les éléments de
 mémoire contribuent au calcul des sorties. Les sorties du circuit à un
 instant donné ne dépendent donc pas seulement des entrées présentes à
@@ -6260,13 +6447,13 @@ produisent à des instants discrets. Les éléments de mémoire qui
 stockent les valeurs binaires sont appelés **bascules** (*flip-flops* en
 anglais). Il existe différents types de bascules. Nous les étudierons
 en détail, car elles sont à la base des circuits séquentiels les plus
-utilisés. La figure [583](#orgef65b0c) présente le modèle général d'un
+utilisés. La figure [605](#orga599858) présente le modèle général d'un
 circuit séquentiel synchrone.
 
 ![img](Sources_images_logiques/images/circuit_seq_sync.png "Modèle de circuit séquentiel synchrone")
 
 Le signal d'horloge est typiquement une onde carrée, comme illustré
-sur la figure [585](#orgc4bb4be).
+sur la figure [607](#org646b1c6).
 
 ![img](Sources_images_logiques/images/horloge.svg "Signal d'horloge")
 
@@ -6297,10 +6484,10 @@ la conception des bascules. Nous les étudierons en premier.
 Le loquet SR est formé de deux portes NOR interconnectées et comporte
 deux entrées: $S$ pour `Set`, qui permet de mémoriser une valeur 1,
 et $R$ pour `Reset`, qui permet de mémoriser une valeur 0. Le schéma
-classique du loquet SR montré sur la figure [589](#org6dfdd56) ne fait pas
+classique du loquet SR montré sur la figure [611](#org641f397) ne fait pas
 ressortir la boucle de rétroaction, mais si on déplace un peu les
 éléments sans changer les connexions, on voit mieux le lien de retour
-caractéristique de la boucle. Sur la figure [590](#orgdcb5274), la porte reliée
+caractéristique de la boucle. Sur la figure [612](#org21d1273), la porte reliée
 à $S$ a été placée devant, mais nous aurions pu tout aussi bien
 mettre l'autre porte en avant. Aucune des deux n'est vraiment devant
 l'autre, puisqu'il s'agit d'une boucle n'ayant ni début ni fin.
@@ -6330,7 +6517,7 @@ De même, en appliquant le niveau 1 pendant un certain
 temps à $R$ seulement, le loquet se désactive, peu importe l'état
 dans lequel il se trouvait auparavant.
 
-<table id="org2e09daa" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org7059b25" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 33 :</span> Loquet SR NOR: tableau de fonctionnement</caption>
 
 <colgroup>
@@ -6410,15 +6597,15 @@ dans lequel il se trouvait auparavant.
 </table>
 
 On peut aussi concevoir un loquet avec des portes NAND, comme sur la
-figure [595](#org4f32f0c). Le fonctionnement est sensiblement le même,
+figure [617](#orgdada821). Le fonctionnement est sensiblement le même,
 si ce n'est que les niveaux sont inversés par rapport au loquet NOR
 comme on peut le voir sur le tableau de fonctionnement (tableau
-[43](#orgf25d127)). Par exemple, on garde les deux entrées à $S=1, R=1$
+[43](#orgc326e1e)). Par exemple, on garde les deux entrées à $S=1, R=1$
 pour maintenir l'état du loquet.
 
 ![img](Sources_images_logiques/images/SRlatch_nand.svg "Loquet SR en portes NAND")
 
-<table id="orgf25d127" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgc326e1e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 34 :</span> Loquet SR NAND: tableau de fonctionnement</caption>
 
 <colgroup>
@@ -6499,8 +6686,8 @@ pour maintenir l'état du loquet.
 
 On peut ajouter un signal de contrôle d'entrée $E$ (*enable*) pour
 contrôler **quand** le loquet pourra être affecté par les signaux
-d'entrée. Le circuit est représenté à la figure [598](#orgb34c7e3). Comme
-on peut voir dans le tableau [44](#org0c71af5), les sorties des portes
+d'entrée. Le circuit est représenté à la figure [620](#org86bbea9). Comme
+on peut voir dans le tableau [44](#org9b5bdf5), les sorties des portes
 NAND d'entrée demeurent à 1 tant que $E = 0$, et le loquet ne peut
 pas être affecté par les entrées $S$ et $R$. Quand on active $E
 = 1$, le circuit peut être actionné par les entrées $S$ et $R
@@ -6513,7 +6700,7 @@ ingrédient de base pour la conception de bascules.
 
 ![img](Sources_images_logiques/images/SRlatch_nand_en.svg "Loquet SR NAND avec signal de contrôle")
 
-<table id="org0c71af5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org9b5bdf5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 35 :</span> Loquet SR avec signal de contrôle: tableau de fonctionnement</caption>
 
 <colgroup>
@@ -6590,14 +6777,14 @@ ingrédient de base pour la conception de bascules.
 Une option pour éliminer la condition qui fait apparaître un état
 indéterminé est de s'assurer de toujours commander $S$ et $R$
 avec des signaux complémentaires. C'est ainsi qu'on arrive au loquet
-D, illustré sur la figure [600](#org2df9778), qui ne comporte qu'une entrée de
+D, illustré sur la figure [622](#org139b2b1), qui ne comporte qu'une entrée de
 donnée $D$ et une entrée de contrôle $E$. La valeur de $D$ est
 reflétée à $Q$ lorsque $E=1$ et se maintient après que $E$ passe
-à 0 (tableau [45](#orge5a0743)).
+à 0 (tableau [45](#org2d76245)).
 
 ![img](Sources_images_logiques/images/Dlatch.svg "Schéma du loquet D")
 
-<table id="orge5a0743" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org2d76245" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 36 :</span> Loquet D: tableau de fonctionnement</caption>
 
 <colgroup>
@@ -6644,7 +6831,7 @@ reflétée à $Q$ lorsque $E=1$ et se maintient après que $E$ passe
 </tbody>
 </table>
 
-Le symbole graphique d'un loquet D est illustré à la figure [602](#orgb59f840).
+Le symbole graphique d'un loquet D est illustré à la figure [624](#orgb9ddbeb).
 
 ![img](Sources_images_logiques/images/schema_latchD.svg "Symbole du loquet D")
 
@@ -6655,7 +6842,7 @@ Lorsqu'on utilise un interrupteur pour commuter un signal entre les
 niveaux qui correspondent aux valeurs logiques 0 et 1, le contact ne
 se fait pas de façon franche sans hésitations, et le signal observé
 rebondit plusieurs fois avant de se stabiliser à sa valeur, comme on
-peut le voir sur la partie de gauche de la figure [604](#orgc880352). Ces
+peut le voir sur la partie de gauche de la figure [626](#orgb531e71). Ces
 rapides allers-retours entre les niveaux peuvent bien souvent
 déclencher un circuit logique et le mettre dans un état
 imprévisible. Pour éviter ce problème, on peut faire appel à un loquet
@@ -6696,7 +6883,7 @@ transition qui provoque le déclenchement passe d'un niveau bas vers un
 niveau élevé, et de déclenchement sur le **front descendant** dans le
 cas d'une transition du haut vers le bas.  On illustre parfois le
 front de déclenchement au moyen d'une flèche, comme on peut le voir
-sur la figure [608](#org5bbae8c).
+sur la figure [630](#org89d7866).
 
 ![img](Sources_images_logiques/images/horlogeP.svg "Signaux d'horloge avec fronts de déclenchement")
 
@@ -6718,7 +6905,7 @@ sortie du premier, appelé **maître**, reliée à l'entrée du second,
 appelé **esclave**. Le loquet maître sera activé par le signal d'horloge,
 alors que le loquet esclave sera activé par le complément du signal
 d'horloge. De cette façon, un seul des loquets sera actif à la fois,
-comme dans un sas. La figure [612](#org8b8d79f) illustre la
+comme dans un sas. La figure [634](#orge2d53ce) illustre la
 configuration pour réaliser une bascule D maître-esclave.
 
 ![img](Sources_images_logiques/images/D_mast_slave_sanst.svg "Bascule D maître-esclave")
@@ -6745,7 +6932,7 @@ En résumé:
     la demi-période basse de l'horloge.
 
 D'autres configurations permettent de réaliser ce comportement de
-sas. Par exemple, le circuit de la figure [620](#org5c3b2fb) utilise
+sas. Par exemple, le circuit de la figure [642](#org4c154e5) utilise
 trois éléments en loquet SR NAND: les deux premiers sont activés par
 le signal de donnée $D$ et l'horloge, et le dernier mémorise et
 fournit le signal de sortie $Q$. Cette configuration réalise une
@@ -6759,7 +6946,7 @@ les valeurs binaires sont indiquées par des couleurs: un signal en
 vert sombre dénote la valeur 0 et un signal en vert clair représente
 la valeur 1.
 
-Comme on peut le voir sur la figure [623](#orgca9b97f), lorsque $clk = 0$, les
+Comme on peut le voir sur la figure [645](#org40b7848), lorsque $clk = 0$, les
 entrées intermédiaires $S$ et $R$ sont maintenues au niveau 1,
 quelle que soit la valeur de l'entrée $D$, ce qui assure de
 maintenir la valeur de sortie en $Q$.
@@ -6767,18 +6954,18 @@ maintenir la valeur de sortie en $Q$.
 ![img](Sources_images_logiques/images/D_c0_d0.svg "Bascule au repos  $clk = 0, D=0$")
 
 Même lorsque l'entrée de donnée $D$ change, la valeur de sortie est
-maintenue, comme on le voit sur la figure [625](#orgb5b9648).
+maintenue, comme on le voit sur la figure [647](#org371896f).
 
 ![img](Sources_images_logiques/images/D_c0_d1.svg "Bascule au repos  $clk = 0, D \rightarrow 1$")
 
 Si l'entrée de donnée $D = 0$ lorsque $clk$ passe à 1, $R$
 devient 0, ce qui met $Q$ à 0 (opération *reset*) (figure
-[627](#orgc38ce1f)).
+[649](#orgedf0946)).
 
 ![img](Sources_images_logiques/images/D_c1_d0.svg "Bascule  *reset* $clk \rightarrow 1, D=0$")
 
 Si l'entrée de donnée $D$ change pendant que $clk = 1$, comme sur
-la figure [629](#orgc4965ce), $R$ reste à 0, parce que la porte NAND à
+la figure [651](#org5b1db85), $R$ reste à 0, parce que la porte NAND à
 trois entrées a ses trois entrées à 1: par le signal $clk = 1$, par
 la rétroaction du signal $S$ et par le signal de sortie de la porte
 NAND du bas.
@@ -6788,7 +6975,7 @@ NAND du bas.
 Quand $clk$ revient à 0, on a $S=1, R=1$ et la sortie $Q$ ne
 peut plus changer.
 
-La figure [632](#org96ca0c0) présente la bascule dans l'état $Q=0$
+La figure [654](#orgb08d83c) présente la bascule dans l'état $Q=0$
 avec l'entrée de donnée $D = 1$, juste avant que $clk$ passe
 à 1. On voit que les deux portes NAND du haut sont prêtes à provoquer
 un changement d'état de $S$ lorsque l'horloge passera à 1.
@@ -6797,11 +6984,11 @@ un changement d'état de $S$ lorsque l'horloge passera à 1.
 
 Si l'entrée de donnée $D = 1$ lorsque $clk$ passe à 1, on voit
 que $S$ est devenu 1, ce qui a amené $Q$ à 1 (opération *set*)
-(figure [634](#org9cb48af)).
+(figure [656](#orgf34e605)).
 
 ![img](Sources_images_logiques/images/D_c1_d1.svg "Bascule  *set* $clk \rightarrow 1, D=1$")
 
-La figure [636](#orga6e6cf8) présente un chronogramme qui montre la bascule
+La figure [658](#orgcb5d483) présente un chronogramme qui montre la bascule
 qui passe de l'état 0 à l'état 1 et retourne, au cycle suivant, à
 l'état 0.
 
@@ -6815,7 +7002,7 @@ dans les différentes portes qui constituent une bascule ne sont pas
 instantanés. Il faut donc laisser le temps nécessaire pour que les
 changements puissent se propager, être pris en compte et se stabiliser.
 
-Sur la figure [641](#org44d73c5), on indique le délai $t_{setup}$ entre le
+Sur la figure [663](#orgcae5c16), on indique le délai $t_{setup}$ entre le
 moment où la valeur à l'entrée de donnée D est modifiée et la
 prochaine transition de déclenchement de l'horloge. Pour assurer un
 fonctionnement adéquat de la bascule, on doit respecter un temps de
@@ -6857,11 +7044,11 @@ Une bascule JK comporte deux entrées, ce qui permet de lui faire
 exécuter les trois opérations. Activer seulement l'entrée $J$ fait
 un *set*, activer seulement l'entrée $K$ fait un *reset* et activer
 les deux entrées fait un *toggle*. On peut réaliser une bascule JK
-comme sur la figure [1023](#org98bc27f).
+comme sur la figure [1045](#org0d0b968).
 
 ![img](Sources_images_logiques/images/bascule_JK.svg "Bascule JK")
 
-La figure [648](#org1342860) montre le chronogramme de fonctionnement
+La figure [670](#org9173291) montre le chronogramme de fonctionnement
 d'une bascule JK. La bascule fait d'abord un *set*, puis un *reset* et
 enfin trois *toggles* de suite.
 
@@ -6872,7 +7059,7 @@ enfin trois *toggles* de suite.
 
 La bascule T (T pour *toggle*) change d'état à chaque déclenchement
 lorsque l'entrée $T$ est activée. On peut la réaliser à partir d'une
-bascule D ou d'une bascule JK (figure [650](#orgc996a89)).
+bascule D ou d'une bascule JK (figure [672](#org651c1e9)).
 
 ![img](Sources_images_logiques/images/basculeT.svg "Bascule T")
 
@@ -6884,7 +7071,7 @@ tableaux qui décrivent, selon les conditions d'entrée et l'état
 présent, quel sera le prochain état après le déclenchement. $Q(t)$
 représente l'état présent et $Q(t+1)$ l'état suivant.
 
-<table id="orgbc68753" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org481304e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 37 :</span> Bascule D</caption>
 
 <colgroup>
@@ -6923,7 +7110,7 @@ représente l'état présent et $Q(t+1)$ l'état suivant.
 </tbody>
 </table>
 
-<table id="orgbfc3e5c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgf1e2d39" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 38 :</span> Bascule JK</caption>
 
 <colgroup>
@@ -6985,7 +7172,7 @@ représente l'état présent et $Q(t+1)$ l'état suivant.
 </tbody>
 </table>
 
-<table id="org38376fe" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga776508" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 39 :</span> Bascule T</caption>
 
 <colgroup>
@@ -7030,15 +7217,15 @@ représente l'état présent et $Q(t+1)$ l'état suivant.
 On peut de même formuler des équations qui décrivent le comportement
 des bascules. Pour une bascule D, on a
 
-$$ Q(t+1) = D $$
+$$Q(t+1) = D$$
 
 Pour une bascule JK, on a
 
-$$ Q(t+1) =J Q^\prime + K^\prime Q $$
+$$Q(t+1) =J Q^\prime + K^\prime Q$$
 
 Pour une bascule T, on a
 
-$$ Q(t+1) = T \operatorname{Xor} Q = T Q^\prime + T^\prime Q $$
+$$Q(t+1) = T \operatorname{Xor} Q = T Q^\prime + T^\prime Q$$
 
 
 ### Entrées asynchrones
@@ -7048,7 +7235,7 @@ l'effet n'est pas soumis à l'horloge. Ces entrées sont typiquement
 utilisées pour faire un *reset* ou un *set* de la bascule, par exemple
 pour une remise à zéro initiale d'un circuit séquentiel. Une
 configuration typique est illustrée par la bascule de la figure
-[659](#orgd5461f9) qui comporte une entrée `Reset'`, laquelle
+[681](#org9546d69) qui comporte une entrée `Reset'`, laquelle
 permet de forcer l'état en agissant sur une porte NAND de chacune des
 paires de portes. Cette entrée est active au niveau bas, c'est
 pourquoi il y a une indication de complément dans son symbole.
@@ -7119,7 +7306,7 @@ l'état présent.
 
 Nous allons appliquer la démarche à un exemple qui nous permettra de
 mieux expliquer chacune des étapes. Considérons le circuit de la
-figure [682](#orge817236).
+figure [704](#org904c784).
 
 ![img](Sources_images_logiques/images/exemple_seq1.svg "Circuit séquentiel synchrone à analyser")
 
@@ -7132,23 +7319,23 @@ figure [682](#orge817236).
 
 2.  Expressions logiques pour le décodeur de prochain état:
 
-$$ Z_0^{n+1} = I \cdot (Z_1^n)^\prime  + I \cdot Z_0^n $$
+$$Z_0^{n+1} = I \cdot (Z_1^n)^\prime + I \cdot Z_0^n$$
 
-$$ Z_1^{n+1} = I \cdot Z_1^n +  Z_0^n  $$
+$$Z_1^{n+1} = I \cdot Z_1^n + Z_0^n$$
 
 1.  Expressions logiques des sorties externes:
 
-$$ S =  Z_0^n \cdot (Z_1^{n})^\prime $$
+$$S =  Z_0^n \cdot (Z_1^{n})^\prime$$
 
-$$ U =  Z_0^n \cdot Z_1^{n} $$
+$$U =  Z_0^n \cdot Z_1^{n}$$
 
-1.  Tableau d'excitation: chaque ligne du tableau d'excitation (tableau [49](#orgd46a7b9)) montre, à gauche,
+1.  Tableau d'excitation: chaque ligne du tableau d'excitation (tableau [49](#org970ed11)) montre, à gauche,
 
 un état présent (identifiable par les valeurs des bascules) et une
 combinaison de valeurs d'entrée, et à droite, le prochain état et les
 valeurs de sortie produites.
 
-<table id="orgd46a7b9" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org970ed11" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 40 :</span> Tableau d'excitation pour l'exemple</caption>
 
 <colgroup>
@@ -7307,7 +7494,7 @@ $I$ revient à 0, de l'état *b* ou *d*, on passe à l'état *c*. De l'état *c*
 si $I = 1$, on reste dans l'état *c*. Sinon ($I = 0$), on retourne à
 l'état *a*.
 
-La figure [705](#org2dde65b) montre une trace des formes d'onde
+La figure [727](#org982565a) montre une trace des formes d'onde
 observées en fonctionnement pour le système. Dans cet exemple, le
 système boucle d'abord sur l'état *a* (valeur 0 sur la trace), puis
 passe à l'état *b* (valeur 1) et ensuite à l'état *d* (valeur 3),
@@ -7323,30 +7510,30 @@ Pour analyser un circuit séquentiel utilisant des bascules JK, on
 détermine d'abord les expressions $J_A$ et $K_A$, $J_B$ et
 $K_B$, etc., pour chacune des bascules. On doit ensuite se référer
 au tableau caractéristique pour ce type de bascule (tableau
-[47](#orgbfc3e5c)) pour déterminer quelles seront les prochaines valeurs
+[47](#orgf1e2d39)) pour déterminer quelles seront les prochaines valeurs
 de sortie pour chacune des bascules. L'exemple suivant illustre la
 procédure.
 
 
 ### Exemple avec bascules JK
 
-Considérons le circuit séquentiel de la figure [708](#org37df33d).
+Considérons le circuit séquentiel de la figure [730](#orge893c92).
 
 ![img](Sources_images_logiques/images/seq_JK.svg "Exemple de circuit séquentiel avec des bascules JK")
 
 À partir des expressions des entrées $J$ et $K$ suivantes:
 
-$$ J_0 = (q_1^{n})^\prime $$
+$$J_0 = (q_1^{n})^\prime$$
 
-$$ K_0 = q_0^{n} \cdot (q_1^{n})^\prime $$
+$$K_0 = q_0^{n} \cdot (q_1^{n})^\prime$$
 
-$$ J_1 = q_0^{n} $$
+$$J_1 = q_0^{n}$$
 
-$$ K_1 = (q_0^{n})^\prime \cdot q_1^{n} $$
+$$K_1 = (q_0^{n})^\prime \cdot q_1^{n}$$
 
-on peut remplir le tableau d'excitation (tableau [50](#orgc94fa1c)).
+on peut remplir le tableau d'excitation (tableau [50](#org38062d2)).
 
-<table id="orgc94fa1c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org38062d2" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 41 :</span> Tableau d'excitation circuit séquentiel JK</caption>
 
 <colgroup>
@@ -7437,7 +7624,7 @@ on peut remplir le tableau d'excitation (tableau [50](#orgc94fa1c)).
 </table>
 
 À partir du tableau d'excitation, on peut tracer le diagramme d'état
-(figure [716](#org4ffc548)).
+(figure [738](#org80571d3)).
 
 ![img](Sources_images_logiques/images/seq_JKb_FSM.svg "Diagramme d'état du circuit séquentiel avec bascules JK")
 
@@ -7449,9 +7636,9 @@ On appelle les modèles abstraits de systèmes séquentiels des
 State Machines* (FSM)).  On distingue deux modèles de circuits
 séquentiels, selon la façon dont les sorties sont obtenues. Dans le
 modèle de Mealy, les sorties dépendent à la fois des entrées et des
-variables d'état présent (figure [718](#org92ac7ea)). Dans le modèle de Moore,
+variables d'état présent (figure [740](#org1ad768d)). Dans le modèle de Moore,
 les sorties ne dépendent que des variables d'état présent (figure
-[719](#org577161f)).
+[741](#org8f08712)).
 
 ![img](Sources_images_logiques/images/mealy.png "Machine de Mealy")
 
@@ -7545,13 +7732,13 @@ prochain état et les valeurs de sortie.
 Deux états sont équivalents si, pour chaque combinaison d'entrées, ils
 produisent la même sortie et amènent le système dans le même état ou
 dans un état équivalent. Considérons le diagramme d'état de la figure
-[735](#org8aa651a) et le tableau d'état correspondant (tableau 
-[52](#org745e7de)). On peut voir qu'il s'agit ici d'une machine de
+[757](#orgef364c1) et le tableau d'état correspondant (tableau 
+[52](#org8b013d1)). On peut voir qu'il s'agit ici d'une machine de
 Mealy, car les valeurs de sortie sont associées aux transitions.
 
 ![img](Sources_images_logiques/images/exemp_simplif_net.svg "Diagramme d'état avant réduction")
 
-<table id="orgaba9723" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgf498d1c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 42 :</span> Tableau d'état initial</caption>
 
 <colgroup>
@@ -7687,9 +7874,9 @@ Mealy, car les valeurs de sortie sont associées aux transitions.
 
 En inspectant les différents états, on voit que les états *c* et *f*
 sont équivalents. En remplaçant l'état *f* par l'état *c*, on obtient
-le nouveau tableau d'état (tableau [52](#org745e7de)).
+le nouveau tableau d'état (tableau [52](#org8b013d1)).
 
-<table id="org745e7de" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org8b013d1" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 43 :</span> Tableau d'état après une simplification</caption>
 
 <colgroup>
@@ -7807,10 +7994,10 @@ le nouveau tableau d'état (tableau [52](#org745e7de)).
 
 On voit maintenant que les états *a* et *d* sont équivalents. En
 remplaçant l'état *d* par l'état *a*, on obtient le tableau d'état
-simplifié (tableau [53](#org3df9d89)). Il n'y a plus de simplification
+simplifié (tableau [53](#org12f2e82)). Il n'y a plus de simplification
 possible. Nous sommes passés de six états à quatre.
 
-<table id="org3df9d89" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org12f2e82" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 44 :</span> Tableau d'état simplifié</caption>
 
 <colgroup>
@@ -7919,7 +8106,7 @@ La méthode du tableau d'implication facilite l'identification des
 qui correspond cette fois-ci à une machine de Moore dont nous allons
 réduire le nombre d'états.
 
-<table id="orgf44390e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga6797b2" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 45 :</span> Tableau d'état (machine de Moore)</caption>
 
 <colgroup>
@@ -8032,12 +8219,12 @@ $n=8$), on étiquettera les colonnes avec les $n-1$ premiers états,
 et les lignes avec les $n-1$ derniers états. La première case vide,
 en haut à gauche, sera notée [a;b] et la dernière en bas à droite sera
 [g;h]. Voici le tableau avant d'être rempli (tableau
-[55](#orgb3b380f)). Seules les cases qui ne comportent pas de \_
+[55](#orgaeb6e47)). Seules les cases qui ne comportent pas de \_
 peuvent être remplies. Il n'y a par exemple rien d'utile à mettre dans
 une case étiquetée [b;b], et on mettra l'information qui irait dans la
 case [c;b] dans la case [b;c].
 
-<table id="orgb3b380f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgaeb6e47" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 46 :</span> Tableau d'implication</caption>
 
 <colgroup>
@@ -8186,9 +8373,9 @@ case [c;b] dans la case [b;c].
         pour la case [a;g], on a les paires g=a et c=c, donc on met
         OUI. Pour la case [d;g], on a a=a et c=c, on met OUI
         également. On continue ainsi, de colonne en colonne, pour obtenir
-        après ces étapes le résultat suivant (tableau [56](#org49e76e9)).
+        après ces étapes le résultat suivant (tableau [56](#org7b61790)).
 
-<table id="org49e76e9" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org7b61790" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 47 :</span> Tableau d'implication, après étape 1</caption>
 
 <colgroup>
@@ -8333,9 +8520,9 @@ case [c;b] dans la case [b;c].
     impliqués pour voir s'il faut changer leur statut. On continue à
     revoir ainsi jusqu'à ce qu'il n'y ait plus d'ajouts de
     &check;&check;. On obtient finalement le tableau suivant
-    (tableau [57](#orgc14cfe8)).
+    (tableau [57](#orga4772e0)).
 
-<table id="orgc14cfe8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orga4772e0" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 48 :</span> Tableau d'implication, après étape 3</caption>
 
 <colgroup>
@@ -8468,9 +8655,9 @@ case [c;b] dans la case [b;c].
     paires d'implications indiquent des équivalences d'états. Ici, on a
     les équivalences suivantes: a=d, a=g, c=e, c=h, d=g, e=h. Les états
     uniques résultants sont *a*, *b*, *c* et *f*. On obtient le tableau
-    d'état réduit suivant (tableau [58](#org6bd906a)).
+    d'état réduit suivant (tableau [58](#org8f58cb6)).
 
-<table id="org6bd906a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org8f58cb6" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 49 :</span> Tableau d'état réduit (machine de Moore)</caption>
 
 <colgroup>
@@ -8557,10 +8744,10 @@ dans l'ordre naturel d'énumération binaire, assigner selon un code
 Gray, ou encore choisir une assignation où il y a un seul bit 1 par
 code binaire (approche dite *one-hot*). L'approche *one-hot* requiert
 plus de bascules, mais permet souvent de simplifier les décodeurs de
-prochain état et de sortie. Le tableau [59](#org2a584cd) montre
+prochain état et de sortie. Le tableau [59](#org4143f8e) montre
 un exemple possible d'assignation pour chacune de ces approches.
 
-<table id="org2a584cd" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org4143f8e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 50 :</span> Possibilités d'assignation de codes d'états</caption>
 
 <colgroup>
@@ -8624,7 +8811,7 @@ codes binaires correspondants. On obtient ainsi un **tableau de
 transition**, qui permet d'élaborer les expressions logiques pour le
 décodeur de prochain état. Le type de bascules à utiliser déterminera
 les sorties nécessaires pour le décodeur d'état, en se basant sur les
-tableaux caractéristiques de la section [7.6.6](#org5925d7e).
+tableaux caractéristiques de la section [7.6.6](#org67e27dc).
 
 
 ## Décodeur de sortie
@@ -8670,7 +8857,7 @@ remise à zéro.
 
 1.  Diagramme d'état
 
-    Selon le diagramme d'état de la figure [762](#orgaab4fc0), le
+    Selon le diagramme d'état de la figure [784](#orgfe1a783), le
     système démarre dans l'état *a* et demeure dans cet état tant que
     l'entrée $A=0$. Lorsque $A=1$, on passe à l'état *b*, début de la
     reconnaissance du patron 101. Ensuite, si $A=1$, on reste dans
@@ -8694,9 +8881,9 @@ remise à zéro.
 3.  Assigner des codes binaires aux états
 
     Pour quatre états, il nous faudra deux bascules.  Le tableau
-       [60](#orgfec0bbb) présente l'assignation d'états choisie.
+       [60](#org8239234) présente l'assignation d'états choisie.
     
-    <table id="orgfec0bbb" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    <table id="org8239234" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
     <caption class="t-above"><span class="table-number">Tableau 51 :</span> Tableau d'assignation d'état</caption>
     
     <colgroup>
@@ -8739,9 +8926,9 @@ remise à zéro.
 
 4.  Remplir le tableau de transition
 
-    Le tableau [61](#orgd358f36) donne les transitions d'états. 
+    Le tableau [61](#orge061786) donne les transitions d'états. 
     
-    <table id="orgd358f36" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    <table id="orge061786" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
     <caption class="t-above"><span class="table-number">Tableau 52 :</span> Tableau de transition d'états</caption>
     
     <colgroup>
@@ -8868,15 +9055,15 @@ remise à zéro.
 6.  Déterminer les expressions simplifiées
 
     Les diagrammes de Karnaugh correspondants sont donnés pour
-    $Z_0^{n+1}$ (figure [769](#org949fa37)), $Z_1^{n+1}$ (figure
-    [770](#orgc7df451)) et $S$ (figure [771](#org1442ba6)).  
+    $Z_0^{n+1}$ (figure [791](#org6fd8736)), $Z_1^{n+1}$ (figure
+    [792](#orgf9f6cda)) et $S$ (figure [793](#org4b206f0)).  
     
     Notons que la convention d'étiquetage des diagrammes est différente de
     ce que nous avons vu précédemment.  Au lieu d'étiqueter les lignes et
     les colonnes avec bits de minterms, on indique ici à l'extérieur du
     diagramme proprement dit les variables (telles quelles ou
     complémentées) et les régions du diagramme où on les retrouve. Par
-    exemple, en dessous du diagramme de la figure [769](#org949fa37), on
+    exemple, en dessous du diagramme de la figure [791](#org6fd8736), on
     indique à partir de la gauche, une première région où la variable
     $A$ est complémentée (première colonne à gauche), puis une région
     correspondant à deux colonnes où la variable est telle quelle (deux
@@ -8893,27 +9080,27 @@ remise à zéro.
     
         Les expressions pour le décodeur de prochain état sont:
         
-        $$ Z_1^{n+1} = (A^\prime \cdot Z_0^{n}) + (A \cdot  Z_1^{n}) $$
+        $$Z_1^{n+1} = (A^\prime \cdot Z_0^{n}) + (A \cdot  Z_1^{n})$$
         
-        $$ Z_0^{n+1} = A + (Z_0^{n} \cdot Z_1^{n}) $$
+        $$Z_0^{n+1} = A + (Z_0^{n} \cdot Z_1^{n})$$
     
     2.  Décodeur de sortie
     
         L'expression pour le décodeur de sortie est:
         
-        $$ S = Z_0^{n} \cdot Z_1^{n} $$
+        $$S = Z_0^{n} \cdot Z_1^{n}$$
 
 7.  Tracer le schéma logique du circuit
 
     Le circuit obtenu est représenté sur la figure
-    [778](#orgb88cc61). On montre sur la figure
-    [779](#orgeddd2c2) une trace d'exécution. Les premiers coups
+    [800](#orge2572fa). On montre sur la figure
+    [801](#org80c2bba) une trace d'exécution. Les premiers coups
     d'horloge, l'entrée $A=0$ et le système demeure dans l'état 0. Puis,
     lorsque $A=1$, on passe à l'état 1. Comme $A$ reste à 1, on
     demeure dans l'état 1 un certain temps. Puis, lorsque $A=0$, on
     passe à l'état 2. Avec $A=1$ de nouveau, on passe à l'état 3 en
     activant la sortie $S=1$. On ne quittera plus cet état par la
-    suite. Une deuxième trace d'exécution (figure [780](#orga468eb9)
+    suite. Une deuxième trace d'exécution (figure [802](#org7e3a95b)
     ) montre un cas où le système retourne à l'état 0 après avoir reçu une
     séquence 100.
     
@@ -8933,10 +9120,10 @@ pour amener les changements d'état requis. Pour ce faire, on
 utilisera des **tableaux d'excitation** qui listent les combinaisons
 d'entrées pour passer d'un état présent $Q_n$ à un état prochain
 $Q_{n+1}$. Le tableau d'excitation pour une bascule JK est donné
-dans le tableau [62](#org52f58cf) et celui pour une bascule T est donné
-dans le tableau [63](#org2dc5507).
+dans le tableau [62](#org7290c0e) et celui pour une bascule T est donné
+dans le tableau [63](#org0c81bfe).
 
-<table id="org52f58cf" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org7290c0e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 53 :</span> Tableau d'excitation, bascule JK</caption>
 
 <colgroup>
@@ -8998,7 +9185,7 @@ dans le tableau [63](#org2dc5507).
 </tbody>
 </table>
 
-<table id="org2dc5507" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org0c81bfe" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 54 :</span> Tableau d'excitation, bascule T</caption>
 
 <colgroup>
@@ -9054,10 +9241,10 @@ dans le tableau [63](#org2dc5507).
 </table>
 
 Reprenons le tableau de transition d'états pour notre exemple, tableau
-[61](#orgd358f36), en ajoutant les signaux à générer pour des
-bascules JK. On obtient alors le tableau [64](#org4d87612).
+[61](#orge061786), en ajoutant les signaux à générer pour des
+bascules JK. On obtient alors le tableau [64](#org0943dc8).
 
-<table id="org4d87612" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org0943dc8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 55 :</span> Tableau de transition d'états, avec bascules JK</caption>
 
 <colgroup>
@@ -9212,15 +9399,15 @@ bascules JK. On obtient alors le tableau [64](#org4d87612).
 
 On trouve les expressions simplifiées suivantes:
 
-$$ J_{Z_1} = A^\prime \cdot Z_0^n $$
+$$J_{Z_1} = A^\prime \cdot Z_0^n$$
 
-$$ K_{Z_1} = A^\prime \cdot (Z_0^n)^\prime $$
+$$K_{Z_1} = A^\prime \cdot (Z_0^n)^\prime$$
 
-$$ J_{Z_0} = A $$ 
+$$J_{Z_0} = A$$
 
-$$ K_{Z_0} = (A + Z_1^n)^\prime $$
+$$K_{Z_0} = (A + Z_1^n)^\prime$$
 
-Ce qui nous donne l'implémentation de la figure [789](#org4017f52).
+Ce qui nous donne l'implémentation de la figure [811](#org7a895a3).
 
 ![img](Sources_images_logiques/images/exemp_seq101_JK.svg "Détecteur pour la séquence 101, bascules JK")
 
@@ -9241,7 +9428,7 @@ pourrait se retrouver dans un tel état interdit en raison d'un
 dysfonctionnement momentané ou lors de la mise en marche du
 système. Considérons par exemple un circuit séquentiel dont le
 diagramme d'état (tel qu'implémenté après conception) est illustré
-ci-dessous (figure [792](#org3592a43)). En fonctionnement normal, le
+ci-dessous (figure [814](#org51bf097)). En fonctionnement normal, le
 système évolue entre les états *a*, *b* et *c*. Mais si pour une
 raison quelconque, le système entre dans l'état *d*, il restera coincé
 en bouclant sur cet état pour toujours (ou peut-être jusqu'à un
@@ -9252,7 +9439,7 @@ prochain dysfonctionnement).
 Une solution serait de modifier le décodeur de prochain état pour
 s'assurer que, de l'état interdit, on revient toujours vers un état
 normal, comme on peut le voir sur la figure suivante (figure
-[794](#org362512e)), où de l'état *d*, on reviendra toujours
+[816](#org511a49b)), où de l'état *d*, on reviendra toujours
 vers l'état *c*. 
 
 ![img](Sources_images_logiques/images/etat_interdit_revient.svg "Diagramme d'état qui assure le retour en fonctionnement normal")
@@ -9263,14 +9450,14 @@ vers l'état *c*.
 Dans l'exemple suivant, on explore l'assignation d'états *one-hot*
 dans laquelle il n'y a qu'un bit 1 par code binaire.
 
-Considérons le diagramme d'état suivant (figure [797](#org31d5cd6)).
+Considérons le diagramme d'état suivant (figure [819](#orgb435fbd)).
 
 ![img](Sources_images_logiques/images/exemple_one-hot.svg "Diagramme d'état pour assignation *one-hot*")
 
 Le tableau d'assignation d'état correspondant est donné dans le
-tableau [65](#org9693241) ci-dessous.
+tableau [65](#org19e442d) ci-dessous.
 
-<table id="org9693241" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org19e442d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 56 :</span> Assignation <i>one-hot</i></caption>
 
 <colgroup>
@@ -9309,10 +9496,10 @@ Chaque état aura sa propre bascule active, dont les sorties seront
 dénotées $A$, $B$ et $C$. Le tableau de transition d'états qu'on
 obtient comporte un grand nombre de cas facultatifs et d'états
 inutilisés, que nous n'avons pas indiqués ici. Le tableau
-[66](#org04991a9) ne montre que les six transitions spécifiées
+[66](#org45696f3) ne montre que les six transitions spécifiées
 dans le diagramme d'état.
 
-<table id="org04991a9" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org45696f3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 57 :</span> Tableau de transition d'états <i>one-hot</i></caption>
 
 <colgroup>
@@ -9501,7 +9688,7 @@ mémoire. Différentes configurations d'interconnexion entre les
 bascules et éventuellement des composants combinatoires permettent de
 concevoir des types de registres pouvant remplir des rôles variés.
 
-La figure [814](#org949a323) montre un registre parallèle de quatre bits,
+La figure [836](#org181697f) montre un registre parallèle de quatre bits,
 qui permet de stocker quatre valeurs binaires indépendantes. Le schéma
 du bas est une représentation symbolique du registre, dans laquelle on
 représente les entrées et sorties comme des vecteurs de quatre bits.
@@ -9533,7 +9720,7 @@ La solution consiste à toujours mettre à jour le contenu des bascules:
     externe qui est sélectionnée pour écrire un nouveau contenu.
 
 La sélection se fait au moyen d'un multiplexeur deux-vers-un à
-l'entrée de chaque bascule. La figure [821](#orgffe4abb) montre le schéma
+l'entrée de chaque bascule. La figure [843](#orgc211093) montre le schéma
 du registre chargeable.
 
 ![img](Sources_images_logiques/images/reg_4_paral.svg "Registre parallèle à quatre bits chargeable")
@@ -9542,7 +9729,7 @@ du registre chargeable.
 ### Registres à décalage
 
 Un registre à décalage consiste en une chaîne de bascules, la sortie
-de l'une reliée à l'entrée de la suivante. La figure [823](#org49273e3) montre
+de l'une reliée à l'entrée de la suivante. La figure [845](#org8ad3d1a) montre
 un registre à décalage de quatre bits. À chaque coup d'horloge,
 l'entrée est insérée dans la première bascule, à droite, et le contenu
 du registre est décalé d'une position vers la gauche. La sortie
@@ -9558,9 +9745,9 @@ $D$ et le *chargement parallèle*, avec les entrées $I_i, i=1, \ldots,
 4$.
 
 Les différentes opérations sont commandées par les deux signaux de
-sélection, comme indiqué dans le tableau [67](#orgadd1d9a).
+sélection, comme indiqué dans le tableau [67](#orgd3605f7).
 
-<table id="orgadd1d9a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgd3605f7" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 58 :</span> Codes de sélection et opérations</caption>
 
 <colgroup>
@@ -9607,7 +9794,7 @@ Les registres à décalage sont notamment utilisés pour convertir des
 données parallèles en données sérielles et *vice versa*, des opérations
 très utiles dans le contexte d'interfaces de communication. On peut
 également s'en servir pour faire des multiplications ou divisions par
-deux, comme on l'a vu à la section [1.8.1](#orga05f8d4).
+deux, comme on l'a vu à la section [1.8.1](#org967ed3b).
 
 
 ## Compteurs
@@ -9630,14 +9817,14 @@ Dans un compteur binaire asynchrone, la sortie d'une bascule de poids
 moins significatif est acheminée à l'entrée d'horloge de la bascule
 suivante. C'est la transition de la sortie de la bascule de poids
 moins significatif qui déclenche la bascule suivante. La figure
-[830](#orgad74a2d) montre un compteur asynchrone construit à partir de
+[852](#org48d5d05) montre un compteur asynchrone construit à partir de
 bascules T. La séquence de sortie est donnée dans le tableau
-[68](#orga7b7603). On peut voir qu'après huit étapes, la séquence se
+[68](#org5ad9588). On peut voir qu'après huit étapes, la séquence se
 répète.
 
 ![img](Sources_images_logiques/images/rippleT3.svg "Compteur asynchrone")
 
-<table id="orga7b7603" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org5ad9588" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 59 :</span> Séquence du compteur</caption>
 
 <colgroup>
@@ -9737,12 +9924,12 @@ d'entrée appliqués aux bascules, comme dans le fonctionnement normal
 d'un circuit séquentiel synchrone.
 
 Le diagramme d'état d'un compteur trois bits (huit états) est un
-cycle, comme on peut le voir sur la figure [834](#org4315aac). Le tableau
-d'états correspondant est donné dans le tableau [69](#org5be6892).
+cycle, comme on peut le voir sur la figure [856](#orgec320f9). Le tableau
+d'états correspondant est donné dans le tableau [69](#org2ec8d6c).
 
 ![img](Sources_images_logiques/images/compt8_FSM.svg "Diagramme d'état d'un compteur")
 
-<table id="org5be6892" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org2ec8d6c" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 60 :</span> Tableau d'état du compteur</caption>
 
 <colgroup>
@@ -9864,13 +10051,13 @@ d'états correspondant est donné dans le tableau [69](#org5be6892).
 
 Les expressions pour le décodeur de prochain état sont: 
 
-$$  Z_2^{n+1} = Z_0^n \cdot Z_1^n \cdot (Z_2^{n})^\prime + (Z_0^{n})^\prime \cdot Z_2^n + (Z_1^{n})^\prime \cdot Z_2^n $$
+$$Z_2^{n+1} = Z_0^n \cdot Z_1^n \cdot (Z_2^{n})^\prime + (Z_0^{n})^\prime \cdot Z_2^n + (Z_1^{n})^\prime \cdot Z_2^n$$
 
-$$  Z_1^{n+1} = Z_0^{n} \cdot (Z_1^{n})^\prime + (Z_0^{n})^\prime \cdot Z_1^n $$
+$$Z_1^{n+1} = Z_0^{n} \cdot (Z_1^{n})^\prime + (Z_0^{n})^\prime \cdot Z_1^n$$
 
-$$  Z_0^{n+1} = (Z_0^{n})^\prime $$
+$$Z_0^{n+1} = (Z_0^{n})^\prime$$
 
-Le schéma correspondant est donné à la figure [840](#org96419ba).
+Le schéma correspondant est donné à la figure [862](#org1c08fe7).
 
 ![img](Sources_images_logiques/images/compt8.svg "Schéma logique du compteur à 3 bits")
 
@@ -9878,7 +10065,7 @@ On peut ajouter aux compteurs des fonctions diverses: comptage vers le
 haut, comptage vers le bas, préchargement parallèle, remise à zéro,
 etc.
 
-Le compteur de la figure [840](#org96419ba) a été conçu comme un circuit
+Le compteur de la figure [862](#org1c08fe7) a été conçu comme un circuit
 séquentiel général, avec un décodeur de prochain état en forme *somme
 de produits*. Il est également possible de concevoir un compteur
 synchrone directement, sans passer par la méthodologie classique, en
@@ -9894,7 +10081,7 @@ raisonnement pour un compteur quelconque:
 > doit changer d'état seulement lorsque les bits précédents
 > $Z_{i-1},Z_{i-2},\ldots, Z_0$ valent tous 1.
 
-Le compteur à quatre bits de la figure [845](#orge128976) a été conçu
+Le compteur à quatre bits de la figure [867](#org4e76ef2) a été conçu
 selon cette approche, à partir de bascules JK.  L'utilisation d'une
 porte ET par bascule permet de mettre en oeuvre les
 conditions. L'entrée $E$ est un contrôle *enable* pour activer le
@@ -9918,7 +10105,7 @@ complémentées des bascules précédentes.
 
 En combinant les deux conditions au moyen d'un multiplexeur
 deux-vers-un, il est facile de concevoir un compteur haut/bas, comme
-illustré sur la figure [850](#org9ef4724).
+illustré sur la figure [872](#org7e8d47e).
 
 ![img](Sources_images_logiques/images/compt_updown.svg "Schéma logique du compteur haut/bas à 4 bits")
 
@@ -9929,7 +10116,7 @@ Un compteur en anneau est un registre à décalage connecté en boucle où
 une seule bascule est active à la fois. Il y a donc dans la sortie un
 seul bit 1, qui se décale de façon cyclique: $0010 \rightarrow 0001
 \rightarrow 1000 \rightarrow 0100 \rightarrow 0010, \ldots$ La
-figure [853](#orgf00b600) illustre un compteur en anneau de quatre bits. Une
+figure [875](#orgb842d49) illustre un compteur en anneau de quatre bits. Une
 entrée `Init` permet d'injecter un bit 1 dans le registre au début. La
 trace montre les formes d'onde obtenues.
 
@@ -9944,14 +10131,14 @@ dans le cycle, pendant une période d'horloge.
 
 Un compteur Johnson permet de doubler le nombre d'états distincts par
 rapport au compteur en anneau en injectant le complément du dernier
-bit dans l'entrée du registre à décalage.  La figure [855](#org9c6c0ff)
+bit dans l'entrée du registre à décalage.  La figure [877](#orga61b92d)
 illustre un compteur en anneau Johnson de quatre bits, de même que la
 trace de fonctionnement. La séquence d'états est donnée dans le
-tableau [70](#org71e7311).
+tableau [70](#orgcf738bc).
 
 ![img](Sources_images_logiques/images/johnson4.svg "Compteur Johnson à 4 bits")
 
-<table id="org71e7311" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgcf738bc" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 61 :</span> Séquence d'états du compteur Johnson</caption>
 
 <colgroup>
@@ -10062,12 +10249,12 @@ tableau [70](#org71e7311).
 
 On peut construire des signaux de synchronisation distincts en
 combinant deux par deux au moyen d'une porte ET des signaux de sortie
-voisins (dans le cycle) ou leurs compléments. Le tableau [70](#org71e7311)
+voisins (dans le cycle) ou leurs compléments. Le tableau [70](#orgcf738bc)
 donne les paires de sorties à combiner pour ce faire avec le compteur
 Johnson de quatre bits.
 
 Nous avons appliqué ce principe à un compteur Johnson de deux bits,
-présenté sur la figure [858](#org4e36bcf). La figure montre une trace
+présenté sur la figure [880](#org066ca55). La figure montre une trace
 d'exécution avec les signaux de sortie. On y voit que chacun des
 quatre signaux est activé à son tour.
 
@@ -10075,7 +10262,7 @@ quatre signaux est activé à son tour.
 
 Si on s'intéresse aux sorties des bascules de ce même compteur
 Johnson, on peut voir sur la trace d'exécution de la figure
-[860](#org34fbfe1) qu'on obtient des signaux en **quadrature**,
+[882](#org15e2fd9) qu'on obtient des signaux en **quadrature**,
 c'est-à-dire que les sorties sont déphasées de 90 degrés les unes par
 rapport aux autres, comme le sont des fonctions $\sin(), \cos(),
 -\sin(), -\cos()$.
@@ -10099,14 +10286,14 @@ diviseurs, comme trois ou cinq, qui ne sont pas des puissances de deux.
 ### Compteur à chargement parallèle
 
 Un compteur à chargement parallèle est illustré à la figure
-[865](#org5a160b6). En activant l'entrée `Compte`, le comptage
+[887](#orge1cac6e). En activant l'entrée `Compte`, le comptage
 se fait vers le haut. En activant l'entrée `Charge`, les entrées $
 I_i, i=0, \ldots, 3$ sont insérées dans les bascules. Il y a aussi une
 sortie `ov` qui indique lorsque le compteur atteint sa valeur
 maximale. Cette sortie peut être utilisée pour activer un autre
 compteur pour des bits de plus haut niveau.
 
-La trace d'exécution de la figure [866](#orga70cff1)
+La trace d'exécution de la figure [888](#org1d31079)
 montre le comptage de 4 jusqu'à 15 et retour à 0. On voit le signal
 `ov` s'activer sur 15. 
 
@@ -10183,7 +10370,7 @@ avoir de réécriture.
 Une mémoire ROM est considérée comme un dispositif **programmable**,
 dans le sens où le processus d'écriture initial demande une action
 particulière, une procédure spécifique sur le plan matériel. Nous verrons
-au chapitre [12](#orgd025945) d'autres dispositifs logiques
+au chapitre [12](#orgf29cc8e) d'autres dispositifs logiques
 programmables. La programmation d'une ROM se fait en agissant sur des
 connexions dites **fusibles**. Initialement, le fusible est comme un fil
 qui permet au signal de passer. En le programmant, le fusible devient
@@ -10235,7 +10422,7 @@ mot courantes. Un groupe de huit bits est appelé **octet**.
 
 L'adressage se fait au moyen d'un **décodeur d'adresses**, qui est
 simplement un décodeur binaire tel que nous l'avons vu à la section
-[6.9](#orgf1cfdd4). Le nombre de bits d'adresse détermine la capacité (en nombre
+[6.9](#org670b9aa). Le nombre de bits d'adresse détermine la capacité (en nombre
 de mots) de la mémoire: pour $k$ adresses, on aura $2^k$ mots
 distincts. Les tailles de mémoire sont souvent exprimées au moyen de
 multiplicateurs: K (kilo) correspondant à $2^{10}$, M (méga)
@@ -10267,11 +10454,11 @@ disponibles à la sortie de la mémoire.
 Les mémoires offertes sur le marché optent souvent pour une
 combinaison des signaux de contrôle, avec un seul signal qui détermine
 le sens de l'action, comme le montre le tableau
-[71](#org1d5fe28). Le signal `Enable`, parfois appelé `Chip
+[71](#org71e08a5). Le signal `Enable`, parfois appelé `Chip
 select`, permet d'activer une mémoire dans un ensemble où plusieurs
 mémoires sont utilisées.
 
-<table id="org1d5fe28" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org71e08a5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 62 :</span> Signaux de contrôle d'une mémoire</caption>
 
 <colgroup>
@@ -10316,19 +10503,19 @@ mémoires sont utilisées.
 ### Bus de données
 
 Pour acheminer les données lues ou à écrire dans la mémoire, on
-utilise des tampons émetteurs-récepteurs de bus (voir section [6.14](#org47179c9)), organisés en vecteur, pour créer un
+utilise des tampons émetteurs-récepteurs de bus (voir section [6.14](#orgc4dc669)), organisés en vecteur, pour créer un
 **bus de données** qui permet un aller-retour des données, selon le sens
 de l'action. Cela permet de diminuer de moitié le nombre de connexions
 nécessaires pour l'échange des données.  Un signal dérivé des signaux
 `Lecture/écriture` et `Chip select (CS)` est typiquement utilisé pour
-commander l'entrée de contrôle (voir figure [904](#orge7c4a78)).
+commander l'entrée de contrôle (voir figure [926](#org903abdf)).
 
 ![img](Sources_images_logiques/images/bus_trans8.svg "Bus de données, 8 bits")
 
 
 ### Chronogrammes
 
-La figure [906](#orge1d5ebc) présente un chronogramme qui décrit
+La figure [928](#org1a730bd) présente un chronogramme qui décrit
 l'opération d'écriture dans une mémoire RAM. Les valeurs d'adresse
 sont d'abord présentées aux entrées d'adressage.  Le signal `L/not E`
 est amené au niveau bas, en même temps que le signal `CS` est activé
@@ -10340,7 +10527,7 @@ par un signal situé entre les niveaux 0 et 1).
 
 ![img](Sources_images_logiques/images/chron_ram_ecriture.svg "Mémoire RAM, chronogramme pour l'écriture")
 
-La figure [908](#org9be5476) présente un chronogramme qui décrit
+La figure [930](#org0b047f2) présente un chronogramme qui décrit
 l'opération de lecture d'une mémoire RAM. Les valeurs d'adresses sont
 d'abord présentée aux entrées d'adressage.  Le signal `L/not E` est
 maintenu au niveau élevé en même temps que le signal `CS` est activé
@@ -10350,7 +10537,7 @@ le bus de données.
 ![img](Sources_images_logiques/images/chron_ram_lecture.svg "Mémoire RAM, chronogramme pour la lecture")
 
 La cellule de base d'une mémoire RAM qui permet de stocker un bit est
-illustrée à la figure [910](#org607cd02). Elle est construite autour d'un
+illustrée à la figure [932](#orgd2f92f4). Elle est construite autour d'un
 loquet SR et de portes logiques pour le contrôle. Une mémoire complète
 de $m$ mots de taille $n$ bits sera constituée d'une matrice de
 format $m \times n$ de telles cellules, avec un décodeur d'adresse
@@ -10366,7 +10553,7 @@ Dans son mode d'utilisation normal, une mémoire morte peut seulement
 sera effectuée. Il y aura donc des entrées pour les adresses et un
 signal de contrôle de type `CS`.
 
-La figure [914](#org92e3efd) montre l'essentiel d'une mémoire ROM de
+La figure [936](#orgeab8939) montre l'essentiel d'une mémoire ROM de
 16 mots de 4 bits. Un décodeur d'adresse permet de sélectionner quel
 mot sera lu, et la sortie est disponible sur les lignes $A_3, \ldots,
 A_0$. 
@@ -10391,7 +10578,7 @@ de 8 bits chacun.
 
 ### Implémentation de fonctions combinatoires
 
-Comme on l'a vu dans la section [6.9](#orgf1cfdd4), un décodeur permet de
+Comme on l'a vu dans la section [6.9](#org670b9aa), un décodeur permet de
 générer les $2^k$ minterms possibles avec ses $k$
 entrées. Regrouper avec une porte OU les minterms d'une
 fonction permet d'implémenter cette fonction. Une mémoire ROM permet
@@ -10404,7 +10591,7 @@ mettre en oeuvre $m$ fonctions combinatoires différentes (une par
 bit de mot) de $k$ entrées.
 
 Par exemple, la sortie $A_2$ de la mémoire de la figure
-[914](#org92e3efd) implémente la fonction $$ A_2 = \sum (0,1,4,8) $$
+[936](#orgeab8939) implémente la fonction $$A_2 = \sum (0,1,4,8)$$
 exprimée en somme de minterms.
 
 
@@ -10510,7 +10697,7 @@ réalisation de fonctions combinatoires arbitraires. Elle fonctionne
 selon une approche qui s'apparente à l'utilisation d'une mémoire morte
 pour réaliser une fonction logique arbitraire.
 
-La figure [938](#org61706ce) montre une matrice permettant de
+La figure [960](#org5cb691e) montre une matrice permettant de
 réaliser deux fonctions pouvant comporter jusqu'à quatre termes
 produits de trois variables. Puisque le nombre de termes produits est
 limité, il n'est généralement pas possible de se baser directement sur
@@ -10535,7 +10722,7 @@ Les dispositifs à **logique à matrice programmable** (an anglais,
 thème, avec une matrice OU fixe et une matrice ET configurable. Ils
 sont moins flexibles que les PLA.
 
-La figure [942](#org7d6952f) montre un dispositif de logique à matrice
+La figure [964](#orgf010977) montre un dispositif de logique à matrice
 programmable à quatre variables d'entrée, permettant de réaliser trois
 fonctions pouvant comporter jusqu'à trois minterms. Les sorties
 (directes et complémentée pour la première fonction) peuvent être
@@ -10557,7 +10744,7 @@ En combinant un **dispositif logique programmable** (en anglais,
 *Programmable Logic Device* (PLD)) avec un certain nombre de
 bascules, il est possible de proposer un circuit programmable
 séquentiel. La configuration générale est illustrée sur la
-figure [944](#org20805a2).
+figure [966](#org9d9754e).
 
 ![img](Sources_images_logiques/images/circuit_seq_prog.png "Modèle de circuit séquentiel programmable") 
 
@@ -10566,7 +10753,7 @@ avec diverses options de configuration, d'interconnexion, etc.  On
 offre par exemple des dispositifs complexes qui combinent plusieurs
 cellules programmables sur un même circuit intégré, reliables au moyen
 d'un réseau d'interconnexion configurable. La disposition générale de
-ce genre de dispositif complexe est présentée à la figure [946](#org9ab7675).
+ce genre de dispositif complexe est présentée à la figure [968](#orge1e7cfe).
 
 ![img](Sources_images_logiques/images/CPLD.png "Modèle de circuit séquentiel programmable complexe")
 
@@ -10581,7 +10768,7 @@ permettent, selon leur configuration, de réaliser n'importe quelle
 fonction logique. Un bloc logique est typiquement constitué d'une ou
 de quelques **cellules logiques** élémentaires.
 
-La figure [952](#org0dffdf4) montre une version simplifiée d'une cellule
+La figure [974](#org34a3a0b) montre une version simplifiée d'une cellule
 logique comportant:
 
 -   un tableau de correspondance (LUT) à quatre entrées
@@ -11001,7 +11188,7 @@ on pourrait écrire un calcul de somme plus compact.
 
 ## Modèle complet
 
-Considérons la bascule JK maître-esclave de la figure [1023](#org98bc27f)
+Considérons la bascule JK maître-esclave de la figure [1045](#org0d0b968)
 ci-dessous, construite au moyen de portes simples.  Un modèle
 VHDL complet pour cette bascule JK maître-esclave est donné ensuite.
 
@@ -11236,7 +11423,7 @@ des valeurs comme Z (haute impédance pour les signaux trois-états), X
 (pour valeur inconnue), - pour valeur facultative, etc. Il y a même
 des nuances pour la solidité des valeurs logiques.
 
-<table id="org236ae00" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org59d5115" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 63 :</span> Valeurs pour <code>std_logic</code></caption>
 
 <colgroup>
@@ -11614,7 +11801,7 @@ varient en fonction du temps. Pour ce faire, il est possible
 d'utiliser les énoncés `after` et `wait`. Il existe un type prédéfini
 VHDL pour le temps, qui utilise les unités suivantes:
 
-<table id="org8d5bc09" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgcf22f87" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tableau 64 :</span> Unités de temps</caption>
 
 <colgroup>
@@ -12102,7 +12289,7 @@ gratuits.
 -   On y trouve également des exemples de codes
 
 
-# Exercices
+# Exercices et solutions
 
 
 ## Série 1
@@ -12112,59 +12299,77 @@ gratuits.
 
 Effectuez la conversion des nombres suivants dans la base demandée:
 
-1.  $(32)_{10} = ( )_{2}$
+1.  $(F8,A7)_{16} = ( )_{2}$
 
-2.  $(F8,A7)_{16} = ( )_{2}$
+2.  $(65)_{8} = ( )_{16}$
 
-3.  $(65)_{8} = ( )_{16}$
+3.  $(240,51)_{8} = ( )_{10}$
 
-4.  $(240,51)_{8} = ( )_{10}$
+4.  $(25)_{10} = ( )_{8}$
 
-5.  $(25)_{10} = ( )_{8}$
+5.  $(100101011)_{2} = ( )_{10}$
 
-6.  $(100101011)_{2} = ( )_{10}$
+6.  $(28)_{10} = ( )_{2}$
 
-7.  $(28)_{10} = ( )_{2}$
+7.  $(11001011101)_{2} = ( )_{16}$
 
-8.  $(E3)_{16} = ( )_{2}$
+8.  $(106)_{8} = ( )_{16}$
 
-9.  $(B3)_{16} = ( )_{8}$
+9.  $(27,625)_{10} = ( )_{2}$
 
-10. $(11001011101)_{2} = ( )_{16}$
+10. $(4F,3D9)_{16} = ( )_{2}$
 
-11. $(754)_{8} = ( )_{10}$
+11. $(73,313)_{8} = ( )_{16}$
 
-12. $(106)_{8} = ( )_{16}$
+12. $(364,3)_{8} = ( )_{10}$
 
-13. $(27,52)_{10} = ( )_{2}$
+13. $(111101011)_{2} = ( )_{10}$
 
-14. $(4F,3D9)_{16} = ( )_{2}$
+14. $15,3125)_{10} = ( )_{2}$
 
-15. $(73,313)_{8} = ( )_{16}$
+15. $(36)_{8} = ( )_{10}$
 
-16. $(364,3)_{8} = ( )_{10}$
+16. $(101101111)_{2} = ( )_{10}$
 
-17. $(25)_{10} = ( )_{8}$
+-   Réponse
 
-18. $(111101011)_{2} = ( )_{10}$
-
-19. $(31,22)_{10} = ( )_{2}$
-
-20. $(43,39)_{16} = ( )_{2}$
-
-21. $(43,37)_{8} = ( )_{8}$
-
-22. $(36)_{8} = ( )_{10}$
-
-23. $(25)_{10} = ( )_{8}$
-
-24. $(101101111)_{2} = ( )_{10}$
+    1.  $(F8,A7)_{16} = (11111000,10100111)_{2}$
+    
+    2.  $(65)_{8} = (35)_{16}$
+    
+    3.  $(240,51)_{8} = (160,640625)_{10}$
+    
+    4.  $(25)_{10} = (31)_{8}$
+    
+    5.  $(100101011)_{2} = (453)_{10}$
+    
+    6.  $(28)_{10} = (11100)_{2}$
+    
+    7.  $(11001011101)_{2} = (65D)_{16}$
+    
+    8.  $(106)_{8} = (46)_{16}$
+    
+    9.  $(27,625)_{10} = (11011,101)_{2}$
+    
+    10. $(4F,3D9)_{16} = (1001111,001111011001)_{2}$
+    
+    11. $(73,313)_{8} = (3B,658)_{16}$
+    
+    12. $(364,3)_{8} = (244,375)_{10}$
+    
+    13. $(111101011)_{2} = (491)_{10}$
+    
+    14. $(15,3125)_{10} = (1111,0101)_{2}$
+    
+    15. $(36)_{8} = (30)_{10}$
+    
+    16. $(101101111)_{2} = (367)_{10}$
 
 
 ### Question
 
-Donnez le nombre minimum de bits nécessaires pour définir un code
-   pour représenter:
+Donnez le nombre minimum de bits nécessaires pour définir un code pour
+représenter:
 
 1.  les chiffres de 0 à 9
 
@@ -12175,30 +12380,39 @@ Donnez le nombre minimum de bits nécessaires pour définir un code
 4.  alphanumérique pour les lettres A &hellip; Z, a &hellip; z et les
     chiffres 0 &hellip; 9
 
+-   Réponse
+
+    1.  4 bits.
+    2.  6 bits.
+    3.  6 bits.
+    4.  6 bits.
+
 
 ### Question
 
 Calculez les compléments suivants (pour un nombre de bits $n$):
 
-1.  complément à deux de $(1101011)_2$ en supposant $n=8$
+1.  complément à deux de $(00110101)_2$ en supposant $n=8$
 
-2.  complément à deux de $(110101)_2$ en supposant $n=8$
+2.  complément à un de $(00101101)_2$ en supposant $n=8$
 
-3.  complément à un de $(0101101)_2$ en supposant $n=8$
+3.  complément à cinq de $(0032402)_5$ en supposant $n=7$
 
-4.  complément à deux de $(01112)_3$ en supposant $n=7$
+4.  complément à 2 de $(1101001111)_2$ en supposant $n=10$
 
-5.  complément à cinq de $(32402)_5$ en supposant $n=7$
+5.  complément à 2 de $(00000001101)_2$ en supposant $n=11$
 
-6.  compl. à 2 de $(10110001)_2$
+-   Réponse
 
-7.  compl. à 2 de $(0001101)_2$
-
-8.  compl. à 1 de $(0101101)_2$
-
-9.  compl. à 2 de $(02112)_3$
-
-10. compl. à 5 de $(42102)_5$
+    1.  $(11001011)_2$
+    
+    2.  $(11010010)_2$
+    
+    3.  $(5523153)_{5}$
+    
+    4.  $(0010110001)_2$
+    
+    5.  $(11111110011)_2$
 
 
 ### Question
@@ -12211,7 +12425,7 @@ Effectuez les calculs suivants selon la méthode indiquée:
 
 3.  $(34)_{8} - (42)_{8}$, complément à 2, conversion. Réponse: $( )_{2} = ( )_{16}$
 
-4.  $(11011101)_{2} - (55)_{10}$, complément à 2, conversion. Réponse: $( )_{2}$
+4.  $(11011101)_{2} - (55)_{10}$, complément à 2. Réponse: $( )_{2}$
 
 5.  $(AC)_{16} + (4)_{16}$ par addition directe en base 16. Réponse: $( )_{16}$
 
@@ -12223,28 +12437,47 @@ Effectuez les calculs suivants selon la méthode indiquée:
 
 9.  $(73)_{8} + (103)_{8}$, add. directe base 8, conversion). Réponse: $( )_{8} = ( )_{10}$
 
-10. $(22)_{8} - (26)_{8}$, compl. à 2, conversion. Réponse: $( )_{2} = ( )_{16}$
+10. $(22)_{8} - (26)_{8}$, compl. à 2. Réponse: $( )_{2}$
 
-11. $(11011100)_{2} - (57)_{10}$, compl. à 2, conversion. Réponse: $( )_{2}$
+11. $(AE)_{16} + (12)_{16}$, (add. directe base 16). Réponse: $( )_{16}$
 
-12. $(AE)_{16} + (12)_{16}$, (add. directe base 16). Réponse: $( )_{16}$
+12. $(63)_{8} + (135)_{8}$, add. directe base 8, conversion). Réponse: $( )_{8} = ( )_{10}$
 
-13. $(63)_{8} + (135)_{8}$, add. directe base 8, conversion). Réponse: $( )_{8} = ( )_{10}$
+-   Réponse
 
-14. $(35)_{8} - (26)_{8}$, compl. à 2, conversion. Réponse: $( )_{2} = ( )_{16}$
-
-15. $(11011100)_{2} - (55)_{10}$, compl. à 2, conversion. Réponse: $( )_{2}$
+    1.  $(2D1E)_{16}$
+    
+    2.  $(1134)_8 = (604)_{10}$
+    
+    3.  $(1111 1010)_2 = (FA)_{16}$
+    
+    4.  $(1010 0110)_{2}$
+    
+    5.  $(B0)_{16}$
+    
+    6.  $(C6)_{16}$
+    
+    7.  $-(15)_{16}$
+    
+    8.  $(E0)_{16}$
+    
+    9.  $(176)_{8} = (126)_{10}$
+    
+    10. $(1111 1100)_{2}$
+    
+    11. $(C0)_{16}$
+    
+    12. $(220)_{8} = (144)_{10}$
 
 
 ### Question
 
-Vous disposez de blocs permettant de calculer les fonctions
-   suivantes:
+Vous disposez de blocs permettant de calculer les fonctions suivantes:
 
 -   **C4:** complément à un d'un nombre de 4 bits
 
--   **ADD4:** addition de deux nombres de 4 bits, avec entrée pour retenue et
-    retenue de sortie.
+-   **ADD4:** addition de deux nombres de 4 bits, avec entrée pour
+    retenue et retenue de sortie.
 
 Indiquez par un schéma-bloc comment on peut relier ces blocs pour
 calculer:
@@ -12257,56 +12490,31 @@ calculer:
 
 4.  la soustraction de nombres de 4 bits
 
+-   Réponse
+
+    1.  ![img](Solutions_svg/solCa24bits.svg)
+    
+    2.  ![img](Solutions_svg/solCa28bits.svg)
+    
+    3.  ![img](Solutions_svg/solAdd8bits.svg)
+    
+    4.  ![img](Solutions_svg/solSous4bitsOutCa2.svg)
+
 
 ### Question
 
 Un réseau informatique comporte 60 ordinateurs. On doit assigner à
-   chacun de ces ordinateurs un mot-code binaire unique.
+chacun de ces ordinateurs un mot de code binaire unique.
 
 1.  Combien de bits par mot sont nécessaire pour la codification?
 
-2.  Combien de mots-code ne seront pas utilisés?
+2.  Combien de mots de code ne seront pas utilisés?
 
+-   Réponse
 
-### Question
-
-Selon les critères d'achat du service des achats d'une entreprise, un
-  article sera acheté s'il remplit au moins une des conditions
-  suivantes:
-
--   il est peu coûteux ou de qualité, tout en étant disponible
-    rapidement,
-
--   il est peu coûteux et n'est pas disponible rapidement,
-
--   il est coûteux et de mauvaise qualité, tout en étant disponible
-    rapidement.
-
-En utilisant la notation suivante:
-
--   **A:** coûteux
-
--   **B:** de bonne qualité
-
--   **C:** disponible rapidement
-
--   Exprimez les critères d'achat sous forme d'une expression
-    booléenne (non-simplifiée).
-
--   Donnez le tableau de vérité de la fonction logique des critères
-    d'achat.
-
--   Donnez la forme canonique, en somme de produit, de la fonction
-    logique des critères d'achat.
-
--   Déterminez si les expressions logiques suivantes sont égales à la
-    fonction logique des critères d'achat:
+    1.  6 bits
     
-    $$F_1 = A^{\prime} B^{\prime} + B^{\prime} C^{\prime}$$
-    
-    $$F_2 = A^{\prime} B^{\prime} C^{\prime} + A^{\prime} B^{\prime} C + A^{\prime} B C^{\prime} + A B^{\prime} C^{\prime}$$
-    
-    $$F_2 = B^{\prime} C^{\prime} + A^{\prime} B^{\prime} + A^{\prime} C$$
+    2.  4 mots
 
 
 ### Question
@@ -12323,14 +12531,27 @@ Donnez le nombre minimum de bits nécessaires pour définir un code pour représ
 
 5.  une date de naissance (jour, mois, année)
 
+-   Réponse
+
+    1.  3 bits
+    
+    2.  5 bits
+    
+    3.  10 bits
+    
+    4.  4 bits pour le mois et 5 bits pour la date, alors 9 bits au total.
+    
+    5.  En supposant une année comprise entre 0 et 2048: 12 bits pour
+        l'année et 9 pour jour/mois, donc un total de 21 bits.
+
 
 ## Série 2
 
 
 ### Question
 
-La fonction logique à trois entrées $S = F(A,B,C)$ donnée par son 
-   tableau de vérité:
+La fonction logique à trois entrées $S = F(A,B,C)$ donnée par son
+tableau de vérité:
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -12437,20 +12658,329 @@ doit être implémentée par un circuit logique.
     
     -   Selon la deuxième forme canonique ( $\prod M_i$ )
 
-2.  Trouvez une expression simplifiée pour la fonction en utilisant
-    les théorèmes de l'algèbre de Boole.
+2.  Trouvez une expression simplifiée pour la fonction en utilisant les
+    théorèmes de l'algèbre de Boole.
 
-3.  Dessinez le circuit logique correspondant à l'expression
-    simplifiée trouvée.
+3.  Dessinez le circuit logique correspondant à l'expression simplifiée
+    trouvée.
+
+-   Réponse
+
+    1.  -   Première forme canonique  $F(A,B,C) = \sum (0,1,3,6)$
+    
+    $S = \sum m(0, 1, 3, 6)$
+    $S = {A}^{\prime}{B}^{\prime}{C}^{\prime} + {A}^{\prime}{B}^{\prime}C + {A}^{\prime}BC + ABC$
+    
+    -   Deuxième forme canonique $F(A,B,C) = \prod (2,4,5,7)$
+    
+    $S = M2 \cdot M4 \cdot M5 \cdot M7$
+    $S = \prod M(2, 4, 5, 7)$
+    
+    1.  $F(A,B,C) = A^{\prime} B^{\prime} + B (A^{\prime} C + A C^{\prime})$
+    
+    2.  ![img](Solutions_svg/solReducBoole.svg)
 
 
 ### Question
 
 Trouvez le complément de la fonction logique donnée par l'expression
-   suivante en utilisant trois méthodes différentes.
-   $$
-    s = b (a^{\prime} c^{\prime} + a d + a c) + (b + c^{\prime}+
-      d)^{\prime} + a^{\prime} b c^{\prime} d + a b c d
+suivante, en utilisant trois méthodes différentes.
+
+$$s = b (a^{\prime} c^{\prime} + a d + a c) + (b + c^{\prime}+
+    d)^{\prime} + a^{\prime} b c^{\prime} d + a b c d$$
+
+-   Réponse
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">\(a\)</th>
+    <th scope="col" class="org-right">\(b\)</th>
+    <th scope="col" class="org-right">\(c\)</th>
+    <th scope="col" class="org-right">\(d\)</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">\(b (a^{\prime} c^{\prime} + a d + a c)\)</th>
+    <th scope="col" class="org-right">\((b + c^{\prime}+d)^{\prime}\)</th>
+    <th scope="col" class="org-right">\(a^{\prime} b c^{\prime} d\)</th>
+    <th scope="col" class="org-right">\(a b c d\)</th>
+    <th scope="col" class="org-right">\(s\)</th>
+    <th scope="col" class="org-right">\(s^{\prime}\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    $$
+      s = m2 + m4 + m5 + m10 + mE + mF
+    $$
+    
+    $$
+      s^{\prime} = m0 + m1 + m3 + m6 + m7 + m8 + m9 + m11 + m12 + m13
     $$
 
 
@@ -12461,73 +12991,348 @@ Considérez la fonction logique définie par l'expression $F =
 
 1.  Dessinez le circuit logique correspondant.
 
-2.  Dessinez un circuit équivalent qui n'utilise que des portes
-    NAND.
+2.  Dessinez un circuit équivalent qui n'utilise que des portes NAND.
 
-3.  Dessinez un circuit équivalent qui n'utilise que des portes
-    NOR.
+3.  Dessinez un circuit équivalent qui n'utilise que des portes NOR.
+
+-   Réponse
+
+    1.  ![img](Solutions_svg/solNandNor1.svg)
+    
+    2.  ![img](Solutions_svg/solNandNor2.svg)
+    
+    3.  ![img](Solutions_svg/solNandNor3.svg)
 
 
 ### Question
 
 On doit concevoir un circuit logique qui détermine le complément à deux
-  d'une entrée $a$ binaire (signée) de 4 bits notés
-  $a_3, a_2, a_1, a_0$. Il y aura donc 4 bits de sortie, $s_3,
-      s_2, s_1, s_0$. En considérant chacun des bits de sortie comme une
-  fonction des quatre bits d'entrée, par ex. $s_3 = f(a_3, a_2, a_1,
-      a_0)$, donnez les tableaux de vérité pour $s_3, s_2, s_1$, et $s_0$.
+d'une entrée $a$ binaire (signée) de 4 bits notés
+$a_3, a_2, a_1, a_0$. Il y aura donc 4 bits de sortie, $s_3,
+s_2, s_1, s_0$. En considérant chacun des bits de sortie comme une
+fonction des quatre bits d'entrée, par ex. $s_3 = f(a_3, a_2, a_1,  a_0)$, 
+donnez les tableaux de vérité pour $s_3, s_2, s_1$, et $s_0$.
+
+-   Réponse
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">\(a_3\)</th>
+    <th scope="col" class="org-right">\(a_2\)</th>
+    <th scope="col" class="org-right">\(a_1\)</th>
+    <th scope="col" class="org-right">\(a_0\)</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">\(s_3\)</th>
+    <th scope="col" class="org-right">\(s_2\)</th>
+    <th scope="col" class="org-right">\(s_1\)</th>
+    <th scope="col" class="org-right">\(s_0\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    </tbody>
+    </table>
 
 
 ### Question
 
 Complétez la figure ci-dessous (en ajoutant des connexions) afin de
-  réaliser la fonction 
-  $$
-    S= a^\prime + b^\prime + c d
-    $$
-  ![img](Modeles_exercices/exbloc2a.svg)
+réaliser la fonction $$S= a^{\prime} + b^{\prime} + c d$$
+
+![img](Modeles_exercices/exbloc2a.svg)
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc2a.svg)
 
 
 ### Question
 
 Complétez la figure ci-dessous (en ajoutant des connexions) afin de
-  réaliser une fonction dont la sortie est 
+réaliser une fonction dont la sortie est
 
--   $S=1$ lorsque l'entrée est $ \leq 3$ ou impaire
+-   $S=1$ lorsque l'entrée est $\leq 3$ ou impaire
 -   $S=0$ dans les autres cas.
 
-    L'entrée $(a_3,a_2,a_1, a_0)$ représente un nombre entier
-   décimal codé en BCD. Les entrées $ \geq 9$ peuvent donner
-   n'importe quelle sortie.
+L'entrée $(a_3,a_2,a_1, a_0)$ représente un nombre entier décimal
+codé en BCD. Les entrées $\geq 9$ peuvent donner n'importe quelle
+sortie. 
+
 ![img](Modeles_exercices/exbloc2b.svg)
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc2b.svg)
 
 
 ### Question
 
-Dessinez le circuit logique de la fonction $S = a b + c^\prime +
-    d^\prime $ en utilisant au plus quatre portes NAND.
+Dessinez le circuit logique de la fonction $S = a b + c^{\prime} +
+d^{\prime}$ en utilisant au plus quatre portes NAND.
+
+-   Réponse
+
+    ![img](Solutions_svg/solMax4Nand.svg)
 
 
 ### Question
 
 Simplifiez la fonction logique donnée par l'expression suivante:
-  $$
+    $$
     s = b (a^{\prime} c^{\prime} + a d + a c) + (b + c^{\prime}+
       d)^{\prime} + a^{\prime} b c^{\prime} d + a b c d
-    $$ 
-  au moyen d'un
-  diagramme de Karnaugh. Identifiez sur le diagramme les regroupements
-  essentiels, les regroupements absoluments inutiles et les
-  regroupements pour lesquels on a le choix. Donnez deux solutions
-  aussi simplifiées.
+    $$
+au moyen d'un diagramme de Karnaugh. Identifiez sur le diagramme les
+regroupements essentiels, les regroupements absoluments inutiles et
+les regroupements pour lesquels on a le choix. Donnez deux solutions
+aussi simplifiées.
+
+-   Réponse
+
+    ![img](Solutions_svg/kmap3fonctsimp1.svg)
+    $$
+      s = a^{\prime} b c^{\prime} + bc^{\prime}d + abc + b^{\prime}cd^{\prime}
+    $$
+    ![img](Solutions_svg/kmap3fonctsimp2.svg)
+    $$
+      s=  a^{\prime}bc^{\prime} + abd + acd^{\prime} + b^{\prime}cd^{\prime}
+    $$
 
 
 ### Question
 
 Considérez la fonction logique définie par l'expression 
-  $$
-    F = [ (A + B) C^{\prime} + (A+B)^{\prime} ] B^{\prime}
-    $$
+$
+F = [ (A + B) C^{\prime} + (A+B)^{\prime} ] B^{\prime}
+$
 
 1.  Dessinez le circuit logique correspondant.
 
@@ -12540,21 +13345,39 @@ Considérez la fonction logique définie par l'expression
 4.  Dessinez un circuit équivalent qui ne comporte que trois niveaux de
     portes (incluant les inversions).
 
+-   Réponse
+
+    1.  ![img](Solutions_svg/solReductionNandNor1.svg)
+    2.  ![img](Solutions_svg/solReductionNandNor2.svg)
+    3.  ![img](Solutions_svg/solReductionNandNor3.svg)
+    4.  ![img](Solutions_svg/solReductionNandNor4.svg)
+
 
 ### Question
 
 Simplifiez la fonction logique donnée par l'expression suivante:
-  $$
-    s = a b ( c^{\prime} d^{\prime} + c d) + c^{\prime}(a^{\prime}
-      b^{\prime} + a^{\prime} b)
+$$
+s = a b ( c^{\prime} d^{\prime} + c d) + c^{\prime}(a^{\prime}
+b^{\prime} + a^{\prime} b)
+$$
+au moyen d'un diagramme de Karnaugh. Donnez deux solutions aussi simplifiées.
+
+-   Réponse
+
+    ![img](Solutions_svg/kmapS2fonctImp1.svg)
+    
     $$
-   au moyen d'un diagramme de Karnaugh. Donnez deux solutions aussi simplifiées.
+      s = c^{\prime}(a^{\prime}+bd^{\prime}) + abcd 
+    $$
+    $$
+      s = b ( acd + c^{\prime}d^{\prime}) + a^{\prime} c^{\prime}
+    $$
 
 
 ### Question
 
 Considérez la fonction logique définie par l'expression $F = (AB + C)
-      A^{\prime} + C + A^{\prime}$.
+A^{\prime} + C + A^{\prime}$.
 
 1.  Dessinez le circuit logique correspondant.
 
@@ -12567,21 +13390,147 @@ Considérez la fonction logique définie par l'expression $F = (AB + C)
 4.  Dessinez un circuit équivalent qui ne comporte que deux niveaux de
     portes (excluant les inversions).
 
+-   Réponse
+
+    1.  ![img](Solutions_svg/solReductionNandNor1_2.svg)
+    
+    2.  ![img](Solutions_svg/solReductionNandNor2_2.svg)
+    
+    3.  ![img](Solutions_svg/solReductionNandNor3_2.svg)
+    
+    4.  ![img](Solutions_svg/solReductionNandNor4_2.svg)
+
 
 ### Question
 
-Donnez le tableau  de vérité des deux fonctions qui, à partir d'une
-  entrée binaire non-signée sur trois bits, donnent en sortie la
-  représentation binaire non-signée sur deux bits du plus grand diviseur
-  $< 3$ de l'entrée, s'il y a lieu. Simplifiez les deux fonctions en
-  tenant compte des cas facultatifs.
+Donnez le tableau de vérité des deux fonctions qui, à partir d'une
+entrée binaire non-signée sur trois bits, donnent en sortie la
+représentation binaire non-signée sur deux bits du plus grand diviseur
+$< 3$ de l'entrée, s'il y a lieu. Simplifiez les deux fonctions en
+tenant compte des cas facultatifs.
+
+-   Réponse
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">\(a_2\)</th>
+    <th scope="col" class="org-right">\(a_1\)</th>
+    <th scope="col" class="org-right">\(a_0\)</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">\(s_1\)</th>
+    <th scope="col" class="org-right">\(s_0\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">x</td>
+    <td class="org-right">x</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    </tr>
+    </tbody>
+    </table>
 
 
 ### Question
 
 Complétez la figure ci-dessous (en ajoutant des connexions) afin de
-  réaliser une  fonction NAND à trois entrées $S = (a b c)^\prime$.
-  ![img](Modeles_exercices/exbloc2c.svg)
+réaliser une fonction NAND à trois entrées $S = (a b c)^{\prime}$.
+
+![img](Modeles_exercices/exbloc2c.svg)
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc2c.svg)
 
 
 ### Question
@@ -12594,16 +13543,217 @@ l'entrée; par exemple, le circuit doit donner 1 pour une entrée 4
 (0100) et 0 pour une entrée 3 (0011). Les nombres 0 et 1 seront
 considérés comme des cas facultatifs.
 
-1.  Donnez le tableau de vérité pour réaliser cette application pour
-    un mot d'entrée (non-signé) de quatre bits, $a, b, c$ et $d$.
+1.  Donnez le tableau de vérité pour réaliser cette application pour un
+    mot d'entrée (non-signé) de quatre bits, $a, b, c$ et $d$.
 
-2.  Au moyen d'un diagramme de Karnaugh, trouvez une expression
-    logique simplifiée pour cette fonction logique et ne représentez
-    que les impliquants premiers retenus pour la solution.
+2.  Au moyen d'un diagramme de Karnaugh, trouvez une expression logique
+    simplifiée pour cette fonction logique et ne représentez que les
+    impliquants premiers retenus pour la solution.
 
 3.  Donnez le schéma du circuit logique qui implémente cette fonction
     en somme de produit à l'aide de portes NON-ET (pas de restrictions
     sur le nombre d'entrées).
+
+-   Réponse
+
+    1.  Tableau de vérité
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">\(a_3\)</th>
+    <th scope="col" class="org-right">\(a_2\)</th>
+    <th scope="col" class="org-right">\(a_1\)</th>
+    <th scope="col" class="org-right">\(a_0\)</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">\(s\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">\(x\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">\(x\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    1.  Diagramme de Karnaugh
+    
+    ![img](Solutions_svg/kmapNombresPremiers.svg)
+    
+    1.  Schéma du circuit
+    
+    ![img](Solutions_svg/solNombresPremiers.svg)
 
 
 ## Série 3
@@ -12612,50 +13762,202 @@ considérés comme des cas facultatifs.
 ### Question
 
 À l'aide d'un diagramme de Karnaugh, simplifiez 
-  $$
-    S = A B^\prime +
-    B^\prime CD + A^\prime B + B^\prime D + A^\prime B^\prime D
+$$
+S = A B^{\prime} +
+B^{\prime} CD + A^{\prime} B + B^{\prime} D + A^{\prime} B^{\prime} D
+$$
+en produit de sommes.
+
+-   Réponse
+
+    ![img](Solutions_svg/kmapSerie2_1.svg)
+    
     $$
-  en produit de sommes.
+      S =  (A^{\prime} +B^{\prime} )(A+B+D)
+    $$
 
 
 ### Question
 
 À l'aide d'un diagramme de Karnaugh, simplifiez 
-  $$
-    S = ( A^\prime +
-    B^\prime + C + D)(A+B^\prime +C^\prime +D)(A^\prime +B^\prime
-    +C+D^\prime )(A+B^\prime +C^\prime +D^\prime )(A+C^\prime +D)
-    $$
-  en tenant compte des cas facultatifs suivants: $\sum(3,8,11,14)$.
+$$
+S = ( A^{\prime} +
+B^{\prime} + C + D)(A+B^{\prime} +C^{\prime} +D)(A^{\prime} +B^{\prime}
++C+D^{\prime} )(A+B^{\prime} +C^{\prime} +D^{\prime} )(A+C^{\prime} +D)
+$$
+en tenant compte des cas facultatifs suivants: $\sum(3,8,11,14)$.
+Donnez une solution qui n'utilise pas l'entrée $D$.
 
-1.  Donnez une solution qui n'utilise pas l'entrée $D$.
-2.  Donnez une solution qui n'utilise pas l'entrée $B$.
+-   Réponse
+
+    1.  Diagramme de Karnaugh
+    
+    ![img](Solutions_svg/kmapSerie3ex2_1.svg)
+    
+    $$
+      S = AB^{\prime}+AC+A^{\prime}C^{\prime}
+    $$
 
 
 ### Question
 
 À l'aide de la méthode Quine-McCluskey, simplifiez l'expression
-  logique suivante: 
-  $$
-    F= A^\prime BCDEF^\prime  + A^\prime BCDEF+ AB^\prime CDEF+ ABCDEF^\prime 
-    $$
-  Tenez compte des cas facultatifs suivants: 
-  $$
-    A^\prime BCD^\prime EF^\prime +
-    ABCDE^\prime F^\prime + A^\prime BCDE^\prime F+ ABCDEF
-    $$
+logique suivante:
+$$
+F= A^{\prime} BCDEF^{\prime}  + A^{\prime} BCDEF+ AB^{\prime} CDEF+ ABCDEF^{\prime} 
+$$
+Tenez compte des cas facultatifs suivants: 
+$$
+A^{\prime} BCD^{\prime} EF^{\prime} +
+ABCDE^{\prime} F^{\prime} + A^{\prime} BCDE^{\prime} F+ ABCDEF
+$$
+
+-   Réponse
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">&#xa0;</th>
+    <th scope="col" class="org-left">011110</th>
+    <th scope="col" class="org-left">011111</th>
+    <th scope="col" class="org-right">101111</th>
+    <th scope="col" class="org-left">111110</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">011010</th>
+    <th scope="col" class="org-left">011101</th>
+    <th scope="col" class="org-left">111100</th>
+    <th scope="col" class="org-right">111111</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">011-10</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0111-0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1111-0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">-11111</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1-1111</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">-1111-</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    i.p.e. = −1111−, 1−1111
+    
+    i.p.i. = 011−10, 0111−0, 1111−0, −11111
 
 
 ### Question
 
 Complétez la figure ci-dessous pour obtenir un multiplicateur dont
-  la sortie (5 bits) est le produite de deux entrées (de 3 bits et 2
-  bits, respectivement). Comme on peut voir sur la figure, on dispose
-  de quatre additionneurs complets à 1 bit et de six portes ET. La
-  multiplication sera $$(P_4, P_3, P_2, P_1, P_0)_2 = (y_2, y_1, y_0)_2
-    \times (z_1, z_0)_2$$.
-  ![img](Modeles_exercices/exbloc3a.svg)
+la sortie (5 bits) est le produite de deux entrées (de 3 bits et 2
+bits, respectivement). Comme on peut voir sur la figure, on dispose
+de quatre additionneurs complets à 1 bit et de six portes ET. La
+multiplication sera $$(P_4, P_3, P_2, P_1, P_0)_2 = (y_2, y_1, y_0)_2
+\times (z_1, z_0)_2$$
+
+![img](Modeles_exercices/exbloc3a.svg)
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc3a.svg)
 
 
 ### Question
@@ -12894,6 +14196,19 @@ ci-dessous.
 
 <tbody>
 <tr>
+<td class="org-left">0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
 <td class="org-left">\(A\)</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -12907,7 +14222,20 @@ ci-dessous.
 
 
 <tr>
-<td class="org-left">\(A^\prime\)</td>
+<td class="org-left">\(A^{\prime}\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">1</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
@@ -12922,14 +14250,108 @@ ci-dessous.
 
 ![img](Modeles_exercices/exbloc3b.svg)
 
+-   Réponse
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">\(E_0\)</th>
+    <th scope="col" class="org-left">\(E_1\)</th>
+    <th scope="col" class="org-left">\(E_2\)</th>
+    <th scope="col" class="org-left">\(E_3\)</th>
+    <th scope="col" class="org-left">\(E_4\)</th>
+    <th scope="col" class="org-left">\(E_5\)</th>
+    <th scope="col" class="org-left">\(E_6\)</th>
+    <th scope="col" class="org-left">\(E_7\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">0</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A\)</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A^{\prime}\)</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    ![img](Solutions_svg/solExBloc3b.svg)
+
 
 ### Question
 
 Simplifiez la fonction logique à six entrées
-  $$
-    S = F(A,B,C,D,E,F)
-    $$
-  représentée par la liste de minterms suivants
+$$
+S = F(A,B,C,D,E,F)
+$$
+représentée par la liste de minterms suivants
 
 010000, 101000, 110100, 110101, 110110, 111100
 
@@ -12945,74 +14367,390 @@ impliquants premiers absolument inessentiels (i.p.a.i.) et les
 impliquants premiers inessentiels tout court (i.p.i.). Donnez la
 solution sous la forme d'une expression en $A,B,C,D,E,F$.
 
+-   Réponse
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">010000</th>
+    <th scope="col" class="org-right">101000</th>
+    <th scope="col" class="org-right">110100</th>
+    <th scope="col" class="org-right">110101</th>
+    <th scope="col" class="org-right">111100</th>
+    <th scope="col" class="org-right">110110</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">000000</th>
+    <th scope="col" class="org-left">001100</th>
+    <th scope="col" class="org-left">000111</th>
+    <th scope="col" class="org-right">101001</th>
+    <th scope="col" class="org-right">110111</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">001100</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">000111</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">0−0000</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">10100−</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">11−100</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1101−0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1101−−</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    i.p.e.   = 1101−−, 1101−0, 10100−, 0−0000
+    
+    i.p.a.i. = 11−100, 000111, 001100
+
 
 ### Question
 
 Réalisez les fonctions logiques suivantes au moyen d'un multiplexeur
-  quatre-vers-un.
+quatre-vers-un.
 
-1.  $$f_1(a,b,c) = \sum m(2, 4, 5, 7)$$
+1.  $f_1(a,b,c) = \sum m(2, 4, 5, 7)$
 
-2.  $$f_2(a,b,c) = \prod M(0, 6, 7)$$
+2.  $f_2(a,b,c) = \prod M(0, 6, 7)$
+
+-   Réponse
+
+    1.  ![img](Solutions_svg/solMux4F1.svg)
+    
+    2.  ![img](Solutions_svg/solMux4F2.svg)
 
 
 ### Question
 
 Identifiez la fonction réalisée par le circuit ci-dessous, en donnant
-  la liste des minterms en fonction des entrées $a, b, c$ et $d$.
+la liste des minterms en fonction des entrées $a, b, c$ et $d$.
+
 ![img](Modeles_exercices/exbloc3c.svg)
+
+-   Réponse
+
+    $$
+    F (a, b, c, d)= \sum m(0, 5, 10, 15)
+    $$
 
 
 ### Question
 
 Un circuit combinatoire est défini par les trois fonctions logiques
-  suivantes. Dessinez un circuit réalisant ces trois fonctions en
-  utilisant un décodeur constitué de portes NAND (vous devez dessiner
-  le schéma du décodeur), et des portes NAND et ET
-  externes.
-  $$
-     F_1  = x y^{\prime} + x^{\prime}y
-    z^{\prime} 
-    $$
-  $$
-    F_2  =  (x + y^{\prime})z 
-    $$
-  $$ F_3  =  (x^{\prime}
-    y + x y^{\prime} z)^{\prime}
-    $$
+suivantes. Dessinez un circuit réalisant ces trois fonctions en
+utilisant un décodeur constitué de portes NAND (vous devez dessiner
+le schéma du décodeur), et des portes NAND et ET
+externes.
+$$
+F_1 = x y^{\prime} + x^{\prime}y z^{\prime} 
+$$
+$$
+F_2 = (x + y^{\prime})z 
+$$
+$$F_3 = (x^{\prime} y + x y^{\prime} z)^{\prime}
+$$
+
+-   Réponse
+
+    ![img](Solutions_svg/solDecoNand.svg)
 
 
 ### Question
 
 Simplifiez la fonction donnée par l'expression suivante
-  $$
-    a^{\prime} b^{\prime} c d + a b c d + a b^{\prime} c^{\prime} d +
+$$
+a^{\prime} b^{\prime} c d + a b c d + a b^{\prime} c^{\prime} d +
 	a b c d^{\prime}
-    $$
-  en considérant les cas facultatifs suivants
-  $$
-    a b c^{\prime} + a^{\prime} b c^{\prime} d^{\prime} + a b^{\prime}
+$$
+en considérant les cas facultatifs suivants
+$$
+a b c^{\prime} + a^{\prime} b c^{\prime} d^{\prime} + a b^{\prime}
 	c d^{\prime}
-    $$
-  par la méthode de Quine-McCluskey. Vous devez
-  donner le détail de toutes les étapes, identifier à la fin les
-  impliquants premiers essentiels (i.p.e.), les impliquants premiers
-  absolument inessentiels (i.p.a.i.) et les impliquants premiers
-  inessentiels tout court (i.p.i.). et donner la solution finale avec
-  les variables.
+$$
+par la méthode de Quine-McCluskey. Vous devez
+donner le détail de toutes les étapes, identifier à la fin les
+impliquants premiers essentiels (i.p.e.), les impliquants premiers
+absolument inessentiels (i.p.a.i.) et les impliquants premiers
+inessentiels tout court (i.p.i.). et donner la solution finale avec
+les variables.
+
+-   Réponse
+
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">0011</th>
+    <th scope="col" class="org-left">1001</th>
+    <th scope="col" class="org-right">1110</th>
+    <th scope="col" class="org-right">1111</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">0100</th>
+    <th scope="col" class="org-right">1100</th>
+    <th scope="col" class="org-left">1010</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">0011</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1001</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1010</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">−100</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">11−0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">111−</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    i.p.e.   = 111−, 1001, 0011
+    
+    i.p.a.i. = 11−0, −100, 11−0
 
 
 ### Question
 
 Concevez un circuit qui permet de comparer deux mots de 3 bits et qui
-  donne 1 lorsqu'ils sont égaux et 0 sinon. Vous devez utiliser des
-  portes XOR et d'autres portes.
+donne 1 lorsqu'ils sont égaux et 0 sinon. Vous devez utiliser des
+portes XOR et d'autres portes.
+
+-   Réponse
+
+    ![img](Solutions_svg/3bitWordComparXor.svg)
 
 
 ### Question
 
-La fonction logique à quatre entrées $S = F(A,B,C, D)$ donnée par son 
-  tableau de vérité:
+La fonction logique à quatre entrées $S = F(A,B,C, D)$ donnée par
+son tableau de vérité:
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -13215,183 +14953,602 @@ doit être implémentée par un circuit logique.
 
 4.  Dessinez le circuit logique simplifié, réalisé en n'utilisant que des portes NAND.
 
+-   Réponse
+
+    1.  Diagramme de Karnaugh
+        
+        ![img](Solutions_svg/kmapSerie3ex3.svg)
+        $$
+          S = A^{\prime}C^{\prime}D + BCD + AB^{\prime}D
+          $$
+    
+    2.  Tableau de couverture:
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">0001</th>
+    <th scope="col" class="org-left">0101</th>
+    <th scope="col" class="org-right">0111</th>
+    <th scope="col" class="org-left">1001</th>
+    <th scope="col" class="org-right">1011</th>
+    <th scope="col" class="org-right">1111</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">0010</th>
+    <th scope="col" class="org-left">1000</th>
+    <th scope="col" class="org-right">1110</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">0010</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">0−01</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">−001</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">100−</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">01−1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">10−1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">−111</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1−11</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">111−</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    Tableau de couverture réduit:
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">0001</th>
+    <th scope="col" class="org-left">0101</th>
+    <th scope="col" class="org-left">0111</th>
+    <th scope="col" class="org-left">1001</th>
+    <th scope="col" class="org-right">1011</th>
+    <th scope="col" class="org-right">1111</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">0010</th>
+    <th scope="col" class="org-right">1000</th>
+    <th scope="col" class="org-right">1110</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">0−01</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">−001</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">01−1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">10−1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">−111</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1−11</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    1.  i.p.e.  = 0-01, 10-1,-111
+        
+        i.p.a.i. = 0010,100-,111-
+        
+        i.p.i. = 1-11, 01-1, -001
+    
+    2.  ![img](Solutions_svg/solSerie3ex3circuit.svg)
+
 
 ### Question
 
 Un circuit combinatoire est défini par les trois fonctions logiques
-  suivantes. Dessinez un circuit réalisant ces trois fonctions en
-  utilisant un décodeur et des portes externes.
-  $$
-    F_1  = x^{\prime} y^{\prime} z^{\prime} + xz 
-    $$
-  $$
-    F_2  = x y z^{\prime} + x^{\prime} y 
-    $$
-  $$
-    F_3  = x^{\prime} y^{\prime} z + x y
-    $$
+suivantes. Dessinez un circuit réalisant ces trois fonctions en
+utilisant un décodeur et des portes externes.
+$$
+F_1  = x^{\prime} y^{\prime} z^{\prime} + xz 
+$$
+$$
+F_2  = x y z^{\prime} + x^{\prime} y 
+$$
+$$
+F_3  = x^{\prime} y^{\prime} z + x y
+$$
+
+-   Réponse
+
+    ![img](Solutions_svg/solF123Decodeur.svg)    
 
 
 ### Question
 
- Identifiez la fonction logique $F(A,B,C,D)$ définie par le circuit
-   logique suivant:
+Identifiez la fonction logique $F(A,B,C,D)$ définie par le circuit
+logique suivant:
+
 ![img](Modeles_exercices/exbloc3d.svg)
 
 1.  Donnez son tableau de vérité.
 
 2.  Donnez la forme canonique somme de produits de cette fonction.
 
+-   Réponse
 
-### Question
-
-Considérez le tableau de couverture suivant:
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-
-<col  class="org-right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-right">0101</th>
-<th scope="col" class="org-right">0110</th>
-<th scope="col" class="org-right">0000</th>
-<th scope="col" class="org-right">1100</th>
-<th scope="col" class="org-right">1101</th>
-<th scope="col" class="org-right">1011</th>
-<th scope="col" class="org-right">0111</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td class="org-left">−10−</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">110−</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">1011</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">−00−</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">01−−</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">−111</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-<td class="org-right">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-
-1.  Complétez le tableau en mettant les '+' dans les cases
-    appropriées.
-
-2.  Identifiez les i.p.e. et les i.p.a.i.
-
-3.  Donnez les cas facultatifs qui ont été utilisés pour obtenir les
-    i.p.
-
-4.  Donnez le tableau réduit correspondant.
-
-5.  Donnez un exemple de ligne qui en domine une autre.
-
-6.  Donnez un exemple de colonne qui en domine une autre.
-
-7.  Donnez une forme canonique de la fonction.
-
-8.  Donnez l'expression simplifiée de la fonction $F(u,v,w,x)$.
+    1.  Tableau de vérité
+        
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+        
+        
+        <colgroup>
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-left" />
+        
+        <col  class="org-right" />
+        </colgroup>
+        <thead>
+        <tr>
+        <th scope="col" class="org-right">\(A\)</th>
+        <th scope="col" class="org-right">\(B\)</th>
+        <th scope="col" class="org-right">\(C\)</th>
+        <th scope="col" class="org-right">\(D\)</th>
+        <th scope="col" class="org-left">&#xa0;</th>
+        <th scope="col" class="org-right">\(F\)</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-left">&#xa0;</td>
+        <td class="org-right">1</td>
+        </tr>
+        </tbody>
+        </table>
+    
+    2.  Forme canonique
+        $$
+            F (A, B, C, D) = \sum m(0, 2 , 5, 7, 8, 9, 14, 15)
+           $$
 
 
 ### Question
 
 Trouvez l'expression minimale pour les deux fonctions suivantes,
-   sachant qu'elles doivent être implémentées dans un même
-   circuit. Utilisez la méthode Quine-McCluskey.
-   $$
-     F_1(A, B, C, D)
-     =\sum(2,5,6,7,10,11,14,15)
-     $$
-   $$
-     F_2 = A B C D + A^\prime B C D +
-     A^\prime B^\prime C D + A B^\prime C + ABC
-     $$
+sachant qu'elles doivent être implémentées dans un même
+circuit. Utilisez la méthode Quine-McCluskey.
+$$
+F_1(A, B, C, D)
+=\sum(2,5,6,7,10,11,14,15)
+$$
+$$
+F_2 = A B C D + A^{\prime} B C D +
+A^{\prime} B^{\prime} C D + A B^{\prime} C + ABC
+$$
+
+-   Réponse
+
+    $$
+    F_1(A,B,C,D)
+    = A C + A^{\prime} B D + C D^{\prime} 
+    $$
+    
+    $$
+    F_2(A,B,C,D)
+    = A C + C D
+    $$
 
 
 ### Question
 
-La fonction logique à trois entrées $S = F(A,B,C)$ représentée par le
-  tableau de vérité:
+La fonction logique à trois entrées $S = F(A,B,C)$ représentée par
+le tableau de vérité:
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -13499,30 +15656,62 @@ doit être implémentée par un circuit logique.
 4.  Dessinez le circuit logique à partir de l'expression simplifiée
     trouvée.
 
+-   Réponse
+
+    1.  $$
+              S (A, B, C) = \sum m(0, 1 , 3, 6, 7) = \prod M(2, 4, 5)
+            $$
+    
+    2.  ![img](Solutions_svg/kmapSerie3ex4.svg)
+        $$
+              S = A^{\prime} B^{\prime} + B(A + C)
+            $$
+    
+    3.  $$
+              S^{\prime}(A,B,C) = \sum m(2,4,5)
+            $$
+    
+    4.  ![img](Solutions_svg/solReducKABC.svg)
+
 
 ### Question
 
 Simplifiez la fonction logique donnée par la forme canonique
-  suivante:
-  $$
-    m_0 + m_2 + m_4 + m_5 + m_8 + m_A + m_B + m_E
+suivante:
+$$
+m_0 + m_2 + m_4 + m_5 + m_8 + m_A + m_B + m_E
+$$
+au
+moyen d'un diagramme de Karnaugh (la numérotation des termes est en
+hexadécimal). Identifiez sur le diagramme les regroupements
+essentiels, les regroupements absolument inutiles et les
+regroupements pour lesquels on a le choix. Donnez deux solutions
+aussi simplifiées.
+
+-   Réponse
+
+    ![img](Solutions_svg/kmapSerie3ex5.svg)
+    
+    Les regroupements essentiels: orange, mauve, bleu, vert.
+    Le regroupement jaune est absolument inutile.
+    
     $$
-  au
-  moyen d'un diagramme de Karnaugh (la numérotation des termes est en
-  hexadécimal). Identifiez sur le diagramme les regroupements
-  essentiels, les regroupements absoluments inutiles et les
-  regroupements pour lesquels on a le choix. Donnez deux solutions
-  aussi simplifiées.
+      S = B^{\prime} (D^{\prime}+ AC) + A^{\prime}BC^{\prime}  + ACD^{\prime} 
+    $$
+    
+    $$
+      S = B^{\prime}D^{\prime} + A^{\prime}BC^{\prime} + AC(D^{\prime} + B^{\prime})
+    $$
 
 
 ### Question
 
 Considérez la fonction logique définie par l'expression
-  $$
-    F =
-      (A + B) A^{\prime} C + C^{\prime}(A+B^{\prime}) + A^{\prime}B
-      C^{\prime}
-    $$
+$$
+F =
+  (A + B) A^{\prime} C + C^{\prime}(A+B^{\prime}) + A^{\prime}B
+  C^{\prime}
+$$
 
 1.  Dessinez le circuit logique correspondant.
 
@@ -13535,15 +15724,181 @@ Considérez la fonction logique définie par l'expression
 4.  Dessinez un circuit équivalent qui ne comporte que 3 niveaux de
     portes (incluant les inversions).
 
+-   Réponse
+
+    1.  ![img](Solutions_svg/solBloc3Fnorm.svg)
+    2.  ![img](Solutions_svg/solBloc3Fnand.svg)
+    3.  ![img](Solutions_svg/solBloc3Fnor.svg)
+    4.  ![img](Solutions_svg/solBloc3FnormReduit.svg)
+
 
 ### Question
 
 Donnez le tableau de vérité pour les fonctions logiques correspondant
-  à:
+à:
 
-1.  $$f(A, B) = A + B^{\prime}$$
+1.  $f(A, B) = A + B^{\prime}$
 
-2.  $$f(a, b, c) = a(b+c^{\prime})(b^{\prime}+c)$$
+2.  $f(a, b, c) = a(b+c^{\prime})(b^{\prime}+c)$
+
+-   Réponse
+
+    1.  
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">\(A\)</th>
+    <th scope="col" class="org-right">\(B\)</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">\(f\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    1.  
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">\(a\)</th>
+    <th scope="col" class="org-right">\(b\)</th>
+    <th scope="col" class="org-right">\(c\)</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-right">\(f\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">1</td>
+    </tr>
+    </tbody>
+    </table>
 
 
 ### Question
@@ -13551,14 +15906,15 @@ Donnez le tableau de vérité pour les fonctions logiques correspondant
 Considérez la fonction logique donnée par l'expression suivante:
 
 \begin{multline*}
-F = A^{\prime} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + {A} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + A^{\prime} B^{\prime} {C} D^{\prime} E^{\prime} + A^{\prime} {B} {C} {D} E^{\prime} \\ + {A} {B} C^{\prime} D^{\prime} {E} + {A} B^{\prime} C^{\prime} D^{\prime} {E} + {A} B^{\prime} D^{\prime} E^{\prime} \\ + {A} B^{\prime} {C} {D} {E} + {A} B^{\prime}  {C} D^{\prime} {E}
+F = A^{\prime} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + {A} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + A^{\prime} B^{\prime} {C} D^{\prime} E^{\prime} + A^{\prime} {B} {C} {D} E^{\prime} \\ 
++ {A} {B} C^{\prime} D^{\prime} {E} + {A} B^{\prime} C^{\prime} D^{\prime} {E} + {A} B^{\prime} D^{\prime} E^{\prime} + {A} B^{\prime} {C} {D} {E} + {A} B^{\prime}  {C} D^{\prime} {E}
 \end{multline*}
 
 Les cas suivants sont facultatifs:
-
-\begin{displaymath}
-A^{\prime} B^{\prime} C^{\prime} D^{\prime} {E} + {A} {B} C^{\prime} {D} {E} +  A^{\prime}B^{\prime} {C} D^{\prime} {E} + {A} {B} {C} D^{\prime} {E}
-\end{displaymath}
+$$
+A^{\prime} B^{\prime} C^{\prime} D^{\prime} {E} + {A} {B} C^{\prime} {D} {E} + 
+ A^{\prime}B^{\prime} {C} D^{\prime} {E} + {A} {B} {C} D^{\prime} {E}
+$$
 
 1.  Simplifiez cette expression logique par la méthode de
     Quine-McCluskey, en tenant compte des cas facultatifs. Identifiez
@@ -13566,6 +15922,169 @@ A^{\prime} B^{\prime} C^{\prime} D^{\prime} {E} + {A} {B} C^{\prime} {D} {E} +  
 
 2.  Dessinez un réseau logique qui réalise votre expression logique
     simplifiée en n'utilisant que des portes NAND.
+
+-   Réponse
+
+    1.  
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">00000</th>
+    <th scope="col" class="org-left">10000</th>
+    <th scope="col" class="org-left">00100</th>
+    <th scope="col" class="org-left">10001</th>
+    <th scope="col" class="org-left">10100</th>
+    <th scope="col" class="org-left">01110</th>
+    <th scope="col" class="org-right">11001</th>
+    <th scope="col" class="org-left">10101</th>
+    <th scope="col" class="org-right">10111</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">00001</th>
+    <th scope="col" class="org-left">00101</th>
+    <th scope="col" class="org-right">11011</th>
+    <th scope="col" class="org-right">11101</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">−0−0−</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">01110</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">101−1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">110−1</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-right">&#xa0;</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">1−−01</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">X</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">X</td>
+    <td class="org-left">X</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-right">&#xa0;</td>
+    <td class="org-right">X</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    i.p.e. = -0-0-, 01110, 101-1, 1&#x2013;01
+    
+    i.p.a.i = 110-1
+    
+    1.  Réseau logique
+        
+        ![img](Solutions_svg/solBloc3ReducFQuinn.svg)
 
 
 ### Question
@@ -13577,18 +16096,22 @@ les autres nombres seront considérées comme des cas facultatifs. Vous
 disposez de composants programmables pour réaliser cette fonction.
 
 1.  Réalisez votre circuit logique combinatoire en utilisant un PROM à
-    quatre entrées et deux sorties tel qu'illustré.
-    Vous devez mettre des croix aux endroits où vous voulez que les
-    connections soient effectuées (dans la section programmable).
+    quatre entrées et deux sorties tel qu'illustré.  Vous devez mettre
+    des croix aux endroits où vous voulez que les connections soient
+    effectuées (dans la section programmable).
 
 ![img](Modeles_exercices/prom4.svg)
 
 1.  Réalisez votre circuit logique combinatoire en utilisant le PAL à
-    quatre entrées et trois sorties tel qu'illustré.
-    Vous devez mettre des croix aux endroits où vous voulez que les
-    connections soient effectuées (dans la section programmable).
+    quatre entrées et trois sorties tel qu'illustré.  Vous devez mettre
+    des croix aux endroits où vous voulez que les connections soient
+    effectuées (dans la section programmable).
 
 ![img](Modeles_exercices/pal3.svg)
+
+-   Réponse
+
+    1.  ![img](Solutions_svg/solProm4.svg)
 
 
 ### Question
@@ -13596,11 +16119,12 @@ disposez de composants programmables pour réaliser cette fonction.
 Considérez le circuit logique ci-dessous. Le signal $A$ passe de 0 à 1
 l'instant 15 ns; le signal $B$ passe de 1 à 0 à l'instant 15 ns; le
 signal $C$ passe de 1 à 0 à l'instant 60 ns.
+
 ![img](Modeles_exercices/exbloc3e.svg)
 
 1.  Complétez un chronogramme qui montre les traces pour chacun des
     signaux d'entrée $A, B, C$ et de sortie $T, U, V, X, Y, Z_1,
-           Z_2, Z_3, F$, en supposant un temps de propagation de 10 ns
+       Z_2, Z_3, F$, en supposant un temps de propagation de 10 ns
     pour toutes les portes. Identifiez clairement sur le
     chronogramme les temps de propagation et les éventuels problèmes
     (glitchs) occasionnés par les délais.
@@ -13621,6 +16145,26 @@ signal $C$ passe de 1 à 0 à l'instant 60 ns.
 6.  Donnez le délai de propagation maximal pour le nouveau circuit
     somme de produit.
 
+-   Réponse
+
+    1.  Chronogramme
+        
+        ![img](Solutions_svg/solExBloc3e_1.svg)
+    
+    2.  Fonction logique
+        $$
+             F = A \oplus B
+           $$
+    
+    3.  Délai de longueur 4, en passant par $T$, $Y$ et $Z_1$.
+    
+    4.  On doit attendre le temps d'un délai de propagation pour être
+        certain que le circuit fonctionne correctement.
+    
+    5.  
+    
+    6.  Délai de longueur 3.
+
 
 ## Série 4
 
@@ -13628,33 +16172,39 @@ signal $C$ passe de 1 à 0 à l'instant 60 ns.
 ### Question
 
 Construisez un décodeur 5-vers-32 en utilisant quatre décodeurs
-  3-vers-8 avec entrée *enable*.
+3-vers-8 avec entrée *enable*.
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc4Dec5v32portesAND.svg)
 
 
 ### Question
 
 Vous devez concevoir un encodeur à priorité à quatre
-  entrées. L'entrée $D_0$ doit avoir la plus grande priorité et
-  l'entrée $D_3$ doit avoir la plus faible priorité, avec la
-  priorité des autres entrées qui suivent le même ordre. Les sorties
-  seront $s_1, s_0$ et $v$ qui indique la validité des sorties:
-  $v=0$ si toutes les entrées sont à 0; $v=1$ si au moins une
-  entrée est 1.
+entrées. L'entrée $D_0$ doit avoir la plus grande priorité et
+l'entrée $D_3$ doit avoir la plus faible priorité, avec la
+priorité des autres entrées qui suivent le même ordre. Les sorties
+seront $s_1, s_0$ et $v$ qui indique la validité des sorties:
+$v=0$ si toutes les entrées sont à 0; $v=1$ si au moins une
+entrée est 1.
+
+-   Réponse
+
+    ![img](Solutions_svg/solEncodeurPriorite4e.svg)
 
 
 ### Question
 
 Un circuit séquentiel à deux bascules D, $A$ et $B$, comporte
-  deux entrées $x$ et $y$ et une sortie $z$. Les équations de
-  prochain état sont:
+deux entrées $x$ et $y$ et une sortie $z$. Les équations de
+prochain état sont:
 
-$$A_{n+1} = x^\prime y + x A$$
+$$A_{n+1} = x^{\prime} y + x A$$
 
-$$B_{n+1} = x^\prime B + x A$$
+$$B_{n+1} = x^{\prime} B + x A$$
 
-L'équation de sortie est 
-
-$$z=B$$
+L'équation de sortie est $$z=B$$
 
 1.  Dessinez le schéma logique du circuit
 
@@ -13662,41 +16212,307 @@ $$z=B$$
 
 3.  Dessinez le diagramme d'état
 
+-   Réponse
+
+    1.  Schéma logique
+        
+        ![img](Solutions_svg/solExBloc4_1.svg)
+    
+    2.  Tableau d'états
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-right">État présent</th>
+    <th scope="col" class="org-right">\(X\)</th>
+    <th scope="col" class="org-right">\(Y\)</th>
+    <th scope="col" class="org-right">État suivant</th>
+    <th scope="col" class="org-right">\(Z\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">2</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">3</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">2</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">3</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">3</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">3</td>
+    <td class="org-right">0</td>
+    <td class="org-right">1</td>
+    <td class="org-right">2</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">3</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-right">3</td>
+    <td class="org-right">1</td>
+    <td class="org-right">1</td>
+    <td class="org-right">0</td>
+    <td class="org-right">0</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    3.  Diagramme d'état
+        
+        ![img](Solutions_svg/solExBloc4FSM_1.svg)
+
 
 ### Question
 
- Considérez le circuit logique suivant:
+Considérez le circuit logique suivant:
+
 ![img](Modeles_exercices/exbloc4a.svg)
 
-1.  Quelle est la fonction combinatoire réalisée par la section
-    logique combinatoire, c'est-à-dire, quelle est la fonction $S =
-             f(A,B)$ ?
+1.  Quelle est la fonction combinatoire réalisée par la section logique
+    combinatoire, c'est-à-dire, quelle est la fonction $S = f(A,B)$ ?
 
-2.  Complétez le diagramme temporel de la figure, en supposant un
-    temps de propagation **maximum** de 10 ns pour les portes NOR et OU,
-    et de 40 ns pour les bascules.
+2.  Complétez le diagramme temporel de la figure, en supposant un temps
+    de propagation **maximum** de 10 ns pour les portes NOR et OU, et de
+    40 ns pour les bascules.
 
-3.  Si les temps de maintien $t_{h}$ et de mise en place $t_{su}$
-    sont de 5 ns pour toutes les bascules, quelle est la fréquence
-    maximale d'horloge utilisable pour que le circuit fonctionne
-    convenablement? Utilisez un diagramme temporel pour évaluer la
-    période minimum.
+3.  Si les temps de maintien $t_{h}$ et de mise en place $t_{su}$ sont
+    de 5 ns pour toutes les bascules, quelle est la fréquence maximale
+    d'horloge utilisable pour que le circuit fonctionne convenablement?
+    Utilisez un diagramme temporel pour évaluer la période minimum.
+
+-   Réponse
+
+    1.  Fonction combinatoire
+        $$
+             S = A \oplus B
+           $$
+    
+    2.  Diagramme temporel
+        
+        ![img](Solutions_svg/solExBloc4a.svg)
+    
+    3.  Analyse pour la période minimale
+        
+        ![img](Solutions_svg/solExBloc4aPrepos.svg)
+        La période minimale de l'horloge est de $40ns + 3\times 10ns + 5ns = 75ns$.
 
 
 ### Question
 
- Analysez le circuit logique suivant:
+Analysez le circuit logique suivant:
+
 ![img](Modeles_exercices/exbloc4b.svg)
 
 1.  Analysez le comportement du circuit, en supposant qu'au départ les
-    entrées sont $A=0$ et $B=0$ et la sortie $S=0$. Vous devez
-    supposer des changements des valeurs d'entrées et décrire les
-    changements des sorties, en tenant compte de la mémoire du
-    circuit.
+    entrées sont $A=0$ et $B=0$ et la sortie $S=0$. Vous devez supposer
+    des changements des valeurs d'entrées et décrire les changements
+    des sorties, en tenant compte de la mémoire du circuit.
 
 2.  Identifiez la fonction des entrées $A$ et $B$.
 
 3.  Identifiez la fonction du circuit.
+
+-   Réponse
+
+    1.  Fonction
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    </colgroup>
+    <tbody>
+    <tr>
+    <td class="org-left">\(A = 0\)</td>
+    <td class="org-left">\(B = 0\)</td>
+    <td class="org-left">\(S = 0\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A = 1\)</td>
+    <td class="org-left">\(B = 0\)</td>
+    <td class="org-left">\(S = 0\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A = 1\)</td>
+    <td class="org-left">\(B = 1\)</td>
+    <td class="org-left">\(S = 1\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A = 1\)</td>
+    <td class="org-left">\(B = 0\)</td>
+    <td class="org-left">\(S = 1\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A = 1\)</td>
+    <td class="org-left">\(B = 1\)</td>
+    <td class="org-left">\(S = 1\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A = 0\)</td>
+    <td class="org-left">\(B = 1\)</td>
+    <td class="org-left">\(S = 0\)</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">\(A = 1\)</td>
+    <td class="org-left">\(B = 1\)</td>
+    <td class="org-left">\(S = 1\)</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    1.  $A$ sert d'entrée de données, $B$ sert d'entrée de contrôle.
+    
+    2.  Le circuit se comporte comme un loquet D.
 
 
 ### Question
@@ -13705,66 +16521,164 @@ Considérez circuit séquentiel décrit par le diagramme d'état suivant:
 
 ![img](Modeles_exercices/ex_bloc5b.svg)
 
-1.  En utilisant l'assignation d'états $a = 00, b = 01, c = 10, d
-             = 11$, construisez le tableau d'état pour ce circuit séquentiel.
+1.  En utilisant l'assignation d'états $a = 00, b = 01, c = 10, d =
+       11$, construisez le tableau d'état pour ce circuit séquentiel.
 
 2.  Concevez le circuit en utilisant des portes standards et des
     bascules D.
 
+-   Réponse
+
+    1.  Tableau d'état
+        
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+        
+        
+        <colgroup>
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        </colgroup>
+        <thead>
+        <tr>
+        <th scope="col" class="org-right">État présent</th>
+        <th scope="col" class="org-right">\(X\)</th>
+        <th scope="col" class="org-right">État suivant</th>
+        <th scope="col" class="org-right">\(Z\)</th>
+        <th scope="col" class="org-right">\(F\)</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <tr>
+        <td class="org-right">00</td>
+        <td class="org-right">0</td>
+        <td class="org-right">00</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">00</td>
+        <td class="org-right">1</td>
+        <td class="org-right">01</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">01</td>
+        <td class="org-right">0</td>
+        <td class="org-right">10</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">01</td>
+        <td class="org-right">1</td>
+        <td class="org-right">11</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">10</td>
+        <td class="org-right">0</td>
+        <td class="org-right">00</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">10</td>
+        <td class="org-right">1</td>
+        <td class="org-right">11</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">11</td>
+        <td class="org-right">0</td>
+        <td class="org-right">11</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">11</td>
+        <td class="org-right">1</td>
+        <td class="org-right">11</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        </tr>
+        </tbody>
+        </table>
+    
+    2.  Circuit
+        
+        ![img](Solutions_svg/solExBloc4_2.svg)
+
+
+### Question
+
+Vous devez concevoir un circuit logique séquentiel à une entrée et une
+sortie qui identifie les deux séquences d'entrée 0110 et 11111
+appliquées immédiatement après une remise à zéro asynchrone du
+circuit. Donnez le diagramme d'état simplifié pour ce circuit.
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc4FSM_1_1.svg)
+
 
 ### Question
 
 Vous devez concevoir un circuit logique séquentiel à une entrée et
-  une sortie qui identifie les deux séquences d'entrée 0110 et 11111
-  appliquées immédiatement après une remise à zéro asynchrone du
-  circuit. Donnez le diagramme d'état simplifié pour ce circuit.
+une sortie qui identifie les deux séquences d'entrée 0110
+et 11111. Les séquences d'entrée doivent être identifiées à
+n'importe quel moment où elles apparaissent en entrée.
 
+-   Réponse
 
-### Question
-
-Vous devez concevoir un circuit logique séquentiel à une entrée et
- une sortie qui identifie les deux séquences d'entrée 0110
- et 11111. Les séquences d'entrée doivent être identifiées à
- n'importe quel moment où elles apparaissent en entrée.
+    ![img](Solutions_svg/solExBloc4FSM_1_2.svg)
 
 
 ### Question
 
 Déterminez le diagramme d'état pour un circuit séquentiel synchrone
-  avec une entrée $x$ et une sortie $z$ qui est utilisé pour
-  reconnaître la séquence d'entrée 101. La sortie doit donc être $z=1$
-  lorsque le dernier 1 de la séquence 101 est identifié. $z$ est
-  ensuite remis à zéro au prochain coup d'horloge. Deux séquences 101
-  peuvent se chevaucher. On a par exemple,
-  $$
-    x  =  010101101
-    $$
-  $$ z = 000101001
-    $$
+avec une entrée $x$ et une sortie $z$ qui est utilisé pour
+reconnaître la séquence d'entrée 101. La sortie doit donc être $z=1$
+lorsque le dernier 1 de la séquence 101 est identifié. $z$ est
+ensuite remis à zéro au prochain coup d'horloge. Les chevauchements de
+101 ne sont pas permis. Par exemple, $$x = 010101101$$ $$z =
+000100001$$
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc4FSM_2.svg)
 
 
 ### Question
 
-Déterminez le diagramme d'état pour un circuit séquentiel synchrone
-  avec une entrée $x$ et une sortie $z$ qui est utilisé pour
-  reconnaître la séquence d'entrée 101. La sortie doit donc être $z=1$
-  lorsque le dernier 1 de la séquence 101 est identifié. $z$ est
-  ensuite remis à zéro au prochain coup d'horloge. Les chevauchements de 101 ne sont pas 
-  permis. Par exemple,
-  $$
-    x = 010101101
-    $$
-  $$
-    z = 000100001
-    $$
-
-
-### Question
-
-Concevez le circuit séquentiel synchrone décrit par le tableau
-  d'état ci-dessous. Vous devez considérer des bascules JK et D et
-  choisir la solution la plus simple. Présentez clairement toutes les
-  étapes, jusqu'au schéma du circuit correspondant.
+Concevez le circuit séquentiel synchrone décrit par le tableau d'état
+ci-dessous. Vous devez considérer des bascules JK et D et choisir la
+solution la plus simple. Présentez clairement toutes les étapes,
+jusqu'au schéma du circuit correspondant.
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -13853,20 +16767,30 @@ Concevez le circuit séquentiel synchrone décrit par le tableau
 </tbody>
 </table>
 
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc4FSM_4.svg)
+
 
 ### Question
 
 Les deux bascules du circuit suivant sont activées par les
-   transitions montantes du signal présent à leur entrée
-   d'horloge. 
-   ![img](Modeles_exercices/exbloc4c.svg)
+transitions montantes du signal présent à leur entrée
+d'horloge.
 
-Tracez le chronogramme pour $X, X^\prime, Y, S$
+![img](Modeles_exercices/exbloc4c.svg)
+
+Tracez le chronogramme pour $X, X^{\prime}, Y, S$
+
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc4c.svg)
 
 
 ### Question
 
 Vous devez analyser le circuit séquentiel suivant:
+
 ![img](Modeles_exercices/exbloc4d.svg)
 
 1.  Donnez les équations pour le décodeur de prochain état.
@@ -13876,8 +16800,8 @@ Vous devez analyser le circuit séquentiel suivant:
 
 3.  Donnez le diagramme d'état correspondant.
 
-4.  tracez le chronogramme de fonctionnement, en
-    faisant abstraction des délais de propagation.
+4.  Tracez le chronogramme de fonctionnement, en faisant abstraction
+    des délais de propagation.
 
 5.  En sachant que la bascule a les caractéristiques suivantes:
     
@@ -13888,10 +16812,128 @@ Vous devez analyser le circuit séquentiel suivant:
     -   temps de propagation maximum: de Horloge à $Q$ ou
         $Q^{\prime}$: $t_{pLH}$ = 15 ns, $t_{pHL}$ = 13 ns.
     
-    et en suppoosant un délai de propagation de 15 ns pour la porte
+    et en supposant un délai de propagation de 15 ns pour la porte
     XOR, déterminez la période minimale et la fréquence
     maximale qu'on puisse utiliser tout en étant assuré que le circuit
     fonctionne correctement. Donnez les détails de votre raisonnement.
+
+-   Réponse
+
+    1.  $S^{n+1} = (A(S^n)^{\prime})  + (B^{\prime} S^n)$
+    
+    2.  Tableau d'activation
+        
+        <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+        
+        
+        <colgroup>
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        
+        <col  class="org-right" />
+        </colgroup>
+        <thead>
+        <tr>
+        <th scope="col" class="org-right">\(B\)</th>
+        <th scope="col" class="org-right">\(A\)</th>
+        <th scope="col" class="org-right">\(S^n\)</th>
+        <th scope="col" class="org-right">\(S^{n+1}\)</th>
+        <th scope="col" class="org-right">\(S\)</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        </tr>
+        
+        
+        <tr>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">1</td>
+        <td class="org-right">0</td>
+        <td class="org-right">1</td>
+        </tr>
+        </tbody>
+        </table>
+    
+    3.  Diagramme d'état
+        
+        ![img](Solutions_svg/solExBloc4dFSM.svg)
+    
+    4.  Chronogramme
+        
+        ![img](Solutions_svg/solExBloc4dTime.svg)
+    
+    5.  Analyse temporelle
+        
+        ![img](Solutions_svg/solExBloc4TimePrepos.svg)
+        
+        La période minimale est de $15 ns+15 ns+11 ns = 41 ns$.
 
 
 ### Question
@@ -13899,10 +16941,8 @@ Vous devez analyser le circuit séquentiel suivant:
 Vous devez concevoir un circuit logique utilisé dans un système
 permettant de trier des données. Le circuit reçoit deux nombres
 non-signés de 4 bits, multiplexés en série sur une même entrée. Par
-exemple, si les entrées sont 1010 et 1110, le circuit recevra
-
-1.  Le circuit doit acheminer le plus grand des deux nombres à
-
+exemple, si les entrées sont $1010$ et $1110$, le circuit recevra $11011100$. 
+Le circuit doit acheminer le plus grand des deux nombres à
 une sortie (parallèle) appelée PG et le plus petit à une sortie
 (parallèle) appelée PP. Vous devez réaliser votre circuit en utilisant
 les éléments suivants:
@@ -13916,13 +16956,17 @@ les éléments suivants:
 -   registre à décalage entrée série/sortie parallèle
 
 -   comparateur de magnitude: deux entrées parallèles de 4 bits: $A$ et
-    $B$, trois sorties: $A>B$, $A=B$, $A<B$
+    $B$, trois sorties: $A\geq B$, $A=B$, $A \leq B$
 
 -   registre entrée parallèle/sortie parallèle
 
 Donnez un schéma-bloc de votre circuit en indiquant seulement les
-blocs qui traitent les données (pas les blocs qui serviront à contrôler
-le circuit).
+blocs qui traitent les données (pas les blocs qui serviront à
+contrôler le circuit).
+
+-   Réponse
+
+    ![img](Solutions_svg/Schema_bloc.png)
 
 
 ### Question
@@ -14039,6 +17083,16 @@ Par exemple,
 </table>
 
 Donnez un diagramme d'état pour chacune des deux versions.
+
+-   Réponse
+
+    1.  Diagramme d'état, version 1
+        
+        ![img](Solutions_svg/solExBloc4FSM_V1.svg)
+    
+    2.  Diagramme d'état, version 2
+        
+        ![img](Solutions_svg/solExBloc4FSM_V2.svg)
 
 
 ### Question
@@ -14184,10 +17238,249 @@ correspondant à un circuit séquentiel synchrone.
 
 6.  Dessinez le schéma du circuit séquentiel obtenu.
 
+-   Réponse
+
+    1.  Tableau d'implication
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-left" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">b</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">--</th>
+    <th scope="col" class="org-left">--</th>
+    <th scope="col" class="org-left">--</th>
+    <th scope="col" class="org-left">--</th>
+    </tr>
+    
+    
+    <tr>
+    <th scope="col" class="org-left">c</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">--</th>
+    <th scope="col" class="org-left">--</th>
+    <th scope="col" class="org-left">--</th>
+    </tr>
+    
+    
+    <tr>
+    <th scope="col" class="org-left">d</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">XX</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">--</th>
+    <th scope="col" class="org-left">--</th>
+    </tr>
+    
+    
+    <tr>
+    <th scope="col" class="org-left">e</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">OUI</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">XX</th>
+    <th scope="col" class="org-left">--</th>
+    </tr>
+    
+    
+    <tr>
+    <th scope="col" class="org-left">f</th>
+    <th scope="col" class="org-left">&#xa0;</th>
+    <th scope="col" class="org-left">OUI</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">X</th>
+    <th scope="col" class="org-left">X</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">&#xa0;</td>
+    <td class="org-left">a</td>
+    <td class="org-left">b</td>
+    <td class="org-left">c</td>
+    <td class="org-left">d</td>
+    <td class="org-left">e</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    2.  Tableau d'état, assignation d'états et diagramme d'état
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">État présent</th>
+    <th scope="col" class="org-right">Entrée \(A\)</th>
+    <th scope="col" class="org-left">État suivant</th>
+    <th scope="col" class="org-right">Sortie \(S\)</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">a</td>
+    <td class="org-right">0</td>
+    <td class="org-left">c</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">a</td>
+    <td class="org-right">1</td>
+    <td class="org-left">a</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">b</td>
+    <td class="org-right">0</td>
+    <td class="org-left">b</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">b</td>
+    <td class="org-right">1</td>
+    <td class="org-left">a</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">c</td>
+    <td class="org-right">0</td>
+    <td class="org-left">b</td>
+    <td class="org-right">1</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">c</td>
+    <td class="org-right">1</td>
+    <td class="org-left">d</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">d</td>
+    <td class="org-right">0</td>
+    <td class="org-left">a</td>
+    <td class="org-right">0</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">d</td>
+    <td class="org-right">1</td>
+    <td class="org-left">b</td>
+    <td class="org-right">1</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    
+    
+    <colgroup>
+    <col  class="org-left" />
+    
+    <col  class="org-right" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th scope="col" class="org-left">État</th>
+    <th scope="col" class="org-right">Code</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <td class="org-left">a</td>
+    <td class="org-right">00</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">b</td>
+    <td class="org-right">01</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">c</td>
+    <td class="org-right">10</td>
+    </tr>
+    
+    
+    <tr>
+    <td class="org-left">d</td>
+    <td class="org-right">11</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    ![img](Solutions_svg/solExBloc4FSM_Reduction.svg)
+    
+    4.  Diagrammes de Karnaugh, décodeur de prochain
+        état
+    
+    ![img](Solutions_svg/solExBloc4KmapE1.png)
+    
+    ![img](Solutions_svg/solExBloc4KmapE2.png)
+    
+    5.  Diagrammes de Karnaugh, décodeur de sortie
+    
+    ![img](Solutions_svg/solExBloc4KmapSortie.png)
+    
+    6.  Schéma du circuit
+    
+    ![img](Solutions_svg/solExBloc4ReductionDiag.svg)
+
 
 ### Question
 
 Considérez le circuit séquentiel synchrone ci-dessous.
+
 ![img](Modeles_exercices/exbloc4e.svg)
 
 Déterminez la vitesse d'horloge maximale en considérant les
@@ -14202,6 +17495,10 @@ caractéristiques suivantes:
 -   Bascules: temps de propagation maximum: de H à $Q$ ou
     $Q^{\prime}$: $t_{pLH}$ = 25 ns, $t_{pHL}$ = 20 ns.
 
+-   Réponse
+
+    La période minimale de l'horloge est de $25ns + 2\times 10ns + 12ns = 57ns$.
+
 
 ## Série 5
 
@@ -14212,12 +17509,16 @@ Faire le diagramme d'état d'un circuit séquentiel synchrone qui génère
 à sa sortie un 1 lorsqu'il détecte à son entrée la séquence 0110 ou la
 séquence 0101.
 
+-   Réponse
+
+    ![img](Solutions_svg/solExBloc5FSM_1.svg)
+
 
 ### Question
 
 Un circuit séquentiel synchrone est construit à partir de trois
-   bascules, $A$, $B$, et $C$. Il comporte une entrée $x$ et
-   une sortie $y$. Son diagramme d'état est donné ci-dessous. 
+bascules, $A$, $B$, et $C$. Il comporte une entrée $x$ et
+une sortie $y$. Son diagramme d'état est donné ci-dessous. 
 ![img](Modeles_exercices/ex_bloc5.svg)
 
 Vous devez concevoir ce circuit en considérant les états inutilisés
@@ -14228,14 +17529,28 @@ son fonctionnement normal.
 1.  Conception avec des bascules D
 2.  Conception avec des bascules JK
 
+-   Réponse
+
+    1.  Conception avec des bascules D
+        
+        ![img](Solutions_svg/sol_exbloc5_DLatch.svg)
+    
+    2.  Conception avec des bascules JK
+        
+        ![img](Solutions_svg/sol_exbloc5FSM_JKLatch.svg)
+
 
 ### Question
 
 Faire le diagramme d'état d'un compteur synchrone qui produit les
-  séquences d'états suivants, selon la valeur de l'entrée $x$
+séquences d'états suivants, selon la valeur de l'entrée $x$
 
 -   $x=0$, séquence: 0, 6, 2, 1, 4, 0, 6, 2, 1, 4, &hellip;
 -   $x=1$, séquence: 0, 6, 5, 7, 2, 1, 0, 6, 5, 7, 2, 1, &hellip;
+
+-   Réponse
+
+    ![img](Solutions_svg/solExbloc5cFSM.svg)
 
 
 # Notes de bas de page

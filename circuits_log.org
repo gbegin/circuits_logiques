@@ -2,7 +2,8 @@
 #+OPTIONS: f
 #+OPTIONS: num: 5
 #+LANGUAGE: fr
-#+EXCLUDE_TAGS: r
+#+EXCLUDE_TAGS: nil
+#+OPTIONS: tags:nil
 
 #+OPTIONS: broken-links:mark
 
@@ -216,33 +217,262 @@ permettront de mettre en pratique les notions abordées.
 :UNNUMBERED: t
 :END:
 
+*** Pourquoi ce manuel
+
 Ce manuel a été rédigé en fonction de deux objectifs distincts mais
 reliés. Le premier objectif était de produire un manuel de qualité, en
 français, sur un sujet fondamental en électronique numérique et d'en
 faire une /Ressource éducative libre (REL)/. Une recherche préalable
 nous avait en effet permis de constater qu'il existe peu de manuels
-récents de ce type sur le sujet. En offrant une telle ressource à la
-communauté, nous espérons contribuer à rendre plus accessible la
+récents de ce type sur le sujet.  En offrant une telle ressource à la
+communauté, nous souhaitons contribuer à rendre plus accessible la
 formation dans ce domaine technologique important.
 
-Le deuxième objectif était d'expérimenter avec une méthode de
-travail permettant d'élaborer de telles ressources éducatives en
-faisant appel à un ensemble d'outils libres et universellement accessibles. Le
-but était aussi de s'assurer de pouvoir obtenir un document ou un ensemble de
-documents sources susceptibles d'en faciliter la réutilisation, la
-révision et le remixage. Le manuel est donc appelé à devenir une
-preuve de concept pour le processus d'élaboration qui a été utilisé.
+Le deuxième objectif était de mettre au point et d'expérimenter avec
+une méthode de travail conçue spécifiquement pour faciliter
+l'élaboration de telles ressources éducatives en faisant appel à un
+ensemble d'outils libres et universellement accessibles.  Un élément
+clé de ce processus est de s'assurer de pouvoir obtenir un
+document ou un ensemble de documents sources permettant de
+faciliter la réutilisation, la révision et le remixage. Le manuel a
+donc joué le rôle de matériel d'expérimentation et de preuve de
+concept pour le processus d'élaboration qui a été mis au point.
 
-La matière couverte dans ce manuel correspond d'assez près au contenu
-du cours [[https://etudier.uqam.ca/cours?sigle=MIC1065][MIC1065 Circuits logiques]], offert dans le cadre du
-[[https://etudier.uqam.ca/programme?code=6526][baccalauréat en systèmes informatiques et électroniques]] de
-l'[[https://uqam.ca/][Université du Québec à Montréal]]. 
+*** Pourquoi un manuel sous forme de ressource éducative libre
+
+En plus de rendre l'éducation plus accessible, une ressource éducative
+libre se prête particulièrement bien à l'expérimentation avec une
+variété d'approches pédagogiques qui permettront d'adapter et de 
+rapprocher le contenu de son destinataire ultime, l'apprenant. On
+peut donc en espérer *plus* (de succès dans l'apprentissage) pour
+*moins* (d'investissement pécuniaire).
+
+Pour être qualifiée de /libre/, une ressources éducative doit être
+conçue, réalisée et distribuée sous un régime de protection (licence)
+de façon à faciliter les cinq activités en *R*: Retenir (/retain/),
+Réutiliser (/reuse/), Réviser (/revise/), Remixer (/remix/),
+Redistribuer (/redistribute/).
+
+- Retenir: :: faire, posséder, contrôler une copie de la ressource
+  (par ex., télécharger et conserver sa propre copie)
+
+- Réutiliser: :: utiliser publiquement une copie (originale, révisée
+  ou remixée) de la ressource (par ex., sur un site web ou en classe)
+
+- Réviser: :: éditer, adapter, modifier une copie de la ressource
+  (par ex., la traduire dans une autre langue)
+
+- Remixer: :: combiner une copie originale ou révisée de la ressource
+  avec d'autres ressources existantes pour créer quelque chose de
+  nouveau (par ex., créer une oeuvre composite (/mashup/))
+
+- Redistribuer: :: partager des copies (originales, révisées ou
+  remixées) de la ressource avec d'autres (par ex., donner une copie à
+  un ami)
+
+Si l'utilisation d'une licence libre confère le droit légal de
+réaliser l'une ou l'autre des activités en R, il importe de s'assurer
+que les formats utilisés pour distribuer le contenu de la ressource ne
+constituent pas en pratique un frein à l'exercice de ce droit.  Dans
+cet esprit, le manuel, et particulièrement les documents sources
+utilisés pour le créer, sont distribués sous une variété de formats
+ouverts qui devraient en faciliter l'adaptation, la réutilisation, la
+révision et le remixage.  Ces documents sources sont accessibles via
+le dépôt /Github/ [[https://github.com/gbegin/circuits_logiques/]]. Le dépôt
+comporte également des transparents pouvant être utilisés comme
+supports d'enseignement.
+
+*** A qui est-il destiné
+
+Ce manuel s'adresse tout particulièrement aux étudiants qui suivent un
+enseignement technique, ou un premier cycle universitaire, ainsi qu'à
+tous ceux qui s'intéressent à l'ingénierie électronique.  Le lecteur
+n'a besoin d'aucune connaissance préalable pour pouvoir en assimiler
+les concepts, mais une connaissance de la programmation permettra de
+pousser l'expérimentation par simulation.  Les notions couvertes par
+le manuel sont typiquement enseignées dans les programmes d'études en
+génie électrique, en génie informatique, voire, en informatique: en
+première année au niveau universitaire premier cycle, et de façon
+moins approfondie, dans les programmes de formation technique
+correspondants. Puisque ces notions sont relativement universelles,
+moyennant une modeste adaptation terminologique, le manuel pourra
+intéresser les étudiants de partout dans le monde francophone.
+
+Une recherche menée sur les principaux répertoires de REL pour une
+ressource comparable, libre d'accès et en français, n'a pas permis de
+trouver d'équivalent. Les manuels habituellement utilisés pour
+l'enseignement de cette matière, publiés le plus souvent en anglais,
+sont très coûteux.
+
+Pour être utile à tous les groupes d'utilisateurs visés, le manuel et
+les ressources associées doivent pouvoir être offerts sur une variété
+de supports qui permettent de maximiser la diffusion et faciliter
+l'inclusion d'activités complémentaires (auto-tests, fichiers de
+simulation, etc.), tout en maintenant la cohérence de l'ensemble.
+
+*** Comment utiliser ce manuel
+
+Ce manuel est une introduction au domaine de la conception des
+circuits logiques, qui sont à la base de tous les systèmes
+électroniques numériques, des plus simples au plus complexes. Les
+objectifs du manuel reflètent une approche pédagogique inclusive,
+progressive et pratique de l'enseignement de l'ingénierie
+électronique. Le contenu, conçu pour s'adapter aussi bien aux
+environnements technologiquement avancés qu'aux méthodes
+d'enseignement plus traditionnelles, est aligné aux objectifs
+pédagogiques du cours d'introduction /MIC1065 Circuits logiques/
+https://etudier.uqam.ca/cours?sigle=MIC1065 qui est enseigné à l'UQAM
+depuis plusieurs dizaines d'années. Il est possible de l'adapter à
+tout cours d'introduction de niveau comparable.
+
+L'analyse des objectifs pédagogiques a permis d'élaborer un découpage
+des matières progressif et accessible. Comme il s'agit d'une
+introduction sans préalables au domaine, la présentation du matériel
+commence avec les concepts fondamentaux mais relativement simples de
+la logique binaire, de l'algèbre de Boole et des tableaux de
+vérité. Ces notions peuvent être assimilées sans même référer aux
+dispositifs électroniques qui seront utilisés plus tard.
+
+Par la suite, on voit comment les opérations logiques peuvent être
+mises en oeuvre au moyen de dispositifs électroniques, en augmentant
+progressivement le niveau de complexité: d'abord avec des portes
+logiques simples, puis avec des dispositifs combinatoires plus
+complexes. 
+
+On aborde en deuxième partie les circuits logiques séquentiels dont le
+comportement doit être analysé en tenant compte de la notion d'état,
+qui introduit la complexité supplémentaire d'un fonctionnement qui
+varie avec le temps.
+
+En exposant en premier lieu les techniques d'analyse des systèmes
+logiques (combinatoires ou séquentiels), et en étudiant de nombreux
+types de circuits logiques classiques, il est possible de passer à des
+échelons éducationnels supérieurs en abordant dans un deuxième temps
+le défi de faire la conception des systèmes logiques en vue de
+répondre à des besoins exprimés par les utilisateurs.  On aborde ainsi
+les dimensions créatives qui sont au coeur du travail du concepteur de
+circuits logiques.
+
+En troisième partie, la modélisation formelle et la simulation des
+systèmes logiques ouvre finalement la porte à des options
+d'expérimentation qui permettront de consolider les notions abordées,
+et de s'intéresser aux techniques modernes permettant de faire la
+conception, la simulation, voire, la synthèse de systèmes logiques
+complexes en exploitant notamment l'encapsulation et le découpage
+hiérarchique.
+
+Dans tout le manuel, les objectifs d'apprentissage sont présentés
+clairement au début de chaque chapitre.  En fin de chapitre, des
+exercices et activités d'auto-évaluation offriront une rétroaction
+rapide aux apprenants. Dans l'optique de pouvoir s'adapter autant à
+des environnements technologiquement riches qu'à des usages plus
+traditionnels (avec manuel imprimé ou document pdf), des exercices
+(dont certains avec solutions) sont fournis à la fin du manuel pour
+faciliter l'auto-évaluation des apprentissages.  Un effort spécial est
+fait pour s'assurer de produire du matériel accessible, quel que soit
+le médium final.
+
+Le manuel propose également des options de logiciels libres d'accès
+pour pouvoir effectuer la spécification, la modélisation et la
+simulation de systèmes logiques, et ce à différents niveaux
+d'abstraction. Ces options permettent à pratiquement tous les
+lecteurs, quelles que soient leur ressources financières, de mettre en
+pratique les notions présentées dans le manuel. Comme les outils
+logiciels effectivement utilisés pour produire le manuel et le
+matériel qu'il comporte (schémas, exemples, modèles, simulations,
+etc.) sont libres d'accès, les apprenants pourront s'en inspirer et
+s'approprier ces logiciels qui deviendront dans leurs mains des outils
+d'auto-apprentissage qui leur permettront de pousser encore plus loin
+leurs apprentissages.
+
+*** Organisation de la matière
+
+Les chapitres 1 à 3 sont consacrés aux concepts de base de la logique
+binaire et des systèmes de numération. Ces notions sont présentées
+d'un point de vue relativement abstrait qui n'est pas étranger au fait
+que la logique binaire mise en oeuvre dans les circuits numériques
+modernes est fondée sur des principes mathématiques, voire
+philosophiques établis bien longtemps avant l'avènement de
+l'électronique.
+
+Dans les trois chapitres suivants, on voit comment la logique peut
+s'incarner dans des dispositifs électroniques: d'abord avec des portes
+logiques simples (chapitre 4), et plus avant, avec des dispositifs
+combinatoires plus complexes (chapitre 6). On présente également les
+approches permettant de simplifier les circuits logiques
+combinatoires, c'est-à-dire ceux dont le comportement ne dépend pas du
+temps (chapitre 5).
+
+Les circuits logiques séquentiels, qui, eux comportent de la
+mémoire, sont considérés ensuite. On présente d'abord les loquets et
+bascules, composants de base des circuits séquentiels (chapitre 7),
+puis on aborde l'analyse (chapitre 8) et la conception (chapitre 9) de
+circuits séquentiels synchrones. Le chapitre 10 présente de nombreux
+types de circuits séquentiels typiques, alors que le chapitre 11 est
+consacré aux différents types de mémoires.
+
+Le chapitre 12 offre une brève introduction aux dispositifs logiques
+programmables qui amènent les circuits logiques à un autre degré de
+flexibilité et d'intégration.
+
+Dans les chapitres 13 et 14, on s'intéresse à la modélisation de
+circuits, en introduisant le langage descriptif VHDL, qui permet de
+décrire formellement des circuits logiques pour en faire la
+conception, la simulation, voire, la synthèse.
+
+Le manuel se conclut avec des séries d'exercices (chapitre 15) qui
+permettront de mettre en pratique les notions abordées.
+
+*** Comment accéder au contenu
+
+Si vous lisez ceci via /Pressbooks/, vous avez déjà sous la main accès
+au contenu en direct, en cliquant sur les liens vers les différentes
+parties et chapitres du manuel. Faire la lecture en ligne vous permet
+d'accéder rapidement aux différentes sections et offre la possibilité
+de réaliser les exercices et activités d'auto-évaluation de fin de
+chapitre avec rétroaction immédiate.
+
+/Pressbooks/ permet aussi de télécharger des versions ebook ou pdf du
+manuel, qui pourront être imprimées ou consultés sur une liseuse. La
+mise en page de ces versions est parfois moins bien adaptée aux
+formats de page, particulièrement dans le cas des illustrations, qui
+peuvent parfois être trop petites.  De plus, le contenu mathématique
+n'est pas toujours bien supporté par les liseuses électroniques.
+
+Le dépôt /Github/ [[https://github.com/gbegin/circuits_logiques/]] permet
+également de télécharger une version pdf du manuel qui a été produite
+directement sans passer par /Pressbooks/, et dans laquelle la mise en
+page et le contenu mathématique sont mieux rendus. Cette version
+serait la plus avantageuse pour une impression sur papier du manuel.
+
+*** À propos de l'auteur
 
 L'auteur, Guy Bégin, est professeur au département d'informatique de
 l'Université du Québec à Montréal. Ses recherches l'ont toujours amené
 à s'intéresser aux 0 et aux 1 si souvent rencontrés en circuits
 logiques, mais également en télécommunications numériques, son champ
 de recherche privilégié.
+
+Au cours de sa carrière de professeur à l'UQAM depuis plus de trente
+ans, il a enseigné une quinzaine de cours différents en électronique,
+informatique et télécommunications, à tous les cycles. Comme directeur
+de programme (pendant une dizaine d'années), il a participé à sept
+projets de création ou de modification majeure de programmes d'études
+à tous les cycles, dont cinq comme responsable principal. Il a ainsi
+été amené à élaborer un grand nombre de nouveaux cours, préparer une
+variété de matériel pédagogique (notes de cours, transparents,
+capsules vidéo, activités d'apprentissage sur Moodle, etc.). Il a de
+plus été un des premiers de son département à expérimenter
+l'enseignement à distance (cours comodal en 2008, encadrement
+aux cycles supérieurs à distance, 2011-2013).
+
+Comme directeur du seul programme de génie de l'histoire de l'UQAM
+(baccalauréat en génie microélectronique, de 2002 à 2016), il a été au
+centre du processus d'agrément du programme auprès du Bureau canadien
+d'agrément des programmes de génie, selon la formule des «qualités de
+l'ingénieur», une forme élaborée d'approche par compétences.
+
+
 
 *** Remerciements
 
@@ -251,6 +481,10 @@ projets technopédagogiques), Boris Nonveiller (bibliothécaire), Rachel
 Rouleau (révision linguistique) et Émile Gauvin (étudiant au
 baccalauréat en systèmes informatiques et électroniques). Ce manuel a
 été réalisé avec le soutien de la [[https://fabriquerel.org/][fabriqueREL]].
+
+Image en couverture par Émilie Tournevache et Alex Grenier (Service de
+l'audiovisuel-UQAM) avec l'outil IA Midjourney et mots clés : Réseaux
+Informatiques, Réseaux Sociaux, Connexions, Algorithmes.
 
 *** Licence
 
@@ -262,11 +496,9 @@ baccalauréat en systèmes informatiques et électroniques). Ce manuel a
 #+end_center
 
 
-Le contenu de ce manuel électronique est
-disponible en vertu des conditions de la
-[[https://creativecommons.org/licenses/by-sa/4.0/deed.fr][Licence
-Creative Commons Attribution - Partage dans les mêmes conditions 4.0
-International]].
+Le contenu de ce manuel électronique est disponible en vertu des
+conditions de la [[https://creativecommons.org/licenses/by-sa/4.0/deed.fr][Licence Creative Commons Attribution - Partage dans
+les mêmes conditions 4.0 International]].
 
 Vous êtes autorisé à : 
 
@@ -313,64 +545,6 @@ simulation:
   - [[https://github.com/hneemann/Digital][Simulateur Digital]]
 - Coloration syntaxique
   - [[https://pygments.org/docs/quickstart/][Pygments]]
-
-Dans le but de faciliter l'adaptation, la réutilisation, la révision
-et le remixage de cette ressource éducative libre, les documents
-sources utilisés pour produire ce manuel sont accessibles via le dépôt
-Github [[https://github.com/gbegin/circuits_logiques/]]. Le dépôt comporte
-également des transparents pouvant être utilisés comme supports
-d'enseignement.
-
-
-** Préface
-:PROPERTIES:
-:UNNUMBERED: t
-:END:
-
-Ce manuel est une introduction au domaine de la conception des
-circuits logiques, qui sont à la base de tous les systèmes numériques
-modernes. Il s'adresse tout particulièrement aux personnes qui suivent
-un enseignement technique, ou un premier cycle universitaire, ainsi
-qu'à tous celles qui s'intéressent à l'ingénierie électronique.
-Aucune connaissance préalable n'est requise pour pouvoir en assimiler
-les concepts, mais une connaissance de la programmation permettra de
-pousser l'expérimentation par simulation.
-
-Les chapitres 1 à 3 de cet ouvrage sont consacrés aux concepts de base
-de la logique binaire et des systèmes de numération. Ces notions sont
-présentées d'un point de vue relativement abstrait qui n'est pas
-étranger au fait que la logique binaire mise en oeuvre dans les
-circuits numériques modernes est fondée sur des principes
-mathématiques, voire philosophiques établis bien longtemps avant
-l'invention de l'électronique.
-
-Dans les trois chapitres suivants, on voit comment la logique peut
-s'incarner dans des dispositifs électroniques: d'abord avec des portes
-logiques simples (chapitre 4), et plus avant, avec des dispositifs
-combinatoires plus complexes (chapitre 6). On présente également les
-approches permettant de simplifier les circuits logiques
-combinatoires, c'est-à-dire ceux dont le comportement ne dépend pas du
-temps (chapitre 5).
-
-Les circuits logiques séquentiels, qui, eux comportent de la
-mémoire, sont considérés ensuite. On présente d'abord les loquets et
-bascules, composants de base des circuits séquentiels (chapitre 7),
-puis on aborde l'analyse (chapitre 8) et la conception (chapitre 9) de
-circuits séquentiels synchrones. Le chapitre 10 présente de nombreux
-types de circuits séquentiels typiques, alors que le chapitre 11 est
-consacré aux différents types de mémoires.
-
-Le chapitre 12 offre une brève introduction aux dispositifs logiques
-programmables qui amènent les circuits logiques à un autre degré de
-flexibilité et d'intégration.
-
-Dans les chapitres 13 et 14, on s'intéresse à la modélisation de
-circuits, en introduisant le langage descriptif VHDL, qui permet de
-décrire formellement des circuits logiques pour en faire la
-conception, la simulation, voire, la synthèse.
-
-Le manuel se conclut avec des séries d'exercices (chapitre 15) qui
-permettront de mettre en pratique les notions abordées.
 
 
 #+TOC: headlines 3
@@ -438,8 +612,8 @@ nombre binaire, en tenant compte du fait que la base vaut cette
 fois-ci 2. Par exemple, la valeur attribuée au nombre binaire
 \(10101\) est 
 
-$$ 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1
-\times 2^0 = 16+4+1= 21 $$
+$$1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1
+\times 2^0 = 16+4+1= 21$$
 
 comme on peut voir dans le tableau [[tab-conversion_21]].
 
@@ -638,9 +812,9 @@ entier, on devra insérer un zéro à la position zéro. Si le nombre est
 fractionnaire, le bit le plus significatif de la partie fractionnaire se
 retrouvera à la position zéro.
 
-$$ (10011)2 \times 2 = (100110)2 $$
+$$(10011)2 \times 2 = (100110)2$$
 
-$$ (100,11)2 \times 2 = (1001,1)2 $$
+$$(100,11)2 \times 2 = (1001,1)2$$
 
 Pour diviser un nombre binaire par deux, il suffit de décaler tous ses
 bits d'une position vers la droite. Une division fractionnaire
@@ -649,14 +823,14 @@ suivant.
 
 *****  Division fractionnaire
 
-$$ (10011)2 \div 2 = (1001,1)2 $$
+$$(10011)2 \div 2 = (1001,1)2$$
 
 ***** Division entière
 
 Pour une division entière (sans fraction), on éliminera le bit qui
 aurait été placé après la virgule.
 
-$$ (10011)2 \div 2 = (1001)2 $$
+$$(10011)2 \div 2 = (1001)2$$
 
 Il est évident de généraliser ces opérations pour les multiplications
 ou divisions par des puissances de 2: par 4, 8, 16, etc.
@@ -692,9 +866,9 @@ complément à un, sans effectuer de calculs, en inversant simplement
 chacun des bits de la représentation binaire du nombre à
 complémenter. Ainsi, avec notre exemple, on trouve:
 
-$$ 10011 $$
+$$10011$$
 
-$$ 01100 $$
+$$01100$$
 
 Remarquons ici un zéro non significatif comme premier bit à gauche.
 
@@ -1029,11 +1203,11 @@ opération spécifique pour préserver l'encodage en complément à deux.
 Considérons par exemple le nombre 5, représenté d'abord sur quatre
 bits et ensuite sur huit bits. On a pour 5 
 
-$$ 0101 $$
+$$0101$$
 
 ou encore 
 
-$$ 00000101 $$
+$$00000101$$
 
 Quand on compare ces deux représentations, on observe: 
 
@@ -1047,11 +1221,11 @@ Considérons maintenant un nombre négatif, le nombre -5, représenté
 d'abord sur quatre bits et ensuite sur huit bits. Le complément à deux
 de 5 = (0101)2 est
 
-$$ 1011 $$
+$$1011$$
 
 alors que le complément à deux de 5 = (00000101)2 est
 
-$$ 11111011 $$
+$$11111011$$
 
 Quand on compare ces deux représentations, on observe: 
 
@@ -1536,7 +1710,7 @@ booléenne détermine la valeur de la fonction. Par exemple, \(F_1\) est
 une fonction de trois entrées \(a\), \(b\) et \(c\) définie par
 l'expression
 
-$$ F_1 = a + b \cdot c^\prime $$
+$$F_1 = a + b \cdot c^\prime$$
 
 La priorité des opération dans les expressions algébriques est (1)
 parenthèses, (2) NON, (3) ET, (4) OU.
@@ -1737,7 +1911,7 @@ mettre des portes à deux entrées en cascade pour augmenter le nombre
 d'entrées, ce qui rend moins intéressantes les portes XOR avec entrées
 nombreuses.
 
-$$ S= A \cdot B^\prime + A^\prime \cdot B $$  
+$$S= A \cdot B^\prime + A^\prime \cdot B$$
 
 #+CAPTION: Porte XOR à deux entrées
 #+attr_latex: :scale 0.75
@@ -2029,9 +2203,9 @@ Pour la fonction \(F_1\) dont le tableau de vérité est le suivant:
 
 on peut donc écrire
 
-$$ F_1 = x^\prime y
+$$F_1 = x^\prime y
 z^\prime + x y^\prime z^\prime + x y^\prime z + x y z^\prime + x y z =
-m_2 + m_4 + m_5 + m_6 + m_7 $$
+m_2 + m_4 + m_5 + m_6 + m_7$$
 
 puisque ce sont les termes pour lesquels la fonction vaut 1. Cette
 forme d'expression est une forme canonique appelée /somme de
@@ -2050,8 +2224,8 @@ vaut 0 et en faisant un OU de ces termes, on obtient une expression en
 /somme de produits/ pour le complément de la fonction. Ainsi, pour la
 fonction \(F_1^\prime\), on a
                 
-$$ F_1^\prime = m_0 + m_1 + m_3 = x^\prime y^\prime z^\prime +
-x^\prime y^\prime z + x^\prime y z $$
+$$F_1^\prime = m_0 + m_1 + m_3 = x^\prime y^\prime z^\prime +
+x^\prime y^\prime z + x^\prime y z$$
                
 Si on complémente \(F_1^\prime\), on obtiendra naturellement
 \(F_1\). En appliquant le théorème de DeMorgan à chaque terme, on
@@ -2300,7 +2474,7 @@ $p$ est aussi un minterm de $z$./
 
 Exemple:
 
-$$z_1 = ab + bc + a b^{\prime} c$$ 
+$$z_1 = ab + bc + a b^{\prime} c$$
 
 $a b$, $b c$, $a b^{\prime} c$ sont des impliquants évidents de $z_1$.
 
@@ -2401,9 +2575,9 @@ exemple, le terme \(a c\) sera calculé une seule fois. Les termes
 c^{\prime} d\) sont nécessaires pour \(z_2\). Alors, pour \(z_1\), on
 fera
 
-$$ z_1 =  a c + a^{\prime}  b c^{\prime} d^{\prime} +
+$$z_1 =  a c + a^{\prime}  b c^{\prime} d^{\prime} +
 a^{\prime} b^{\prime} c^{\prime} d +
-a^{\prime} b c^{\prime} d $$
+a^{\prime} b c^{\prime} d$$
 
 qui ne nous coûtera que le dernier terme produit et une somme de
 quatre termes.
@@ -2904,10 +3078,10 @@ retenue \(R_{i}\).
 
 Les expressions simplifiées sont 
 
-$$ S_{i} = a_i^\prime b_i^\prime r_{i-1} + a_i^\prime b_i
-r_{i-1}^\prime + a_i b_i^\prime r_{i-1}^\prime + a_i b_i r_{i-1} $$
+$$S_{i} = a_i^\prime b_i^\prime r_{i-1} + a_i^\prime b_i
+r_{i-1}^\prime + a_i b_i^\prime r_{i-1}^\prime + a_i b_i r_{i-1}$$
 
-$$ R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1} $$
+$$R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1}$$
 
 #+CAPTION: Circuit additionneur complet pour \(S_i\)
 #+attr_latex: :scale 0.75
@@ -3041,8 +3215,8 @@ retenue, que nous allons explorer ici. On fait appel aux deux signaux
 \(P_i = a_i \operatorname{Xor} b_i\) et \(G_i = a_i b_i\), qui donnent
 respectivement pour la sortie et la retenue de sortie
 
-$$ S_i = P_i \operatorname{Xor} r_{i-1} $$
-$$ R_i = P_i r_{i-1} + G_i $$
+$$S_i = P_i \operatorname{Xor} r_{i-1}$$
+$$R_i = P_i r_{i-1} + G_i$$
 
 \(G_i\) est le signal qui indique la *génération* de retenue,
 produisant une retenue lorsque \(a_i\) et \(b_i\) sont tous deux à 1,
@@ -3053,10 +3227,10 @@ détermine si la retenue du niveau précédent \(r_{i-1}\) sera propagée
 
 En partant du niveau 0, voici les expressions pour les différentes retenues:
 
-$$ R_0 = r_0 = \operatorname{in}$$
-$$ R_1 = G_0 + P_0 R_0 $$
-$$ R_2 = G_1 + P_1 R_1 = G_1 + P_1 (G_0 + P_0 R_0) = G_1 + P_1 G_0 + P_1 P_0 R_0 $$
-$$ R_3 = G_2 + P_2 R_2 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 R_0 $$
+$$R_0 = r_0 = \operatorname{in}$$
+$$R_1 = G_0 + P_0 R_0$$
+$$R_2 = G_1 + P_1 R_1 = G_1 + P_1 (G_0 + P_0 R_0) = G_1 + P_1 G_0 + P_1 P_0 R_0$$
+$$R_3 = G_2 + P_2 R_2 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 R_0$$
 etc.
 
 Les expressions pour les retenues successives sont en forme /somme de
@@ -3298,7 +3472,7 @@ trois-vers-huit. L'entrée \(I\) correspond à un vecteur de trois bits. Le
 tableau de vérité correspondant est donné. On peut voir que les
 minterms choisis permettent d'implémenter
 
-$$ Y = \sum(0,2,5,6)$$
+$$Y = \sum(0,2,5,6)$$
 
 #+CAPTION:  Fonction arbitraire réalisée au moyen d'un décodeur
 #+attr_latex: :scale 0.75
@@ -3394,11 +3568,11 @@ indice qui est prioritaire.
 
 En simplifiant, on trouve les expressions suivantes:
 
-$$ x = D_2 + D_3 $$
+$$x = D_2 + D_3$$
 
-$$ y = (D_1 D_2^\prime) + D_3 $$
+$$y = (D_1 D_2^\prime) + D_3$$
 
-$$ V = D_0 + D_1 + D_2 + D_3 $$
+$$V = D_0 + D_1 + D_2 + D_3$$
 
 #+CAPTION:  Encodeur 2 bits à priorité, en P de S
 #+attr_latex: :scale 0.75
@@ -3425,9 +3599,9 @@ avec leurs bits respectifs \(a_i\) et \(b_i\). Nous voulons que notre
 comparateur active une des trois sorties, selon le cas: \(A < B\), \(A
 = B\) ou \(A > B\). Pour illustrer, nous considérerons \(n = 4\).
 
-$$ a_3 a_2 a_1 a_0 $$
+$$a_3 a_2 a_1 a_0$$
 
-$$ b_3 b_2 b_1 b_0 $$
+$$b_3 b_2 b_1 b_0$$
 
 Nous aurons besoin d'une fonction qui permet de déterminer si deux
 bits sont égaux. Cette fonction correspond à la fonction *Équivalence*
@@ -3460,11 +3634,11 @@ la régularité des opérations simplifie la conception et, d'autre part,
 l'implémentation sera simplifiée du fait que certains des termes
 nécessaires peuvent être réutilisés.
 
-$$ (A = B) = x_3 x_2 x_1 x_0 $$ 
+$$(A = B) = x_3 x_2 x_1 x_0$$
 
-$$ (A < B) = a_3^\prime b_3 + x_3  a_2^\prime b_2  +  x_3 x_2  a_1^\prime b_1 +  x_3 x_2 x_1  a_0^\prime b_0 $$
+$$(A < B) = a_3^\prime b_3 + x_3  a_2^\prime b_2  +  x_3 x_2  a_1^\prime b_1 +  x_3 x_2 x_1  a_0^\prime b_0$$
 
-$$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime +  x_3 x_2 x_1  a_0 b_0^\prime $$
+$$(A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime +  x_3 x_2 x_1  a_0 b_0^\prime$$
 
 On obtient ainsi un comparateur pour des nombres de quatre bits, tel qu'illustré.
 
@@ -3508,7 +3682,7 @@ affectées par celle-ci. Pour activer cet état de sortie
 haute impédance, une entrée de contrôle est ajoutée.
 
 
-Le figure ci-dessous montre une porte tampon à trois états. Avec
+La figure ci-dessous montre une porte tampon à trois états. Avec
 =Contrôle= = 0, la sortie est en haute impédance; avec  =Contrôle= = 1,
 la sortie est égale à l'entrée.
 
@@ -4114,15 +4288,15 @@ représente l'état présent et \(Q(t+1)\) l'état suivant.
 On peut de même formuler des équations qui décrivent le comportement
 des bascules. Pour une bascule D, on a
 
-$$ Q(t+1) = D $$
+$$Q(t+1) = D$$
 
 Pour une bascule JK, on a
 
-$$ Q(t+1) =J Q^\prime + K^\prime Q $$
+$$Q(t+1) =J Q^\prime + K^\prime Q$$
 
 Pour une bascule T, on a
 
-$$ Q(t+1) = T \operatorname{Xor} Q = T Q^\prime + T^\prime Q $$
+$$Q(t+1) = T \operatorname{Xor} Q = T Q^\prime + T^\prime Q$$
 
 **** Entrées asynchrones
 
@@ -4218,14 +4392,14 @@ figure [[fig-exemple_seq1]].
    5. Il y a un décodeur de sortie 
 
 2. Expressions logiques pour le décodeur de prochain état: 
-$$ Z_0^{n+1} = I \cdot (Z_1^n)^\prime  + I \cdot Z_0^n $$
+$$Z_0^{n+1} = I \cdot (Z_1^n)^\prime + I \cdot Z_0^n$$
 
-$$ Z_1^{n+1} = I \cdot Z_1^n +  Z_0^n  $$
+$$Z_1^{n+1} = I \cdot Z_1^n + Z_0^n$$
 
 3. Expressions logiques des sorties externes:
-$$ S =  Z_0^n \cdot (Z_1^{n})^\prime $$
+$$S =  Z_0^n \cdot (Z_1^{n})^\prime$$
 
-$$ U =  Z_0^n \cdot Z_1^{n} $$
+$$U =  Z_0^n \cdot Z_1^{n}$$
 
 4. Tableau d'excitation: chaque ligne du tableau d'excitation (tableau [[tab-excit_exemp]]) montre, à gauche,
 un état présent (identifiable par les valeurs des bascules) et une
@@ -4306,13 +4480,13 @@ Considérons le circuit séquentiel de la figure [[fig-seq_JK]].
 
 À partir des expressions des entrées \(J\) et \(K\) suivantes:
 
-$$ J_0 = (q_1^{n})^\prime $$
+$$J_0 = (q_1^{n})^\prime$$
 
-$$ K_0 = q_0^{n} \cdot (q_1^{n})^\prime $$
+$$K_0 = q_0^{n} \cdot (q_1^{n})^\prime$$
 
-$$ J_1 = q_0^{n} $$
+$$J_1 = q_0^{n}$$
 
-$$ K_1 = (q_0^{n})^\prime \cdot q_1^{n} $$
+$$K_1 = (q_0^{n})^\prime \cdot q_1^{n}$$
 
 on peut remplir le tableau d'excitation (tableau [[tab-seq_JK]]).
 
@@ -4833,15 +5007,15 @@ complémentée (colonne du centre).
 
 Les expressions pour le décodeur de prochain état sont:
 
-$$ Z_1^{n+1} = (A^\prime \cdot Z_0^{n}) + (A \cdot  Z_1^{n}) $$
+$$Z_1^{n+1} = (A^\prime \cdot Z_0^{n}) + (A \cdot  Z_1^{n})$$
 
-$$ Z_0^{n+1} = A + (Z_0^{n} \cdot Z_1^{n}) $$
+$$Z_0^{n+1} = A + (Z_0^{n} \cdot Z_1^{n})$$
 
 ***** Décodeur de sortie
 
 L'expression pour le décodeur de sortie est:
 
-$$ S = Z_0^{n} \cdot Z_1^{n} $$
+$$S = Z_0^{n} \cdot Z_1^{n}$$
 
 ***** Tracer le schéma logique du circuit
 
@@ -4921,13 +5095,13 @@ bascules JK. On obtient alors le tableau [[tab-exemp_trans_seq101JK]].
 
 On trouve les expressions simplifiées suivantes:
 
-$$ J_{Z_1} = A^\prime \cdot Z_0^n $$
+$$J_{Z_1} = A^\prime \cdot Z_0^n$$
 
-$$ K_{Z_1} = A^\prime \cdot (Z_0^n)^\prime $$
+$$K_{Z_1} = A^\prime \cdot (Z_0^n)^\prime$$
 
-$$ J_{Z_0} = A $$ 
+$$J_{Z_0} = A$$
 
-$$ K_{Z_0} = (A + Z_1^n)^\prime $$
+$$K_{Z_0} = (A + Z_1^n)^\prime$$
 
 Ce qui nous donne l'implémentation de la figure [[fig-exemp_seq101_JK]].
 
@@ -5243,11 +5417,11 @@ d'états correspondant est donné dans le tableau [[tab-compt8]].
 
 Les expressions pour le décodeur de prochain état sont: 
 
-$$  Z_2^{n+1} = Z_0^n \cdot Z_1^n \cdot (Z_2^{n})^\prime + (Z_0^{n})^\prime \cdot Z_2^n + (Z_1^{n})^\prime \cdot Z_2^n $$
+$$Z_2^{n+1} = Z_0^n \cdot Z_1^n \cdot (Z_2^{n})^\prime + (Z_0^{n})^\prime \cdot Z_2^n + (Z_1^{n})^\prime \cdot Z_2^n$$
 
-$$  Z_1^{n+1} = Z_0^{n} \cdot (Z_1^{n})^\prime + (Z_0^{n})^\prime \cdot Z_1^n $$
+$$Z_1^{n+1} = Z_0^{n} \cdot (Z_1^{n})^\prime + (Z_0^{n})^\prime \cdot Z_1^n$$
 
-$$  Z_0^{n+1} = (Z_0^{n})^\prime $$
+$$Z_0^{n+1} = (Z_0^{n})^\prime$$
 
 
 Le schéma correspondant est donné à la figure [[fig-compt8]].
@@ -5716,7 +5890,7 @@ mettre en oeuvre \(m\) fonctions combinatoires différentes (une par
 bit de mot) de \(k\) entrées.
 
 Par exemple, la sortie \(A_2\) de la mémoire de la figure
-[[fig-proto_rom1_prog]] implémente la fonction $$ A_2 = \sum (0,1,4,8) $$
+[[fig-proto_rom1_prog]] implémente la fonction $$A_2 = \sum (0,1,4,8)$$
 exprimée en somme de minterms.
 
 **** Tableau de correspondance
@@ -7500,1196 +7674,1796 @@ gratuits.
 - Il est possible de choisir le simulateur
 - On y trouve également des exemples de codes
 
-* Exercices
+** Exercices
 
-** Série 1
+*** Série 1
 :PROPERTIES:
   :UNNUMBERED: notoc
   :END:
 
-*** Question
- Effectuez la conversion des nombres suivants dans la base demandée:
+**** Question
+Effectuez la conversion des nombres suivants dans la base demandée:
 
-    1. \((32)_{10} = ( )_{2}\)
+1. \((F8,A7)_{16} = ( )_{2}\)
 
-    2. \((F8,A7)_{16} = ( )_{2}\)
+2. \((65)_{8} = ( )_{16}\)
 
-    3. \((65)_{8} = ( )_{16}\)
+3. \((240,51)_{8} = ( )_{10}\)
 
-    4. \((240,51)_{8} = ( )_{10}\)
+4. \((25)_{10} = ( )_{8}\)
 
-    5. \((25)_{10} = ( )_{8}\)
+5. \((100101011)_{2} = ( )_{10}\)
 
-    6. \((100101011)_{2} = ( )_{10}\)
+6. \((28)_{10} = ( )_{2}\)
 
-    7. \((28)_{10} = ( )_{2}\)
+7. \((11001011101)_{2} = ( )_{16}\)
 
-    8. \((E3)_{16} = ( )_{2}\)
+8. \((106)_{8} = ( )_{16}\)
 
-    9. \((B3)_{16} = ( )_{8}\)
+9. \((27,625)_{10} = ( )_{2}\)
 
-    10. \((11001011101)_{2} = ( )_{16}\)
+10. \((4F,3D9)_{16} = ( )_{2}\)
 
-    11. \((754)_{8} = ( )_{10}\)
+11. \((73,313)_{8} = ( )_{16}\)
 
-    12. \((106)_{8} = ( )_{16}\)
+12. \((364,3)_{8} = ( )_{10}\)
 
-    13. \((27,52)_{10} = ( )_{2}\)
+13. \((111101011)_{2} = ( )_{10}\)
 
-    14. \((4F,3D9)_{16} = ( )_{2}\)
+14. \(15,3125)_{10} = ( )_{2}\)
 
-    15. \((73,313)_{8} = ( )_{16}\)
+15. \((36)_{8} = ( )_{10}\)
 
-    16. \((364,3)_{8} = ( )_{10}\)
+16. \((101101111)_{2} = ( )_{10}\)
 
-    17. \((25)_{10} = ( )_{8}\)
+***** Réponse                                                             :r:
+1. \((F8,A7)_{16} = (11111000,10100111)_{2}\)
 
-    18. \((111101011)_{2} = ( )_{10}\)
+2. \((65)_{8} = (35)_{16}\)
 
-    19. \((31,22)_{10} = ( )_{2}\)
+3. \((240,51)_{8} = (160,640625)_{10}\)
 
-    20. \((43,39)_{16} = ( )_{2}\)
+4. \((25)_{10} = (31)_{8}\)
 
-    21. \((43,37)_{8} = ( )_{8}\)
+5. \((100101011)_{2} = (453)_{10}\)
 
-    22. \((36)_{8} = ( )_{10}\)
+6. \((28)_{10} = (11100)_{2}\)
 
-    23. \((25)_{10} = ( )_{8}\)
+7. \((11001011101)_{2} = (65D)_{16}\)
 
-    24. \((101101111)_{2} = ( )_{10}\)
+8. \((106)_{8} = (46)_{16}\)
 
-**** Réponse                                                              :r:
+9. \((27,625)_{10} = (11011,101)_{2}\)
 
-*** Question
- Donnez le nombre minimum de bits nécessaires pour définir un code
-    pour représenter:
+10. \((4F,3D9)_{16} = (1001111,001111011001)_{2}\)
 
-    1. les chiffres de 0 à 9
+11. \((73,313)_{8} = (3B,658)_{16}\)
 
-    2. les nombres de -17 à 17
+12. \((364,3)_{8} = (244,375)_{10}\)
 
-    3. les lettres A \dots Z et les chiffres 0 \dots 9
+13. \((111101011)_{2} = (491)_{10}\)
 
-    4. alphanumérique pour les lettres A \dots Z, a \dots z et les
-       chiffres 0 \dots 9
+14. \((15,3125)_{10} = (1111,0101)_{2}\)
 
-**** Réponse                                                              :r:
+15. \((36)_{8} = (30)_{10}\)
 
-*** Question
- Calculez les compléments suivants (pour un nombre de bits \(n\)):
+16. \((101101111)_{2} = (367)_{10}\)
 
-    1. complément à deux de \((1101011)_2\) en supposant \(n=8\)
+**** Question
+Donnez le nombre minimum de bits nécessaires pour définir un code pour
+représenter:
 
-    2. complément à deux de \((110101)_2\) en supposant \(n=8\)
+1. les chiffres de 0 à 9
 
-    3. complément à un de \((0101101)_2\) en supposant \(n=8\)
+2. les nombres de -17 à 17
 
-    4. complément à deux de \((01112)_3\) en supposant \(n=7\)
+3. les lettres A \dots Z et les chiffres 0 \dots 9
 
-    5. complément à cinq de \((32402)_5\) en supposant \(n=7\)
+4. alphanumérique pour les lettres A \dots Z, a \dots z et les
+   chiffres 0 \dots 9
 
-    6. compl. à 2 de \((10110001)_2\)
+***** Réponse                                                             :r:
+1. 4 bits. 
+2. 6 bits.
+3. 6 bits.
+4. 6 bits.
 
-    7. compl. à 2 de \((0001101)_2\)
+**** Question
+Calculez les compléments suivants (pour un nombre de bits \(n\)):
 
-    8. compl. à 1 de \((0101101)_2\)
+1. complément à deux de \((00110101)_2\) en supposant \(n=8\)
 
-    9. compl. à 2 de \((02112)_3\)
+2. complément à un de \((00101101)_2\) en supposant \(n=8\) 
 
-    10. compl. à 5 de \((42102)_5\)
+3. complément à cinq de \((0032402)_5\) en supposant \(n=7\)
 
-**** Réponse                                                              :r:
+4. complément à 2 de \((1101001111)_2\) en supposant \(n=10\) 
 
-*** Question
- Effectuez les calculs suivants selon la méthode indiquée:
+5. complément à 2 de \((00000001101)_2\) en supposant \(n=11\)
 
-    1. \((2CF3)_{16} + (2B)_{16}\), (add. directe base 16). Réponse: \(( )_{16}\)
+***** Réponse                                                             :r:
 
-    2. \((704)_{8} + (230)_{8}\), add. directe base 8, conversion). Réponse: \(( )_{8} = ( )_{10}\)
+1. \((11001011)_2\)
 
-    3. \((34)_{8} - (42)_{8}\), complément à 2, conversion. Réponse: \(( )_{2} = ( )_{16}\)
+2. \((11010010)_2\)   
 
-    4. \((11011101)_{2} - (55)_{10}\), complément à 2, conversion. Réponse: \(( )_{2}\)
+3. \((5523153)_{5}\)
 
-    5. \((AC)_{16} + (4)_{16}\) par addition directe en base 16. Réponse: \(( )_{16}\)
+4. \((0010110001)_2\)
 
-    6. \((E1)_{16} - (1B)_{16}\) en utilisant le complément à 1 en base 2. Réponse: \(( )_{16}\)
+5. \((11111110011)_2\)
+    
+**** Question
+Effectuez les calculs suivants selon la méthode indiquée:
 
-    7. \((46)_{8} - (73)_{8}\) en utilisant le complément à 2 en base 2. Réponse: \(( )_{16}\)
+1. \((2CF3)_{16} + (2B)_{16}\), (add. directe base 16). Réponse: \(( )_{16}\)
 
-    8. \((BE)_{16} + (22)_{16}\), (add. directe base 16). Réponse: \(( )_{16}\)
+2. \((704)_{8} + (230)_{8}\), add. directe base 8, conversion). Réponse: \(( )_{8} = ( )_{10}\)
 
-    9. \((73)_{8} + (103)_{8}\), add. directe base 8, conversion). Réponse: \(( )_{8} = ( )_{10}\)
+3. \((34)_{8} - (42)_{8}\), complément à 2, conversion. Réponse: \(( )_{2} = ( )_{16}\)
 
-    10. \((22)_{8} - (26)_{8}\), compl. à 2, conversion. Réponse: \(( )_{2} = ( )_{16}\)
+4. \((11011101)_{2} - (55)_{10}\), complément à 2. Réponse: \(( )_{2}\)
 
-    11. \((11011100)_{2} - (57)_{10}\), compl. à 2, conversion. Réponse: \(( )_{2}\)
+5. \((AC)_{16} + (4)_{16}\) par addition directe en base 16. Réponse: \(( )_{16}\)
 
-    12. \((AE)_{16} + (12)_{16}\), (add. directe base 16). Réponse: \(( )_{16}\)
+6. \((E1)_{16} - (1B)_{16}\) en utilisant le complément à 1 en base 2. Réponse: \(( )_{16}\)
 
-    13. \((63)_{8} + (135)_{8}\), add. directe base 8, conversion). Réponse: \(( )_{8} = ( )_{10}\)
+7. \((46)_{8} - (73)_{8}\) en utilisant le complément à 2 en base 2. Réponse: \(( )_{16}\)
 
-    14. \((35)_{8} - (26)_{8}\), compl. à 2, conversion. Réponse: \(( )_{2} = ( )_{16}\)
+8. \((BE)_{16} + (22)_{16}\), (add. directe base 16). Réponse: \(( )_{16}\)
 
-    15. \((11011100)_{2} - (55)_{10}\), compl. à 2, conversion. Réponse: \(( )_{2}\)
+9. \((73)_{8} + (103)_{8}\), add. directe base 8, conversion). Réponse: \(( )_{8} = ( )_{10}\)
 
-**** Réponse                                                              :r:
+10. \((22)_{8} - (26)_{8}\), compl. à 2. Réponse: \(( )_{2}\)
 
-*** Question
- Vous disposez de blocs permettant de calculer les fonctions
-    suivantes:
+11. \((AE)_{16} + (12)_{16}\), (add. directe base 16). Réponse: \(( )_{16}\)
 
-    - C4 :: complément à un d'un nombre de 4 bits
+12. \((63)_{8} + (135)_{8}\), add. directe base 8, conversion). Réponse: \(( )_{8} = ( )_{10}\)
 
-    - ADD4 :: addition de deux nombres de 4 bits, avec entrée pour retenue et
-      retenue de sortie.
+***** Réponse                                                             :r:
+1. \((2D1E)_{16}\)
 
-    Indiquez par un schéma-bloc comment on peut relier ces blocs pour
-    calculer:
+2. \((1134)_8 = (604)_{10}\)
 
-    1. le complément à deux d'un nombre de 4 bits
+3. \((1111 1010)_2 = (FA)_{16}\)
 
-    2. le complément à deux d'un nombre de 8 bits
+4. \((1010 0110)_{2}\)
 
-    3. la somme de deux nombres de 8 bits
+5. \((B0)_{16}\)
 
-    4. la soustraction de nombres de 4 bits
+6. \((C6)_{16}\)
+
+7. \(-(15)_{16}\)
+
+8. \((E0)_{16}\)
+
+9. \((176)_{8} = (126)_{10}\)
+
+10. \((1111 1100)_{2}\)
+
+11. \((C0)_{16}\)
+
+12. \((220)_{8} = (144)_{10}\)
+
+**** Question
+Vous disposez de blocs permettant de calculer les fonctions suivantes:
+
+ - C4 :: complément à un d'un nombre de 4 bits
+
+ - ADD4 :: addition de deux nombres de 4 bits, avec entrée pour
+   retenue et retenue de sortie.
+
+Indiquez par un schéma-bloc comment on peut relier ces blocs pour
+calculer:
+
+1. le complément à deux d'un nombre de 4 bits
+
+2. le complément à deux d'un nombre de 8 bits
+
+3. la somme de deux nombres de 8 bits
+
+4. la soustraction de nombres de 4 bits
  
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+1. 
+  #+attr_latex: :width 0.5\linewidth
+  #+ATTR_HTML: :width 300
+  [[file:Solutions_svg/solCa24bits.svg]]
 
-*** Question
- Un réseau informatique comporte 60 ordinateurs. On doit assigner à
-    chacun de ces ordinateurs un mot-code binaire unique.
+2.  
+  #+attr_latex: :width 0.5\linewidth
+  #+ATTR_HTML: :width 300
+  [[file:Solutions_svg/solCa28bits.svg]]
 
-    1. Combien de bits par mot sont nécessaire pour la codification?
+3. 
+  #+attr_latex: :width 0.5\linewidth
+  #+ATTR_HTML: :width 300
+  [[file:Solutions_svg/solAdd8bits.svg]]
 
-    2. Combien de mots-code ne seront pas utilisés?
+4. 
+  #+attr_latex: :width 0.5\linewidth
+  #+ATTR_HTML: :width 300
+  [[file:Solutions_svg/solSous4bitsOutCa2.svg]]
 
-**** Réponse                                                              :r:
+3. [[file:Solutions_svg/solAdd8bits.svg]]
 
-*** Question
- Selon les critères d'achat du service des achats d'une entreprise, un
-   article sera acheté s'il remplit au moins une des conditions
-   suivantes:
+4. [[file:Solutions_svg/solSous4bitsOutCa2.svg]]
 
-    - il est peu coûteux ou de qualité, tout en étant disponible
-      rapidement,
+**** Question
+Un réseau informatique comporte 60 ordinateurs. On doit assigner à
+chacun de ces ordinateurs un mot de code binaire unique.
 
-    - il est peu coûteux et n'est pas disponible rapidement,
+1. Combien de bits par mot sont nécessaire pour la codification?
 
-    - il est coûteux et de mauvaise qualité, tout en étant disponible
-      rapidement.
+2. Combien de mots de code ne seront pas utilisés?
 
-    En utilisant la notation suivante:
+***** Réponse                                                             :r:
+1. 6 bits
 
-    - A :: coûteux
+2. 4 mots
 
-    - B :: de bonne qualité
+**** Question
+Donnez le nombre minimum de bits nécessaires pour définir un code pour représenter
 
-    - C :: disponible rapidement
+1. les jours de la semaine
 
-    - Exprimez les critères d'achat sous forme d'une expression
-      booléenne (non-simplifiée).
+2. les jours du mois
 
-    - Donnez le tableau de vérité de la fonction logique des critères
-      d'achat.
+3. les jours dans l'année (nombre entre 1 et 365)
 
-    - Donnez la forme canonique, en somme de produit, de la fonction
-      logique des critères d'achat.
+4. les jours de l'année (mois et date)
 
-    - Déterminez si les expressions logiques suivantes sont égales à la
-      fonction logique des critères d'achat:
+5. une date de naissance (jour, mois, année)
 
-      $$F_1 = A^{\prime} B^{\prime} + B^{\prime} C^{\prime}$$
+***** Réponse                                                             :r:
+1. 3 bits
 
-      $$F_2 = A^{\prime} B^{\prime} C^{\prime} + A^{\prime} B^{\prime} C + A^{\prime} B C^{\prime} + A B^{\prime} C^{\prime}$$
+2. 5 bits
 
-      $$F_2 = B^{\prime} C^{\prime} + A^{\prime} B^{\prime} + A^{\prime} C$$
+3. 10 bits
 
-**** Réponse                                                              :r:
+4. 4 bits pour le mois et 5 bits pour la date, alors 9 bits au total.
 
-*** Question
- Donnez le nombre minimum de bits nécessaires pour définir un code pour représenter
+5. En supposant une année comprise entre 0 et 2048: 12 bits pour
+   l'année et 9 pour jour/mois, donc un total de 21 bits.
 
-    1. les jours de la semaine
-
-    2. les jours du mois
-
-    3. les jours dans l'année (nombre entre 1 et 365)
-
-    4. les jours de l'année (mois et date)
-
-    5. une date de naissance (jour, mois, année)
-
-**** Réponse                                                              :r:
-
-** Série 2
+*** Série 2
 :PROPERTIES:
   :UNNUMBERED: notoc
   :END:
 
-*** Question
- La fonction logique à trois entrées \(S = F(A,B,C)\) donnée par son 
-    tableau de vérité:
-    | \(A\) | \(B\) | \(C\) |   | \(S\) |
-    |-------+-------+-------+---+-------|
-    |     0 |     0 |     0 |   |     1 |
-    |     0 |     0 |     1 |   |     1 |
-    |     0 |     1 |     0 |   |     0 |
-    |     0 |     1 |     1 |   |     1 |
-    |     1 |     0 |     0 |   |     0 |
-    |     1 |     0 |     1 |   |     0 |
-    |     1 |     1 |     0 |   |     1 |
-    |     1 |     1 |     1 |   |     0 |
+**** Question
+La fonction logique à trois entrées \(S = F(A,B,C)\) donnée par son
+tableau de vérité:
+| \(A\) | \(B\) | \(C\) |   | \(S\) |
+|-------+-------+-------+---+-------|
+|     0 |     0 |     0 |   |     1 |
+|     0 |     0 |     1 |   |     1 |
+|     0 |     1 |     0 |   |     0 |
+|     0 |     1 |     1 |   |     1 |
+|     1 |     0 |     0 |   |     0 |
+|     1 |     0 |     1 |   |     0 |
+|     1 |     1 |     0 |   |     1 |
+|     1 |     1 |     1 |   |     0 |
 
-    doit être implémentée par un circuit logique.
+doit être implémentée par un circuit logique.
 
-    1. Donnez l'expression de cette fonction:
+1. Donnez l'expression de cette fonction:
 
-       - Selon la première forme canonique ( \(\sum m_i\) )
+   - Selon la première forme canonique ( \(\sum m_i\) )
 
-       - Selon la deuxième forme canonique ( \(\prod M_i\) )
+   - Selon la deuxième forme canonique ( \(\prod M_i\) )
 
-    2. Trouvez une expression simplifiée pour la fonction en utilisant
-       les théorèmes de l'algèbre de Boole.
+2. Trouvez une expression simplifiée pour la fonction en utilisant les
+   théorèmes de l'algèbre de Boole.
 
-    3. Dessinez le circuit logique correspondant à l'expression
-       simplifiée trouvée.
+3. Dessinez le circuit logique correspondant à l'expression simplifiée
+   trouvée.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+1. 
 
-*** Question
- Trouvez le complément de la fonction logique donnée par l'expression
-    suivante en utilisant trois méthodes différentes.
-    $$
-    s = b (a^{\prime} c^{\prime} + a d + a c) + (b + c^{\prime}+
-      d)^{\prime} + a^{\prime} b c^{\prime} d + a b c d
-    $$
+  - Première forme canonique  \(F(A,B,C) = \sum (0,1,3,6)\)
+\(S = \sum m(0, 1, 3, 6)\)
+\(S = {A}^{\prime}{B}^{\prime}{C}^{\prime} + {A}^{\prime}{B}^{\prime}C + {A}^{\prime}BC + ABC\)
 
-**** Réponse                                                              :r:
+  - Deuxième forme canonique \(F(A,B,C) = \prod (2,4,5,7)\)
+\(S = M2 \cdot M4 \cdot M5 \cdot M7\)
+\(S = \prod M(2, 4, 5, 7)\)
 
-*** Question
-  Considérez la fonction logique définie par l'expression $F =
+2. \(F(A,B,C) = A^{\prime} B^{\prime} + B (A^{\prime} C + A C^{\prime})\)
+
+3. [[file:Solutions_svg/solReducBoole.svg]]
+
+**** Question
+Trouvez le complément de la fonction logique donnée par l'expression
+suivante, en utilisant trois méthodes différentes.
+
+$$s = b (a^{\prime} c^{\prime} + a d + a c) + (b + c^{\prime}+
+    d)^{\prime} + a^{\prime} b c^{\prime} d + a b c d$$
+
+***** Réponse                                                             :r:
+| \(a\) | \(b\) | \(c\) | \(d\) |   | \(b (a^{\prime} c^{\prime} + a d + a c)\) | \((b + c^{\prime}+d)^{\prime}\) | \(a^{\prime} b c^{\prime} d\) | \(a b c d\) | \(s\) | \(s^{\prime}\) |
+|-------+-------+-------+-------+---+---------------------------------------------+---------------------------------+--------------------------------+-------------+---------+------------------|
+|   0   |   0   |   0   |   0   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   0   |   0   |   0   |   1   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   0   |   0   |   1   |   0   |   |                      0                      |               1                 |                0               |     0       |    1    |        0         |
+|   0   |   0   |   1   |   1   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   0   |   1   |   0   |   0   |   |                      1                      |               0                 |                0               |     0       |    1    |        0         |
+|   0   |   1   |   0   |   1   |   |                      1                      |               0                 |                1               |     0       |    1    |        0         |
+|   0   |   1   |   1   |   0   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   0   |   1   |   1   |   1   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   1   |   0   |   0   |   0   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   1   |   0   |   0   |   1   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   1   |   0   |   1   |   0   |   |                      0                      |               1                 |                0               |     0       |    1    |        0         |
+|   1   |   0   |   1   |   1   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   1   |   1   |   0   |   0   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   1   |   1   |   0   |   1   |   |                      0                      |               0                 |                0               |     0       |    0    |        1         |
+|   1   |   1   |   1   |   0   |   |                      1                      |               0                 |                0               |     0       |    1    |        0         |
+|   1   |   1   |   1   |   1   |   |                      1                      |               0                 |                0               |     1       |    1    |        0         |
+
+$$
+  s = m2 + m4 + m5 + m10 + mE + mF
+$$
+
+$$
+  s^{\prime} = m0 + m1 + m3 + m6 + m7 + m8 + m9 + m11 + m12 + m13
+$$
+
+**** Question
+Considérez la fonction logique définie par l'expression $F =
       [ (C + B) A^{\prime} + (A+B)^{\prime} ] B^{\prime}$.
 
-    1. Dessinez le circuit logique correspondant.
+1. Dessinez le circuit logique correspondant.
 
-    2. Dessinez un circuit équivalent qui n'utilise que des portes
-       NAND.
+2. Dessinez un circuit équivalent qui n'utilise que des portes NAND.
 
-    3. Dessinez un circuit équivalent qui n'utilise que des portes
-       NOR.
+3. Dessinez un circuit équivalent qui n'utilise que des portes NOR.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+1. 
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solNandNor1.svg]]
 
-*** Question
-  On doit concevoir un circuit logique qui détermine le complément à deux
-    d'une entrée $a$ binaire (signée) de 4 bits notés
-    $a_3, a_2, a_1, a_0$. Il y aura donc 4 bits de sortie, $s_3,
-      s_2, s_1, s_0$. En considérant chacun des bits de sortie comme une
-    fonction des quatre bits d'entrée, par ex. $s_3 = f(a_3, a_2, a_1,
-      a_0)$, donnez les tableaux de vérité pour $s_3, s_2, s_1$, et $s_0$.
+2. 
+  #+attr_latex: :scale 0.55
+  [[file:Solutions_svg/solNandNor2.svg]]
 
-**** Réponse                                                              :r:
+3. 
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solNandNor3.svg]]
 
-*** Question
-  Complétez la figure ci-dessous (en ajoutant des connexions) afin de
-    réaliser la fonction 
-    $$
-    S= a^\prime + b^\prime + c d
-    $$
-    [[file:Modeles_exercices/exbloc2a.svg]]
+3. [[file:Solutions_svg/solNandNor3.svg]]
 
-**** Réponse                                                              :r:
+**** Question
+On doit concevoir un circuit logique qui détermine le complément à deux
+d'une entrée $a$ binaire (signée) de 4 bits notés
+$a_3, a_2, a_1, a_0$. Il y aura donc 4 bits de sortie, $s_3,
+s_2, s_1, s_0$. En considérant chacun des bits de sortie comme une
+fonction des quatre bits d'entrée, par ex. $s_3 = f(a_3, a_2, a_1,  a_0)$, 
+donnez les tableaux de vérité pour $s_3, s_2, s_1$, et $s_0$.
 
-*** Question
-  Complétez la figure ci-dessous (en ajoutant des connexions) afin de
-    réaliser une fonction dont la sortie est 
-     - \(S=1\) lorsque l'entrée est \( \leq 3\) ou impaire
-     - \(S=0\) dans les autres cas.
-     L'entrée \((a_3,a_2,a_1, a_0)\) représente un nombre entier
-    décimal codé en BCD. Les entrées \( \geq 9\) peuvent donner
-    n'importe quelle sortie.
- [[file:Modeles_exercices/exbloc2b.svg]]
+***** Réponse                                                             :r:
+| \(a_3\) | \(a_2\) | \(a_1\) | \(a_0\) |   | \(s_3\) | \(s_2\) | \(s_1\) | \(s_0\) |
+|---------+---------+---------+---------+---+---------+---------+---------+---------|
+|    0    |    0    |    0    |    0    |   |    0    |    0    |    0    |    0    | 
+|    0    |    0    |    0    |    1    |   |    1    |    1    |    1    |    1    |
+|    0    |    0    |    1    |    0    |   |    1    |    1    |    1    |    0    |
+|    0    |    0    |    1    |    1    |   |    1    |    1    |    0    |    1    |
+|    0    |    1    |    0    |    0    |   |    1    |    1    |    0    |    0    |
+|    0    |    1    |    0    |    1    |   |    1    |    0    |    1    |    1    |
+|    0    |    1    |    1    |    0    |   |    1    |    0    |    1    |    0    |
+|    0    |    1    |    1    |    1    |   |    1    |    0    |    0    |    1    |
+|    1    |    0    |    0    |    0    |   |    1    |    0    |    0    |    0    |
+|    1    |    0    |    0    |    1    |   |    0    |    1    |    1    |    1    |
+|    1    |    0    |    1    |    0    |   |    0    |    1    |    1    |    0    |
+|    1    |    0    |    1    |    1    |   |    0    |    1    |    0    |    1    |
+|    1    |    1    |    0    |    0    |   |    0    |    1    |    0    |    0    |
+|    1    |    1    |    0    |    1    |   |    0    |    0    |    1    |    1    |
+|    1    |    1    |    1    |    0    |   |    0    |    0    |    1    |    0    |
+|    1    |    1    |    1    |    1    |   |    0    |    0    |    0    |    1    |
 
-**** Réponse                                                              :r:
+**** Question
+Complétez la figure ci-dessous (en ajoutant des connexions) afin de
+réaliser la fonction $$S= a^{\prime} + b^{\prime} + c d$$
 
-*** Question
-  Dessinez le circuit logique de la fonction \(S = a b + c^\prime +
-    d^\prime \) en utilisant au plus quatre portes NAND.
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc2a.svg]]
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc2a.svg]]
 
-*** Question
-  Simplifiez la fonction logique donnée par l'expression suivante:
+**** Question
+Complétez la figure ci-dessous (en ajoutant des connexions) afin de
+réaliser une fonction dont la sortie est
+ - \(S=1\) lorsque l'entrée est \(\leq 3\) ou impaire
+ - \(S=0\) dans les autres cas.
+L'entrée \((a_3,a_2,a_1, a_0)\) représente un nombre entier décimal
+codé en BCD. Les entrées \(\geq 9\) peuvent donner n'importe quelle
+sortie. 
+
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc2b.svg]]
+
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc2b.svg]]
+
+**** Question
+Dessinez le circuit logique de la fonction \(S = a b + c^{\prime} +
+d^{\prime}\) en utilisant au plus quatre portes NAND.
+
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solMax4Nand.svg]]
+
+**** Question
+Simplifiez la fonction logique donnée par l'expression suivante:
     $$
     s = b (a^{\prime} c^{\prime} + a d + a c) + (b + c^{\prime}+
       d)^{\prime} + a^{\prime} b c^{\prime} d + a b c d
-    $$ 
-    au moyen d'un
-    diagramme de Karnaugh. Identifiez sur le diagramme les regroupements
-    essentiels, les regroupements absoluments inutiles et les
-    regroupements pour lesquels on a le choix. Donnez deux solutions
-    aussi simplifiées.
-
-**** Réponse                                                              :r:
-
-*** Question
-  Considérez la fonction logique définie par l'expression 
     $$
-    F = [ (A + B) C^{\prime} + (A+B)^{\prime} ] B^{\prime}
-    $$
+au moyen d'un diagramme de Karnaugh. Identifiez sur le diagramme les
+regroupements essentiels, les regroupements absoluments inutiles et
+les regroupements pour lesquels on a le choix. Donnez deux solutions
+aussi simplifiées.
 
-    1. Dessinez le circuit logique correspondant.
+***** Réponse                                                             :r:
+    
+#+attr_latex: :scale 0.65
+file:Solutions_svg/kmap3fonctsimp1.svg
+$$
+  s = a^{\prime} b c^{\prime} + bc^{\prime}d + abc + b^{\prime}cd^{\prime}
+$$
+#+attr_latex: :scale 0.65
+file:Solutions_svg/kmap3fonctsimp2.svg
+$$
+  s=  a^{\prime}bc^{\prime} + abd + acd^{\prime} + b^{\prime}cd^{\prime}
+$$
 
-    2. Dessinez un circuit équivalent qui n'utilise que des portes
-       NAND.
+**** Question
+Considérez la fonction logique définie par l'expression 
+\(
+F = [ (A + B) C^{\prime} + (A+B)^{\prime} ] B^{\prime}
+\)
 
-    3. Dessinez un circuit équivalent qui n'utilise que des portes
-       NOR.
+1. Dessinez le circuit logique correspondant.
 
-    4. Dessinez un circuit équivalent qui ne comporte que trois niveaux de
-       portes (incluant les inversions).
+2. Dessinez un circuit équivalent qui n'utilise que des portes
+   NAND.
 
-**** Réponse                                                              :r:
+3. Dessinez un circuit équivalent qui n'utilise que des portes
+   NOR.
 
-*** Question
-  Simplifiez la fonction logique donnée par l'expression suivante:
-    $$
-    s = a b ( c^{\prime} d^{\prime} + c d) + c^{\prime}(a^{\prime}
-      b^{\prime} + a^{\prime} b)
-    $$
-     au moyen d'un diagramme de Karnaugh. Donnez deux solutions aussi simplifiées.
+4. Dessinez un circuit équivalent qui ne comporte que trois niveaux de
+   portes (incluant les inversions).
 
-*** Question
-  Considérez la fonction logique définie par l'expression \(F = (AB + C)
-      A^{\prime} + C + A^{\prime}\).
+***** Réponse                                                             :r:
+1. 
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solReductionNandNor1.svg]]
+2. 
+  #+attr_latex: :scale 0.45
+  [[file:Solutions_svg/solReductionNandNor2.svg]]
+3.
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solReductionNandNor3.svg]]
+4. 
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solReductionNandNor4.svg]]
 
-    1. Dessinez le circuit logique correspondant.
+**** Question
+Simplifiez la fonction logique donnée par l'expression suivante:
+$$
+s = a b ( c^{\prime} d^{\prime} + c d) + c^{\prime}(a^{\prime}
+b^{\prime} + a^{\prime} b)
+$$
+au moyen d'un diagramme de Karnaugh. Donnez deux solutions aussi simplifiées.
 
-    2. Dessinez un circuit équivalent qui n'utilise que des portes
-       NAND.
+***** Réponse                                                             :r:
 
-    3. Dessinez un circuit équivalent qui n'utilise que des portes
-       NOR.
+#+attr_latex: :scale 0.65
+file:Solutions_svg/kmapS2fonctImp1.svg
 
-    4. Dessinez un circuit équivalent qui ne comporte que deux niveaux de
-       portes (excluant les inversions).
+$$
+  s = c^{\prime}(a^{\prime}+bd^{\prime}) + abcd 
+$$
+$$
+  s = b ( acd + c^{\prime}d^{\prime}) + a^{\prime} c^{\prime}
+$$
 
-**** Réponse                                                              :r:
+**** Question
+Considérez la fonction logique définie par l'expression \(F = (AB + C)
+A^{\prime} + C + A^{\prime}\).
 
-*** Question
-  Donnez le tableau  de vérité des deux fonctions qui, à partir d'une
-    entrée binaire non-signée sur trois bits, donnent en sortie la
-    représentation binaire non-signée sur deux bits du plus grand diviseur
-    \(< 3\) de l'entrée, s'il y a lieu. Simplifiez les deux fonctions en
-    tenant compte des cas facultatifs.
+1. Dessinez le circuit logique correspondant.
 
-**** Réponse                                                              :r:
+2. Dessinez un circuit équivalent qui n'utilise que des portes
+   NAND.
 
-*** Question
-  Complétez la figure ci-dessous (en ajoutant des connexions) afin de
-    réaliser une  fonction NAND à trois entrées \(S = (a b c)^\prime\).
-    [[file:Modeles_exercices/exbloc2c.svg]]
+3. Dessinez un circuit équivalent qui n'utilise que des portes
+   NOR.
 
-**** Réponse                                                              :r:
+4. Dessinez un circuit équivalent qui ne comporte que deux niveaux de
+   portes (excluant les inversions).
 
-*** Question
- Dans une application numérique, on doit concevoir un circuit logique
- qui permet de détecter les nombre composés, qui peuvent être
- décomposés en facteurs (nombres qui ne sont pas premiers. Le circuit
- doit donner une sortie 1 quand un nombre composé est présenté à
- l'entrée; par exemple, le circuit doit donner 1 pour une entrée 4
- (0100) et 0 pour une entrée 3 (0011). Les nombres 0 et 1 seront
- considérés comme des cas facultatifs.
+***** Réponse                                                             :r:
+1. [[file:Solutions_svg/solReductionNandNor1_2.svg]]
 
-    1. Donnez le tableau de vérité pour réaliser cette application pour
-       un mot d'entrée (non-signé) de quatre bits, $a, b, c$ et $d$.
+2. [[file:Solutions_svg/solReductionNandNor2_2.svg]]
 
-    2. Au moyen d'un diagramme de Karnaugh, trouvez une expression
-       logique simplifiée pour cette fonction logique et ne représentez
-       que les impliquants premiers retenus pour la solution.
+3. [[file:Solutions_svg/solReductionNandNor3_2.svg]]
 
-    3. Donnez le schéma du circuit logique qui implémente cette fonction
-       en somme de produit à l'aide de portes NON-ET (pas de restrictions
-       sur le nombre d'entrées).
+4. 
+  #+attr_latex: :scale 0.67
+  [[file:Solutions_svg/solReductionNandNor4_2.svg]]
 
-**** Réponse                                                              :r:
+**** Question
+Donnez le tableau de vérité des deux fonctions qui, à partir d'une
+entrée binaire non-signée sur trois bits, donnent en sortie la
+représentation binaire non-signée sur deux bits du plus grand diviseur
+\(< 3\) de l'entrée, s'il y a lieu. Simplifiez les deux fonctions en
+tenant compte des cas facultatifs.
 
-** Série 3
+***** Réponse                                                             :r:
+| \(a_2\) | \(a_1\) | \(a_0\) |   | \(s_1\) | \(s_0\) |
+|---------+---------+---------+---+---------+---------|
+|    0    |    0    |    0    |   |    x    |    x    |
+|    0    |    0    |    1    |   |    0    |    1    |
+|    0    |    1    |    0    |   |    1    |    0    |
+|    0    |    1    |    1    |   |    1    |    1    |
+|    1    |    0    |    0    |   |    1    |    0    |
+|    1    |    0    |    1    |   |    0    |    1    |
+|    1    |    1    |    0    |   |    1    |    1    |
+|    1    |    1    |    1    |   |    0    |    1    |
+
+**** Question
+Complétez la figure ci-dessous (en ajoutant des connexions) afin de
+réaliser une fonction NAND à trois entrées \(S = (a b c)^{\prime}\).
+
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc2c.svg]]
+
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc2c.svg]]
+
+**** Question
+Dans une application numérique, on doit concevoir un circuit logique
+qui permet de détecter les nombre composés, qui peuvent être
+décomposés en facteurs (nombres qui ne sont pas premiers. Le circuit
+doit donner une sortie 1 quand un nombre composé est présenté à
+l'entrée; par exemple, le circuit doit donner 1 pour une entrée 4
+(0100) et 0 pour une entrée 3 (0011). Les nombres 0 et 1 seront
+considérés comme des cas facultatifs.
+
+1. Donnez le tableau de vérité pour réaliser cette application pour un
+   mot d'entrée (non-signé) de quatre bits, $a, b, c$ et $d$.
+
+2. Au moyen d'un diagramme de Karnaugh, trouvez une expression logique
+   simplifiée pour cette fonction logique et ne représentez que les
+   impliquants premiers retenus pour la solution.
+
+3. Donnez le schéma du circuit logique qui implémente cette fonction
+   en somme de produit à l'aide de portes NON-ET (pas de restrictions
+   sur le nombre d'entrées).
+
+***** Réponse                                                             :r:
+1. Tableau de vérité
+| \(a_3\) | \(a_2\) | \(a_1\) | \(a_0\) |   | \(s\) |
+|---------+---------+---------+---------+---+-------|
+|    0    |    0    |    0    |    0    |   | \(x\) |
+|    0    |    0    |    0    |    1    |   | \(x\) |
+|    0    |    0    |    1    |    0    |   |   1   |
+|    0    |    0    |    1    |    1    |   |   0   |
+|    0    |    1    |    0    |    0    |   |   1   |
+|    0    |    1    |    0    |    1    |   |   0   |
+|    0    |    1    |    1    |    0    |   |   1   |
+|    0    |    1    |    1    |    1    |   |   0   |
+|    1    |    0    |    0    |    0    |   |   1   |
+|    1    |    0    |    0    |    1    |   |   1   |
+|    1    |    0    |    1    |    0    |   |   1   |
+|    1    |    0    |    1    |    1    |   |   0   |
+|    1    |    1    |    0    |    0    |   |   1   |
+|    1    |    1    |    0    |    1    |   |   0   |
+|    1    |    1    |    1    |    0    |   |   1   |
+|    1    |    1    |    1    |    1    |   |   1   |
+
+2. Diagramme de Karnaugh
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/kmapNombresPremiers.svg]]
+
+3. Schéma du circuit
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solNombresPremiers.svg]]
+
+*** Série 3
 :PROPERTIES:
   :UNNUMBERED: notoc
   :END:
 
-*** Question
-  À l'aide d'un diagramme de Karnaugh, simplifiez 
-    $$
-    S = A B^\prime +
-    B^\prime CD + A^\prime B + B^\prime D + A^\prime B^\prime D
-    $$
-    en produit de sommes.
+**** Question
+À l'aide d'un diagramme de Karnaugh, simplifiez 
+$$
+S = A B^{\prime} +
+B^{\prime} CD + A^{\prime} B + B^{\prime} D + A^{\prime} B^{\prime} D
+$$
+en produit de sommes.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+file:Solutions_svg/kmapSerie2_1.svg
 
-*** Question
-  À l'aide d'un diagramme de Karnaugh, simplifiez 
-    $$
-    S = ( A^\prime +
-    B^\prime + C + D)(A+B^\prime +C^\prime +D)(A^\prime +B^\prime
-    +C+D^\prime )(A+B^\prime +C^\prime +D^\prime )(A+C^\prime +D)
-    $$
-    en tenant compte des cas facultatifs suivants: \(\sum(3,8,11,14)\).
-    1. Donnez une solution qui n'utilise pas l'entrée \(D\).
-    2. Donnez une solution qui n'utilise pas l'entrée \(B\).
-
-**** Réponse                                                              :r:
+$$
+  S =  (A^{\prime} +B^{\prime} )(A+B+D)
+$$
    
-*** Question
-  À l'aide de la méthode Quine-McCluskey, simplifiez l'expression
-    logique suivante: 
-    $$
-    F= A^\prime BCDEF^\prime  + A^\prime BCDEF+ AB^\prime CDEF+ ABCDEF^\prime 
-    $$
-    Tenez compte des cas facultatifs suivants: 
-    $$
-    A^\prime BCD^\prime EF^\prime +
-    ABCDE^\prime F^\prime + A^\prime BCDE^\prime F+ ABCDEF
-    $$
+**** Question
+À l'aide d'un diagramme de Karnaugh, simplifiez 
+$$
+S = ( A^{\prime} +
+B^{\prime} + C + D)(A+B^{\prime} +C^{\prime} +D)(A^{\prime} +B^{\prime}
++C+D^{\prime} )(A+B^{\prime} +C^{\prime} +D^{\prime} )(A+C^{\prime} +D)
+$$
+en tenant compte des cas facultatifs suivants: \(\sum(3,8,11,14)\).
+Donnez une solution qui n'utilise pas l'entrée \(D\).
 
-**** Réponse                                                              :r:
 
-*** Question
-  Complétez la figure ci-dessous pour obtenir un multiplicateur dont
-    la sortie (5 bits) est le produite de deux entrées (de 3 bits et 2
-    bits, respectivement). Comme on peut voir sur la figure, on dispose
-    de quatre additionneurs complets à 1 bit et de six portes ET. La
-    multiplication sera $$(P_4, P_3, P_2, P_1, P_0)_2 = (y_2, y_1, y_0)_2
-    \times (z_1, z_0)_2$$.
-    [[file:Modeles_exercices/exbloc3a.svg]]
+***** Réponse                                                             :r:
+1. Diagramme de Karnaugh
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/kmapSerie3ex2_1.svg]]
 
-**** Réponse                                                              :r:
+$$
+  S = AB^{\prime}+AC+A^{\prime}C^{\prime}
+$$
 
-*** Question
-  Considérez la fonction logique \(F\) définie par le tableau de vérité suivant
+**** Question
+À l'aide de la méthode Quine-McCluskey, simplifiez l'expression
+logique suivante:
+$$
+F= A^{\prime} BCDEF^{\prime}  + A^{\prime} BCDEF+ AB^{\prime} CDEF+ ABCDEF^{\prime} 
+$$
+Tenez compte des cas facultatifs suivants: 
+$$
+A^{\prime} BCD^{\prime} EF^{\prime} +
+ABCDE^{\prime} F^{\prime} + A^{\prime} BCDE^{\prime} F+ ABCDEF
+$$
+
+***** Réponse                                                             :r:
+
+|        | 011110 | 011111 | 101111 | 111110 |   | 011010 | 011101 | 111100 | 111111 |
+|--------+--------+--------+--------+--------+---+--------+--------+--------+--------|
+| 011-10 |    X   |        |        |        |   |    X   |        |        |        |
+| 0111-0 |        |    X   |        |        |   |        |    X   |        |        |
+| 1111-0 |        |        |        |    X   |   |        |        |    X   |        |
+| -11111 |        |    X   |        |        |   |        |        |        |    X   |
+| 1-1111 |        |        |    X   |        |   |        |        |        |    X   |
+| -1111- |   X    |    X   |        |    X   |   |        |        |        |    X   |
+
+i.p.e. = −1111−, 1−1111
+
+i.p.i. = 011−10, 0111−0, 1111−0, −11111
+
+**** Question
+Complétez la figure ci-dessous pour obtenir un multiplicateur dont
+la sortie (5 bits) est le produite de deux entrées (de 3 bits et 2
+bits, respectivement). Comme on peut voir sur la figure, on dispose
+de quatre additionneurs complets à 1 bit et de six portes ET. La
+multiplication sera $$(P_4, P_3, P_2, P_1, P_0)_2 = (y_2, y_1, y_0)_2
+\times (z_1, z_0)_2$$
+
+#+attr_latex: :scale 0.65
+file:Modeles_exercices/exbloc3a.svg
+
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc3a.svg]]
+
+**** Question
+Considérez la fonction logique \(F\) définie par le tableau de vérité suivant
+| \(A\) | \(B\) | \(C\) | \(D\) |   | \(F\) |
+|-------+-------+-------+-------+---+-------|
+|     0 |     0 |     0 |     0 |   |     0 |
+|     0 |     0 |     0 |     1 |   |     1 |
+|     0 |     1 |     0 |     0 |   |     0 |
+|     0 |     1 |     0 |     1 |   |     0 |
+|     0 |     0 |     1 |     0 |   |     1 |
+|     0 |     0 |     1 |     1 |   |     0 |
+|     0 |     1 |     1 |     0 |   |     0 |
+|     0 |     1 |     1 |     1 |   |     1 |
+|     1 |     0 |     0 |     0 |   |     0 |
+|     1 |     0 |     0 |     1 |   |     1 |
+|     1 |     1 |     0 |     0 |   |     0 |
+|     1 |     1 |     0 |     1 |   |     1 |
+|     1 |     0 |     1 |     0 |   |     0 |
+|     1 |     0 |     1 |     1 |   |     0 |
+|     1 |     1 |     1 |     0 |   |     0 |
+|     1 |     1 |     1 |     1 |   |     1 |
+Vous devez réaliser cette fonction au moyen d'un multiplexeur à huit
+entrées sans utiliser la variable \(A\) dans les lignes de
+sélection. Complétez le tableau de réalisation et la figure
+ci-dessous.
+|                | \(E_0\) | \(E_1\) | \(E_2\) | \(E_3\) | \(E_4\) | \(E_5\) | \(E_6\) | \(E_7\) |
+|----------------+---------+---------+---------+---------+---------+---------+---------+---------|
+|              0 |         |         |         |         |         |         |         |         |
+|          \(A\) |         |         |         |         |         |         |         |         |
+| \(A^{\prime}\) |         |         |         |         |         |         |         |         |
+|              1 |         |         |         |         |         |         |         |         |
+
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc3b.svg]]
+
+***** Réponse                                                             :r:
+
+|                | \(E_0\) | \(E_1\) | \(E_2\) | \(E_3\) | \(E_4\) | \(E_5\) | \(E_6\) | \(E_7\) |
+|----------------+---------+---------+---------+---------+---------+---------+---------+---------|
+|              0 | X       |         |         | X       | X       |         | X       |         |
+|          \(A\) |         |         |         |         |         | X       |         |         |
+| \(A^{\prime}\) |         |         | X       |         |         |         |         |         |
+|              1 |         | X       |         |         |         |         |         | X       |
+
+[[file:Solutions_svg/solExBloc3b.svg]]
+
+**** Question
+Simplifiez la fonction logique à six entrées
+$$
+S = F(A,B,C,D,E,F)
+$$
+représentée par la liste de minterms suivants
+
+010000, 101000, 110100, 110101, 110110, 111100
+
+en tenant compte des cas facultatifs représentés par les minterms
+suivants
+
+000000, 001100, 000111, 101001, 110111
+
+par la méthode de Quine-McCluskey. Vous devez donner le détail de
+toutes les étapes, remplir les tableaux de couverture initial et
+réduit, identifier les impliquants premiers essentiels (i.p.e.), les
+impliquants premiers absolument inessentiels (i.p.a.i.) et les
+impliquants premiers inessentiels tout court (i.p.i.). Donnez la
+solution sous la forme d'une expression en \(A,B,C,D,E,F\).
+
+***** Réponse                                                             :r:
+
+#+begin_export latex
+\tiny{ %}
+#+end_export
+
+|        | 010000 | 101000 | 110100 | 110101 | 111100 | 110110 |   | 000000 | 001100 | 000111 | 101001 | 110111 |
+|--------+--------+--------+--------+--------+--------+--------+---+--------+--------+--------+--------+--------|
+| 001100 |        |        |        |        |        |        |   |        |    X   |        |        |        |
+| 000111 |        |        |        |        |        |        |   |        |        |    X   |        |        |
+| 0−0000 |    X   |        |        |        |        |        |   |    X   |        |        |        |        |
+| 10100− |        |    X   |        |        |        |        |   |        |        |        |    X   |        |
+| 11−100 |        |        |    X   |    X   |        |        |   |        |        |        |        |        |
+| 1101−0 |        |        |    X   |        |    X   |        |   |        |        |        |        |        |
+| 1101−− |        |        |    X   |    X   |        |    X   |   |        |        |        |        |    X   |
+ #+begin_export latex
+}
+#+end_export
+i.p.e.   = 1101−−, 1101−0, 10100−, 0−0000
+
+i.p.a.i. = 11−100, 000111, 001100
+  
+**** Question
+Réalisez les fonctions logiques suivantes au moyen d'un multiplexeur
+quatre-vers-un.
+
+1. \(f_1(a,b,c) = \sum m(2, 4, 5, 7)\)
+
+2. \(f_2(a,b,c) = \prod M(0, 6, 7)\)
+
+***** Réponse                                                             :r:
+1. 
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solMux4F1.svg]]
+
+2.
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solMux4F2.svg]]
+
+**** Question
+Identifiez la fonction réalisée par le circuit ci-dessous, en donnant
+la liste des minterms en fonction des entrées \(a, b, c\) et \(d\).
+
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc3c.svg]]
+
+***** Réponse                                                             :r:
+$$
+F (a, b, c, d)= \sum m(0, 5, 10, 15)
+$$
+
+**** Question
+Un circuit combinatoire est défini par les trois fonctions logiques
+suivantes. Dessinez un circuit réalisant ces trois fonctions en
+utilisant un décodeur constitué de portes NAND (vous devez dessiner
+le schéma du décodeur), et des portes NAND et ET
+externes.
+$$
+F_1 = x y^{\prime} + x^{\prime}y z^{\prime} 
+$$
+$$
+F_2 = (x + y^{\prime})z 
+$$
+$$F_3 = (x^{\prime} y + x y^{\prime} z)^{\prime}
+$$
+
+***** Réponse                                                             :r:
+
+[[file:Solutions_svg/solDecoNand.svg]]
+
+**** Question
+Simplifiez la fonction donnée par l'expression suivante
+$$
+a^{\prime} b^{\prime} c d + a b c d + a b^{\prime} c^{\prime} d +
+	a b c d^{\prime}
+$$
+en considérant les cas facultatifs suivants
+$$
+a b c^{\prime} + a^{\prime} b c^{\prime} d^{\prime} + a b^{\prime}
+	c d^{\prime}
+$$
+par la méthode de Quine-McCluskey. Vous devez
+donner le détail de toutes les étapes, identifier à la fin les
+impliquants premiers essentiels (i.p.e.), les impliquants premiers
+absolument inessentiels (i.p.a.i.) et les impliquants premiers
+inessentiels tout court (i.p.i.). et donner la solution finale avec
+les variables.
+  
+***** Réponse                                                             :r:
+
+|      | 0011 | 1001 | 1110 | 1111 |   | 0100 | 1100 | 1010 |
+|------+------+------+------+------+---+------+------+------|
+| 0011 |   X  |      |      |      |   |      |      |      |
+| 1001 |      |   X  |      |      |   |      |      |      |
+| 1010 |      |      |      |      |   |      |      |   X  |
+| −100 |      |      |      |      |   |   X  |   X  |      |
+| 11−0 |      |      |   X  |      |   |      |   X  |      |
+| 111− |      |      |   X  |   X  |   |      |      |      |
+
+i.p.e.   = 111−, 1001, 0011
+
+i.p.a.i. = 11−0, −100, 11−0
+ 
+**** Question
+Concevez un circuit qui permet de comparer deux mots de 3 bits et qui
+donne 1 lorsqu'ils sont égaux et 0 sinon. Vous devez utiliser des
+portes XOR et d'autres portes.
+
+***** Réponse
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/3bitWordComparXor.svg]]
+
+**** Question
+La fonction logique à quatre entrées \(S = F(A,B,C, D)\) donnée par
+son tableau de vérité:
+| \(A\) | \(B\) | \(C\) | \(D\) |   | \(S\) |
+|-------+-------+-------+-------+---+-------|
+|     0 |     0 |     0 |     0 |   |     0 |
+|     0 |     0 |     0 |     1 |   |     1 |
+|     0 |     1 |     0 |     0 |   |     0 |
+|     0 |     1 |     0 |     1 |   |     1 |
+|     0 |     0 |     1 |     0 |   |     X |
+|     0 |     0 |     1 |     1 |   |     0 |
+|     0 |     1 |     1 |     0 |   |     0 |
+|     0 |     1 |     1 |     1 |   |     1 |
+|     1 |     0 |     0 |     0 |   |     X |
+|     1 |     0 |     0 |     1 |   |     1 |
+|     1 |     1 |     0 |     0 |   |     0 |
+|     1 |     1 |     0 |     1 |   |     0 |
+|     1 |     0 |     1 |     0 |   |     0 |
+|     1 |     0 |     1 |     1 |   |     1 |
+|     1 |     1 |     1 |     0 |   |     X |
+|     1 |     1 |     1 |     1 |   |     1 |
+doit être implémentée par un circuit logique.
+
+1. Simplifiez la description de cette fonction en utilisant un diagramme de Karnaugh.
+
+2. Trouvez le tableau de couverture pour la fonction et réduisez-le en tableau réduit.
+
+3. Identifiez les impliquants premiers essentiels (i.p.e.), les
+   impliquants premiers absolument inessentiels (i.p.a.i.) et les
+   impliquants premiers inessentiels tout court (i.p.i.).
+
+4. Dessinez le circuit logique simplifié, réalisé en n'utilisant que des portes NAND.
+
+***** Réponse                                                             :r:
+
+1. Diagramme de Karnaugh
+
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/kmapSerie3ex3.svg]]
+  $$
+  S = A^{\prime}C^{\prime}D + BCD + AB^{\prime}D
+  $$
+
+2. Tableau de couverture:
+
+  |      | 0001 | 0101 | 0111 | 1001 | 1011 | 1111 |   | 0010 | 1000 | 1110 |
+  |------+------+------+------+------+------+------+---+------+------+------|
+  | 0010 |      |      |      |      |      |      |   |    X |      |      |
+  | 0−01 | X    | X    |      |      |      |      |   |      |      |      |
+  | −001 | X    |      |      | X    |      |      |   |      |      |      |
+  | 100− |      |      |      | X    |      |      |   |      |    X |      |
+  | 01−1 |      | X    | X    |      |      |      |   |      |      |      |
+  | 10−1 |      |      |      | X    | X    |      |   |      |      |      |
+  | −111 |      |      | X    |      |      | X    |   |      |      |      |
+  | 1−11 |      |      |      |      | X    | X    |   |      |      |      |
+  | 111− |      |      |      |      |      | X    |   |      |      |    X |
+
+  Tableau de couverture réduit:
+
+  |      | 0001 | 0101 | 0111 | 1001 | 1011 | 1111 |   | 0010 | 1000 | 1110 |
+  |------+------+------+------+------+------+------+---+------+------+------|
+  | 0−01 | X    | X    |      |      |      |      |   |      |      |      |
+  | −001 | X    |      |      | X    |      |      |   |      |      |      |
+  | 01−1 |      | X    | X    |      |      |      |   |      |      |      |
+  | 10−1 |      |      |      | X    | X    |      |   |      |      |      |
+  | −111 |      |      | X    |      |      | X    |   |      |      |      |
+  | 1−11 |      |      |      |      | X    | X    |   |      |      |      |
+
+3.  i.p.e.  = 0-01, 10-1,-111
+
+    i.p.a.i. = 0010,100-,111-
+
+    i.p.i. = 1-11, 01-1, -001
+
+4. 
+  #+attr_latex: :scale 0.65
+  [[file:Solutions_svg/solSerie3ex3circuit.svg]]
+
+**** Question
+Un circuit combinatoire est défini par les trois fonctions logiques
+suivantes. Dessinez un circuit réalisant ces trois fonctions en
+utilisant un décodeur et des portes externes.
+$$
+F_1  = x^{\prime} y^{\prime} z^{\prime} + xz 
+$$
+$$
+F_2  = x y z^{\prime} + x^{\prime} y 
+$$
+$$
+F_3  = x^{\prime} y^{\prime} z + x y
+$$
+
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solF123Decodeur.svg]]    
+
+**** Question
+Identifiez la fonction logique \(F(A,B,C,D)\) définie par le circuit
+logique suivant:
+
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc3d.svg]]
+
+1. Donnez son tableau de vérité.
+
+2. Donnez la forme canonique somme de produits de cette fonction.
+
+***** Réponse                                                             :r:
+1.  Tableau de vérité
  | \(A\) | \(B\) | \(C\) | \(D\) |   | \(F\) |
  |-------+-------+-------+-------+---+-------|
- |     0 |     0 |     0 |     0 |   |     0 |
- |     0 |     0 |     0 |     1 |   |     1 |
- |     0 |     1 |     0 |     0 |   |     0 |
- |     0 |     1 |     0 |     1 |   |     0 |
- |     0 |     0 |     1 |     0 |   |     1 |
- |     0 |     0 |     1 |     1 |   |     0 |
- |     0 |     1 |     1 |     0 |   |     0 |
- |     0 |     1 |     1 |     1 |   |     1 |
- |     1 |     0 |     0 |     0 |   |     0 |
- |     1 |     0 |     0 |     1 |   |     1 |
- |     1 |     1 |     0 |     0 |   |     0 |
- |     1 |     1 |     0 |     1 |   |     1 |
- |     1 |     0 |     1 |     0 |   |     0 |
- |     1 |     0 |     1 |     1 |   |     0 |
- |     1 |     1 |     1 |     0 |   |     0 |
- |     1 |     1 |     1 |     1 |   |     1 |
- Vous devez réaliser cette fonction au moyen d'un multiplexeur à huit
- entrées sans utiliser la variable \(A\) dans les lignes de
- sélection. Complétez le tableau de réalisation et la figure
- ci-dessous.
- |              | \(E_0\) | \(E_1\) | \(E_2\) | \(E_3\) | \(E_4\) | \(E_5\) | \(E_6\) | \(E_7\) |
- |--------------+---------+---------+---------+---------+---------+---------+---------+---------|
- | \(A\)        |         |         |         |         |         |         |         |         |
- | \(A^\prime\) |         |         |         |         |         |         |         |         |
- [[file:Modeles_exercices/exbloc3b.svg]]
+ |   0   |   0   |   0   |   0   |   |   1   |
+ |   0   |   0   |   0   |   1   |   |   0   |
+ |   0   |   0   |   1   |   0   |   |   1   |
+ |   0   |   0   |   1   |   1   |   |   0   |
+ |   0   |   1   |   0   |   0   |   |   0   |
+ |   0   |   1   |   0   |   1   |   |   1   |
+ |   0   |   1   |   1   |   0   |   |   0   |
+ |   0   |   1   |   1   |   1   |   |   1   |
+ |   1   |   0   |   0   |   0   |   |   1   |
+ |   1   |   0   |   0   |   1   |   |   1   |
+ |   1   |   0   |   1   |   0   |   |   0   |
+ |   1   |   0   |   1   |   1   |   |   0   |
+ |   1   |   1   |   0   |   0   |   |   0   |
+ |   1   |   1   |   0   |   1   |   |   0   |
+ |   1   |   1   |   1   |   0   |   |   1   |
+ |   1   |   1   |   1   |   1   |   |   1   |
 
-**** Réponse                                                              :r:
+2. Forme canonique
+   $$
+    F (A, B, C, D) = \sum m(0, 2 , 5, 7, 8, 9, 14, 15)
+   $$
 
-*** Question
-  Simplifiez la fonction logique à six entrées
-    $$
-    S = F(A,B,C,D,E,F)
-    $$
-    représentée par la liste de minterms suivants
+**** Question
+Trouvez l'expression minimale pour les deux fonctions suivantes,
+sachant qu'elles doivent être implémentées dans un même
+circuit. Utilisez la méthode Quine-McCluskey.
+$$
+F_1(A, B, C, D)
+=\sum(2,5,6,7,10,11,14,15)
+$$
+$$
+F_2 = A B C D + A^{\prime} B C D +
+A^{\prime} B^{\prime} C D + A B^{\prime} C + ABC
+$$
 
-    010000, 101000, 110100, 110101, 110110, 111100
+***** Réponse                                                             :r:
+$$
+F_1(A,B,C,D)
+= A C + A^{\prime} B D + C D^{\prime} 
+$$
 
-    en tenant compte des cas facultatifs représentés par les minterms
-    suivants
+$$
+F_2(A,B,C,D)
+= A C + C D
+$$
 
-    000000, 001100, 000111, 101001, 110111
+**** Question
+La fonction logique à trois entrées \(S = F(A,B,C)\) représentée par
+le tableau de vérité:
 
-    par la méthode de Quine-McCluskey. Vous devez donner le détail de
-    toutes les étapes, remplir les tableaux de couverture initial et
-    réduit, identifier les impliquants premiers essentiels (i.p.e.), les
-    impliquants premiers absolument inessentiels (i.p.a.i.) et les
-    impliquants premiers inessentiels tout court (i.p.i.). Donnez la
-    solution sous la forme d'une expression en \(A,B,C,D,E,F\).
+| A | B | C | S |
+|---+---+---+---|
+| 0 | 0 | 0 | 1 |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 1 |
+| 1 | 1 | 1 | 1 |
+doit être implémentée par un circuit logique.
 
-**** Réponse                                                              :r:
-  
-*** Question
-  Réalisez les fonctions logiques suivantes au moyen d'un multiplexeur
-    quatre-vers-un.
+1. Donnez l'expression de cette fonction:
 
-    1. $$f_1(a,b,c) = \sum m(2, 4, 5, 7)$$
+   - Selon la première forme canonique ( \(\sum m_i\) )
 
-    2. $$f_2(a,b,c) = \prod M(0, 6, 7)$$
+   - Selon la deuxième forme canonique ( \(\prod M_i\) )
 
-**** Réponse                                                              :r:
+2. Trouvez une expression simplifié pour cette fonction en utilisant
+   un diagramme de Karnaugh en format horizontal.
 
-*** Question
-  Identifiez la fonction réalisée par le circuit ci-dessous, en donnant
-    la liste des minterms en fonction des entrées \(a, b, c\) et \(d\).
-  [[file:Modeles_exercices/exbloc3c.svg]]
+3. Donnez l'expression du *complément* de cette fonction:
 
-**** Réponse                                                              :r:
+   - Selon la première forme canonique ( \(\sum m_i\) )
 
-*** Question
-  Un circuit combinatoire est défini par les trois fonctions logiques
-    suivantes. Dessinez un circuit réalisant ces trois fonctions en
-    utilisant un décodeur constitué de portes NAND (vous devez dessiner
-    le schéma du décodeur), et des portes NAND et ET
-    externes.
-    $$
-     F_1  = x y^{\prime} + x^{\prime}y
-    z^{\prime} 
-    $$
-    $$
-    F_2  =  (x + y^{\prime})z 
-    $$
-    $$ F_3  =  (x^{\prime}
-    y + x y^{\prime} z)^{\prime}
-    $$
+   - En complémentant votre expression simplifiée au moyen du
+     théorême de DeMorgan.
 
-**** Réponse                                                              :r:
+4. Dessinez le circuit logique à partir de l'expression simplifiée
+   trouvée.
 
-*** Question
-  Simplifiez la fonction donnée par l'expression suivante
-    $$
-    a^{\prime} b^{\prime} c d + a b c d + a b^{\prime} c^{\prime} d +
-	a b c d^{\prime}
-    $$
-    en considérant les cas facultatifs suivants
-    $$
-    a b c^{\prime} + a^{\prime} b c^{\prime} d^{\prime} + a b^{\prime}
-	c d^{\prime}
-    $$
-    par la méthode de Quine-McCluskey. Vous devez
-    donner le détail de toutes les étapes, identifier à la fin les
-    impliquants premiers essentiels (i.p.e.), les impliquants premiers
-    absolument inessentiels (i.p.a.i.) et les impliquants premiers
-    inessentiels tout court (i.p.i.). et donner la solution finale avec
-    les variables.
-
-  
-**** Réponse                                                              :r:
- 
-*** Question
-  Concevez un circuit qui permet de comparer deux mots de 3 bits et qui
-    donne 1 lorsqu'ils sont égaux et 0 sinon. Vous devez utiliser des
-    portes XOR et d'autres portes.
-
-**** Réponse                                                              :r:
- 
-*** Question
-  La fonction logique à quatre entrées \(S = F(A,B,C, D)\) donnée par son 
-    tableau de vérité:
- | \(A\) | \(B\) | \(C\) | \(D\) |   | \(S\) |
- |-------+-------+-------+-------+---+-------|
- |     0 |     0 |     0 |     0 |   |     0 |
- |     0 |     0 |     0 |     1 |   |     1 |
- |     0 |     1 |     0 |     0 |   |     0 |
- |     0 |     1 |     0 |     1 |   |     1 |
- |     0 |     0 |     1 |     0 |   |     X |
- |     0 |     0 |     1 |     1 |   |     0 |
- |     0 |     1 |     1 |     0 |   |     0 |
- |     0 |     1 |     1 |     1 |   |     1 |
- |     1 |     0 |     0 |     0 |   |     X |
- |     1 |     0 |     0 |     1 |   |     1 |
- |     1 |     1 |     0 |     0 |   |     0 |
- |     1 |     1 |     0 |     1 |   |     0 |
- |     1 |     0 |     1 |     0 |   |     0 |
- |     1 |     0 |     1 |     1 |   |     1 |
- |     1 |     1 |     1 |     0 |   |     X |
- |     1 |     1 |     1 |     1 |   |     1 |
-    doit être implémentée par un circuit logique.
-
-    1. Simplifiez la description de cette fonction en utilisant un diagramme de Karnaugh.
-
-    2. Trouvez le tableau de couverture pour la fonction et réduisez-le en tableau réduit.
-
-    3. Identifiez les impliquants premiers essentiels (i.p.e.), les
-       impliquants premiers absolument inessentiels (i.p.a.i.) et les
-       impliquants premiers inessentiels tout court (i.p.i.).
-
-    4. Dessinez le circuit logique simplifié, réalisé en n'utilisant que des portes NAND.
-
-**** Réponse                                                              :r:
-      
-*** Question
-  Un circuit combinatoire est défini par les trois fonctions logiques
-    suivantes. Dessinez un circuit réalisant ces trois fonctions en
-    utilisant un décodeur et des portes externes.
-    $$
-    F_1  = x^{\prime} y^{\prime} z^{\prime} + xz 
-    $$
-    $$
-    F_2  = x y z^{\prime} + x^{\prime} y 
-    $$
-    $$
-    F_3  = x^{\prime} y^{\prime} z + x y
+***** Réponse                                                             :r:
+1.  $$
+      S (A, B, C) = \sum m(0, 1 , 3, 6, 7) = \prod M(2, 4, 5)
     $$
 
-**** Réponse                                                              :r:
-
-*** Question
-  Identifiez la fonction logique \(F(A,B,C,D)\) définie par le circuit
-    logique suivant:
- [[file:Modeles_exercices/exbloc3d.svg]]
-    1. Donnez son tableau de vérité.
-
-    2. Donnez la forme canonique somme de produits de cette fonction.
-
-**** Réponse                                                              :r:
-
-*** Question
-  Considérez le tableau de couverture suivant:
-
-|      | 0101 | 0110 | 0000 | 1100 | 1101 | 1011 | 0111 |
-|------+------+------+------+------+------+------+------|
-| −10− |      |      |      |      |      |      |      |
-| 110− |      |      |      |      |      |      |      |
-| 1011 |      |      |      |      |      |      |      |
-| −00− |      |      |      |      |      |      |      |
-| 01−− |      |      |      |      |      |      |      |
-| −111 |      |      |      |      |      |      |      |
-
-    1. Complétez le tableau en mettant les '+' dans les cases
-       appropriées.
-
-    2. Identifiez les i.p.e. et les i.p.a.i.
-
-    3. Donnez les cas facultatifs qui ont été utilisés pour obtenir les
-       i.p.
-
-    4. Donnez le tableau réduit correspondant.
-
-    5. Donnez un exemple de ligne qui en domine une autre.
-
-    6. Donnez un exemple de colonne qui en domine une autre.
-
-    7. Donnez une forme canonique de la fonction.
-
-    8. Donnez l'expression simplifiée de la fonction $F(u,v,w,x)$.
-
-   
-**** Réponse                                                              :r:
-   
-*** Question
-  Trouvez l'expression minimale pour les deux fonctions suivantes,
-     sachant qu'elles doivent être implémentées dans un même
-     circuit. Utilisez la méthode Quine-McCluskey.
-     $$
-     F_1(A, B, C, D)
-     =\sum(2,5,6,7,10,11,14,15)
-     $$
-     $$
-     F_2 = A B C D + A^\prime B C D +
-     A^\prime B^\prime C D + A B^\prime C + ABC
-     $$
-
-**** Réponse                                                              :r:
-
-*** Question
-  La fonction logique à trois entrées \(S = F(A,B,C)\) représentée par le
-    tableau de vérité:
-
-    | A | B | C | S |
-    |---+---+---+---|
-    | 0 | 0 | 0 | 1 |
-    | 0 | 0 | 1 | 1 |
-    | 0 | 1 | 0 | 0 |
-    | 0 | 1 | 1 | 1 |
-    | 1 | 0 | 0 | 0 |
-    | 1 | 0 | 1 | 0 |
-    | 1 | 1 | 0 | 1 |
-    | 1 | 1 | 1 | 1 |
-
-    doit être implémentée par un circuit logique.
-
-    1. Donnez l'expression de cette fonction:
-
-       - Selon la première forme canonique ( \(\sum m_i\) )
-
-       - Selon la deuxième forme canonique ( \(\prod M_i\) )
-
-    2. Trouvez une expression simplifié pour cette fonction en utilisant
-       un diagramme de Karnaugh en format horizontal.
-
-    3. Donnez l'expression du *complément* de cette fonction:
-
-       - Selon la première forme canonique ( \(\sum m_i\) )
-
-       - En complémentant votre expression simplifiée au moyen du
-         théorême de DeMorgan.
-
-    4. Dessinez le circuit logique à partir de l'expression simplifiée
-       trouvée.
-
-**** Réponse                                                              :r:
-
-*** Question
-  Simplifiez la fonction logique donnée par la forme canonique
-    suivante:
+2.  #+attr_latex: :scale 0.65
+    [[file:Solutions_svg/kmapSerie3ex4.svg]]
     $$
-    m_0 + m_2 + m_4 + m_5 + m_8 + m_A + m_B + m_E
-    $$
-    au
-    moyen d'un diagramme de Karnaugh (la numérotation des termes est en
-    hexadécimal). Identifiez sur le diagramme les regroupements
-    essentiels, les regroupements absoluments inutiles et les
-    regroupements pour lesquels on a le choix. Donnez deux solutions
-    aussi simplifiées.
-
-**** Réponse                                                              :r:
-
-*** Question
-  Considérez la fonction logique définie par l'expression
-    $$
-    F =
-      (A + B) A^{\prime} C + C^{\prime}(A+B^{\prime}) + A^{\prime}B
-      C^{\prime}
+      S = A^{\prime} B^{\prime} + B(A + C)
     $$
 
-    1. Dessinez le circuit logique correspondant.
+3.  $$
+      S^{\prime}(A,B,C) = \sum m(2,4,5)
+    $$
 
-    2. Dessinez un circuit équivalent qui n'utilise que des portes
-       NAND.
+4. #+attr_latex: :scale 0.65
+   [[file:Solutions_svg/solReducKABC.svg]]
 
-    3. Dessinez un circuit équivalent qui n'utilise que des portes
-       NOR.
+**** Question
+Simplifiez la fonction logique donnée par la forme canonique
+suivante:
+$$
+m_0 + m_2 + m_4 + m_5 + m_8 + m_A + m_B + m_E
+$$
+au
+moyen d'un diagramme de Karnaugh (la numérotation des termes est en
+hexadécimal). Identifiez sur le diagramme les regroupements
+essentiels, les regroupements absolument inutiles et les
+regroupements pour lesquels on a le choix. Donnez deux solutions
+aussi simplifiées.
 
-    4. Dessinez un circuit équivalent qui ne comporte que 3 niveaux de
-       portes (incluant les inversions).
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/kmapSerie3ex5.svg]]
 
-**** Réponse                                                              :r:
+Les regroupements essentiels: orange, mauve, bleu, vert.
+Le regroupement jaune est absolument inutile.
 
-*** Question
-  Donnez le tableau de vérité pour les fonctions logiques correspondant
-    à:
+$$
+  S = B^{\prime} (D^{\prime}+ AC) + A^{\prime}BC^{\prime}  + ACD^{\prime} 
+$$
 
-    1. $$f(A, B) = A + B^{\prime}$$
+$$
+  S = B^{\prime}D^{\prime} + A^{\prime}BC^{\prime} + AC(D^{\prime} + B^{\prime})
+$$
+    
+**** Question
+Considérez la fonction logique définie par l'expression
+$$
+F =
+  (A + B) A^{\prime} C + C^{\prime}(A+B^{\prime}) + A^{\prime}B
+  C^{\prime}
+$$
 
-    2. $$f(a, b, c) = a(b+c^{\prime})(b^{\prime}+c)$$
+1. Dessinez le circuit logique correspondant.
 
-**** Réponse                                                              :r:
+2. Dessinez un circuit équivalent qui n'utilise que des portes
+   NAND.
 
-*** Question
+3. Dessinez un circuit équivalent qui n'utilise que des portes
+   NOR.
+
+4. Dessinez un circuit équivalent qui ne comporte que 3 niveaux de
+   portes (incluant les inversions).
+
+***** Réponse                                                             :r:
+1.
+    [[file:Solutions_svg/solBloc3Fnorm.svg]]
+2.
+    [[file:Solutions_svg/solBloc3Fnand.svg]]
+3.
+    [[file:Solutions_svg/solBloc3Fnor.svg]]
+4.  
+    #+attr_latex: :scale 0.65
+    [[file:Solutions_svg/solBloc3FnormReduit.svg]]
+
+**** Question
+Donnez le tableau de vérité pour les fonctions logiques correspondant
+à:
+
+1. \(f(A, B) = A + B^{\prime}\)
+
+2. \(f(a, b, c) = a(b+c^{\prime})(b^{\prime}+c)\)
+
+***** Réponse                                                             :r:
+1.  
+  | \(A\) | \(B\) |   | \(f\) |
+  |-------+-------+---+-------|
+  |     0 |     0 |   |     1 |
+  |     0 |     1 |   |     0 |
+  |     1 |     0 |   |     1 |
+  |     1 |     1 |   |     1 |
+
+2.
+  | \(a\) | \(b\) | \(c\) |   | \(f\) |
+  |-------+-------+-------+---+-------|
+  |     0 |     0 |     0 |   |     0 |
+  |     0 |     0 |     1 |   |     0 |
+  |     0 |     1 |     0 |   |     0 |
+  |     0 |     1 |     1 |   |     0 |
+  |     1 |     0 |     0 |   |     1 |
+  |     1 |     0 |     1 |   |     0 |
+  |     1 |     1 |     0 |   |     0 |
+  |     1 |     1 |     1 |   |     1 |
+
+**** Question
 Considérez la fonction logique donnée par l'expression suivante:
 
 \begin{multline*}
-F = A^{\prime} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + {A} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + A^{\prime} B^{\prime} {C} D^{\prime} E^{\prime} + A^{\prime} {B} {C} {D} E^{\prime} \\ + {A} {B} C^{\prime} D^{\prime} {E} + {A} B^{\prime} C^{\prime} D^{\prime} {E} + {A} B^{\prime} D^{\prime} E^{\prime} \\ + {A} B^{\prime} {C} {D} {E} + {A} B^{\prime}  {C} D^{\prime} {E}
+F = A^{\prime} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + {A} B^{\prime} C^{\prime} D^{\prime} E^{\prime} + A^{\prime} B^{\prime} {C} D^{\prime} E^{\prime} + A^{\prime} {B} {C} {D} E^{\prime} \\ 
++ {A} {B} C^{\prime} D^{\prime} {E} + {A} B^{\prime} C^{\prime} D^{\prime} {E} + {A} B^{\prime} D^{\prime} E^{\prime} + {A} B^{\prime} {C} {D} {E} + {A} B^{\prime}  {C} D^{\prime} {E}
 \end{multline*}
 
 Les cas suivants sont facultatifs:
-\begin{displaymath}
-A^{\prime} B^{\prime} C^{\prime} D^{\prime} {E} + {A} {B} C^{\prime} {D} {E} +  A^{\prime}B^{\prime} {C} D^{\prime} {E} + {A} {B} {C} D^{\prime} {E}
-\end{displaymath}
+$$
+A^{\prime} B^{\prime} C^{\prime} D^{\prime} {E} + {A} {B} C^{\prime} {D} {E} + 
+ A^{\prime}B^{\prime} {C} D^{\prime} {E} + {A} {B} {C} D^{\prime} {E}
+$$
 
-    1. Simplifiez cette expression logique par la méthode de
-       Quine-McCluskey, en tenant compte des cas facultatifs. Identifiez
-       clairement les implicants essentiels et non-essentiels.
+1. Simplifiez cette expression logique par la méthode de
+   Quine-McCluskey, en tenant compte des cas facultatifs. Identifiez
+   clairement les implicants essentiels et non-essentiels.
 
-    2. Dessinez un réseau logique qui réalise votre expression logique
-       simplifiée en n'utilisant que des portes NAND.
+2. Dessinez un réseau logique qui réalise votre expression logique
+   simplifiée en n'utilisant que des portes NAND.
 
-*** Question
- Vous devez concevoir un circuit logique combinatoire qui calcule la
- valeur absolue d'un nombre de 4 bits signé en complément à deux. Les
- seules valeurs d'entrée possibles sont donc de -7 à 7 inclusivement,
- les autres nombres seront considérées comme des cas facultatifs. Vous
- disposez de composants programmables pour réaliser cette fonction.
+***** Réponse                                                             :r:
+1.  Tableau
+#+begin_export latex
+\tiny{ %}
+#+end_export
+  |       | 00000 | 10000 | 00100 | 10001 | 10100 | 01110 | 11001 | 10101 | 10111 |   | 00001 | 00101 | 11011 | 11101 |
+  |-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+---+-------+-------+-------+-------|
+  | −0−0− |     X |     X |     X | X     |     X |       |       | X     |       |   |     X |     X |       |       |
+  | 01110 |       |       |       |       |       |     X |       |       |       |   |       |       |       |       |
+  | 101−1 |       |       |       |       |       |       |       | X     |     X |   |       |       |       |       |
+  | 110−1 |       |       |       |       |       |       | X     |       |       |   |       |       |     X |       |
+  | 1−−01 |       |       |       | X     |       |       | X     | X     |       |   |       |       |       |     X |
+ #+begin_export latex
+}
+#+end_export
 
-    1. Réalisez votre circuit logique combinatoire en utilisant un PROM à
-       quatre entrées et deux sorties tel qu'illustré.
-       Vous devez mettre des croix aux endroits où vous voulez que les
-       connections soient effectuées (dans la section programmable).
-#+attr_latex: :scale 0.45
-[[file:Modeles_exercices/prom4.svg]]
+    i.p.e. = -0-0-, 01110, 101-1, 1--01
 
-    2. Réalisez votre circuit logique combinatoire en utilisant le PAL à
-       quatre entrées et trois sorties tel qu'illustré.
-       Vous devez mettre des croix aux endroits où vous voulez que les
-       connections soient effectuées (dans la section programmable).
-#+attr_latex: :scale 0.45
-[[file:Modeles_exercices/pal3.svg]]
+    i.p.a.i = 110-1
+    
+2.  [@2] Réseau logique
+    [[file:Solutions_svg/solBloc3ReducFQuinn.svg]]
 
-*** Question
- Considérez le circuit logique ci-dessous. Le signal \(A\) passe de 0 à 1
- l'instant 15 ns; le signal \(B\) passe de 1 à 0 à l'instant 15 ns; le
- signal \(C\) passe de 1 à 0 à l'instant 60 ns.
- [[file:Modeles_exercices/exbloc3e.svg]]
+**** Question
+Vous devez concevoir un circuit logique combinatoire qui calcule la
+valeur absolue d'un nombre de 4 bits signé en complément à deux. Les
+seules valeurs d'entrée possibles sont donc de -7 à 7 inclusivement,
+les autres nombres seront considérées comme des cas facultatifs. Vous
+disposez de composants programmables pour réaliser cette fonction.
 
-    1. Complétez un chronogramme qui montre les traces pour chacun des
-       signaux d'entrée \(A, B, C\) et de sortie \(T, U, V, X, Y, Z_1,
-       Z_2, Z_3, F\), en supposant un temps de propagation de 10 ns
-       pour toutes les portes. Identifiez clairement sur le
-       chronogramme les temps de propagation et les éventuels problèmes
-       (glitchs) occasionnés par les délais.
+1. Réalisez votre circuit logique combinatoire en utilisant un PROM à
+   quatre entrées et deux sorties tel qu'illustré.  Vous devez mettre
+   des croix aux endroits où vous voulez que les connections soient
+   effectuées (dans la section programmable).
 
-    2. Identifiez la fonction logique réalisée par ce circuit logique.
+  #+attr_latex: :scale 0.45
+  [[file:Modeles_exercices/prom4.svg]]
 
-    3. Déterminer le délai de propagation (des entrées à la sortie)
-       maximal pour ce circuit, et précisez le chemin critique.
+2. Réalisez votre circuit logique combinatoire en utilisant le PAL à
+   quatre entrées et trois sorties tel qu'illustré.  Vous devez mettre
+   des croix aux endroits où vous voulez que les connections soient
+   effectuées (dans la section programmable).
 
-    4. Si ce circuit doit être utilisé à répétition, de façon périodique,
-       quelle est la plus courte période qu'on puisse utiliser tout en
-       étant sûr que le circuit fonctionne correctement.
+  #+attr_latex: :scale 0.35
+  [[file:Modeles_exercices/pal3.svg]]
 
-    5. On désire remplacer ce circuit par un circuit à trois niveaux
-       logiques. Donnez le schéma d'un circuit en forme somme de produit
-       qui remplit la même fonction.
+***** Réponse                                                             :r:
+1. 
+  #+attr_latex: :scale 0.45
+  [[file:Solutions_svg/solProm4.svg]]
 
-    6. Donnez le délai de propagation maximal pour le nouveau circuit
-       somme de produit.
+**** Question
+Considérez le circuit logique ci-dessous. Le signal \(A\) passe de 0 à 1
+l'instant 15 ns; le signal \(B\) passe de 1 à 0 à l'instant 15 ns; le
+signal \(C\) passe de 1 à 0 à l'instant 60 ns.
 
-** Série 4
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc3e.svg]]
+
+1. Complétez un chronogramme qui montre les traces pour chacun des
+   signaux d'entrée \(A, B, C\) et de sortie \(T, U, V, X, Y, Z_1,
+   Z_2, Z_3, F\), en supposant un temps de propagation de 10 ns
+   pour toutes les portes. Identifiez clairement sur le
+   chronogramme les temps de propagation et les éventuels problèmes
+   (glitchs) occasionnés par les délais.
+
+2. Identifiez la fonction logique réalisée par ce circuit logique.
+
+3. Déterminer le délai de propagation (des entrées à la sortie)
+   maximal pour ce circuit, et précisez le chemin critique.
+
+4. Si ce circuit doit être utilisé à répétition, de façon périodique,
+   quelle est la plus courte période qu'on puisse utiliser tout en
+   étant sûr que le circuit fonctionne correctement.
+
+5. On désire remplacer ce circuit par un circuit à trois niveaux
+   logiques. Donnez le schéma d'un circuit en forme somme de produit
+   qui remplit la même fonction.
+
+6. Donnez le délai de propagation maximal pour le nouveau circuit
+   somme de produit.
+  
+***** Réponse                                                             :r:
+1. Chronogramme
+
+   [[file:Solutions_svg/solExBloc3e_1.svg]]
+
+2. Fonction logique
+   $$
+     F = A \oplus B
+   $$
+
+3. Délai de longueur 4, en passant par \(T\), \(Y\) et \(Z_1\).
+
+4. On doit attendre le temps d'un délai de propagation pour être
+   certain que le circuit fonctionne correctement.
+
+5.
+6. Délai de longueur 3.
+
+*** Série 4
 :PROPERTIES:
   :UNNUMBERED: notoc
   :END:
 
-*** Question
-  Construisez un décodeur 5-vers-32 en utilisant quatre décodeurs
-    3-vers-8 avec entrée /enable/.
+**** Question
+Construisez un décodeur 5-vers-32 en utilisant quatre décodeurs
+3-vers-8 avec entrée /enable/.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.35
+[[file:Solutions_svg/solExBloc4Dec5v32portesAND.svg]]
 
-*** Question
-  Vous devez concevoir un encodeur à priorité à quatre
-    entrées. L'entrée \(D_0\) doit avoir la plus grande priorité et
-    l'entrée \(D_3\) doit avoir la plus faible priorité, avec la
-    priorité des autres entrées qui suivent le même ordre. Les sorties
-    seront \(s_1, s_0\) et \(v\) qui indique la validité des sorties:
-    \(v=0\) si toutes les entrées sont à 0; \(v=1\) si au moins une
-    entrée est 1.
+**** Question
+Vous devez concevoir un encodeur à priorité à quatre
+entrées. L'entrée \(D_0\) doit avoir la plus grande priorité et
+l'entrée \(D_3\) doit avoir la plus faible priorité, avec la
+priorité des autres entrées qui suivent le même ordre. Les sorties
+seront \(s_1, s_0\) et \(v\) qui indique la validité des sorties:
+\(v=0\) si toutes les entrées sont à 0; \(v=1\) si au moins une
+entrée est 1.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solEncodeurPriorite4e.svg]]
 
-*** Question
-  Un circuit séquentiel à deux bascules D, \(A\) et \(B\), comporte
-    deux entrées \(x\) et \(y\) et une sortie \(z\). Les équations de
-    prochain état sont:
+**** Question
+Un circuit séquentiel à deux bascules D, \(A\) et \(B\), comporte
+deux entrées \(x\) et \(y\) et une sortie \(z\). Les équations de
+prochain état sont:
 
-    $$A_{n+1} = x^\prime y + x A$$
+$$A_{n+1} = x^{\prime} y + x A$$
 
-    $$B_{n+1} = x^\prime B + x A$$
+$$B_{n+1} = x^{\prime} B + x A$$
 
-    L'équation de sortie est 
+L'équation de sortie est $$z=B$$
 
-    $$z=B$$
+1. Dessinez le schéma logique du circuit
 
-   1. Dessinez le schéma logique du circuit
+2. Déterminez le tableau d'états
 
-   2. Déterminez le tableau d'états
+3. Dessinez le diagramme d'état
 
-   3. Dessinez le diagramme d'état
+***** Réponse                                                             :r:
+1. Schéma logique
 
-**** Réponse                                                              :r:
+   [[file:Solutions_svg/solExBloc4_1.svg]]
 
-*** Question
-  Considérez le circuit logique suivant:
- [[file:Modeles_exercices/exbloc4a.svg]]
+2. Tableau d'états
 
-    1. Quelle est la fonction combinatoire réalisée par la section
-       logique combinatoire, c'est-à-dire, quelle est la fonction $S =
-         f(A,B)$ ?
+| État présent | \(X\) | \(Y\) | État suivant | \(Z\) |
+|--------------+-------+-------+--------------+-------|
+|            0 |     0 |     0 |            0 |     0 |
+|            0 |     0 |     1 |            1 |     0 |
+|            0 |     1 |     0 |            0 |     0 |
+|            0 |     1 |     1 |            0 |     0 |
+|            1 |     0 |     0 |            0 |     0 |
+|            1 |     0 |     1 |            1 |     0 |
+|            1 |     1 |     0 |            2 |     1 |
+|            1 |     1 |     1 |            2 |     1 |
+|            2 |     0 |     0 |            3 |     1 |
+|            2 |     0 |     1 |            2 |     1 |
+|            2 |     1 |     0 |            2 |     1 |
+|            2 |     1 |     1 |            2 |     1 |
+|            3 |     0 |     0 |            3 |     1 |
+|            3 |     0 |     1 |            2 |     1 |
+|            3 |     1 |     0 |            0 |     0 |
+|            3 |     1 |     1 |            0 |     0 |
 
-    2. Complétez le diagramme temporel de la figure, en supposant un
-       temps de propagation *maximum* de 10 ns pour les portes NOR et OU,
-       et de 40 ns pour les bascules.
+3. [@3] Diagramme d'état
 
-    3. Si les temps de maintien $t_{h}$ et de mise en place $t_{su}$
-       sont de 5 ns pour toutes les bascules, quelle est la fréquence
-       maximale d'horloge utilisable pour que le circuit fonctionne
-       convenablement? Utilisez un diagramme temporel pour évaluer la
-       période minimum.
+   [[file:Solutions_svg/solExBloc4FSM_1.svg]]
 
-**** Réponse                                                              :r:
+**** Question
+Considérez le circuit logique suivant:
+
+[[file:Modeles_exercices/exbloc4a.svg]]
+
+1. Quelle est la fonction combinatoire réalisée par la section logique
+   combinatoire, c'est-à-dire, quelle est la fonction $S = f(A,B)$ ?
+
+2. Complétez le diagramme temporel de la figure, en supposant un temps
+   de propagation *maximum* de 10 ns pour les portes NOR et OU, et de
+   40 ns pour les bascules.
+
+3. Si les temps de maintien $t_{h}$ et de mise en place $t_{su}$ sont
+   de 5 ns pour toutes les bascules, quelle est la fréquence maximale
+   d'horloge utilisable pour que le circuit fonctionne convenablement?
+   Utilisez un diagramme temporel pour évaluer la période minimum.
+
+***** Réponse                                                             :r:
+1. Fonction combinatoire
+   $$
+     S = A \oplus B
+   $$
+
+2. Diagramme temporel
+
+   [[file:Solutions_svg/solExBloc4a.svg]]
+
+3. Analyse pour la période minimale
+
+   [[file:Solutions_svg/solExBloc4aPrepos.svg]]
+   La période minimale de l'horloge est de \(40ns + 3\times 10ns + 5ns = 75ns\).
       
-*** Question
-  Analysez le circuit logique suivant:
- [[file:Modeles_exercices/exbloc4b.svg]]
+**** Question
+Analysez le circuit logique suivant:
 
-    1. Analysez le comportement du circuit, en supposant qu'au départ les
-       entrées sont $A=0$ et $B=0$ et la sortie $S=0$. Vous devez
-       supposer des changements des valeurs d'entrées et décrire les
-       changements des sorties, en tenant compte de la mémoire du
-       circuit.
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc4b.svg]]
 
-    2. Identifiez la fonction des entrées $A$ et $B$.
+1. Analysez le comportement du circuit, en supposant qu'au départ les
+   entrées sont $A=0$ et $B=0$ et la sortie $S=0$. Vous devez supposer
+   des changements des valeurs d'entrées et décrire les changements
+   des sorties, en tenant compte de la mémoire du circuit.
 
-    3. Identifiez la fonction du circuit.
+2. Identifiez la fonction des entrées $A$ et $B$.
 
-*** Question
-  Considérez circuit séquentiel décrit par le diagramme d'état suivant:
+3. Identifiez la fonction du circuit.
+
+***** Réponse                                                             :r:
+1. Fonction
+
+  | \(A = 0\) | \(B = 0\) | \(S = 0\) |
+  | \(A = 1\) | \(B = 0\) | \(S = 0\) |
+  | \(A = 1\) | \(B = 1\) | \(S = 1\) |
+  | \(A = 1\) | \(B = 0\) | \(S = 1\) |
+  | \(A = 1\) | \(B = 1\) | \(S = 1\) |
+  | \(A = 0\) | \(B = 1\) | \(S = 0\) |
+  | \(A = 1\) | \(B = 1\) | \(S = 1\) |
+
+2.  \(A\) sert d'entrée de données, \(B\) sert d'entrée de contrôle.
+
+3.  Le circuit se comporte comme un loquet D.
+
+**** Question
+Considérez circuit séquentiel décrit par le diagramme d'état suivant:
+
 #+attr_latex: :scale 0.45
 [[file:Modeles_exercices/ex_bloc5b.svg]]
-    1. En utilisant l'assignation d'états $a = 00, b = 01, c = 10, d
-         = 11$, construisez le tableau d'état pour ce circuit séquentiel.
 
-    2. Concevez le circuit en utilisant des portes standards et des
-       bascules D.
+1. En utilisant l'assignation d'états $a = 00, b = 01, c = 10, d =
+   11$, construisez le tableau d'état pour ce circuit séquentiel.
 
-**** Réponse                                                              :r:
+2. Concevez le circuit en utilisant des portes standards et des
+   bascules D.
 
-*** Question
-  Vous devez concevoir un circuit logique séquentiel à une entrée et
-    une sortie qui identifie les deux séquences d'entrée 0110 et 11111
-    appliquées immédiatement après une remise à zéro asynchrone du
-    circuit. Donnez le diagramme d'état simplifié pour ce circuit.
+***** Réponse                                                             :r:
+1. Tableau d'état
+ | État présent | \(X\) | État suivant | \(Z\) | \(F\) |
+ |--------------+---------+--------------+---------+---------|
+ |           00 |       0 |           00 |       0 |       0 |
+ |           00 |       1 |           01 |       0 |       1 |
+ |           01 |       0 |           10 |       0 |       0 |
+ |           01 |       1 |           11 |       1 |       0 |
+ |           10 |       0 |           00 |       0 |       0 |
+ |           10 |       1 |           11 |       0 |       0 |
+ |           11 |       0 |           11 |       1 |       1 |
+ |           11 |       1 |           11 |       1 |       1 |
+     
+2. Circuit
 
-**** Réponse                                                              :r:
+   [[file:Solutions_svg/solExBloc4_2.svg]]
 
-*** Question
-   Vous devez concevoir un circuit logique séquentiel à une entrée et
-    une sortie qui identifie les deux séquences d'entrée 0110
-    et 11111. Les séquences d'entrée doivent être identifiées à
-    n'importe quel moment où elles apparaissent en entrée.
+**** Question
+Vous devez concevoir un circuit logique séquentiel à une entrée et une
+sortie qui identifie les deux séquences d'entrée 0110 et 11111
+appliquées immédiatement après une remise à zéro asynchrone du
+circuit. Donnez le diagramme d'état simplifié pour ce circuit.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+[[file:Solutions_svg/solExBloc4FSM_1_1.svg]]
 
-*** Question
-  Déterminez le diagramme d'état pour un circuit séquentiel synchrone
-    avec une entrée \(x\) et une sortie \(z\) qui est utilisé pour
-    reconnaître la séquence d'entrée 101. La sortie doit donc être \(z=1\)
-    lorsque le dernier 1 de la séquence 101 est identifié. \(z\) est
-    ensuite remis à zéro au prochain coup d'horloge. Deux séquences 101
-    peuvent se chevaucher. On a par exemple,
-    $$
-    x  =  010101101
-    $$
-    $$ z = 000101001
-    $$
+**** Question
+Vous devez concevoir un circuit logique séquentiel à une entrée et
+une sortie qui identifie les deux séquences d'entrée 0110
+et 11111. Les séquences d'entrée doivent être identifiées à
+n'importe quel moment où elles apparaissent en entrée.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+[[file:Solutions_svg/solExBloc4FSM_1_2.svg]]
 
-*** Question
-  Déterminez le diagramme d'état pour un circuit séquentiel synchrone
-    avec une entrée \(x\) et une sortie \(z\) qui est utilisé pour
-    reconnaître la séquence d'entrée 101. La sortie doit donc être \(z=1\)
-    lorsque le dernier 1 de la séquence 101 est identifié. \(z\) est
-    ensuite remis à zéro au prochain coup d'horloge. Les chevauchements de 101 ne sont pas 
-    permis. Par exemple,
-    $$
-    x = 010101101
-    $$
-    $$
-    z = 000100001
-    $$
+**** Question
+Déterminez le diagramme d'état pour un circuit séquentiel synchrone
+avec une entrée \(x\) et une sortie \(z\) qui est utilisé pour
+reconnaître la séquence d'entrée 101. La sortie doit donc être \(z=1\)
+lorsque le dernier 1 de la séquence 101 est identifié. \(z\) est
+ensuite remis à zéro au prochain coup d'horloge. Les chevauchements de
+101 ne sont pas permis. Par exemple, $$x = 010101101$$ $$z =
+000100001$$
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc4FSM_2.svg]]
+    
+**** Question
+Concevez le circuit séquentiel synchrone décrit par le tableau d'état
+ci-dessous. Vous devez considérer des bascules JK et D et choisir la
+solution la plus simple. Présentez clairement toutes les étapes,
+jusqu'au schéma du circuit correspondant.
 
-*** Question
-  Concevez le circuit séquentiel synchrone décrit par le tableau
-    d'état ci-dessous. Vous devez considérer des bascules JK et D et
-    choisir la solution la plus simple. Présentez clairement toutes les
-    étapes, jusqu'au schéma du circuit correspondant.
-  | État courant | Entrée | Prochain | Sortie |
-  |--------------+--------+----------+--------|
-  |           00 |      0 |       01 |      0 |
-  |           00 |      1 |       11 |      0 |
-  |           01 |      0 |       10 |      0 |
-  |           01 |      1 |       00 |      1 |
-  |           11 |      0 |       00 |      1 |
-  |           11 |      1 |       10 |      0 |
-  |           10 |      0 |       10 |      1 |
-  |           10 |      1 |       01 |      1 |
+| État courant | Entrée | Prochain | Sortie |
+|--------------+--------+----------+--------|
+|           00 |      0 |       01 |      0 |
+|           00 |      1 |       11 |      0 |
+|           01 |      0 |       10 |      0 |
+|           01 |      1 |       00 |      1 |
+|           11 |      0 |       00 |      1 |
+|           11 |      1 |       10 |      0 |
+|           10 |      0 |       10 |      1 |
+|           10 |      1 |       01 |      1 |
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc4FSM_4.svg]]
 
-*** Question
-  Les deux bascules du circuit suivant sont activées par les
-     transitions montantes du signal présent à leur entrée
-     d'horloge. 
-     [[file:Modeles_exercices/exbloc4c.svg]]
+**** Question
+Les deux bascules du circuit suivant sont activées par les
+transitions montantes du signal présent à leur entrée
+d'horloge.
 
-     Tracez le chronogramme pour \(X, X^\prime, Y, S\)
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc4c.svg]]
 
-**** Réponse                                                              :r:
+Tracez le chronogramme pour \(X, X^{\prime}, Y, S\)
 
-*** Question
- Vous devez analyser le circuit séquentiel suivant:
- [[file:Modeles_exercices/exbloc4d.svg]]
+***** Réponse                                                             :r:
+[[file:Solutions_svg/solExBloc4c.svg]]
 
-    1. Donnez les équations pour le décodeur de prochain état.
+**** Question
+Vous devez analyser le circuit séquentiel suivant:
 
-    2. Donnez le tableau d'activation avec état présent, entrée, entrées
-       des bascules, prochain état, sortie.
+#+attr_latex: :scale 0.65
+[[file:Modeles_exercices/exbloc4d.svg]]
 
-    3. Donnez le diagramme d'état correspondant.
+1. Donnez les équations pour le décodeur de prochain état.
 
-    4. tracez le chronogramme de fonctionnement, en
-       faisant abstraction des délais de propagation.
+2. Donnez le tableau d'activation avec état présent, entrée, entrées
+   des bascules, prochain état, sortie.
 
-    5. En sachant que la bascule a les caractéristiques suivantes:
+3. Donnez le diagramme d'état correspondant.
 
-       - temps de pré-positionnement minimum: 11 ns
+4. Tracez le chronogramme de fonctionnement, en faisant abstraction
+   des délais de propagation.
 
-       - temps de maintien minimum: 9 ns
+5. En sachant que la bascule a les caractéristiques suivantes:
 
-       - temps de propagation maximum: de Horloge à $Q$ ou
-         $Q^{\prime}$: $t_{pLH}$ = 15 ns, $t_{pHL}$ = 13 ns.
+   - temps de pré-positionnement minimum: 11 ns
 
-       et en suppoosant un délai de propagation de 15 ns pour la porte
-       XOR, déterminez la période minimale et la fréquence
-       maximale qu'on puisse utiliser tout en étant assuré que le circuit
-       fonctionne correctement. Donnez les détails de votre raisonnement. 
+   - temps de maintien minimum: 9 ns
 
-**** Réponse                                                              :r:
+   - temps de propagation maximum: de Horloge à $Q$ ou
+     $Q^{\prime}$: $t_{pLH}$ = 15 ns, $t_{pHL}$ = 13 ns.
 
-*** Question
- Vous devez concevoir un circuit logique utilisé dans un système
- permettant de trier des données. Le circuit reçoit deux nombres
- non-signés de 4 bits, multiplexés en série sur une même entrée. Par
- exemple, si les entrées sont 1010 et 1110, le circuit recevra
- 11011100. Le circuit doit acheminer le plus grand des deux nombres à
- une sortie (parallèle) appelée PG et le plus petit à une sortie
- (parallèle) appelée PP. Vous devez réaliser votre circuit en utilisant
- les éléments suivants:
+   et en supposant un délai de propagation de 15 ns pour la porte
+   XOR, déterminez la période minimale et la fréquence
+   maximale qu'on puisse utiliser tout en étant assuré que le circuit
+   fonctionne correctement. Donnez les détails de votre raisonnement. 
 
-    - démultiplexeur un-vers-deux
+***** Réponse                                                             :r:
+1.  \(S^{n+1} = (A(S^n)^{\prime})  + (B^{\prime} S^n)\)
 
-    - multiplexeur 4 bits deux-vers-un (il s'agit de quatre
-      multiplexeurs deux-vers-un à un bit avec le même signal de
-      commande, et qui traitent ainsi en parallèle des mots de quatre bits)
+2. Tableau d'activation
+   | \(B\) | \(A\) | \(S^n\) | \(S^{n+1}\) | \(S\) |
+   |-------+-------+---------+-------------+-------|
+   |     0 |     0 |       0 |           0 |     0 |
+   |     0 |     0 |       1 |           1 |     1 |
+   |     0 |     1 |       0 |           1 |     0 |
+   |     0 |     1 |       1 |           1 |     1 |
+   |     1 |     0 |       0 |           0 |     0 |
+   |     1 |     0 |       1 |           0 |     1 |
+   |     1 |     1 |       0 |           1 |     0 |
+   |     1 |     1 |       1 |           0 |     1 |
 
-    - registre à décalage entrée série/sortie parallèle
+3. Diagramme d'état
 
-    - comparateur de magnitude: deux entrées parallèles de 4 bits: $A$ et
-      $B$, trois sorties: $A>B$, $A=B$, $A<B$
+   #+attr_latex: :scale 0.65
+   [[file:Solutions_svg/solExBloc4dFSM.svg]]
 
-    - registre entrée parallèle/sortie parallèle
+4. Chronogramme
 
- Donnez un schéma-bloc de votre circuit en indiquant seulement les
- blocs qui traitent les données (pas les blocs qui serviront à contrôler
- le circuit).
+   [[file:Solutions_svg/solExBloc4dTime.svg]]
 
-**** Réponse                                                              :r:
+5. Analyse temporelle
 
-*** Question
- On doit concevoir un système séquentiel avec une entrée $E$ et une
- sortie, et qui génère les séquences de sortie suivantes:
+   [[file:Solutions_svg/solExBloc4TimePrepos.svg]]
+   
+   La période minimale est de \(15 ns+15 ns+11 ns = 41 ns\).
 
-    - si \(E=0\), séquence de sortie = 1100, périodique
+**** Question
+Vous devez concevoir un circuit logique utilisé dans un système
+permettant de trier des données. Le circuit reçoit deux nombres
+non-signés de 4 bits, multiplexés en série sur une même entrée. Par
+exemple, si les entrées sont \(1010\) et \(1110\), le circuit recevra \(11011100\). 
+Le circuit doit acheminer le plus grand des deux nombres à
+une sortie (parallèle) appelée PG et le plus petit à une sortie
+(parallèle) appelée PP. Vous devez réaliser votre circuit en utilisant
+les éléments suivants:
 
-    - si \(E=1\), séquence de sortie = 1011, périodique
+ - démultiplexeur un-vers-deux
 
- On envisage deux versions du système:
+ - multiplexeur 4 bits deux-vers-un (il s'agit de quatre
+   multiplexeurs deux-vers-un à un bit avec le même signal de
+   commande, et qui traitent ainsi en parallèle des mots de quatre bits)
+
+ - registre à décalage entrée série/sortie parallèle
+
+ - comparateur de magnitude: deux entrées parallèles de 4 bits: $A$ et
+   $B$, trois sorties: $A\geq B$, $A=B$, $A \leq B$
+
+ - registre entrée parallèle/sortie parallèle
+
+Donnez un schéma-bloc de votre circuit en indiquant seulement les
+blocs qui traitent les données (pas les blocs qui serviront à
+contrôler le circuit).
+
+***** Réponse                                                             :r:
+[[file:Solutions_svg/Schema_bloc.png]]
+
+**** Question
+On doit concevoir un système séquentiel avec une entrée $E$ et une
+sortie, et qui génère les séquences de sortie suivantes:
+
+ - si \(E=0\), séquence de sortie = 1100, périodique
+
+ - si \(E=1\), séquence de sortie = 1011, périodique
+
+On envisage deux versions du système:
 
  - version 1 :: si  \(E\) change, la séquence de sortie suit le
-   changement au vol.
+  changement au vol.
 
  - version 2 :: si \(E\) change, la séquence de sortie recommence à
-   partir du début.
+  partir du début.
 
- Par exemple,
- | Entrée           | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
- |------------------+---+---+---+---+---+---+---+---+---+---+---+---+---+---|
- | Sortie version 1 | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | 1 |
- | Sortie version 2 | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 1 | 1 | 1 |
+Par exemple,
+| Entrée           | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
+|------------------+---+---+---+---+---+---+---+---+---+---+---+---+---+---|
+| Sortie version 1 | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | 1 |
+| Sortie version 2 | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 1 | 1 | 1 |
 
- Donnez un diagramme d'état pour chacune des deux versions.
+Donnez un diagramme d'état pour chacune des deux versions.
 
-**** Réponse                                                              :r:
+***** Réponse                                                             :r:
+1. Diagramme d'état, version 1
 
-*** Question
- Considérez le tableau d'état suivant:
- | État présent | Entrée \(A\) | État suivant | Sortie \(S\) |
- |--------------+--------------+--------------+--------------|
- | a            |            0 | c            |            1 |
- | a            |            1 | a            |            1 |
- | b            |            0 | e            |            0 |
- | b            |            1 | f            |            1 |
- | c            |            0 | b            |            1 |
- | c            |            1 | d            |            0 |
- | d            |            0 | a            |            0 |
- | d            |            1 | b            |            1 |
- | e            |            0 | e            |            0 |
- | e            |            1 | f            |            1 |
- | f            |            0 | c            |            1 |
- | f            |            1 | f            |            1 |
- correspondant à un circuit séquentiel synchrone.
+   [[file:Solutions_svg/solExBloc4FSM_V1.svg]]
 
-    1. Simplifiez ce tableau d'état en identifiant les états
-       équivalents, en utilisant la méthode du tableau d'implication.
+2. Diagramme d'état, version 2
 
-    2. Donnez le diagramme d'état simplifié correspondant au tableau
-       d'état simplifié. Nommez les états simplifiés qui restent a,
-       b, c, \dots
+   [[file:Solutions_svg/solExBloc4FSM_V2.svg]]
 
-    3. Assignez des codes aux états, en commençant avec la
-       représentation binaire de 0 pour a, de 1 pour b, etc.
+**** Question
+Considérez le tableau d'état suivant:
+| État présent | Entrée \(A\) | État suivant | Sortie \(S\) |
+|--------------+--------------+--------------+--------------|
+| a            |            0 | c            |            1 |
+| a            |            1 | a            |            1 |
+| b            |            0 | e            |            0 |
+| b            |            1 | f            |            1 |
+| c            |            0 | b            |            1 |
+| c            |            1 | d            |            0 |
+| d            |            0 | a            |            0 |
+| d            |            1 | b            |            1 |
+| e            |            0 | e            |            0 |
+| e            |            1 | f            |            1 |
+| f            |            0 | c            |            1 |
+| f            |            1 | f            |            1 |
+correspondant à un circuit séquentiel synchrone.
 
-    4. Donnez les diagrammes de Karnaugh pour le décodeur de prochain
-       état en supposant des bascules JK, et les fonctions simplifiées
-       correspondantes.
+1. Simplifiez ce tableau d'état en identifiant les états
+   équivalents, en utilisant la méthode du tableau d'implication.
 
-    5. Donnez le diagramme de Karnaugh pour le décodeur de sortie.
+2. Donnez le diagramme d'état simplifié correspondant au tableau
+   d'état simplifié. Nommez les états simplifiés qui restent a,
+   b, c, \dots
 
-    6. Dessinez le schéma du circuit séquentiel obtenu.
+3. Assignez des codes aux états, en commençant avec la
+   représentation binaire de 0 pour a, de 1 pour b, etc.
 
-**** Réponse                                                              :r:
+4. Donnez les diagrammes de Karnaugh pour le décodeur de prochain
+   état en supposant des bascules JK, et les fonctions simplifiées
+   correspondantes.
 
-*** Question
- Considérez le circuit séquentiel synchrone ci-dessous.
- [[file:Modeles_exercices/exbloc4e.svg]]
+5. Donnez le diagramme de Karnaugh pour le décodeur de sortie.
 
- Déterminez la vitesse d'horloge maximale en considérant les
- caractéristiques suivantes:
+6. Dessinez le schéma du circuit séquentiel obtenu.
 
-    - Portes: temps de propagation maximum: 10 ns.
+***** Réponse                                                             :r:
+1.  Tableau d'implication
 
-    - Bascules: temps de mise en place minimum: 12 ns.
+| b     |   |   X   |   --  |   --  |   --  |   --  |
+| c     |   |   X   |   X   |   --  |   --  |   --  |
+| d     |   |   X   |   XX  |   X   |   --  |   --  |
+| e     |   |   X   | OUI   |   X   |   XX  |   --  |
+| f     |   |  OUI  |   X   |   X   |   X   |   X   |
+|-------+---+-------+-------+-------+-------+-------|
+|       |   | a     | b     | c     | d     | e     |
 
-    - Bascules: temps de maintien minimum: 15 ns.
+2. [@2] Tableau d'état, assignation d'états et diagramme d'état
 
-    - Bascules: temps de propagation maximum: de H à $Q$ ou
-      $Q^{\prime}$: $t_{pLH}$ = 25 ns, $t_{pHL}$ = 20 ns.
+| État présent | Entrée \(A\) | État suivant | Sortie \(S\) |
+|--------------+--------------+--------------+--------------|
+| a            |       0      |       c      |       1      |
+| a            |       1      |       a      |       1      |
+| b            |       0      |       b      |       0      |
+| b            |       1      |       a      |       1      |
+| c            |       0      |       b      |       1      |
+| c            |       1      |       d      |       0      |
+| d            |       0      |       a      |       0      |
+| d            |       1      |       b      |       1      |
 
-**** Réponse                                                              :r:
+| État | Code |
+|------+------|
+| a    |  00  |
+| b    |  01  |
+| c    |  10  |
+| d    |  11  |
+  
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc4FSM_Reduction.svg]]
 
-** Série 5
+4. [@4] Diagrammes de Karnaugh, décodeur de prochain
+   état
+
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc4KmapE1.png]]
+
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc4KmapE2.png]]
+
+5. [@5] Diagrammes de Karnaugh, décodeur de sortie
+
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc4KmapSortie.png]]
+
+6. [@6] Schéma du circuit
+
+#+attr_latex: :scale 0.65
+[[file:Solutions_svg/solExBloc4ReductionDiag.svg]]
+
+**** Question
+Considérez le circuit séquentiel synchrone ci-dessous.
+
+[[file:Modeles_exercices/exbloc4e.svg]]
+
+Déterminez la vitesse d'horloge maximale en considérant les
+caractéristiques suivantes:
+
+  - Portes: temps de propagation maximum: 10 ns.
+
+  - Bascules: temps de mise en place minimum: 12 ns.
+
+  - Bascules: temps de maintien minimum: 15 ns.
+
+  - Bascules: temps de propagation maximum: de H à $Q$ ou
+    $Q^{\prime}$: $t_{pLH}$ = 25 ns, $t_{pHL}$ = 20 ns.
+
+***** Réponse                                                             :r:
+La période minimale de l'horloge est de \(25ns + 2\times 10ns + 12ns = 57ns\).
+
+*** Série 5
 :PROPERTIES:
   :UNNUMBERED: notoc
   :END:
 
-*** Question
- Faire le diagramme d'état d'un circuit séquentiel synchrone qui génère
- à sa sortie un 1 lorsqu'il détecte à son entrée la séquence 0110 ou la
- séquence 0101.
+**** Question
+Faire le diagramme d'état d'un circuit séquentiel synchrone qui génère
+à sa sortie un 1 lorsqu'il détecte à son entrée la séquence 0110 ou la
+séquence 0101.
 
-**** Réponse                                                              :r:
-   
-*** Question
- Un circuit séquentiel synchrone est construit à partir de trois
-    bascules, \(A\), \(B\), et \(C\). Il comporte une entrée \(x\) et
-    une sortie \(y\). Son diagramme d'état est donné ci-dessous. 
- [[file:Modeles_exercices/ex_bloc5.svg]]
+***** Réponse                                                             :r:
+[[file:Solutions_svg/solExBloc5FSM_1.svg]]
 
- Vous devez concevoir ce circuit en considérant les états inutilisés
- comme des cas facultatifs. Le circuit final doit être analysé pour
- déterminer si, à partir des états inutilisés, le système revient vers
- son fonctionnement normal.
-    1. Conception avec des bascules D
-    2. Conception avec des bascules JK
+**** Question
+Un circuit séquentiel synchrone est construit à partir de trois
+bascules, \(A\), \(B\), et \(C\). Il comporte une entrée \(x\) et
+une sortie \(y\). Son diagramme d'état est donné ci-dessous. 
+[[file:Modeles_exercices/ex_bloc5.svg]]
 
-**** Réponse                                                              :r:  
+Vous devez concevoir ce circuit en considérant les états inutilisés
+comme des cas facultatifs. Le circuit final doit être analysé pour
+déterminer si, à partir des états inutilisés, le système revient vers
+son fonctionnement normal.
+ 1. Conception avec des bascules D
+ 2. Conception avec des bascules JK
 
-*** Question
-  Faire le diagramme d'état d'un compteur synchrone qui produit les
-    séquences d'états suivants, selon la valeur de l'entrée \(x\)
+***** Réponse                                                             :r:  
+1. Conception avec des bascules D
 
-    - \(x=0\), séquence: 0, 6, 2, 1, 4, 0, 6, 2, 1, 4, \dots
-    - \(x=1\), séquence: 0, 6, 5, 7, 2, 1, 0, 6, 5, 7, 2, 1, \dots
+   #+attr_latex: :scale 0.65
+   [[file:Solutions_svg/sol_exbloc5_DLatch.svg]]
 
-**** Réponse                                                              :r:
+2. Conception avec des bascules JK
+
+   #+attr_latex: :scale 0.65
+   [[file:Solutions_svg/sol_exbloc5FSM_JKLatch.svg]]
+
+**** Question
+Faire le diagramme d'état d'un compteur synchrone qui produit les
+séquences d'états suivants, selon la valeur de l'entrée \(x\)
+
+ - \(x=0\), séquence: 0, 6, 2, 1, 4, 0, 6, 2, 1, 4, \dots
+ - \(x=1\), séquence: 0, 6, 5, 7, 2, 1, 0, 6, 5, 7, 2, 1, \dots
+
+***** Réponse                                                             :r:
+[[file:Solutions_svg/solExbloc5cFSM.svg]]
 
 * Footnotes
 

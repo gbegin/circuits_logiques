@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Mon Sep 18 14:02:11 EDT 2023 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="103.05mm"
+   height="55.35mm"
+   viewBox="256 -1 687 369">
+<g stroke-linecap="square">
+<circle cx="360.0" cy="240.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="268.0761" cy="148.07611" r="10.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<path d="M 277.97562,157.9756 Q 292.82486,172.82486 307.6741,187.6741" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 289.2893,177.77461 L 309.08832,189.08832 L 297.7746,169.28932" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="360.0" y="225.0" fill="#000000" style="font-size:24px">0</text>
+<circle cx="840.0" cy="180.0" r="70.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="middle" x="840.0" y="165.0" fill="#000000" style="font-size:24px">1</text>
+<path d="M 331.23618,171.81906 C 280.74976,52.147514 465.50836,59.128525 398.2942,174.35281" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 403.18893,154.05402 L 397.28644,176.08037 L 413.5543,160.10046" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="370.0" y="58.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">AB = 00;01</tspan></text>
+<text text-anchor="middle" x="370.0" y="82.0" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">S = 0</tspan></text>
+<path d="M 419.22208,195.62944 Q 585.90393,90.229385 769.8316,150.80411" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 748.95844,150.24675 L 771.73126,151.42973 L 752.7122,138.84898" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="590.2154" y="104.72308" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">AB = 10 ; 11</tspan></text>
+<text text-anchor="middle" x="590.2154" y="128.72308" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">S = 1</tspan></text>
+<path d="M 816.22406,109.92358 C 785.3791,19.012146 938.6128,35.91899 882.9252,117.28296" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 889.2699,97.38964 L 881.79553,118.93341 L 899.1726,104.167305" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="858.0" y="22.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">AB = 00 ; 10</tspan></text>
+<text text-anchor="middle" x="858.0" y="46.0" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">S = 1</tspan></text>
+<path d="M 788.0925,232.74101 Q 620.55975,380.80243 425.00333,279.37723" stroke="#808080" stroke-width="2.0" fill="none"/>
+<path d="M 445.51993,283.25916 L 423.2279,278.45642 L 439.99503,293.91162" stroke="#808080" stroke-width="2.0" fill="none"/>
+<text text-anchor="middle" x="613.55383" y="339.43076" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">AB = 01 ; 11</tspan></text>
+<text text-anchor="middle" x="613.55383" y="363.43076" fill="#000000" style="font-size:24px">mettre <tspan style="font-style:italic;">S = 0</tspan></text>
+</g>
+</svg>
