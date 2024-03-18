@@ -1,4 +1,4 @@
-% Created 2023-10-26 jeu 09:56
+% Created 2024-03-01 ven 08:21
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -31,16 +31,16 @@
  pdftitle={Circuits logiques combinatoires et séquentiels},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.1 (Org mode 9.6.6)}, 
+ pdfcreator={Emacs 28.1 (Org mode 9.5.2)}, 
  pdflang={French}}
 \begin{document}
 
 \maketitle
 
 \section{Circuits combinatoires typiques}
-\label{sec:org05b0c90}
+\label{sec:orgaa52962}
 
-\begin{frame}[label={sec:org328de4c}]{Objectifs}
+\begin{frame}[label={sec:org631176e}]{Objectifs}
 \begin{itemize}
 \item Analyser un circuit combinatoire à partir de son schéma
 \item Concevoir un circuit combinatoire à partir d'une spécification
@@ -53,13 +53,13 @@ mécanismes de propagation et d'anticipation de retenue
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb054a3a}]{Circuit combinatoire}
+\begin{frame}[label={sec:orgf5fa6ee}]{Circuit combinatoire}
 \begin{itemize}
 \item Un circuit logique combinatoire est une combinaison de portes logiques dont la sortie à un instant donné ne dépend que des valeurs des entrées à cet instant.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org1677e66}]{Circuit combinatoire \ldots{} 2}
+\begin{frame}[label={sec:org42cad15}]{Circuit combinatoire \ldots{} 2}
 \begin{itemize}
 \item Un circuit combinatoire à \(n\) entrées et \(m\) sorties peut être représenté par un schéma-bloc, dans lequel on place généralement les entrées à gauche et les sorties à droite.
 \end{itemize}
@@ -67,11 +67,11 @@ mécanismes de propagation et d'anticipation de retenue
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{../Images_png/circuit_comb.png}
-\caption{\label{fig:org920624b}Circuit combinatoire}
+\caption{\label{fig:org6031571}Circuit combinatoire}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgdc306ec}]{Circuit combinatoire}
+\begin{frame}[label={sec:org7d00cb2}]{Circuit combinatoire}
 \begin{itemize}
 \item Avec \(n\) entrées, il est possible de créer \(2^n\) combinaisons différentes des entrées binaires.
 
@@ -85,7 +85,7 @@ mécanismes de propagation et d'anticipation de retenue
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org0611411}]{Analyse d'un circuit logique combinatoire}
+\begin{frame}[label={sec:org67c02b8}]{Analyse d'un circuit logique combinatoire}
 \begin{itemize}
 \item Si on se trouve devant le schéma d'un circuit logique dont on ne connaît pas la fonction, on doit en faire l'analyse.
 
@@ -100,7 +100,7 @@ mécanismes de propagation et d'anticipation de retenue
 \end{frame}
 
 
-\begin{frame}[label={sec:org0d8f92f}]{Analyse d'un circuit logique combinatoire \ldots{} 2}
+\begin{frame}[label={sec:org205a2b4}]{Analyse d'un circuit logique combinatoire \ldots{} 2}
 \begin{itemize}
 \item Pour interpréter le comportement du circuit, nous devons déterminer les expressions logiques qu'il met en oeuvre ou établir son tableau de vérité.
 \end{itemize}
@@ -120,7 +120,7 @@ variables.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org4bc8bd6}]{Analyse d'un circuit logique combinatoire \ldots{} 3}
+\begin{frame}[label={sec:orgf4d455f}]{Analyse d'un circuit logique combinatoire \ldots{} 3}
 \begin{enumerate}
 \setcounter{enumi}{2}
 \item Répéter l'étape 2 jusqu'à arriver aux variables de sortie du système.
@@ -130,18 +130,18 @@ fonction des entrées du système.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org6d638b6}]{Exemple d'analyse d'un circuit logique combinatoire}
+\begin{frame}[label={sec:org6b59d92}]{Exemple d'analyse d'un circuit logique combinatoire}
 Analysons le circuit combinatoire illustré à la figure
 suivante.
 
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circuit_logique_inconnu}
-\caption{\label{fig:org3970ce2}Circuit combinatoire à analyser}
+\caption{\label{fig:org0575236}Circuit combinatoire à analyser}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgef8f3f2}]{Exemple d'analyse d'un circuit logique combinatoire \ldots{} 2}
+\begin{frame}[label={sec:orgbf8714f}]{Exemple d'analyse d'un circuit logique combinatoire \ldots{} 2}
 \begin{enumerate}
 \item Il n'est pas la peine d'étiqueter la sortie de la porte
 inverseur. Comme variables intermédiaire, on considère \(I_1\)
@@ -160,35 +160,35 @@ porte NOR. On trouve que \(I_1 = A^\prime \cdot B \cdot C\) et que
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org3337758}]{Exemple d'analyse d'un circuit logique combinatoire \ldots{} 3}
+\begin{frame}[label={sec:org586cfb0}]{Exemple d'analyse d'un circuit logique combinatoire \ldots{} 3}
 \begin{table}[h] \scriptsize
-\caption{\label{tab:org1ad4fc6}Tableaux de vérité des fonctions intermédiaires et de la sortie}
+\caption{\label{tab:org726302a}Tableaux de vérité des fonctions intermédiaires et de la sortie}
 \centering
 \begin{tabular}{rrrrlrrr}
-\(A\) & \(C\) & \(B\) & \(D\) &  & \(I_1\) & \(I_2\) & \(F_1\)\\[0pt]
+\(A\) & \(C\) & \(B\) & \(D\) &  & \(I_1\) & \(I_2\) & \(F_1\)\\
 \hline
-0 & 0 & 0 & 0 &  & 0 & 0 & 0\\[0pt]
-0 & 0 & 0 & 1 &  & 0 & 0 & 0\\[0pt]
-0 & 1 & 0 & 0 &  & 0 & 1 & 0\\[0pt]
-0 & 1 & 0 & 1 &  & 0 & 0 & 0\\[0pt]
-0 & 0 & 1 & 0 &  & 0 & 1 & 0\\[0pt]
-0 & 0 & 1 & 1 &  & 0 & 0 & 0\\[0pt]
-0 & 1 & 1 & 0 &  & 1 & 1 & 1\\[0pt]
-0 & 1 & 1 & 1 &  & 1 & 0 & 0\\[0pt]
-1 & 0 & 0 & 0 &  & 0 & 0 & 0\\[0pt]
-1 & 0 & 0 & 1 &  & 0 & 0 & 0\\[0pt]
-1 & 1 & 0 & 0 &  & 0 & 0 & 0\\[0pt]
-1 & 1 & 0 & 1 &  & 0 & 0 & 0\\[0pt]
-1 & 0 & 1 & 0 &  & 0 & 0 & 0\\[0pt]
-1 & 0 & 1 & 1 &  & 0 & 0 & 0\\[0pt]
-1 & 1 & 1 & 0 &  & 0 & 0 & 0\\[0pt]
-1 & 1 & 1 & 1 &  & 0 & 0 & 0\\[0pt]
+0 & 0 & 0 & 0 &  & 0 & 0 & 0\\
+0 & 0 & 0 & 1 &  & 0 & 0 & 0\\
+0 & 1 & 0 & 0 &  & 0 & 1 & 0\\
+0 & 1 & 0 & 1 &  & 0 & 0 & 0\\
+0 & 0 & 1 & 0 &  & 0 & 1 & 0\\
+0 & 0 & 1 & 1 &  & 0 & 0 & 0\\
+0 & 1 & 1 & 0 &  & 1 & 1 & 1\\
+0 & 1 & 1 & 1 &  & 1 & 0 & 0\\
+1 & 0 & 0 & 0 &  & 0 & 0 & 0\\
+1 & 0 & 0 & 1 &  & 0 & 0 & 0\\
+1 & 1 & 0 & 0 &  & 0 & 0 & 0\\
+1 & 1 & 0 & 1 &  & 0 & 0 & 0\\
+1 & 0 & 1 & 0 &  & 0 & 0 & 0\\
+1 & 0 & 1 & 1 &  & 0 & 0 & 0\\
+1 & 1 & 1 & 0 &  & 0 & 0 & 0\\
+1 & 1 & 1 & 1 &  & 0 & 0 & 0\\
 \end{tabular}
 \end{table}
 \end{frame}
 
 
-\begin{frame}[label={sec:org65fcfbd}]{Conception d'un circuit combinatoire}
+\begin{frame}[label={sec:org6a4b44b}]{Conception d'un circuit combinatoire}
 \begin{itemize}
 \item Concevoir un circuit logique commence avec la formulation de la ou des fonctions du système et se termine avec une implémentation en portes logiques des fonctions logiques correspondantes.
 \end{itemize}
@@ -207,7 +207,7 @@ combinaisons d'entrées.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:org424ad44}]{Conception d'un circuit combinatoire \ldots{} 2}
+\begin{frame}[label={sec:orge2f9b5a}]{Conception d'un circuit combinatoire \ldots{} 2}
 \begin{enumerate}
 \setcounter{enumi}{2}
 \item Simplifier les expressions logiques pour les différentes fonctions,
@@ -219,7 +219,7 @@ mieux, par simulation).
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[label={sec:orgc61a26c}]{Conception d'un circuit combinatoire \ldots{} 3}
+\begin{frame}[label={sec:org597044d}]{Conception d'un circuit combinatoire \ldots{} 3}
 \begin{itemize}
 \item L'étape 2 est cruciale, car ce qui sera implémenté (s'il n'y a pas d'erreurs) est exactement ce que le tableau de vérité stipule.
 
@@ -229,7 +229,7 @@ mieux, par simulation).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org663a2a5}]{Conception d'un circuit combinatoire \ldots{} 4}
+\begin{frame}[label={sec:orgd95efdb}]{Conception d'un circuit combinatoire \ldots{} 4}
 N'importe quelle méthode de simplification peut être utilisée pour l'étape 3, mais il faut aussi prendre en compte 
 \begin{itemize}
 \item le type de portes disponibles pour l'implémentation,
@@ -239,7 +239,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org5b593f1}]{Alternatives d'implémentation}
+\begin{frame}[label={sec:org4fbbeaf}]{Alternatives d'implémentation}
 \begin{itemize}
 \item Considérons la fonction logique \(Y\) correspondant au diag-K de la figure suivante.
 \end{itemize}
@@ -247,11 +247,11 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/kmap3altern}
-\caption{\label{fig:org0f064b7}Diag-K d'une fonction combinatoire \(Y\) à réaliser}
+\caption{\label{fig:org551e5f8}Diag-K d'une fonction combinatoire \(Y\) à réaliser}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:org5636628}]{Implémentations via la fonction directe, en \emph{somme de produits}}
+\begin{frame}[label={sec:orge32a79f}]{Implémentations via la fonction directe, en \emph{somme de produits}}
 \begin{itemize}
 \item En \emph{somme de produits}, on a \(Y = bc + a^\prime b + a b^\prime c^\prime\) pour la fonction et \(Y^\prime = a^\prime b^\prime + b^\prime c + a b c^\prime\) pour son complément.
 
@@ -259,24 +259,24 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb4799c0}]{Implémentations via la fonction directe, en \emph{somme de produits}}
+\begin{frame}[label={sec:orgf4512f9}]{Implémentations via la fonction directe, en \emph{somme de produits}}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_1}
-\caption{\label{fig:org6b617a8}Implémentation de \(Y\) en \emph{somme de produits}}
+\caption{\label{fig:orgca9080f}Implémentation de \(Y\) en \emph{somme de produits}}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:orgb1895d7}]{Implémentations via la fonction directe, en \emph{somme de produits} \ldots{} 2}
+\begin{frame}[label={sec:org7e4a822}]{Implémentations via la fonction directe, en \emph{somme de produits} \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_2}
-\caption{\label{fig:org174988f}Implémentation (en NAND) de \(Y\) en \emph{somme de produits}}
+\caption{\label{fig:org5532516}Implémentation (en NAND) de \(Y\) en \emph{somme de produits}}
 \end{figure} 
 \end{frame}
 
 
-\begin{frame}[label={sec:orga4dae6d}]{Implémentation en \emph{produit de sommes}}
+\begin{frame}[label={sec:org8787fd2}]{Implémentation en \emph{produit de sommes}}
 \begin{itemize}
 \item En \emph{produit de sommes}, on a \(Y =(a + b ) (b + c^\prime ) (a^\prime + ba^\prime + c)\) pour la fonction et \(Y^\prime = (b^\prime +c^\prime )(a+b^\prime )(a^\prime +b+c)\) pour son complément.
 
@@ -284,24 +284,24 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org1ee97a1}]{Implémentation en \emph{produit de sommes} \ldots{} 2}
+\begin{frame}[label={sec:orgd38a793}]{Implémentation en \emph{produit de sommes} \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_ps1}
-\caption{\label{fig:org4e387e2}Implémentation de \(Y\) en \emph{produit de sommes}}
+\caption{\label{fig:org89f3e25}Implémentation de \(Y\) en \emph{produit de sommes}}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:orgdfd2965}]{Implémentation en \emph{produit de sommes} \ldots{} 3}
+\begin{frame}[label={sec:orga4503e4}]{Implémentation en \emph{produit de sommes} \ldots{} 3}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_ps2}
-\caption{\label{fig:orgb713bfe}Implémentation (en NOR) de \(Y\) en \emph{produit de sommes}}
+\caption{\label{fig:orgdae8f28}Implémentation (en NOR) de \(Y\) en \emph{produit de sommes}}
 \end{figure} 
 \end{frame}
 
 
-\begin{frame}[label={sec:orgc7773fa}]{Implémentations via la fonction complémentaire}
+\begin{frame}[label={sec:orga834cf0}]{Implémentations via la fonction complémentaire}
 \begin{itemize}
 \item On peut aussi implémenter la fonction à partir de la fonction complémentaire \(Y^\prime\), en se basant sur le complément \(Y^\prime = (b^\prime +c^\prime )(a+b^\prime )(a^\prime +b+c)\) et en inversant la sortie.
 
@@ -309,7 +309,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orga5d71a7}]{Implémentation via la fonction complémentaire, en \emph{somme de produits}}
+\begin{frame}[label={sec:orgceb5a39}]{Implémentation via la fonction complémentaire, en \emph{somme de produits}}
 \begin{itemize}
 \item En \emph{somme de produits}, on a utilisé une porte NOR en sortie pour obtenir finalement \(Y\).
 \end{itemize}
@@ -317,11 +317,11 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_comp_sp1}
-\caption{\label{fig:org527affa}Implémentation via \(Y^\prime\) en \emph{somme de produits}}
+\caption{\label{fig:orgb865f6e}Implémentation via \(Y^\prime\) en \emph{somme de produits}}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:orgdd90429}]{Implémentation via la fonction complémentaire, en \emph{somme de produits} \ldots{} 2}
+\begin{frame}[label={sec:org99881c4}]{Implémentation via la fonction complémentaire, en \emph{somme de produits} \ldots{} 2}
 \begin{itemize}
 \item Une autre forme fait appel à des portes NAND au premier niveau.
 \end{itemize}
@@ -329,11 +329,11 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_comp_sp2}
-\caption{\label{fig:org83d4a5a}Implémentation via \(Y^\prime\) en \emph{somme de produits}}
+\caption{\label{fig:org7ece2ab}Implémentation via \(Y^\prime\) en \emph{somme de produits}}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:org293aab6}]{Implémentation via la fonction complémentaire, en \emph{produit de sommes}}
+\begin{frame}[label={sec:org13185c5}]{Implémentation via la fonction complémentaire, en \emph{produit de sommes}}
 \begin{itemize}
 \item En \emph{produit de sommes}, en se basant sur le complément \(Y^\prime = (b^\prime +c^\prime )(a+b^\prime )(a^\prime +b+c)\).
 
@@ -343,19 +343,19 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_comp_ps1}
-\caption{\label{fig:org8431abe}Implémentation via \(Y^\prime\) en \emph{produit de sommes}}
+\caption{\label{fig:orgbe466d6}Implémentation via \(Y^\prime\) en \emph{produit de sommes}}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:orgec8a9b9}]{Implémentation via la fonction complémentaire, en \emph{produit de sommes} \ldots{} 2}
+\begin{frame}[label={sec:org5dfb454}]{Implémentation via la fonction complémentaire, en \emph{produit de sommes} \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/circ_altern_comp_ps2}
-\caption{\label{fig:org5e15c6f}Implémentation via \(Y^\prime\) en \emph{produit de sommes}}
+\caption{\label{fig:orgfa87bb9}Implémentation via \(Y^\prime\) en \emph{produit de sommes}}
 \end{figure} 
 \end{frame}
 
-\begin{frame}[label={sec:org08b1494}]{Circuits logiques combinatoires classiques}
+\begin{frame}[label={sec:org86d6525}]{Circuits logiques combinatoires classiques}
 \begin{itemize}
 \item Nous allons maintenant nous intéresser à un certain nombre de fonctions typiques que l'on rencontre fréquemment en circuits logiques.
 
@@ -364,7 +364,7 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \end{frame}
 
 
-\begin{frame}[label={sec:org8f378cb}]{Additionneur binaire}
+\begin{frame}[label={sec:orgab14752}]{Additionneur binaire}
 \begin{itemize}
 \item Une des opérations binaires les plus utilisées est l'addition (et la soustraction).
 
@@ -376,35 +376,35 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org6b471bd}]{Additionneur binaire \ldots{} 2}
+\begin{frame}[label={sec:org15c211a}]{Additionneur binaire \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includegraphics[scale=0.75]{../Images_png/additionneur.png}
-\caption{\label{fig:orgba33ed4}Schéma-bloc d'un additionneur complet}
+\caption{\label{fig:org2df799d}Schéma-bloc d'un additionneur complet}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgb3368cf}]{Additionneur binaire \ldots{} 3}
+\begin{frame}[label={sec:orgc62f9ca}]{Additionneur binaire \ldots{} 3}
 \begin{table}[htbp]
-\caption{\label{tab:org55986c3}Tableau de vérité pour l'additionneur binaire}
+\caption{\label{tab:orgabd2521}Tableau de vérité pour l'additionneur binaire}
 \centering
 \begin{tabular}{rrrlrr}
-\(a_{i}\) & \(b_{i}\) & \(r_{i-1}\) &  & \(R_{i}\) & \(S_{i}\)\\[0pt]
+\(a_{i}\) & \(b_{i}\) & \(r_{i-1}\) &  & \(R_{i}\) & \(S_{i}\)\\
 \hline
-0 & 0 & 0 &  & 0 & 0\\[0pt]
-0 & 0 & 1 &  & 0 & 1\\[0pt]
-0 & 1 & 0 &  & 0 & 1\\[0pt]
-0 & 1 & 1 &  & 1 & 0\\[0pt]
-1 & 0 & 0 &  & 0 & 1\\[0pt]
-1 & 0 & 1 &  & 1 & 0\\[0pt]
-1 & 1 & 0 &  & 1 & 0\\[0pt]
-1 & 1 & 1 &  & 1 & 1\\[0pt]
+0 & 0 & 0 &  & 0 & 0\\
+0 & 0 & 1 &  & 0 & 1\\
+0 & 1 & 0 &  & 0 & 1\\
+0 & 1 & 1 &  & 1 & 0\\
+1 & 0 & 0 &  & 0 & 1\\
+1 & 0 & 1 &  & 1 & 0\\
+1 & 1 & 0 &  & 1 & 0\\
+1 & 1 & 1 &  & 1 & 1\\
 \end{tabular}
 \end{table}
 \end{frame}
 
 
-\begin{frame}[label={sec:org6b11dfe}]{Demi-additionneur}
+\begin{frame}[label={sec:org47e8b23}]{Demi-additionneur}
 \begin{itemize}
 \item Un circuit logique qui effectue l'addition de deux bits est appelé un demi-additionneur.
 
@@ -414,22 +414,22 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgc701b88}]{Demi-additionneur \ldots{} 2}
+\begin{frame}[label={sec:orgcf82464}]{Demi-additionneur \ldots{} 2}
 \begin{table}[htbp]
-\caption{\label{tab:org2d6c64f}Tableau de vérité pour un demi-additionneur}
+\caption{\label{tab:org844d456}Tableau de vérité pour un demi-additionneur}
 \centering
 \begin{tabular}{rrlrr}
-\(a_{i}\) & \(b_{i}\) &  & \(R_{i}\) & \(S_{i}\)\\[0pt]
+\(a_{i}\) & \(b_{i}\) &  & \(R_{i}\) & \(S_{i}\)\\
 \hline
-0 & 0 &  & 0 & 0\\[0pt]
-0 & 1 &  & 0 & 1\\[0pt]
-1 & 0 &  & 0 & 1\\[0pt]
-1 & 1 &  & 1 & 0\\[0pt]
+0 & 0 &  & 0 & 0\\
+0 & 1 &  & 0 & 1\\
+1 & 0 &  & 0 & 1\\
+1 & 1 &  & 1 & 0\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgcd34bb6}]{Demi-additionneur \ldots{} 3}
+\begin{frame}[label={sec:orgcc94cd7}]{Demi-additionneur \ldots{} 3}
 \begin{itemize}
 \item À partir du tableau de vérité, on peut trouver que pour un demi-additionneur, \(S_{i} = a_i b_i^\prime + a_i^\prime b_i = a_i \operatorname{Xor} b_i\) et \(R_{i} = a_i b_i\).
 \end{itemize}
@@ -437,19 +437,19 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/demi_add2}
-\caption{\label{fig:org29a633c}Circuit demi-additionneur (en S de P)}
+\caption{\label{fig:org5fc7bf9}Circuit demi-additionneur (en S de P)}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org0e7c0f7}]{Demi-additionneur \ldots{} 4}
+\begin{frame}[label={sec:orgd9187c1}]{Demi-additionneur \ldots{} 4}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/demi_add}
-\caption{\label{fig:org29ef779}Circuit demi-additionneur avec porte XOR}
+\caption{\label{fig:org9df32d8}Circuit demi-additionneur avec porte XOR}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgb2eb6e3}]{Additionneur complet}
+\begin{frame}[label={sec:org1e5f91c}]{Additionneur complet}
 \begin{itemize}
 \item Une addition binaire complète de deux arguments constitués de \(n\) bits procède du bit le moins significatif vers le bit le plus significatif, en additionnant à chaque étape trois bits: \(a_{i}\), \(b_{i}\) et \(r_{i-1}\) et en produisant une somme \(S_{i}\) et une retenue \(R_{i}\).
 \end{itemize}
@@ -458,19 +458,19 @@ N'importe quelle méthode de simplification peut être utilisée pour l'étape 3
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/kmapSi_fulladder}
-\caption{\label{fig:org7636a0f}Diag-K pour \(S_i\), additionneur complet}
+\caption{\label{fig:org9a810c7}Diag-K pour \(S_i\), additionneur complet}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org426a71a}]{Additionneur complet \ldots{} 2}
+\begin{frame}[label={sec:orge63d019}]{Additionneur complet \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/kmap3fulladderR}
-\caption{\label{fig:orgb8f40a6}Diag-K pour \(R_i\), additionneur complet}
+\caption{\label{fig:org6bf1560}Diag-K pour \(R_i\), additionneur complet}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org6251b19}]{Additionneur complet \ldots{} 3}
+\begin{frame}[label={sec:orgb9c3bf5}]{Additionneur complet \ldots{} 3}
 Les expressions simplifiées sont 
 
 $$ S_{i} = a_i^\prime b_i^\prime r_{i-1} + a_i^\prime b_i
@@ -479,23 +479,23 @@ r_{i-1}^\prime + a_i b_i^\prime r_{i-1}^\prime + a_i b_i r_{i-1} $$
 $$ R_{i} = a_i b_i + a_i r_{i-1} + b_i r_{i-1} $$
 \end{frame}
 
-\begin{frame}[label={sec:org3ceb24e}]{Additionneur complet \ldots{} 4}
+\begin{frame}[label={sec:org05c6e8f}]{Additionneur complet \ldots{} 4}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/fulladderS}
-\caption{\label{fig:orgb44d512}Circuit additionneur complet pour \(S_i\)}
+\caption{\label{fig:org0e8d729}Circuit additionneur complet pour \(S_i\)}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgbdb9956}]{Additionneur complet \ldots{} 5}
+\begin{frame}[label={sec:orgab13184}]{Additionneur complet \ldots{} 5}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/fulladderR}
-\caption{\label{fig:org2bccd54}Circuit additionneur complet pour \(R_i\)}
+\caption{\label{fig:orgcd1d091}Circuit additionneur complet pour \(R_i\)}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org07816a9}]{Additionneur complet \ldots{} 6}
+\begin{frame}[label={sec:org3b187b8}]{Additionneur complet \ldots{} 6}
 Comme nous le disions précédemment, il est possible de combiner deux
 demi-additionneurs pour réaliser un additionneur complet, comme on
 peut le voir ici.
@@ -504,48 +504,60 @@ peut le voir ici.
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/fulladderxor}
-\caption{\label{fig:org7df972a}Circuit additionneur complet comportant deux demi-additionneurs et une porte OU}
+\caption{\label{fig:org232fb6b}Circuit additionneur complet comportant deux demi-additionneurs et une porte OU}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org23800b3}]{Additionneur binaire pour \(n\) bits}
+\begin{frame}[label={sec:orgad5b3b3}]{Additionneur binaire pour \(n\) bits}
 \begin{itemize}
-\item Un additionneur binaire est un circuit logique qui permet d'évaluer la somme arithmétique de deux nombres binaires de \(n\) bits.
+\item Un additionneur binaire est un circuit logique qui permet d'évaluer
+la somme arithmétique de deux nombres binaires de \(n\) bits.
 
-\item Il peut être conçu en combinant des additionneurs complets en cascade, en reliant la retenue de sortie provenant de la position 0 (la moins significative) à l'entrée de retenue de la position 1, la retenue de
-\end{itemize}
-sortie provenant de la position 1 à l'entrée de retenue de la position
-2,\ldots{}, la retenue de sortie provenant de la position \(i-1\) à l'entrée de retenue de la position \(i\), etc. (figure \ref{fig:orge2b652e}).
-
-\begin{itemize}
-\item Pour en faire un circuit général pouvant également se combiner en chaîne, on prévoit une entrée pour une retenue au niveau 0, \(r_0\) et une sortie pour une retenue du dernier niveau \(n-1\), \(R_{n-1}\).
-
-\item On doit donc, pour le chaînage, acheminer la sortie retenue du niveau courant à l'entrée de retenue du niveau suivant.
+\item Il peut être conçu en combinant des additionneurs complets en
+cascade, en reliant la retenue de sortie provenant de la position 0
+(la moins significative) à l'entrée de retenue de la position 1, la
+retenue de sortie provenant de la position 1 à l'entrée de retenue
+de la position 2,\ldots{}, la retenue de sortie provenant de la position
+\(i-1\) à l'entrée de retenue de la position \(i\), etc. (figure
+\ref{fig:org34cbec8}).
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org824d41a}]{Chaîne d'addition}
+
+\begin{frame}[label={sec:org5f03573}]{Additionneur binaire pour \(n\) bits \ldots{} 2}
+\begin{itemize}
+\item Pour en faire un circuit général pouvant également se combiner en
+chaîne, on prévoit une entrée pour une retenue au niveau 0, \(r_0\)
+et une sortie pour une retenue du dernier niveau \(n-1\),
+\(R_{n-1}\).
+
+\item On doit donc, pour le chaînage, acheminer la sortie retenue du
+niveau courant à l'entrée de retenue du niveau suivant.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[label={sec:org1621b05}]{Chaîne d'addition}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{../Images_png/additionneur_cascade.png}
-\caption{\label{fig:orge2b652e}Chaîne d'addition}
+\caption{\label{fig:org34cbec8}Chaîne d'addition}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgb08ed5d}]{Chaîne d'addition \ldots{} 2}
+\begin{frame}[label={sec:orgd50fb6b}]{Chaîne d'addition \ldots{} 2}
 \begin{itemize}
-\item Cette réalisation en forme de chaîne, en réutilisant de façon systématique un bloc élémentaire, est avantageuse du point de vue de
-\end{itemize}
+\item Cette réalisation en forme de chaîne, en réutilisant de façon
+systématique un bloc élémentaire, est avantageuse du point de vue de
 la complexité et de la flexibilité.
 
-\begin{itemize}
 \item Imaginons par exemple le défi de concevoir un additionneur binaire pour des nombres de quatre bits avec la méthode classique.
 
 \item Comme il faudrait considérer neuf entrées, le tableau de vérité comporterait \(2^9= 512\) lignes!
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org55c4491}]{Propagation de retenue}
+\begin{frame}[label={sec:org93db6de}]{Propagation de retenue}
 \begin{itemize}
 \item L'approche en cascade ne comporte pas que des avantages.
 
@@ -559,7 +571,7 @@ la complexité et de la flexibilité.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org5400924}]{Propagation de retenue \ldots{} 2}
+\begin{frame}[label={sec:org922f7d5}]{Propagation de retenue \ldots{} 2}
 \begin{itemize}
 \item Dans le cas de l'additionneur, le chemin de propagation le plus long est celui qui mène à la dernière retenue finale \(R_{n-1}\).
 
@@ -569,7 +581,7 @@ la complexité et de la flexibilité.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org2ac43bf}]{Propagation de retenue \ldots{} 3}
+\begin{frame}[label={sec:org4274c0d}]{Propagation de retenue \ldots{} 3}
 \begin{itemize}
 \item Pour déterminer le nombre de portes à franchir pour le chemin de propagation de retenue, nous avons ajouté deux sorties intermédiaires à notre circuit d'additionneur complet, \(P_i\) et \(G_i\), permettant de récrire la sortie comme \(S_i = P_i \operatorname{Xor} r_i\) et la retenue de sortie comme \(R_i = P_i r_i + G_i\).
 
@@ -581,15 +593,15 @@ la complexité et de la flexibilité.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb405e76}]{Propagation de retenue \ldots{} 4}
+\begin{frame}[label={sec:org335244a}]{Propagation de retenue \ldots{} 4}
 \begin{figure}[htbp]
 \centering
 \includesvg[width=.9\linewidth]{../Images_svg/fulladderxorPG}
-\caption{\label{fig:org5043dc5}Circuit additionneur complet montrant les signaux intermédiaires \(P_i\) et \(G_i\)}
+\caption{\label{fig:orgde1b4ca}Circuit additionneur complet montrant les signaux intermédiaires \(P_i\) et \(G_i\)}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org15c7d09}]{Anticipation de retenue}
+\begin{frame}[label={sec:orgcb73a3e}]{Anticipation de retenue}
 \begin{itemize}
 \item Les valeurs calculées par le circuit complet en chaîne ne seront valides et ne devront être prises en compte que lorsque le délai maximal se sera écoulé.
 
@@ -601,7 +613,7 @@ la complexité et de la flexibilité.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org26efe2a}]{Anticipation de retenue \ldots{} 2}
+\begin{frame}[label={sec:orge9c3f9b}]{Anticipation de retenue \ldots{} 2}
 \begin{itemize}
 \item Il serait en théorie possible de ramener à un minimum le délai de calcul de la retenue finale en réalisant cette fonction en deux niveaux, par exemple avec un \emph{produit de sommes}.
 
@@ -611,7 +623,7 @@ la complexité et de la flexibilité.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org8be12ba}]{Anticipation de retenue \ldots{} 3}
+\begin{frame}[label={sec:org7ea0107}]{Anticipation de retenue \ldots{} 3}
 \begin{itemize}
 \item On fait appel aux deux signaux \(P_i = a_i \operatorname{Xor} b_i\) et \(G_i = a_i b_i\), qui donnent respectivement pour la sortie et la retenue de sortie
 \end{itemize}
@@ -626,7 +638,7 @@ $$ R_i = P_i r_{i-1} + G_i $$
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgd7a6bc3}]{Anticipation de retenue \ldots{} 4}
+\begin{frame}[label={sec:orgf6a4caf}]{Anticipation de retenue \ldots{} 4}
 En partant du niveau 0, voici les expressions pour les différentes retenues:
 
 $$ R_0 = r_0 = \operatorname{in}$$
@@ -636,7 +648,7 @@ $$ R_3 = G_2 + P_2 R_2 = G_2 + P_2 G_1 + P_2 P_1 G_0 + P_2 P_1 P_0 R_0 $$
 etc.
 \end{frame}
 
-\begin{frame}[label={sec:orgb8d88d4}]{Anticipation de retenue \ldots{} 5}
+\begin{frame}[label={sec:org1f68a43}]{Anticipation de retenue \ldots{} 5}
 \begin{itemize}
 \item Les expressions pour les retenues successives sont en forme \emph{somme de produits}, ce qui mène à une implémentation à deux niveaux pour calculer les retenues rapidement.
 
@@ -646,16 +658,16 @@ etc.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org4233eb8}]{Anticipation de retenue \ldots{} 6}
+\begin{frame}[label={sec:org907b825}]{Anticipation de retenue \ldots{} 6}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.55]{../Images_svg/lookahead1}
-\caption{\label{fig:orgdd21ef3}Circuit d'anticipateur de retenue pour \(n= 4\)}
+\caption{\label{fig:orga63d756}Circuit d'anticipateur de retenue pour \(n= 4\)}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}[label={sec:orgc4df0a2}]{Soustraction}
+\begin{frame}[label={sec:org58c7c9e}]{Soustraction}
 \begin{itemize}
 \item Pour effectuer une soustraction \(A - B\), il faut effectuer \(A + (-B)\), c'est-à-dire additionner le complément à deux de \(B\) à \(A\).
 
@@ -663,7 +675,7 @@ etc.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgd319f19}]{Soustraction \ldots{} 2}
+\begin{frame}[label={sec:org3bf0e23}]{Soustraction \ldots{} 2}
 \begin{itemize}
 \item Il est ainsi possible de concevoir un additionneur/soustracteur commandé par un signal de contrôle \(O\).
 
@@ -675,15 +687,15 @@ etc.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgce40f0f}]{Soustraction \ldots{} 2}
+\begin{frame}[label={sec:org9502f42}]{Soustraction \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[width=.9\linewidth]{../Images_svg/add_sous}
-\caption{\label{fig:org2cf5ca6}Circuit additionneur/ soustracteur 4 bits}
+\caption{\label{fig:orgc93358d}Circuit additionneur/ soustracteur 4 bits}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org8e0138b}]{Débordements}
+\begin{frame}[label={sec:orgad33db6}]{Débordements}
 \begin{itemize}
 \item Un additionneur ou un soustracteur est conçu en fonction d'une taille de nombres \(n\).
 
@@ -697,7 +709,7 @@ etc.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org527dd60}]{Débordements: nombre signés}
+\begin{frame}[label={sec:org7190d69}]{Débordements: nombre signés}
 \begin{itemize}
 \item Les calculs avec des nombres signés en complément à deux peuvent aussi occasionner des débordements, mais la détection doit tenir compte des bits qui indiquent le signe des nombres.
 
@@ -707,7 +719,7 @@ etc.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgaeb67e1}]{Débordements: illustration}
+\begin{frame}[label={sec:org84d39b7}]{Débordements: illustration}
 \begin{itemize}
 \item Prenons le cas de nombres représentés sur huit bits en complément à deux.
 
@@ -721,41 +733,41 @@ etc.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org7df76c3}]{Débordements: deux positifs}
+\begin{frame}[label={sec:orgfd1f507}]{Débordements: deux positifs}
 \begin{table}[htbp]
-\caption{\label{tab:org16f5a53}Addition de (+50)10 + (+100)10 = (00110010)2 + (01100100)2}
+\caption{\label{tab:org62b8e10}Addition de (+50)10 + (+100)10 = (00110010)2 + (01100100)2}
 \centering
 \begin{tabular}{lrrl}
-Retenues & 0 & 1 & \\[0pt]
+Retenues & 0 & 1 & \\
 \hline
- &  & 0 & 011 0010\\[0pt]
- &  & 0 & 110 0100\\[0pt]
+ &  & 0 & 011 0010\\
+ &  & 0 & 110 0100\\
 \hline
- &  & 1 & 001 0110\\[0pt]
+ &  & 1 & 001 0110\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgfd85227}]{Débordements: deux négatifs}
+\begin{frame}[label={sec:org0cb6377}]{Débordements: deux négatifs}
 \begin{itemize}
 \item Refaisons le même exercice avec deux nombres négatifs: on additionne (-50)10 = (1100 1110)2 avec (-100)10 = (1001 1100)2, qui créera aussi un débordement.
 \end{itemize}
 
 \begin{table}[htbp]
-\caption{\label{tab:orgc78d578}Addition de (-50)10 + (-100)10 = (1100 1110)2 + (1001 1100)2}
+\caption{\label{tab:orge71bfdf}Addition de (-50)10 + (-100)10 = (1100 1110)2 + (1001 1100)2}
 \centering
 \begin{tabular}{lrrl}
-Retenues & 1 & 0 & \\[0pt]
+Retenues & 1 & 0 & \\
 \hline
- &  & 1 & 100 1110\\[0pt]
- &  & 1 & 001 1100\\[0pt]
+ &  & 1 & 100 1110\\
+ &  & 1 & 001 1100\\
 \hline
- &  & 0 & 110 1010\\[0pt]
+ &  & 0 & 110 1010\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:org0405f41}]{Débordements: règle générale}
+\begin{frame}[label={sec:org7eaaf61}]{Débordements: règle générale}
 \begin{itemize}
 \item On peut dans les deux cas détecter le débordement en observant que la retenue du dernier niveau et la retenue de l'avant-dernier niveau sont différentes.
 
@@ -767,16 +779,16 @@ Retenues & 1 & 0 & \\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org8f19296}]{Détection de débordements}
+\begin{frame}[label={sec:org1ae69ef}]{Détection de débordements}
 \begin{figure}[htbp]
 \centering
 \includesvg[width=.9\linewidth]{../Images_svg/add_sous_deb}
-\caption{\label{fig:orgcdcb696}Circuit additionneur/soustracteur 4 bits avec débordement}
+\caption{\label{fig:org9921479}Circuit additionneur/soustracteur 4 bits avec débordement}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}[label={sec:org7515710}]{Multiplexeur}
+\begin{frame}[label={sec:orgcd3053a}]{Multiplexeur}
 \begin{itemize}
 \item Un multiplexeur est un circuit combinatoire qui sélectionne le signal qui provient d'une de ses entrées, et fait que sa sortie est égale à l'entrée sélectionnée.
 
@@ -786,7 +798,7 @@ Retenues & 1 & 0 & \\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org22a95d4}]{Multiplexeur deux-vers-un}
+\begin{frame}[label={sec:orga2f04d6}]{Multiplexeur deux-vers-un}
 \begin{itemize}
 \item Le multiplexeur le plus simple utilise un seul signal de sélection \(S\) qui permet de choisir une de deux entrées \(I_0\) ou \(I_1\) pour agir sur la sortie \(Y\).
 \end{itemize}
@@ -794,19 +806,19 @@ Retenues & 1 & 0 & \\[0pt]
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/mux2b}
-\caption{\label{fig:org309811e}Circuit du multiplexeur deux-vers-un}
+\caption{\label{fig:orge2c73e5}Circuit du multiplexeur deux-vers-un}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org5f70e39}]{Multiplexeur deux-vers-un: symbole}
+\begin{frame}[label={sec:org652ed01}]{Multiplexeur deux-vers-un: symbole}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/mux2symb}
-\caption{\label{fig:org722666f}Symbole du multiplexeur deux-vers-un}
+\caption{\label{fig:org3634555}Symbole du multiplexeur deux-vers-un}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org9cd4b15}]{Multiplexeur quatre-vers-un}
+\begin{frame}[label={sec:org9c35613}]{Multiplexeur quatre-vers-un}
 \begin{itemize}
 \item Un multiplexeur quatre-vers-un permet de choisir une de quatre entrées en utilisant deux signaux de sélection.
 
@@ -816,40 +828,40 @@ Retenues & 1 & 0 & \\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge43e2c0}]{Multiplexeur quatre-vers-un \ldots{} 2}
+\begin{frame}[label={sec:org72cea79}]{Multiplexeur quatre-vers-un \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/mux4}
-\caption{\label{fig:org71a0555}Circuit du multiplexeur quatre-vers-un}
+\caption{\label{fig:orgf6c3c1c}Circuit du multiplexeur quatre-vers-un}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgca18ba2}]{Multiplexeur quatre-vers-un \ldots{} 3}
+\begin{frame}[label={sec:org0a1ee99}]{Multiplexeur quatre-vers-un \ldots{} 3}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/mux4symb}
-\caption{\label{fig:org2b5ad99}Symbole du multiplexeur quatre-vers-un}
+\caption{\label{fig:org1f76c06}Symbole du multiplexeur quatre-vers-un}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgafa59e3}]{Multiplexeur quatre-vers-un \ldots{} 4}
+\begin{frame}[label={sec:orgfa25d90}]{Multiplexeur quatre-vers-un \ldots{} 4}
 \begin{table}[htbp]
-\caption{\label{tab:orgd50d699}Tableau de vérité du multiplexeur quatre-vers-un}
+\caption{\label{tab:orgeb3fde0}Tableau de vérité du multiplexeur quatre-vers-un}
 \centering
 \begin{tabular}{rrll}
-\(S_1\) & \(S_0\) &  & \(Y\)\\[0pt]
+\(S_1\) & \(S_0\) &  & \(Y\)\\
 \hline
-0 & 0 &  & \(I_0\)\\[0pt]
-0 & 1 &  & \(I_1\)\\[0pt]
-1 & 0 &  & \(I_2\)\\[0pt]
-1 & 1 &  & \(I_3\)\\[0pt]
+0 & 0 &  & \(I_0\)\\
+0 & 1 &  & \(I_1\)\\
+1 & 0 &  & \(I_2\)\\
+1 & 1 &  & \(I_3\)\\
 \end{tabular}
 \end{table}
 \end{frame}
 
 
 
-\begin{frame}[label={sec:org3011378}]{Décodeur}
+\begin{frame}[label={sec:orga7e3613}]{Décodeur}
 \begin{itemize}
 \item Un décodeur est un circuit combinatoire qui sert à interpréter des données encodées, le plus souvent en binaire.
 
@@ -863,34 +875,34 @@ Retenues & 1 & 0 & \\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgd52ce10}]{Décodeur \ldots{} 2}
+\begin{frame}[label={sec:orgde467f0}]{Décodeur \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.55]{../Images_svg/decod3_8}
-\caption{\label{fig:orgf6f1971}Circuit du décodeur trois-vers-huit}
+\caption{\label{fig:orgd8f77ab}Circuit du décodeur trois-vers-huit}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgd2f3ff3}]{Décodeur \ldots{} 3}
+\begin{frame}[label={sec:orgcd10f09}]{Décodeur \ldots{} 3}
 \begin{table}[htbp]
-\caption{\label{tab:org758580d}Tableau de vérité du décodeur trois-vers-huit}
+\caption{\label{tab:org3e3bd15}Tableau de vérité du décodeur trois-vers-huit}
 \centering
 \begin{tabular}{rrrlrrrrrrrr}
-\(x\) & \(y\) & \(z\) &  & \(D_0\) & \(D_1\) & \(D_2\) & \(D_3\) & \(D_4\) & \(D_5\) & \(D_6\) & \(D_7\)\\[0pt]
+\(x\) & \(y\) & \(z\) &  & \(D_0\) & \(D_1\) & \(D_2\) & \(D_3\) & \(D_4\) & \(D_5\) & \(D_6\) & \(D_7\)\\
 \hline
-0 & 0 & 0 &  & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\[0pt]
-0 & 0 & 1 &  & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\[0pt]
-0 & 1 & 0 &  & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\[0pt]
-0 & 1 & 1 &  & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\[0pt]
-1 & 0 & 0 &  & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\[0pt]
-1 & 0 & 1 &  & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\[0pt]
-1 & 1 & 0 &  & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\[0pt]
-1 & 1 & 1 &  & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\[0pt]
+0 & 0 & 0 &  & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 &  & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 &  & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 1 &  & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+1 & 0 & 0 &  & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+1 & 0 & 1 &  & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+1 & 1 & 0 &  & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
+1 & 1 & 1 &  & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgd0b65b6}]{Décodeur avec sortie active basse et signal de contrôle}
+\begin{frame}[label={sec:org93e0f79}]{Décodeur avec sortie active basse et signal de contrôle}
 \begin{itemize}
 \item On peut aussi concevoir des décodeurs basés sur des portes NAND et dont la sortie sélectionnée est active au niveau bas.
 
@@ -906,35 +918,35 @@ Retenues & 1 & 0 & \\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgef5f6ca}]{Décodeur avec sortie active basse et signal de contrôle \ldots{} 2}
+\begin{frame}[label={sec:orgd88ee28}]{Décodeur avec sortie active basse et signal de contrôle \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/decode2_4_enable}
-\caption{\label{fig:org2acff2f}Décodeur à sortie active basse}
+\caption{\label{fig:org3fef8aa}Décodeur à sortie active basse}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org17e40d6}]{Décodeur avec sortie active basse et signal de contrôle \ldots{} 3}
+\begin{frame}[label={sec:org7215aee}]{Décodeur avec sortie active basse et signal de contrôle \ldots{} 3}
 \begin{table}[htbp]
-\caption{\label{tab:org06f59b6}Tableau de vérité, décodeur 2 vers 4 avec sortie active basse}
+\caption{\label{tab:orgd089392}Tableau de vérité, décodeur 2 vers 4 avec sortie active basse}
 \centering
 \begin{tabular}{rrrlrrrr}
-\(E\) & \(x\) & \(y\) &  & \(D_0\) & \(D_1\) & \(D_2\) & \(D_3\)\\[0pt]
+\(E\) & \(x\) & \(y\) &  & \(D_0\) & \(D_1\) & \(D_2\) & \(D_3\)\\
 \hline
-0 & 0 & 0 &  & 0 & 1 & 1 & 1\\[0pt]
-0 & 0 & 1 &  & 1 & 0 & 1 & 1\\[0pt]
-0 & 1 & 0 &  & 1 & 1 & 0 & 1\\[0pt]
-0 & 1 & 1 &  & 1 & 1 & 1 & 0\\[0pt]
-1 & 0 & 0 &  & 1 & 1 & 1 & 1\\[0pt]
-1 & 0 & 1 &  & 1 & 1 & 1 & 1\\[0pt]
-1 & 1 & 0 &  & 1 & 1 & 1 & 1\\[0pt]
-1 & 1 & 1 &  & 1 & 1 & 1 & 1\\[0pt]
+0 & 0 & 0 &  & 0 & 1 & 1 & 1\\
+0 & 0 & 1 &  & 1 & 0 & 1 & 1\\
+0 & 1 & 0 &  & 1 & 1 & 0 & 1\\
+0 & 1 & 1 &  & 1 & 1 & 1 & 0\\
+1 & 0 & 0 &  & 1 & 1 & 1 & 1\\
+1 & 0 & 1 &  & 1 & 1 & 1 & 1\\
+1 & 1 & 0 &  & 1 & 1 & 1 & 1\\
+1 & 1 & 1 &  & 1 & 1 & 1 & 1\\
 \end{tabular}
 \end{table}
 \end{frame}
 
 
-\begin{frame}[label={sec:orgf97707e}]{Implémentation de fonctions arbitraires au moyen d'un décodeur}
+\begin{frame}[label={sec:org91d4a93}]{Implémentation de fonctions arbitraires au moyen d'un décodeur}
 \begin{itemize}
 \item Puisqu'un décodeur active sélectivement les \(2^n\) minterms possibles à partir de ses \(n\) entrées, il est possible d'implémenter, en \emph{somme de produits}, une fonction quelconque en acheminant les minterms de la fonction à une porte OU.
 
@@ -942,7 +954,7 @@ Retenues & 1 & 0 & \\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgbb28237}]{Implémentation d'une fonction arbitraire}
+\begin{frame}[label={sec:org884acf1}]{Implémentation d'une fonction arbitraire}
 Voici par exemple une fonction réalisée à partir d'un décodeur trois-vers-huit.
 \begin{itemize}
 \item L'entrée \(I\) correspond à un vecteur de trois bits. Le
@@ -957,30 +969,30 @@ $$ Y = \sum(0,2,5,6)$$
 \end{frame}
 
 
-\begin{frame}[label={sec:org81b5d82}]{Implémentation d'une fonction arbitraire \ldots{} 3}
+\begin{frame}[label={sec:org2a85199}]{Implémentation d'une fonction arbitraire \ldots{} 3}
 \begin{itemize}
 \item Le tableau de vérité correspondant est le suivant.
 \end{itemize}
 
 \begin{table}[htbp]
-\caption{\label{tab:orgfc76a04}Tableau de vérité pour la fonction arbitraire}
+\caption{\label{tab:org93215f5}Tableau de vérité pour la fonction arbitraire}
 \centering
 \begin{tabular}{rrrlr}
-\(I_2\) & \(I_1\) & \(I_0\) &  & \(Y\)\\[0pt]
+\(I_2\) & \(I_1\) & \(I_0\) &  & \(Y\)\\
 \hline
-0 & 0 & 0 &  & 1\\[0pt]
-0 & 0 & 1 &  & 0\\[0pt]
-0 & 1 & 0 &  & 1\\[0pt]
-0 & 1 & 1 &  & 0\\[0pt]
-1 & 0 & 0 &  & 0\\[0pt]
-1 & 0 & 1 &  & 1\\[0pt]
-1 & 1 & 0 &  & 1\\[0pt]
-1 & 1 & 1 &  & 0\\[0pt]
+0 & 0 & 0 &  & 1\\
+0 & 0 & 1 &  & 0\\
+0 & 1 & 0 &  & 1\\
+0 & 1 & 1 &  & 0\\
+1 & 0 & 0 &  & 0\\
+1 & 0 & 1 &  & 1\\
+1 & 1 & 0 &  & 1\\
+1 & 1 & 1 &  & 0\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgc38ee96}]{Implémentation de fonctions arbitraires}
+\begin{frame}[label={sec:orge3aec1b}]{Implémentation de fonctions arbitraires}
 \begin{itemize}
 \item Une fonction qui comporte de nombreux minterms exige l'utilisation d'une porte OU avec un grand nombre d'entrées.
 
@@ -988,7 +1000,7 @@ $$ Y = \sum(0,2,5,6)$$
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org5349f38}]{Encodeur}
+\begin{frame}[label={sec:orgff8dc78}]{Encodeur}
 \begin{itemize}
 \item Un encodeur effectue le travail inverse du décodeur: lorsqu'une de ses \(2^n\) (ou moins) entrées est activée, il donne le code binaire correspondant sur ses \(n\) sorties vues comme un vecteur binaire.
 
@@ -996,34 +1008,34 @@ $$ Y = \sum(0,2,5,6)$$
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge928ef0}]{Encodeur \ldots{} 2}
+\begin{frame}[label={sec:org3a5ec7a}]{Encodeur \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/encode1}
-\caption{\label{fig:orgc4d368b}Encodeur 3 bits}
+\caption{\label{fig:org48e3eb8}Encodeur 3 bits}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgba8fdda}]{Encodeur \ldots{} 3}
+\begin{frame}[label={sec:orge8babd1}]{Encodeur \ldots{} 3}
 \begin{table}[htbp]
-\caption{\label{tab:org8ded1e5}Tableau de vérité pour l'encodeur 3 bits}
+\caption{\label{tab:org697bb95}Tableau de vérité pour l'encodeur 3 bits}
 \centering
 \begin{tabular}{rrrrrrrrlrrr}
-\(D_0\) & \(D_1\) & \(D_2\) & \(D_3\) & \(D_4\) & \(D_5\) & \(D_6\) & \(D_7\) &  & \(x\) & \(y\) & \(z\)\\[0pt]
+\(D_0\) & \(D_1\) & \(D_2\) & \(D_3\) & \(D_4\) & \(D_5\) & \(D_6\) & \(D_7\) &  & \(x\) & \(y\) & \(z\)\\
 \hline
-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &  & 0 & 0 & 0\\[0pt]
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 &  & 0 & 0 & 1\\[0pt]
-0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 &  & 0 & 1 & 0\\[0pt]
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 &  & 0 & 1 & 1\\[0pt]
-0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 &  & 1 & 0 & 0\\[0pt]
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 &  & 1 & 0 & 1\\[0pt]
-0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 &  & 1 & 1 & 0\\[0pt]
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 &  & 1 & 1 & 1\\[0pt]
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 &  & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 &  & 0 & 0 & 1\\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 &  & 0 & 1 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 &  & 0 & 1 & 1\\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 &  & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 &  & 1 & 0 & 1\\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 &  & 1 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 &  & 1 & 1 & 1\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:org378948e}]{Encodeur \ldots{} 4}
+\begin{frame}[label={sec:orge5ce853}]{Encodeur \ldots{} 4}
 \begin{itemize}
 \item Cette configuration d'encodeur exige qu'une seule entrée ne soit activée à la fois.
 
@@ -1033,7 +1045,7 @@ $$ Y = \sum(0,2,5,6)$$
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org5ab7036}]{Encodeur à priorité}
+\begin{frame}[label={sec:org211ff5b}]{Encodeur à priorité}
 \begin{itemize}
 \item Une encodeur à priorité met en oeuvre une priorité entre les entrées.
 
@@ -1047,39 +1059,39 @@ $$ Y = \sum(0,2,5,6)$$
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org82d118e}]{Encodeur à priorité \ldots{} 2}
+\begin{frame}[label={sec:org1f3f4a6}]{Encodeur à priorité \ldots{} 2}
 \begin{table}[htbp]
-\caption{\label{tab:org6f0aadb}Tableau de vérité pour encodeur 2 bits à priorité}
+\caption{\label{tab:orge12cdba}Tableau de vérité pour encodeur 2 bits à priorité}
 \centering
 \begin{tabular}{lrrrlrrr}
-\(D_0\) & \(D_1\) & \(D_2\) & \(D_3\) &  & \(x\) & \(y\) & \(V\)\\[0pt]
+\(D_0\) & \(D_1\) & \(D_2\) & \(D_3\) &  & \(x\) & \(y\) & \(V\)\\
 \hline
-0 & 0 & 0 & 0 &  & X & X & 0\\[0pt]
-1 & 0 & 0 & 0 &  & 0 & 0 & 1\\[0pt]
-X & 1 & 0 & 0 &  & 0 & 1 & 1\\[0pt]
-X & X & 1 & 0 &  & 1 & 0 & 1\\[0pt]
-X & X & X & 1 &  & 1 & 1 & 1\\[0pt]
+0 & 0 & 0 & 0 &  & X & X & 0\\
+1 & 0 & 0 & 0 &  & 0 & 0 & 1\\
+X & 1 & 0 & 0 &  & 0 & 1 & 1\\
+X & X & 1 & 0 &  & 1 & 0 & 1\\
+X & X & X & 1 &  & 1 & 1 & 1\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orgce17ae5}]{Encodeur à priorité \ldots{} 3}
+\begin{frame}[label={sec:org34374a7}]{Encodeur à priorité \ldots{} 3}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/kmap4foncencode_pri_x}
-\caption{\label{fig:org1ba36b6}Diag-K pour \(x\) de l'encodeur à priorité}
+\caption{\label{fig:org76c871a}Diag-K pour \(x\) de l'encodeur à priorité}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgb53fb9b}]{Encodeur à priorité \ldots{} 4}
+\begin{frame}[label={sec:org622d451}]{Encodeur à priorité \ldots{} 4}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/kmap4foncencode_pri_y}
-\caption{\label{fig:org43e7eee}Diag-K pour \(y\) de l'encodeur à priorité}
+\caption{\label{fig:org58455f4}Diag-K pour \(y\) de l'encodeur à priorité}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org0a649d8}]{Encodeur à priorité: expressions}
+\begin{frame}[label={sec:org4dd0aaf}]{Encodeur à priorité: expressions}
 En simplifiant, on trouve les expressions suivantes:
 
 $$ x = D_2 + D_3 $$
@@ -1089,15 +1101,15 @@ $$ y = (D_1 D_2^\prime) + D_3 $$
 $$ V = D_0 + D_1 + D_2 + D_3 $$
 \end{frame}
 
-\begin{frame}[label={sec:org3765ddc}]{Encodeur à priorité: réalisation}
+\begin{frame}[label={sec:orgcbce471}]{Encodeur à priorité: réalisation}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/encode_pri}
-\caption{\label{fig:org37c7f1c}Encodeur 2 bits à priorité, en P de S}
+\caption{\label{fig:org4d08016}Encodeur 2 bits à priorité, en P de S}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org67ce432}]{Encodeur à priorité: autre réalisation}
+\begin{frame}[label={sec:orgb9d3b59}]{Encodeur à priorité: autre réalisation}
 Puisque le terme \(x = D_2 + D_3\) est déjà calculé pour \(x\), on
 peut le réutiliser pour construire le terme pour \(V\), tel
 qu'illustré ci-dessous, ce qui évite d'utiliser une porte OU à quatre
@@ -1106,11 +1118,11 @@ entrées.
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/encode_pri2}
-\caption{\label{fig:org73f303c}Encodeur 2 bits à priorité avec ré-utilisation d'un des termes}
+\caption{\label{fig:orged7b0f2}Encodeur 2 bits à priorité avec ré-utilisation d'un des termes}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgcd7dcdf}]{Comparateur de magnitude}
+\begin{frame}[label={sec:orgab4def7}]{Comparateur de magnitude}
 \begin{itemize}
 \item Comparer la magnitude de deux nombres binaires est une opération qui peut se systématiser, comme on l'a fait pour l'addition.
 
@@ -1120,7 +1132,7 @@ entrées.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgd68f5ef}]{Comparateur de magnitude \ldots{} 2}
+\begin{frame}[label={sec:orgbc8a508}]{Comparateur de magnitude \ldots{} 2}
 \begin{itemize}
 \item Pour illustrer, nous considérerons \(n = 4\).
 \end{itemize}
@@ -1137,7 +1149,7 @@ $$ b_3 b_2 b_1 b_0 $$
 \end{frame}
 
 
-\begin{frame}[label={sec:orgd89a05f}]{Comparateur de magnitude \ldots{} 3}
+\begin{frame}[label={sec:org86d268c}]{Comparateur de magnitude \ldots{} 3}
 \begin{itemize}
 \item Si les bits diffèrent en position \(i\), \(a_i = 1\) nous permet de conclure que \(A > B\), et, à l'inverse, \(a_i = 0\) nous indique que \(A < B\).
 
@@ -1147,11 +1159,11 @@ $$ b_3 b_2 b_1 b_0 $$
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/comparateur}
-\caption{\label{fig:orga901ad7}Comparateur de magnitude}
+\caption{\label{fig:org3033d5f}Comparateur de magnitude}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org9952379}]{Comparateur de magnitude: \(n\) bits}
+\begin{frame}[label={sec:org4b32708}]{Comparateur de magnitude: \(n\) bits}
 \begin{itemize}
 \item Notre démarche de conception pour \(n\) bits sera calquée sur la procédure que nous utilisons intuitivement pour faire une telle comparaison.
 
@@ -1163,7 +1175,7 @@ $$ b_3 b_2 b_1 b_0 $$
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orge9d244f}]{Comparateur de magnitude: \(n\) bits}
+\begin{frame}[label={sec:org6680f65}]{Comparateur de magnitude: \(n\) bits}
 \begin{itemize}
 \item Les signaux intermédiaires \(x_i = a_i b_i + a_i^\prime b_i^\prime\) qui indiquent si deux bits d'une position sont égaux seront mis à profit pour alimenter un réseau de conditions en forme \emph{somme de produits} qui mettront en application les règles énoncées.
 
@@ -1173,7 +1185,7 @@ $$ b_3 b_2 b_1 b_0 $$
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orga8799e8}]{Comparateur de magnitude: 4 bits}
+\begin{frame}[label={sec:orga9f046d}]{Comparateur de magnitude: 4 bits}
 $$ (A = B) = x_3 x_2 x_1 x_0 $$ 
 
 $$ (A < B) = a_3^\prime b_3 + x_3  a_2^\prime b_2  +  x_3 x_2  a_1^\prime b_1 +  x_3 x_2 x_1  a_0^\prime b_0 $$
@@ -1185,15 +1197,15 @@ $$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime + 
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org0fcb979}]{Comparateur de magnitude: 4 bits \ldots{} 2}
+\begin{frame}[label={sec:org4d44a9e}]{Comparateur de magnitude: 4 bits \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.45]{../Images_svg/comparateur_4b}
-\caption{\label{fig:orgf25414b}Comparateur de magnitude 4 bits}
+\caption{\label{fig:org7107471}Comparateur de magnitude 4 bits}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orgb3d8351}]{Démultiplexeur}
+\begin{frame}[label={sec:org780b1fa}]{Démultiplexeur}
 \begin{itemize}
 \item Un démultiplexeur achemine la valeur logique de son entrée à une sortie (parmi \(2^n\) sorties) sélectionnée par un code binaire de sélection.
 
@@ -1203,15 +1215,15 @@ $$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime + 
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org3b3d50d}]{Démultiplexeur \ldots{} 2}
+\begin{frame}[label={sec:org7e83382}]{Démultiplexeur \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.3]{../Images_svg/demux8}
-\caption{\label{fig:org97f0031}Démultiplexeur un-vers-huit}
+\caption{\label{fig:org34b8a0c}Démultiplexeur un-vers-huit}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:orge895e11}]{Encodeurs divers}
+\begin{frame}[label={sec:orgdfc4f38}]{Encodeurs divers}
 \begin{itemize}
 \item Il est possible de concevoir des encodeurs pour des fonctions spécialisées, comme des encodeurs pour commander des affichages.
 
@@ -1220,7 +1232,7 @@ $$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime + 
 \end{frame}
 
 
-\begin{frame}[label={sec:orgd31e130}]{Portes à trois états et tampon de bus}
+\begin{frame}[label={sec:org0d3e65b}]{Portes à trois états et tampon de bus}
 \begin{itemize}
 \item Les portes à trois états ajoutent un troisième état de fonctionnement aux sorties: en plus des niveaux logiques bas et haut conventionnels, un troisième état appelé \alert{haute impédance} fait en sorte que la sortie se comporte comme si elle n'était plus connectée au circuit.
 
@@ -1230,7 +1242,7 @@ $$ (A > B) = a_3 b_3^\prime + x_3  a_2 b_2^\prime  +  x_3 x_2  a_1 b_1^\prime + 
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org34c3bd9},fragile]{Portes à trois états et tampon de bus \ldots{} 2}
+\begin{frame}[label={sec:org3570bbb},fragile]{Portes à trois états et tampon de bus \ldots{} 2}
  Le figure ci-dessous montre une porte tampon à trois états. Avec
 \texttt{Contrôle} = 0, la sortie est en haute impédance; avec  \texttt{Contrôle} = 1,
 la sortie est égale à l'entrée.
@@ -1238,11 +1250,11 @@ la sortie est égale à l'entrée.
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/buf_3s}
-\caption{\label{fig:org452d03f}Porte tampon à trois états}
+\caption{\label{fig:org237d1d5}Porte tampon à trois états}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org3da19b9}]{Portes à trois états et tampon de bus \ldots{} 3}
+\begin{frame}[label={sec:org23936b9}]{Portes à trois états et tampon de bus \ldots{} 3}
 \begin{itemize}
 \item En plaçant des tampons à trois états à chaque sortie d'un décodeur, on peut réaliser un multiplexeur \(n\)-vers-un en reliant les sorties des tampons à une sortie unique.
 
@@ -1254,32 +1266,32 @@ la sortie est égale à l'entrée.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgb551a91}]{Portes à trois états et tampon de bus \ldots{} 4}
+\begin{frame}[label={sec:orgaf6a9ff}]{Portes à trois états et tampon de bus \ldots{} 4}
 \begin{table}[htbp]
-\caption{\label{tab:org3a594dd}Tableau de vérité pour un  multiplexeur quatre-vers-un trois états}
+\caption{\label{tab:org1c2a7e3}Tableau de vérité pour un  multiplexeur quatre-vers-un trois états}
 \centering
 \begin{tabular}{rrrlllllll}
-\(s_1\) & \(S_0\) & \(E\) &  & \(I_0\) & \(I_1\) & \(I_2\) & \(I_3\) &  & \(Y\)\\[0pt]
+\(s_1\) & \(S_0\) & \(E\) &  & \(I_0\) & \(I_1\) & \(I_2\) & \(I_3\) &  & \(Y\)\\
 \hline
-X & X & 0 &  & X & X & X & X &  & Z\\[0pt]
-0 & 0 & 1 &  & \(I_0\) & X & X & X &  & \(I_0\)\\[0pt]
-0 & 1 & 1 &  & X & \(I_1\) & X & X &  & \(I_1\)\\[0pt]
-1 & 0 & 1 &  & X & X & \(I_2\) & X &  & \(I_2\)\\[0pt]
-1 & 1 & 1 &  & X & X & X & \(I_3\) &  & \(I_3\)\\[0pt]
+X & X & 0 &  & X & X & X & X &  & Z\\
+0 & 0 & 1 &  & \(I_0\) & X & X & X &  & \(I_0\)\\
+0 & 1 & 1 &  & X & \(I_1\) & X & X &  & \(I_1\)\\
+1 & 0 & 1 &  & X & X & \(I_2\) & X &  & \(I_2\)\\
+1 & 1 & 1 &  & X & X & X & \(I_3\) &  & \(I_3\)\\
 \end{tabular}
 \end{table}
 \end{frame}
 
-\begin{frame}[label={sec:orge462d7a}]{Multiplexeur trois états}
+\begin{frame}[label={sec:org90a7270}]{Multiplexeur trois états}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/mux_4_1_3s}
-\caption{\label{fig:org417242c}Multiplexeur quatre-vers-un trois états}
+\caption{\label{fig:org62bad22}Multiplexeur quatre-vers-un trois états}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}[label={sec:org6064841},fragile]{Émetteur-récepteur de bus}
+\begin{frame}[label={sec:org2499630},fragile]{Émetteur-récepteur de bus}
  \begin{itemize}
 \item La fonctionnalité trois-états permet aussi de concevoir un émetteur-récepteur de bus.
 
@@ -1291,11 +1303,11 @@ X & X & 0 &  & X & X & X & X &  & Z\\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org7a40166}]{Émetteur-récepteur de bus \ldots{} 2}
+\begin{frame}[label={sec:orgbf5f66a}]{Émetteur-récepteur de bus \ldots{} 2}
 \begin{figure}[htbp]
 \centering
 \includesvg[scale=0.75]{../Images_svg/bus_trans}
-\caption{\label{fig:org84583cc}Émetteur-récepteur de bus}
+\caption{\label{fig:org0491670}Émetteur-récepteur de bus}
 \end{figure}
 \end{frame}
 \end{document}

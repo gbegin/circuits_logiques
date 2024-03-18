@@ -424,15 +424,28 @@ peut le voir ici.
 
 ** Additionneur binaire pour \(n\) bits
 
-- Un additionneur binaire est un circuit logique qui permet d'évaluer la somme arithmétique de deux nombres binaires de \(n\) bits.
+- Un additionneur binaire est un circuit logique qui permet d'évaluer
+  la somme arithmétique de deux nombres binaires de \(n\) bits.
 
-- Il peut être conçu en combinant des additionneurs complets en cascade, en reliant la retenue de sortie provenant de la position 0 (la moins significative) à l'entrée de retenue de la position 1, la retenue de
-sortie provenant de la position 1 à l'entrée de retenue de la position
-2,..., la retenue de sortie provenant de la position \(i-1\) à l'entrée de retenue de la position \(i\), etc. (figure [[fig-chaine_add]]).
+- Il peut être conçu en combinant des additionneurs complets en
+  cascade, en reliant la retenue de sortie provenant de la position 0
+  (la moins significative) à l'entrée de retenue de la position 1, la
+  retenue de sortie provenant de la position 1 à l'entrée de retenue
+  de la position 2,..., la retenue de sortie provenant de la position
+  \(i-1\) à l'entrée de retenue de la position \(i\), etc. (figure
+  [[fig-chaine_add]]).
 
-- Pour en faire un circuit général pouvant également se combiner en chaîne, on prévoit une entrée pour une retenue au niveau 0, \(r_0\) et une sortie pour une retenue du dernier niveau \(n-1\), \(R_{n-1}\).
 
-- On doit donc, pour le chaînage, acheminer la sortie retenue du niveau courant à l'entrée de retenue du niveau suivant.
+** Additionneur binaire pour \(n\) bits ... 2
+
+- Pour en faire un circuit général pouvant également se combiner en
+  chaîne, on prévoit une entrée pour une retenue au niveau 0, \(r_0\)
+  et une sortie pour une retenue du dernier niveau \(n-1\),
+  \(R_{n-1}\).
+
+- On doit donc, pour le chaînage, acheminer la sortie retenue du
+  niveau courant à l'entrée de retenue du niveau suivant.
+
 
 ** Chaîne d'addition
 
@@ -461,8 +474,9 @@ R_n-1 <---+           |<---... <---+           +<--...  <---+           +<------
 
 ** Chaîne d'addition ... 2
 
-- Cette réalisation en forme de chaîne, en réutilisant de façon systématique un bloc élémentaire, est avantageuse du point de vue de
-la complexité et de la flexibilité.
+- Cette réalisation en forme de chaîne, en réutilisant de façon
+  systématique un bloc élémentaire, est avantageuse du point de vue de
+  la complexité et de la flexibilité.
 
 - Imaginons par exemple le défi de concevoir un additionneur binaire pour des nombres de quatre bits avec la méthode classique.
 

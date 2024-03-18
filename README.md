@@ -79,4 +79,6 @@ International](https://creativecommons.org/licenses/by/4.0/deed.fr).
 Pour citer cet ouvrage: Bégin, G. (2022), Circuits logiques
 combinatoires et séquentiels. Université du Québec à Montréal. Licence CC BY-SA
 
+<https://doi.org/10.5281/zenodo.10817916>
+
 ![img](Logo_UQAM.svg)
